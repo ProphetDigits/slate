@@ -1,3 +1,3 @@
-# Products1
+# Products
 ## Get product list
 ## Get product detail
