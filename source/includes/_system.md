@@ -1,14 +1,15 @@
-# Sample API
 
-## Get Sample
+# System
+
+## System Currency List
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `path` | 
+| URL | `system/currency/list` | 
 | Method | `post` | 
-| Use | ... |
+| Use | to get all currencies in the system |
 | Notice |  |
 
 
@@ -37,19 +38,28 @@ Success
 
 ```json
 {
+	"currencies":[{
+		"id": 1,
+		"name": "CHF"
+	}, {
+		"id": 2,
+		"name": "EUR"
+	}]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| (Nothing return) | - | - |
+| **currencies** | array | all currencies in the system. Order by name from A-Z |
+| id | number | currency id |
+| name | string | currency name |
 
 
 <aside class="warning">
 Failure
 </aside>
 
-```json
+```
 {
 	"error_name":"lack of parameters"
 }
@@ -60,3 +70,4 @@ Failure
 | error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
+

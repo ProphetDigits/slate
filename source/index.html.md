@@ -2,21 +2,21 @@
 title: API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
-  - javascript
+  - JSON
 
 toc_footers:
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <p>Documentation Powered by</p>
+  - <a href='http://www.brand-cloud.com/'>Brand-Cloud</a>
 
 includes:
-  - cart
-  - products
   - introduction
   - sampleAPI
   - user
-  - errors
+  - system
+  - company
+  - category
+  - item
+  - specification
 
 search: true
 ---
