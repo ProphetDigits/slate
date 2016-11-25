@@ -18,6 +18,16 @@ includes:
   - item
   - specification
 
+  - customization
+  - variant
+  - product
+  - option
+  - cart
+  - order
+  - purchaseOrder
+  - inventory
+  - balance
+
 search: true
 ---
 
