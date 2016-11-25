@@ -15,7 +15,7 @@ includes:
   - system
   - company
   - category
-  - item
+  - itema
   - specification
 
   - customization
@@ -30,12 +30,3 @@ includes:
 
 search: true
 ---
-
-
-
-
-
-
-
-
-   
