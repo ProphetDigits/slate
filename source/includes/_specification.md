@@ -6,8 +6,8 @@
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/spec/list` | 
-| Method | `post` | 
+| URL | `user/company/spec/list` |
+| Method | `post` |
 | Use | to get specification list |
 | Notice |  |
 
@@ -70,7 +70,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -85,8 +85,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/spec/create` | 
-| Method | `post` | 
+| URL | `user/company/spec/create` |
+| Method | `post` |
 | Use | to create specification |
 | Notice |  |
 
@@ -155,7 +155,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -176,8 +176,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/spec/detail` | 
-| Method | `post` | 
+| URL | `user/company/spec/detail` |
+| Method | `post` |
 | Use | to show specification detail |
 | Notice |  |
 
@@ -255,7 +255,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -271,8 +271,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/spec/edit` | 
-| Method | `post` | 
+| URL | `user/company/spec/edit` |
+| Method | `post` |
 | Use | to edit specification |
 | Notice |  |
 
@@ -343,7 +343,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -366,8 +366,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/spec/delete` | 
-| Method | `post` | 
+| URL | `user/company/spec/delete` |
+| Method | `post` |
 | Use | to delete specification |
 | Notice |  |
 
@@ -418,7 +418,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
