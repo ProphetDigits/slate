@@ -17,7 +17,6 @@ includes:
   - category
   - item
   - specification
-
   - customization
   - variant
   - product
@@ -30,12 +29,3 @@ includes:
 
 search: true
 ---
-
-
-
-
-
-
-
-
-   
