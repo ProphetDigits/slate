@@ -8004,7 +8004,7 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><strong>specs</strong></td>
+<td style="text-align: right"><strong>customization</strong></td>
 <td style="text-align: left">array</td>
 <td style="text-align: left"></td>
 </tr>
@@ -8030,7 +8030,7 @@ Success
 </tr>
 <tr>
 <td style="text-align: right"><strong>categories</strong></td>
-<td style="text-align: left">*<em>array</em></td>
+<td style="text-align: left"><strong>array</strong></td>
 <td style="text-align: left">customizatino belongs to which categories</td>
 </tr>
 <tr>
@@ -8463,8 +8463,1805 @@ Failure
 </tr>
 </tbody></table>
 
-          
-          
+          <h1 id="variant">variant</h1>
+
+<h2 id="variant-list">variant List</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to get variant list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">target_company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id which user want get variant  list</td>
+</tr>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item’s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>variant</strong></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right">stock</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">product number of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant belongs to which company</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-variant">Create Variant</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant/create</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to create variant</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>prices</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant’s prices in the each currency</td>
+</tr>
+<tr>
+<td style="text-align: right">currency_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">currency  id</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">price of corresponding currency</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>customizations</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">customization settings of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">customization’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">id of customization value</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>validation</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input. <strong>Value(option):</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"><strong>required:</strong> it’s necessary column for this api</td>
+</tr>
+<tr>
+<td style="text-align: right">customizations</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>duplicate:</strong>  this customization setting has been used</td>
+</tr>
+</tbody></table>
+
+<h2 id="variant-detail">Variant  Detail</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to show variant  detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">target_company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id which user want get variant list</td>
+</tr>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s  id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"NoteBook-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NoteBookl"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"EUR"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TWD"</span><span class="p">:</span><span class="w"> </span><span class="mi">3300</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backgroud Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>variant</strong></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s  id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s  name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>item</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item which variant belongs</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item’s number</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item’s name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>prices</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant’s price in the each currency</td>
+</tr>
+<tr>
+<td style="text-align: right">currency_name</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">price of variant in this currency</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>customizations</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">customizations setting of variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">customization’s id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">customization name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>display_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">customization display name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">customization value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">id of customization value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">name of customization value</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>variant not exist:</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="edit-variant">Edit Variant</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to edit variant</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>prices</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant’s prices in the each currency</td>
+</tr>
+<tr>
+<td style="text-align: right">currency_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">currency id</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">price of corresponding currency</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>customizations</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">customization settings of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">customization’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">id of customization value</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong>  user are not member in this company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid customization:</strong> customization is not include this value(value of vustomization error)</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>illegal form input:</strong> validate unsuccess, the exact error message will in validation of data</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>validation</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input. <strong>Value(option):</strong></td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"><strong>required:</strong> it’s necessary column for this api</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>dulicate:</strong> the name has already been taken</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"><strong>required:</strong> it’s necessary column for this api</td>
+</tr>
+<tr>
+<td style="text-align: right">customizations</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"><strong>required:</strong>  it’s necessary column for this api</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>dulicate:</strong>  this customization style has been used</td>
+</tr>
+</tbody></table>
+
+          <h1 id="product">Product</h1>
+
+<h2 id="product-list">Product List</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show product list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">target_company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id which user want get product list</td>
+</tr>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant_id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"short_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"serail_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="s2">"CC Lee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012352"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"short_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15002"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"serail_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="s2">"Billy Yan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>products</strong></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right">short_number</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">product short number</td>
+</tr>
+<tr>
+<td style="text-align: right">serail_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product serial number</td>
+</tr>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">product state <strong>0:</strong> normal <strong>1:</strong> sold</td>
+</tr>
+<tr>
+<td style="text-align: right">printed_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">the last printed time of product</td>
+</tr>
+<tr>
+<td style="text-align: right">location</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">last location</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>modify_by</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">last action infomation</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>user</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">modify by whom</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">user id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">given name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">family  name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The company which user selected when changed action</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>deposit_by</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The company which pay deposit for product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="generate-product">Generate Product</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product/create</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show generate product</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">variant_id</td>
+</tr>
+<tr>
+<td style="text-align: right">quantity</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">quantity of product</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-detail">Product Detail</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show product detail information</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product’s number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"short_number"</span><span class="p">:</span><span class="s2">"15001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EE123456"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"qrcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"......."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location"</span><span class="p">:</span><span class="s2">"CC Lee"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"EUR"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2,700"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"USA"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2,900"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"nmber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edison-Evo-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edison Evo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edison Evo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"histories"</span><span class="p">:[{</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Lee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check in"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1447679405"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc check in !"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billy Yan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check out"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1447601052"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billy check out !"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right">short_number</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">product short number</td>
+</tr>
+<tr>
+<td style="text-align: right">serial_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product serial  number</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>company</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">products belongs to which company</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>prices</strong></td>
+<td style="text-align: left">*<em>object</em></td>
+<td style="text-align: left">product prices</td>
+</tr>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">price currency</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">price price</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>item</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">products belongs to which item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>number</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>variant</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">products belongs to which variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant name</td>
+</tr>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">product state, <strong>0:</strong> normal <strong>1:</strong> sold</td>
+</tr>
+<tr>
+<td style="text-align: right">qrcode</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product qrcode encoded by base64</td>
+</tr>
+<tr>
+<td style="text-align: right">printed_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">the last printed time of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>histories</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">product histories</td>
+</tr>
+<tr>
+<td style="text-align: right">location</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the user who is the last check in</td>
+</tr>
+<tr>
+<td style="text-align: right">type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product check type</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">param:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>check in</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>check out</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>modify_by</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>user</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">modify by whom</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">user id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">given name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">family  name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The company which user selected when changed action</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>create_at</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">timestamp/second</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="edit-product">Edit Product</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">edit product information</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product’s number</td>
+</tr>
+<tr>
+<td style="text-align: right">serial_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product serial number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no permission:</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="change-product-location">Change Product Location</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product/location/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to edit product location</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_number"</span><span class="p">:</span><span class="s2">"UX76K3NB9"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receive from Bionicon"</span><span class="w">
+</span><span class="p">}</span><span class="w">  
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product’s number (from scan QR-Code or user keyin)</td>
+</tr>
+<tr>
+<td style="text-align: right">action</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">&ldquo;checkin&rdquo; or &ldquo;checkout&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product check in comment</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>duplicate check in:</strong> the product is already checked in</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>product not exist:</strong> cannot find the product from product number</td>
+</tr>
+</tbody></table>
+
           
           
           
