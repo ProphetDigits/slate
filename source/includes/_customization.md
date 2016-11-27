@@ -240,12 +240,12 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **specs** | array |  |
+| **customization** | array |  |
 | id | integer | customiation  id |
 | name | string | customiation  name |
 | display_name | string | customiation  display name |
 | description | string | customization  description |
-| **categories** | **array* | customizatino belongs to which categories |
+| **categories** | **array** | customizatino belongs to which categories |
 | id | integer | category id |
 | name | string | category name |
 | **values** | **array** | customizatino’s values |
