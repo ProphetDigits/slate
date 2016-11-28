@@ -6,8 +6,8 @@
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/search` | 
-| Method | `post` | 
+| URL | `user/company/search` |
+| Method | `post` |
 | Use | to get all companies in the system |
 | Notice |  |
 
@@ -97,7 +97,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 
@@ -109,8 +109,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/list` | 
-| Method | `post` | 
+| URL | `user/company/list` |
+| Method | `post` |
 | Use | to get all companies of user |
 | Notice |  |
 
@@ -225,7 +225,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 
@@ -237,8 +237,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/create` | 
-| Method | `post` | 
+| URL | `user/company/create` |
+| Method | `post` |
 | Use | to create company |
 | Notice |  |
 
@@ -332,7 +332,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**illegal form input:** form format does not pass validation|
@@ -361,8 +361,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/detail` | 
-| Method | `post` | 
+| URL | `user/company/detail` |
+| Method | `post` |
 | Use | to get the company detail |
 | Notice |  |
 
@@ -406,8 +406,8 @@ Success
 	"contact_given_name": "XX",
 	"contact_family_name": "X",
 	"contact_job_title": "xxx",
-	"contact_phone": "0987654321"
-	"contact_email": "abc@gmail.com"
+	"contact_phone": "0987654321",
+	"contact_email": "abc@gmail.com",
 	"owner": {
 		"id": 1,
 		"given_name": "Wang",
@@ -435,7 +435,8 @@ Success
 				"view": 0,
 				"edit": 0,
 				"delete": 0
-			},
+			}
+		},
 			"product": {
 				"view": 0,
 				"edit": 0,
@@ -555,7 +556,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -569,8 +570,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/edit/profile` | 
-| Method | `post` | 
+| URL | `user/company/edit/profile` |
+| Method | `post` |
 | Use | to edit company profile |
 | Notice |  |
 
@@ -651,7 +652,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -680,8 +681,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/edit/image` | 
-| Method | `post` | 
+| URL | `user/company/edit/image` |
+| Method | `post` |
 | Use | to edit company image |
 | Notice |  |
 
@@ -745,7 +746,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -760,8 +761,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/add/member` | 
-| Method | `post` | 
+| URL | `user/company/add/member` |
+| Method | `post` |
 | Use | to add user into company |
 | Notice |  |
 
@@ -815,7 +816,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -832,8 +833,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/edit/member` | 
-| Method | `post` | 
+| URL | `user/company/edit/member` |
+| Method | `post` |
 | Use | to edit authority of company member |
 | Notice |  |
 
@@ -891,7 +892,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -909,8 +910,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/delete/member` | 
-| Method | `post` | 
+| URL | `user/company/delete/member` |
+| Method | `post` |
 | Use | to delete relations with company member |
 | Notice |  |
 
@@ -963,7 +964,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -980,8 +981,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/create/role` | 
-| Method | `post` | 
+| URL | `user/company/create/role` |
+| Method | `post` |
 | Use | to create role into company |
 | Notice |  |
 
@@ -1035,7 +1036,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -1050,8 +1051,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/delete/role` | 
-| Method | `post` | 
+| URL | `user/company/delete/role` |
+| Method | `post` |
 | Use | to delete company role |
 | Notice |  |
 
@@ -1105,7 +1106,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** user are not member in this company or no option with this company|
@@ -1122,8 +1123,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/edit/currency` | 
-| Method | `post` | 
+| URL | `user/company/edit/currency` |
+| Method | `post` |
 | Use | to edit exchange rate of currency |
 | Notice |  |
 
@@ -1184,7 +1185,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** doesn’t join to this company|
@@ -1200,8 +1201,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/auth` | 
-| Method | `post` | 
+| URL | `user/company/auth` |
+| Method | `post` |
 | Use | to get authority of currency |
 | Notice |  |
 
@@ -1305,7 +1306,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** doesn’t join to this company|
@@ -1318,8 +1319,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/select/company` | 
-| Method | `post` | 
+| URL | `user/select/company` |
+| Method | `post` |
 | Use | change app’s global company to operate app functions |
 | Notice |  |
 
@@ -1371,8 +1372,70 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not company member:** doesn’t join to this company|
 |||**company not exist:** the company is not exist|
+
+
+## Generate Company Short Number
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/short_number/generate` |
+| Method | `post` |
+| Use | to get company short number which be generated by system |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"short_number": "AAAA"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| short_number | string | short number of company |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name": "illegal form input"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  the name of the wrong type.|
+|||Value:|
+|||**lack of parameters:**  the request does not include the necessary parameters|
+|||**does not signin:** user does not signin|

@@ -1,4 +1,4 @@
-# variant
+# Variant
 
 ## variant List
 
@@ -63,6 +63,7 @@ Failure
 
 ```json
 {
+  "error_name":"lack of parameters"
 }
 ```
 
@@ -147,6 +148,7 @@ Failure
 
 ```json
 {
+  "error_name":"lack of parameters"
 }
 ```
 
@@ -264,6 +266,7 @@ Failure
 
 ```json
 {
+  "error_name":"lack of parameters"
 }
 ```
 

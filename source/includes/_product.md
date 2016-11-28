@@ -104,6 +104,7 @@ Failure
 
 ```json
 {
+	"error_name":"lack of parameters"
 }
 ```
 
@@ -170,6 +171,7 @@ Failure
 
 ```json
 {
+	"error_name":"lack of parameters"
 }
 ```
 
@@ -325,6 +327,7 @@ Failure
 
 ```json
 {
+	"error_name":"lack of parameters"
 }
 ```
 
@@ -386,6 +389,7 @@ Failure
 
 ```json
 {
+	"error_name":"lack of parameters"
 }
 ```
 
@@ -418,6 +422,7 @@ Failure
 
 ```json
 {
+	"api_key": "e4cbcdc2faff41a7e311",
   "number":"1A01B021440012345",
   "product_number":"UX76K3NB9",
   "action": "checkin",
@@ -455,6 +460,7 @@ Failure
 
 ```json
 {
+	"error_name":"lack of parameters"
 }
 ```
 
@@ -463,3 +469,69 @@ Failure
 | error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**duplicate check in:** the product is already checked in |
 |||**product not exist:** cannot find the product from product number|
+
+
+## Update Print State Of Products
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product/print` |
+| Method | `post` |
+| Use | update print state of products |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311",
+	"products": ["UX76K3NB9", "UX77K3NB9"]
+}  
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| products | string | a set of product number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+|||**lack of parameters:** some input parameters missing, not in the request |
+|||**does not signin:** user does not signin |
+|||**not select company yet:** user need change current company |
+|||**company not exist:** currenct company not exist |
+|||**not company member:** the user is not the company member |
+|||**no permission:** cannot print |

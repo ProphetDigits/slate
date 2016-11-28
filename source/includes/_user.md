@@ -7,8 +7,8 @@
 
 |Title | Description |
 | -------: | :---- |
-| URL | `user/signin` | 
-| Method | `post` | 
+| URL | `user/signin` |
+| Method | `post` |
 | Use | Let user sign in system from app |
 | Notice |  |
 
@@ -62,7 +62,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not match:** the user’s account or password does not match each other|
 
@@ -73,8 +73,8 @@ Failure
 
 |Title | Description |
 | -------: | :---- |
-| URL | `user/signout` | 
-| Method | `post` | 
+| URL | `user/signout` |
+| Method | `post` |
 | Use | Let user sign out system from app |
 | Notice |  |
 
@@ -123,7 +123,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 
 
@@ -135,8 +135,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/signup` | 
-| Method | `post` | 
+| URL | `user/signup` |
+| Method | `post` |
 | Use | Let user sign up an account from app |
 | Notice |  |
 
@@ -198,10 +198,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty. **Valid Value:**| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty. **Valid Value:**|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**illegal format input:** form format does not pass validation|
-| **validation** | object |  if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input **Valid Value(option):**| 
+| **validation** | object |  if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input **Valid Value(option):**|
 | given_name | array | **required:** it’s necessary parameter for this api |
 | family_name | array | **required:** it’s necessary parameter for this api |
 | title | array | **required:** it’s necessary parameter for this api |
@@ -220,8 +220,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/search` | 
-| Method | `post` | 
+| URL | `user/search` |
+| Method | `post` |
 | Use |  |
 | Notice |  |
 
@@ -288,7 +288,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**empty text:** search text can't be empty|
 |||**does not signin:** user does not signin|
@@ -300,8 +300,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/profile` | 
-| Method | `post` | 
+| URL | `user/profile` |
+| Method | `post` |
 | Use | to get my profile |
 | Notice |  |
 
@@ -360,7 +360,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 
 
@@ -371,8 +371,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/upload/image` | 
-| Method | `post` | 
+| URL | `user/upload/image` |
+| Method | `post` |
 | Use | to upload image |
 | Notice |  |
 
@@ -425,7 +425,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not image:** type is not image|
@@ -438,8 +438,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/delete/image` | 
-| Method | `post` | 
+| URL | `user/delete/image` |
+| Method | `post` |
 | Use | to delete image |
 | Notice |  |
 
@@ -483,7 +483,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -491,7 +491,135 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 
+
+## Send Validation Code For Forget Password
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/password/forget` |
+| Method | `post` |
+| Use | send validation code to user by email |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"email": "cc@b-labs.org"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| email | string | the user’s account |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String | the name of the wrong type |
+|||**email not exist:** email does not register |
+
+
+## Update User Passward For Forget Password
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/password/cover` |
+| Method | `post` |
+| Use | update user passward for forget passward |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"email": "cc@b-labs.org",
+	"passward": "123456",
+	"validation_code": "123456"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| email | string | the user’s account |
+| password | string | the user’s new passward |
+| validation_code | string | validation code that get from email |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String | the name of the wrong type |
+|||**illegal format input:** form format does not pass validation|
+|||**email not exist:** email is not registered|
+|||**validation code not match:** validation code is incorrect|
+|||**timeout:** validation code has been expired|
+| **validation** | object |  if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input **Valid Value(option):**|
+| password | array | **required:** it’s necessary parameter for this api |
+|||**word count:** the word count too more or too less|
+| validation_code | array | **required:** it’s necessary parameter for this api |
