@@ -18,9 +18,9 @@
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"target_company_id": 1,
-  "variant_id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "variant_id": 1
 }
 ```
 
@@ -41,39 +41,53 @@ Success
 
 ```json
 {
-	"products": [{
-		"number": "1A01B021440012345",
-		"short_number": "",
-    "serail_number":"",
-    "location":"CC Lee",
-    "modify_by": {
-      "user": {
-        "id": 1,
-        "given_name": "CC",
-        "family_name": "Lee"
-      },
-      "company": {
-        "id": 1,
-        "name": "Bionicon"
-      }
-    }
-	}, {
-    "number": "1A01B021440012352",
-		"short_number": "15002",
-    "serail_number":"",
-    "location":"Billy Yan",
-    "modify_by": {
-      "user": {
-        "id": 1,
-        "given_name": "CC",
-        "family_name": "Lee"
-      },
-      "company": {
-        "id": 1,
-        "name": "Bionicon"
-      }
-    }
-	}]
+    "products": [{
+        "number": "1A01B021440012345",
+        "short_number": "",
+        "serail_number":"",
+        "location":"CC Lee",
+        "modify_by": {
+            "user": {
+                "id": 1,
+                "given_name": "CC",
+                "family_name": "Lee"
+            },
+            "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        },
+        "deposit_by": {
+            "comapny": {
+                "id": 1,
+                "name": "Bionicon"
+            },
+            "order_number": "AAAA010120160000PO"
+        }
+    }, {
+        "number": "1A01B021440012352",
+        "short_number": "15002",
+        "serail_number":"",
+        "location":"Billy Yan",
+        "modify_by": {
+            "user": {
+                "id": 1,
+                "given_name": "CC",
+                "family_name": "Lee"
+            },
+            "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        },
+        "deposit_by": {
+            "comapny": {
+                "id": 1,
+                "name": "Bionicon"
+            },
+            "order_number": "AAAA010120160000PO"
+        }
+    }]
 }
 ```
 
@@ -86,7 +100,7 @@ Success
 | sold | boolean | product state **0:** normal **1:** sold |
 | printed_at | timestamp | the last printed time of product |
 | location | string | last location |
-| **modify_by** | **object** | last action infomation |
+| **modify_by** | **object** | last action information |
 | *user* | **object** | modify by whom |
 | *id* | integer | user id |
 | *given_name* | string | given name of user |
@@ -95,8 +109,10 @@ Success
 | *id* | integer | company id |
 | *name* | string | company name |
 | **deposit_by** | **object** | The company which pay deposit for product |
+| *company* | **object** | the company which paid deposit|
 | *id* | integer | company id |
 | *name* | string | company name |
+| *order_number* | string | if deposit of product was not paid by purchase order then order_number will be null|
 
 <aside class="warning">
 Failure
@@ -104,17 +120,17 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | if the value of success is false, web backend needs to assign the name of error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters |
-|||**does not signin:** user does not signin|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
 
 
 ## Generate Product
@@ -126,7 +142,7 @@ Failure
 | URL | `user/company/item/product/create` |
 | Method | `post` |
 | Use | show generate product |
-| Notice |  |
+| Notice ||
 
 
 > Input Parameters
@@ -135,9 +151,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"variant_id": 1,
-	"quantity": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "variant_id": 1,
+    "quantity": 1
 }
 ```
 
@@ -145,7 +161,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | variant_id | number | variant_id |
-| quantity | integer | quantity of product ||
+| quantity | integer | quantity of product |
 
 
 > Return Parameters
@@ -171,18 +187,18 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
 
 
 ## Product Detail
@@ -194,7 +210,7 @@ Failure
 | URL | `user/company/item/product/detail` |
 | Method | `post` |
 | Use | show product detail information |
-| Notice | |
+| Notice ||
 
 
 > Input Parameters
@@ -203,8 +219,8 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"product_number": "1A01B021440012345"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": "1A01B021440012345"
 }
 ```
 
@@ -224,62 +240,68 @@ Success
 
 ```json
 {
-  "number":"1A01B021440012345",
-  "short_number":"15001",
-  "serial_number": "EE123456",
-  "qrcode": ".......",
-  "sold": 0,
-  "location":"CC Lee",
-  "prices": {
-    "EUR": "2,700",
-    "USA": "2,900"
-  },
-  "company": {
-    "id": 1,
-    "name": "Bionicon"
-  },
-  "item": {
-    "id": 1,
-    "nmber": "Edison-Evo-1",
-    "name": "Edison Evo"
-  },
-  "variant": {
-    "id": 1,
-    "name": "Edison Evo"
-  },
-  "histories":[{
-    "location": "CC Lee",
-    "type": "Check in",
-    "modify_by": {
-      "user": {
-        "id": 1,
-        "given_name": "CC",
-        "family_name": "Lee"
-        },
-        "company": {
+    "number":"1A01B021440012345",
+    "short_number":"15001",
+    "serial_number": "EE123456",
+    "qrcode": ".......",
+    "sold": 0,
+    "location":"CC Lee",
+    "prices": {
+        "EUR": "2,700",
+        "USA": "2,900"
+    },
+    "company": {
         "id": 1,
         "name": "Bionicon"
-        }
-      },
+    },
+    "item": {
+        "id": 1,
+        "nmber": "Edison-Evo-1",
+        "name": "Edison Evo"
+    },
+    "variant": {
+        "id": 1,
+        "name": "Edison Evo"
+    },
+    "histories":[{
+        "location": "CC Lee",
+        "type": "Check in",
+        "modify_by": {
+            "user": {
+                "id": 1,
+                "given_name": "CC",
+                "family_name": "Lee"
+            },
+                "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        },
         "timestamp": "1447679405",
         "comment": "cc check in !"
-  }, {
-    "location": "Billy Yan",
-    "type": "Check out",
-    "modify_by": {
-      "user": {
-      "id": 1,
-      "given_name": "CC",
-      "family_name": "Lee"
-      },
-      "company": {
-      "id": 1,
-      "name": "Bionicon"
-      }
-    },
-    "timestamp": "1447601052",
-    "comment": "Billy check out !"
-    }]
+    }, {
+        "location": "Billy Yan",
+        "type": "Check out",
+        "modify_by": {
+            "user": {
+                "id": 1,
+                "given_name": "CC",
+                "family_name": "Lee"
+            },
+            "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        },
+        "timestamp": "1447601052",
+        "comment": "Billy check out !"
+    }],
+    "deposit_by": {
+        "company": {
+            "id": 1,
+            "name": "Bionicon"
+        }
+    }
 }
 ```
 
@@ -291,7 +313,7 @@ Success
 | **company** | **object** | products belongs to which company |
 | *id* | integer | company id |
 | *name* | string | company name |
-| **prices** | **object* | product prices |
+| **prices** | **object** | product prices |
 | currency |  | price currency |
 | price |  | price price |
 | **item** | **object** | products belongs to which item |
@@ -307,9 +329,9 @@ Success
 | **histories** | **array** | product histories |
 | location | string | the user who is the last check in |
 | type | string | product check type |
-|||param:|
-|||**check in**|
-|||**check out**|
+||| param: |
+||| **check in** |
+||| **check out** |
 | **modify_by** | **object** |  |
 | *user* | **object** | modify by whom |
 | *id* | integer | user id |
@@ -320,6 +342,10 @@ Success
 | *name* | string | company name |
 | *create_at* | string | timestamp/second |
 | *comment* | string | history comment |
+| **deposit_by** | **object** | deposit information |
+| *company* | **object** | deposit is paid by which company |
+| *id* | integer | company id |
+| *name* | string | company name |
 
 <aside class="warning">
 Failure
@@ -327,12 +353,14 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
 
 
 ## Edit Product
@@ -353,9 +381,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"product_num": "1A01B021440012345",
-	"serial_number": "1A01B021440012345"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_num": "1A01B021440012345",
+    "serial_number": "1A01B021440012345"
 }
 ```
 
@@ -389,19 +417,19 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
 
 
 ## Change Product Location
@@ -413,7 +441,7 @@ Failure
 | URL | `user/company/item/product/location/edit` |
 | Method | `post` |
 | Use | to edit product location |
-| Notice |  |
+| Notice ||
 
 
 > Input Parameters
@@ -422,12 +450,12 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-  "number":"1A01B021440012345",
-  "product_number":"UX76K3NB9",
-  "action": "checkin",
-  "comment": "receive from Bionicon"
-}  
+    "api_key": "e4cbcdc2faff41a7e311",
+    "number":"1A01B021440012345",
+    "product_number":"UX76K3NB9",
+    "action": "checkin",
+    "comment": "receive from Bionicon"
+}
 ```
 
 | Parameter | Type | Description |
@@ -460,15 +488,15 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**duplicate check in:** the product is already checked in |
-|||**product not exist:** cannot find the product from product number|
+| error_name | string | the name of the wrong type. |
+||| **duplicate check in:** the product is already checked in |
+||| **product not exist:** cannot find the product from product number |
 
 
 ## Update Print State Of Products
@@ -480,7 +508,7 @@ Failure
 | URL | `user/company/item/product/print` |
 | Method | `post` |
 | Use | update print state of products |
-| Notice |  |
+| Notice ||
 
 
 > Input Parameters
@@ -489,9 +517,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"products": ["UX76K3NB9", "UX77K3NB9"]
-}  
+    "api_key": "e4cbcdc2faff41a7e311",
+    "products": ["UX76K3NB9", "UX77K3NB9"]
+}
 ```
 
 | Parameter | Type | Description |
@@ -522,16 +550,16 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request |
-|||**does not signin:** user does not signin |
-|||**not select company yet:** user need change current company |
-|||**company not exist:** currenct company not exist |
-|||**not company member:** the user is not the company member |
-|||**no permission:** cannot print |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** cannot print |
