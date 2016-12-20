@@ -18,7 +18,7 @@
 
 ```json
 {
-  "api_key": "e4cbcdc2faff41a7e311"
+    "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -36,17 +36,17 @@ Success
 
 ```json
 {
-  "options": [{
-    "id": "AAAA160401000002OD",
-    "name": "option 1",
-    "start_time": 213216546,
-    "end_time": 213216998,
-    "status": 0,
-    "company": {
-      "id": 1,
-      "name": "Company A"
-    }
-  }]
+    "options": [{
+        "id": "AAAA160401000002OD",
+        "name": "option 1",
+        "start_time": 213216546,
+        "end_time": 213216998,
+        "status": 0,
+        "company": {
+            "id": 1,
+            "name": "Company A"
+        }
+    }]
 }
 ```
 
@@ -60,7 +60,7 @@ Success
 | *name* | string | company name |
 | start_time | timestamp | timestamp/second |
 | end_time | timestamp | timestamp/second |
-| status | boolean | is option  executable |
+| status | boolean | is option executable |
 
 <aside class="warning">
 Failure
@@ -68,13 +68,13 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+| error_name | string | the name of the wrong type. |
 |||**lack of parameters:** the request does not include the necessary parameters|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -101,18 +101,18 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"name": "Option with XXX",
-  "start_time": "123548765",
-  "end_time": "123654987",
-  "brand_sharing": 50,
-  "retailer_sharing": 30,
-  "retailers": [1, 2, 3, 4],
-	"distributor": [{
-    "currency_id": 1,
-    "role": "Test",
-    "sharing": 20
-	}]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "name": "Option with XXX",
+    "start_time": "123548765",
+    "end_time": "123654987",
+    "brand_sharing": 50,
+    "retailer_sharing": 30,
+    "retailers": [1, 2, 3, 4],
+    "distributor": [{
+        "currency_id": 1,
+        "role": "Test",
+        "sharing": 20
+    }]
 }
 ```
 
@@ -155,20 +155,21 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**illegal form input:** form format does not pass validation|
+| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
+||| **duplicate retailer relation:** reatiler has be joined to your other option |
+||| **illegal form input:** form format does not pass validation |
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
 | name | array | **required:** it’s necessary column for this api |
 | deposit | array | **invalid format:** deposit not boolean |
@@ -195,8 +196,8 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"option_id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "option_id": 1
 }
 ```
 
@@ -216,48 +217,46 @@ Success
 
 ```json
 {
-  "id": "AAAA160401000002OD",
-  "name": "option 1",
-  "start_time": 213216546,
-  "end_time": 213216998,
-  "stabrand_sharingtus": 40,
-  "retailer_sharing": 45,
-  "status": 1,
-  "status_message": {},
-  "retailers": [{
-    "id": 1,
-    "name": "Company A"
-  }],
-  "distributors": [{
-    "id": 1,
-    "name": "Company A",
-    "sharing": 15,
-    "role": "Distributor 1"
-  }],
-  "company": {
-    "id": 1,
-    "name": "Company A"
-  }
+    "id": "AAAA160401000002OD",
+    "name": "option 1",
+    "start_time": 213216546,
+    "end_time": 213216998,
+    "stabrand_sharingtus": 40,
+    "retailer_sharing": 45,
+    "status": 1,
+    "status_message": {},
+    "retailers": [{
+        "id": 1,
+        "name": "Company A"
+    }],
+    "distributors": [{
+        "id": 1,
+        "name": "Company A",
+        "sharing": 15,
+        "role": "Distributor 1"
+    }],
+    "company": {
+        "id": 1,
+        "name": "Company A"
+    }
 }
 ```
 
 | Parameter | Type | Description ||
 | -------: | :---- | :--- |:--|
-| **variant** | array |  |
 | name | string | option  name |
 | start_time | timestamp | timestamp/second |
 | end_time | timestamp | timestamp/second |
 | status | boolean | is option  executable |
 | **status_message** | **object** | the reasons why status is false |
-|||Valid Value(option): |
-|||**start_time:** |
-||||**required: it’s necessary to option** |
-|||**end_time:** |
-||||**expired: time is expired** |
-|||**active:** |
-||||**no: option is close** |
-|||**sharing:** |
-||||**invalid value: total sharing is not equal to 100** |
+| *start_time* | **array** | error reasons |
+| *required* | string | it’s necessary to option |
+| *end_time* | **array** | error reasons |
+| *expired* | string | time is expired |
+| *active*| **array** | error reasons |
+| *no* | string | option is close |
+| *sharing* | **array** | error reasons |
+| *invalid value* | string | total sharing is not equal to 100 |
 | deposit | boolean | the result that brand want retailer to pay deposit |
 | deposit_sharing | integer | deposit sharing |
 | brand_sharing | integer | brand sharing |
@@ -280,20 +279,20 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**option not exist:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
+||| **option not exist:** |
 
 
 ## Edit Option
@@ -314,18 +313,18 @@ Failure
 
 ```json
 {
-  "api_key": "e4cbcdc2faff41a7e311",
-  "name": "Option with XXX",
-  "start_time": "123548765",
-  "end_time": "123654987",
-  "brand_sharing": 50,
-  "retailer_sharing": 30,
-  "retailers": [1, 2, 3, 4],
-  "distributor": [{
-    "company_id": 1,
-    "role": "Test",
-    "sharing": 20
-  }]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "name": "Option with XXX",
+    "start_time": "123548765",
+    "end_time": "123654987",
+    "brand_sharing": 50,
+    "retailer_sharing": 30,
+    "retailers": [1, 2, 3, 4],
+    "distributor": [{
+        "company_id": 1,
+        "role": "Test",
+        "sharing": 20
+    }]
 }
 ```
 
@@ -370,19 +369,20 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:**   user need change current company |
-|||**company not exist:** currenct company not exist |
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **not select company yet:**   user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
+||| **duplicate retailer relation:** reatiler has be joined to your other option |
 |||**illegal form input:**  form format does not pass validation option not exist |
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
 | name | array | **required:** it’s necessary column for this api |
