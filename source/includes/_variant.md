@@ -1,6 +1,6 @@
 # Variant
 
-## variant List
+## Variant List
 
 ### Description
 
@@ -18,9 +18,9 @@
 
 ```json
 {
-  "api_key": "e4cbcdc2faff41a7e311",
-  "target_company_id": 1,
-  "item_id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "item_id": 1
 }
 ```
 
@@ -40,21 +40,25 @@ Success
 
 ```json
 {
-	"variant": [{
-		"variant_id": 1,
-		"name": "Color",
-    "stock": 5,
-    "company_id": 1
-	}]
+    "variants": [{
+        "variant_id": 1,
+        "name": "Color",
+        "stock": 5,
+        "default_price": 100,
+        "default_deposit": 20,
+        "company_id": 1
+    }]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **variant** | array |  |
+| **variants** | **array** | a set of variant object |
 | id | integer |  variant’s id |
 | name | string |  variant’s name |
 | stock | integer | product number of variant |
+| default_price | numeric | default price of variant |
+| default_deposit | numeric | default deposit of variant |
 | company_id | integer | variant belongs to which company |
 
 <aside class="warning">
@@ -63,19 +67,19 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
 
 
 ## Create Variant
@@ -96,20 +100,20 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"item_id": 1,
-	"name": "Basic",
-	"prices": [{
-    "currency_id": 1,
-    "price": 100
-	}],
-  "customizations": [{
-    "id": 1,
-    "value": 2
-  }, {
-    "id": 3,
-    "value": 10
-  }]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "item_id": 1,
+    "name": "Basic",
+    "prices": [{
+        "currency_id": 1,
+        "price": 100
+    }],
+    "customizations": [{
+        "id": 1,
+        "value": 2
+    }, {
+        "id": 3,
+        "value": 10
+    }]
 }
 ```
 
@@ -119,11 +123,11 @@ Failure
 | item_id | integer | item’s id |
 | name | string | variant’s name |
 | **prices** | **array** | variant’s prices in the each currency |
-| currency_id | integer | currency  id |
-| price | number |  price of corresponding currency |
+| *currency_id* | integer | currency  id |
+| *price* | number |  price of corresponding currency |
 | **customizations** | **array** | customization settings of variant |
-| id | integer | customization’s id |
-| value | integer | id of customization value |
+| *id* | integer | customization’s id |
+| *value* | integer | id of customization value |
 
 > Return Parameters
 
@@ -148,24 +152,24 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**illegal form input:** form format does not pass validation|
-| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
-| name | array | **required:** it’s necessary column for this api |
-| customizations | array | **required:** it’s necessary parameter |
-|||**duplicate:**  this customization setting has been used |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
+||| **illegal form input:** form format does not pass validation |
+| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):** |
+| *name* | array | **required:** it’s necessary column for this api |
+| *customizations* | array | **required:** it’s necessary parameter |
+||| **duplicate:**  this customization setting has been used |
 
 
 ## Variant  Detail
@@ -177,7 +181,7 @@ Failure
 | URL | `user/company/item/variant/detail` |
 | Method | `post` |
 | Use | to show variant  detail |
-| Notice |  |
+| Notice ||
 
 
 > Input Parameters
@@ -186,9 +190,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"target_company_id": 1,
-	"variant_id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "variant_id": 1
 }
 ```
 
@@ -209,49 +213,50 @@ Success
 
 ```json
 {
-	"id": 1,
-	"name": "Basic",
-	"item": [{
-		"id": 1,
-    "number":"NoteBook-1",
-		"name": "NoteBookl",
-    "company_id":1
-	}],
-  "prices": {
-    "EUR": 100,
-    "TWD": 3300
-	},
-  "customizations": [{
     "id": 1,
-    "name": "Backgroud Color",
-    "display_name": "Color",
-    "value": {
-      "id": 1,
-      "name": "Red"
-    }
-  }, {
-    "id": 2,
-    "name": "Color",
-    "display_name": "Color",
-    "value": {
-      "id":2,
-      "name": "Red"
-    }
-  }]
+    "name": "Basic",
+    "item": [{
+        "id": 1,
+        "number":"NoteBook-1",
+        "name": "NoteBookl",
+    "company_id":1
+    }],
+    "prices": {
+        "EUR": 100,
+        "TWD": 3300
+    },
+    "default_deposit": 20,
+    "customizations": [{
+        "id": 1,
+        "name": "Backgroud Color",
+        "display_name": "Color",
+        "value": {
+            "id": 1,
+            "name": "Red"
+        }
+    }, {
+        "id": 2,
+        "name": "Color",
+        "display_name": "Color",
+        "value": {
+            "id":2,
+            "name": "Red"
+        }
+    }]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **variant** | array |  |
 | id | integer | variant’s  id |
 | name | string | variant’s  name |
 | **item** | **object** | item which variant belongs |
-| id | integer | item’s id |
-| number | string | item’s number |
-| name | string | item’s name |
+| *id* | integer | item’s id |
+| *number* | string | item’s number |
+| *name* | string | item’s name |
 | **prices** | **object** | variant’s price in the each currency |
-| currency_name | number | price of variant in this currency  |
+| *currency_name* | numeric | price of variant in this currency |
+| default_deposit | numeric | default deposit of variant |
 | **customizations** | **array** | customizations setting of variant |
 | *id* | integer | customization’s id |
 | *name* | string | customization name |
@@ -266,20 +271,20 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**variant not exist:**|
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **not select company yet:** user need change current company |
+||| **company not exist:** currenct company not exist |
+||| **not company member:** the user is not the company member |
+||| **no permission:** |
+||| **variant not exist:** |
 
 
 ## Edit Variant
@@ -300,20 +305,20 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"variant_id": 1,
-	"name": "Basic",
-	"prices": [{
-		"currency_id": 1,
-		"price": 100
-	}],
-  "customizations": [{
-		"id": 1,
-		"value": 2
-	}, {
-		"id": 3 ,
-		"value": 10
-	}]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "variant_id": 1,
+    "name": "Basic",
+    "prices": [{
+        "currency_id": 1,
+        "price": 100
+    }],
+    "customizations": [{
+        "id": 1,
+        "value": 2
+    }, {
+        "id": 3 ,
+        "value": 10
+    }]
 }
 ```
 
@@ -323,11 +328,11 @@ Failure
 | variant_id | integer |  item id |
 | name | string | variant’s name |
 | **prices** | **array** |  variant’s prices in the each currency |
-| currency_id | integer | currency id |
-| price | number | price of corresponding currency |
+| *currency_id* | integer | currency id |
+| *price* | numeric | price of corresponding currency |
 | **customizations** | **array** | customization settings of variant |
-| id | integer | customization’s id |
-| value | integer |  id of customization value  |
+| *id* | integer | customization’s id |
+| *value* | integer |  id of customization value  |
 
 
 > Return Parameters
@@ -354,23 +359,21 @@ Failure
 
 ```json
 {
-  "data": {},
-  "success":true,
-  "error_name":""
+    "error_name":""
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not company member:**  user are not member in this company |
-|||**invalid customization:** customization is not include this value(value of vustomization error) |
-|||**illegal form input:** validate unsuccess, the exact error message will in validation of data |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **not company member:**  user are not member in this company |
+||| **invalid customization:** customization is not include this value(value of vustomization error) |
+||| **illegal form input:** validate unsuccess, the exact error message will in validation of data |
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
-| name | array | **required:** it’s necessary column for this api |
+| *name* | array | **required:** it’s necessary column for this api |
 |||**dulicate:** the name has already been taken|
-| price | array | **required:** it’s necessary column for this api |
-| customizations | array | **required:**  it’s necessary column for this api |
+| *price* | array | **required:** it’s necessary column for this api |
+| *customizations* | array | **required:**  it’s necessary column for this api |
 |||**dulicate:**  this customization style has been used|
