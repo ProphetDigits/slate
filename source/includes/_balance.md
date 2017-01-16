@@ -151,7 +151,7 @@ Success
         "balance": 57468.8,
         "deposit_refunded": {
             "date": 1469599800,
-            "currency": EUR,
+            "currency": "EUR",
             "price": 10
         },
         "deposit_owner": {
@@ -178,7 +178,7 @@ Success
         "balance": -86203.2,
         "deposit_refunded": {
             "date": 1469599800,
-            "currency": EUR,
+            "currency": "EUR",
             "price": 10
         },
         "deposit_owner": {
