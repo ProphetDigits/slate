@@ -102,6 +102,7 @@ Success
 | create_at | timestamp | create time (s) |
 | delivery_at | timestamp | expected delivery date (s) |
 | submit_at | timestamp | submit date (s) |
+| currency | string | currency name |
 | total_deposit | numberic | total deposit of purchase order |
 | deposit_status | string | the current deposit status of purchase order |
 | **brand** | **object** |  |
@@ -252,6 +253,7 @@ Success
 | delivery_at | timestamp | expected delivery date (s) |
 | submit_at | timestamp | submit date (s) |
 | pay_deposit | boolean | the result that whether retailer want to pay deposit or not |
+| currency | string | currency name |
 | total_deposit | numberic | the amount of deposit of items |
 | **brand** | **object** | |
 | *id* | integer | company  id |

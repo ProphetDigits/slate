@@ -171,11 +171,14 @@ Failure
 ||| **duplicate retailer relation:** reatiler has be joined to your other option |
 ||| **illegal form input:** form format does not pass validation |
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
-| name | array | **required:** it’s necessary column for this api |
-| deposit | array | **invalid format:** deposit not boolean |
-| deposit_sharing | array | **invalid format:** deposit  sharing not numeric |
-| brand_sharing | array | **invalid format:** brand sharing not numeric |
-| retailer_sharing | array | **invalid format:** retailer  sharing not numeric |
+| *name* | array | **required:** it’s necessary column for this api |
+| *deposit* | array | **invalid format:** deposit not boolean |
+| *deposit_sharing* | array | **invalid format:** deposit  sharing not numeric |
+| *brand_sharing* | array | **invalid format:** brand sharing not numeric |
+| *retailer_sharing* | array | **invalid format:** retailer  sharing not numeric |
+| **retailers** | **array** | duplicate retailer list |
+| *id* | integer | company id |
+| *name* | string | company name |
 
 
 ## Option   Detail
@@ -390,3 +393,6 @@ Failure
 | deposit_sharing | array | **invalid format:**  deposit sharing not numeric |
 | brand_sharing | array | **invalid format:**  brand  sharing not numeric |
 | retailer_sharing | array | **invalid format:**  retailer  sharing not numeric |
+| **retailers** | **array** | duplicate retailer list |
+| *id* | integer | company id |
+| *name* | string | company name |
