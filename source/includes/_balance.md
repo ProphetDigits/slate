@@ -126,6 +126,7 @@ Success
         "previous_balance": 0,
         "new_balance": -28734.4,
         "adjustment": -0.4,
+        "deposit": 0,
         "current_balance": -28734,
         "due_date": 1470587600,
         "payment_status": "Open"
@@ -141,13 +142,22 @@ Success
         "sell_price": 143672,
         "discount": 20,
         "payment_method": "credit_card",
-        "deposit": 0,
+        "deposit": 50,
         "vat": 0,
         "other_cost": 0,
         "shareable": 143672,
         "sharing": 40,
         "net_income": 57468.8,
-        "balance": 57468.8
+        "balance": 57468.8,
+        "deposit_refunded": {
+            "date": 1469599800,
+            "currency": EUR,
+            "price": 10
+        },
+        "deposit_owner": {
+            "id": 1,
+            "name": "Company A"
+        }
     },{
         "order_date": 1469577800,
         "retailer": "CITIZEN",
@@ -159,13 +169,37 @@ Success
         "sell_price": 143672,
         "discount": 20,
         "payment_method": "cash",
-        "deposit": 0,
+        "deposit": 50,
         "vat": 0,
         "other_cost": 0,
         "shareable": 143672,
         "sharing": 40,
         "net_income": 57468.8,
-        "balance": -86203.2
+        "balance": -86203.2,
+        "deposit_refunded": {
+            "date": 1469599800,
+            "currency": EUR,
+            "price": 10
+        },
+        "deposit_owner": {
+            "id": 1,
+            "name": "Company A"
+        }
+    }],
+    "deposit_payable": [{
+        "date": 1469577800,
+        "brand": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "deposit_owner": {
+            "id": 2,
+            "name": "Company B"
+        },
+        "purchase_order": "AAAA170109000001PO",
+        "deposit": 101,
+        "status": "Order Submitted",
+        "currency": "EUR"
     }]
 }
 ```
@@ -179,6 +213,7 @@ Success
 | *currency* | string | curency name |
 | *previous_balance* | double | the balances of rounding in last report |
 | *new_balance* | double | the total price of currency |
+| *deposit* | double | the deposit price of currency |
 | *adjustment* | double | the balances of rounding in thisreport |
 | *correct_balance* | double | a rounding price |
 | *due_date* | timestamp | the due date of transferring money |
@@ -201,6 +236,25 @@ Success
 | *sharing* | integer | sharing percent of option with brand  |
 | *net_income* | double | net income of product |
 | *balance* | double | the price by payment method to know that transfer to brandcloud or receive from brandcloud  |
+| *deposit_refunded* | *object* | to get or pay deposit to Investor |
+| *date* | timestamp | which date the product was sold or refunded |
+| *currency* | string | the currency |
+| *price* | double | the deposit price |
+| *deposit_owner* | *object* | deposit owner |
+| *id* | integer | company id |
+| *name* | string | company name |
+| **deposit_payable** | **array** |  |
+| *date* | timestamp | which date the purchase order was submitted or canceled |
+| *brand* | *object* | brand information |
+| *id* | integer | company id |
+| *name* | string | company name |
+| *deposit_owner* | *object* | who submitted the pruchase order |
+| *id* | integer | company id |
+| *name* | string | company name |
+| *purchase_order* | string | purchase order number |
+| *deposit* | double | deposit price |
+| *status* | string | why do you pay deposit |
+| *currency* | string | curency of deposit |
 
 <aside class="warning">
 Failure
