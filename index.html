@@ -5274,32 +5274,20 @@ Failure
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fixed_vat"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"add_adjusted_vats"</span><span class="err">[{</span><span class="w">
+    </span><span class="nt">"adjusted_vats"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="err">]</span><span class="w">
-    </span><span class="s2">"edit_adjusted_vats"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="s2">"name"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}]</span><span class="err">,</span><span class="w">
-    </span><span class="s2">"delete_adjusted_vats"</span><span class="err">:</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
-    </span><span class="s2">"add_importers"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"importers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}]</span><span class="err">,</span><span class="w">
-    </span><span class="s2">"edit_importers"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}]</span><span class="err">,</span><span class="w">
-    </span><span class="s2">"delete_importers"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
-</span><span class="err">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
 <tr>
@@ -5314,6 +5302,11 @@ Failure
 <td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
 </tr>
 <tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company country id</td>
+</tr>
+<tr>
 <td style="text-align: right">country_id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">country id</td>
@@ -5324,9 +5317,9 @@ Failure
 <td style="text-align: left">fixed vat rate</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>add_adjusted_vats</strong></td>
+<td style="text-align: right"><strong>adjusted_vats</strong></td>
 <td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">adjusted vats which a new added</td>
+<td style="text-align: left">adjusted vats</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>name</em></td>
@@ -5349,44 +5342,9 @@ Failure
 <td style="text-align: left">a set of item id which has been assigned to this vat</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>edit_adjusted_vats</strong></td>
+<td style="text-align: right"><strong>importers</strong></td>
 <td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">adjusted vats which already have but data has been changed</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left"><em>integer</em></td>
-<td style="text-align: left">adjusted vat id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left"><em>string</em></td>
-<td style="text-align: left">name of adjusted vat</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>rate</em></td>
-<td style="text-align: left"><em>integer</em></td>
-<td style="text-align: left">rate of adjusted vat</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left"><em>string</em></td>
-<td style="text-align: left">comment of adjusted vat</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>items</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">a set of item id which has been assigned to this vat</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>delete_adjusted_vats</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">a set of adjusted vat id</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>add_importers</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">importers which user want add into country</td>
+<td style="text-align: left">importers in country</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>id</em></td>
@@ -5397,26 +5355,6 @@ Failure
 <td style="text-align: right"><em>comment</em></td>
 <td style="text-align: left"><em>string</em></td>
 <td style="text-align: left">comment for importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>edit_importers</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">importers which already have but data has been changed</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left"><em>integer</em></td>
-<td style="text-align: left">company id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left"><em>string</em></td>
-<td style="text-align: left">comment for importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>delete_importers</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">a set of importer id which you has deleted</td>
 </tr>
 </tbody></table>
 
