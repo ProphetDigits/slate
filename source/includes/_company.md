@@ -1713,58 +1713,36 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
+    "id": 1,
     "country_id": 1,
     "fixed_vat": 0,
-    "add_adjusted_vats"[{
+    "adjusted_vats": [{
         "name": "",
         "rate": 0,
         "comment": "",
         "items": []
+    }],
+    "importers": [{
+        "id": 1,
+        "comment": ""
     }]
-    "edit_adjusted_vats": [{
-        "id": 1
-        "name": "",
-        "rate": 0,
-        "comment": "",
-        "items": []
-    }],
-    "delete_adjusted_vats":[1, 2, 3]
-    "add_importers": [{
-        "id": 1,
-        "comment": ""
-    }],
-    "edit_importers": [{
-        "id": 1,
-        "comment": ""
-    }],
-    "delete_importers": [1, 2, 3]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| id | integer | company country id |
 | country_id | integer | country id |
 | fixed_vat | integer | fixed vat rate |
-| **add_adjusted_vats** | **array** | adjusted vats which a new added |
+| **adjusted_vats** | **array** | adjusted vats |
 | *name* | *string* | name of adjusted vat |
 | *rate* | *integer* | rate of adjusted vat |
 | *comment* | *string* | comment of adjusted vat |
 | **items** | **array** | a set of item id which has been assigned to this vat |
-| **edit_adjusted_vats** | **array** | adjusted vats which already have but data has been changed |
-| *id* | *integer* | adjusted vat id |
-| *name* | *string* | name of adjusted vat |
-| *rate* | *integer* | rate of adjusted vat |
-| *comment* | *string* | comment of adjusted vat |
-| **items** | **array** | a set of item id which has been assigned to this vat |
-| **delete_adjusted_vats** | **array** | a set of adjusted vat id |
-| **add_importers** | **array** | importers which user want add into country |
+| **importers** | **array** | importers in country |
 | *id* | *integer* | company id |
 | *comment* | *string* | comment for importer |
-| **edit_importers** | **array** | importers which already have but data has been changed |
-| *id* | *integer* | company id |
-| *comment* | *string* | comment for importer |
-| **delete_importers** | **array** | a set of importer id which you has deleted|
 
 > Return Parameters
 
