@@ -1439,3 +1439,424 @@ Failure
 |||Value:|
 |||**lack of parameters:**  the request does not include the necessary parameters|
 |||**does not signin:** user does not signin|
+
+
+
+## Get Company Country List
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | user/company/country/list |
+| Method | `post` |
+| Use | to get countries of company |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "countries": [{
+        "company_country_id": 2,
+        "name": "Taiwan",
+        "importers": 2
+    }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **countries** | **array** | countries of company |
+| *company_country_id* | integer | country id |
+| *name* | string | country name |
+| *importers* | integer | importer number in country |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string |  the name of the wrong type.|
+||| **lack of parameters:**  the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+
+
+## Get Company Country Detail
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | user/company/country/detail |
+| Method | `post` |
+| Use | to get detail of countries of company |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_country_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| company_country_id | integer | company country id |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "id": 2,
+    "country_id": 228,
+    "fixed_vat": 10,
+    "adjusted_vats": [{
+        "id": 1,
+        "name": "fruit",
+        "rate": 5,
+        "comment": "",
+        "items": []
+      }, {
+        "id": 2,
+        "name": "3C",
+        "rate": 15,
+        "comment": "",
+        "items": [
+          2,
+          3
+        ]
+    }],
+    "importers": [{
+        "id": 2,
+        "name": "Company B",
+        "comment": "test2"
+      }, {
+        "id": 3,
+        "name": "Company D",
+        "comment": ""
+    }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company country id |
+| country_id | integer | country id |
+| fixed_vat | integer | fixed vat |
+| **adjusted_vats** | **array** | adjusted vats |
+| *name* | *string* | name of adjusted vat |
+| *rate* | *integer* | rate of adjusted vat |
+| *comment* | *string* | comment of adjusted vat |
+| **items** | **array** | a set of item id which has been assigned to this vat |
+| **importers** | **array** | importers in country |
+| *id* | *integer* | company id |
+| *name* | *string* | company name |
+| *comment* | *string* | comment for importer |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string |  the name of the wrong type.|
+||| **lack of parameters:**  the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+
+
+## Create Country
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | user/company/create/country |
+| Method | `post` |
+| Use | to create vat and importers to country of company |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "country_id": 1,
+    "fixed_vat": 0,
+    "adjusted_vats": [{
+        "name": "",
+        "rate": 0,
+        "comment": "",
+        "items": []
+    }],
+    "importers": [{
+        "id": 1,
+        "comment": ""
+    }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| country_id | integer | country id |
+| fixed_vat | integer | fixed vat rate |
+| **adjusted_vats** | **array** | adjusted vats |
+| *name* | *string* | name of adjusted vat |
+| *rate* | *integer* | rate of adjusted vat |
+| *comment* | *string* | comment of adjusted vat |
+| **items** | **array** | a set of item id which has been assigned to this vat |
+| **importers** | **array** | importers in country |
+| *id* | *integer* | company id |
+| *comment* | *string* | comment for importer |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string |  the name of the wrong type.|
+||| **lack of parameters:**  the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **country not exist:** select invalid country in system |
+||| **country has been exist:** duplicate vat of country |
+
+
+## Edit Country
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | user/company/edit/country |
+| Method | `post` |
+| Use | to edit vat and  importers to country of company |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "country_id": 1,
+    "fixed_vat": 0,
+    "add_adjusted_vats"[{
+        "name": "",
+        "rate": 0,
+        "comment": "",
+        "items": []
+    }]
+    "edit_adjusted_vats": [{
+        "id": 1
+        "name": "",
+        "rate": 0,
+        "comment": "",
+        "items": []
+    }],
+    "delete_adjusted_vats":[1, 2, 3]
+    "add_importers": [{
+        "id": 1,
+        "comment": ""
+    }],
+    "edit_importers": [{
+        "id": 1,
+        "comment": ""
+    }],
+    "delete_importers": [1, 2, 3]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| country_id | integer | country id |
+| fixed_vat | integer | fixed vat rate |
+| **add_adjusted_vats** | **array** | adjusted vats which a new added |
+| *name* | *string* | name of adjusted vat |
+| *rate* | *integer* | rate of adjusted vat |
+| *comment* | *string* | comment of adjusted vat |
+| **items** | **array** | a set of item id which has been assigned to this vat |
+| **edit_adjusted_vats** | **array** | adjusted vats which already have but data has been changed |
+| *id* | *integer* | adjusted vat id |
+| *name* | *string* | name of adjusted vat |
+| *rate* | *integer* | rate of adjusted vat |
+| *comment* | *string* | comment of adjusted vat |
+| **items** | **array** | a set of item id which has been assigned to this vat |
+| **delete_adjusted_vats** | **array** | a set of adjusted vat id |
+| **add_importers** | **array** | importers which user want add into country |
+| *id* | *integer* | company id |
+| *comment* | *string* | comment for importer |
+| **edit_importers** | **array** | importers which already have but data has been changed |
+| *id* | *integer* | company id |
+| *comment* | *string* | comment for importer |
+| **delete_importers** | **array** | a set of importer id which you has deleted|
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string |  the name of the wrong type.|
+||| **lack of parameters:**  the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
+||| **country not exist:** select invalid country in system |
+||| **country has been exist:** duplicate vat of country |
+
+
+## Delete Country
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | user/company/delete/country |
+| Method | `post` |
+| Use | to edit vat of company |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_country_id": 1,
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| company_country_id | integer | country id of company |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string |  the name of the wrong type.|
+||| **lack of parameters:**  the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
