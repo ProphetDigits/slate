@@ -80,7 +80,7 @@ Failure
 | -------: | :---- |
 | URL | `system/country/list` |
 | Method | `post` |
-| Use | to get all countrues in the system |
+| Use | to get all countries in the system |
 | Notice |  |
 
 
@@ -109,7 +109,7 @@ Success
 
 ```json
 {
-	"currencies":[{
+	"countries":[{
 		"id": 115,
 		"name": "Japan"
 	}, {
@@ -117,11 +117,10 @@ Success
 		"name": "Taiwan"
 	}]
 }
-```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **currencies** | array | all countries in the system |
+| **countries** | array | all countries in the system |
 | *id* | number | country id |
 | *name* | string | country name |
 
