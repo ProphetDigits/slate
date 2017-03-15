@@ -258,7 +258,7 @@ Failure
 	"city": "",
 	"state": "",
 	"postal_code": "",
-	"country": "",
+	"system_country_id": 228,
 	"contact_given_name":  "Jianhua",
 	"contact_family_name":  "Wang",
 	"contact_job_title":  "coder",
@@ -285,7 +285,7 @@ Failure
 | city | string | city of company |
 | state | string | state of company |
 | postal_code | string | postal code of company |
-| country | string | country of company |
+| system_country_id | integer | country id |
 | contact_given_name | string | contact given name |
 | contact_family_name | string | contact family name |
 | contact_job_title | string | contact job title |
@@ -402,7 +402,10 @@ Success
 	"city": "",
 	"province": "",
 	"postal_code": "",
-	"country": "",
+	"country": {
+        "id": 228,
+        "name": "taiwan"
+    },
 	"contact_given_name": "XX",
 	"contact_family_name": "X",
 	"contact_job_title": "xxx",
@@ -494,7 +497,9 @@ Success
 | city | string | city of company |
 | state | string | state of company |
 | postal_code | string | postal code of company |
-| country | string | country of company |
+| *country* | *object* | country of company |
+| *id* | integer | country id|
+| *name* | string | country name|
 | contact_given_name | string | contact given name |
 | contact_family_name | string | contact family name |
 | contact_job_title | string | contact job title |
@@ -590,7 +595,7 @@ Failure
 	"city": "",
 	"state": "",
 	"postal_code": "",
-	"country": "",
+	"system_country_id": 228,
 	"contact_given_name":  "Jianhua",
 	"contact_family_name":  "Wang",
 	"contact_job_title":  "coder",
@@ -609,7 +614,7 @@ Failure
 | city | string | city of company |
 | state | string | state of company |
 | postal_code | string | postal code of company |
-| country | string | country of company |
+| system_country_id | integer | country id |
 | contact_given_name | string | contact given name |
 | contact_family_name | string | contact family name |
 | contact_job_title | string | contact job title |
