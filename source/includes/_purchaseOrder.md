@@ -239,6 +239,14 @@ Success
         "status": "",
         "comment": "Partly Paid",
         "create_at": 1466640111
+    }],
+    "importer": {
+		"id": 2,
+		"name": "YAHOO"
+	}
+    "importers": [{
+    	"id": 1,
+    	"name": "ZARA"
     }]
 }
 ```
@@ -316,6 +324,12 @@ Success
 ||| **Ignored** |
 | *comment* | string | status comment |
 | *create_at* | timestamp | |
+| *importer* | *object* | importer who pay value-added-tax for these products |
+| *id* | integer | company id |
+| *name* | string | company name |
+| *importers* | *array* (option) | importers of country where retailer located |
+| *id* | integer | company id |
+| *name* | string | company name |
 
 <aside class="warning">
 Failure
@@ -590,7 +604,8 @@ Failure
     }],
     "assign_products": [],
     "cancel_products": [],
-    "reassign_products": []
+    "reassign_products": [],
+    "importer": 1
 }
 ```
 
@@ -642,6 +657,7 @@ Failure
 | assign_products | array (option) | a set of product number which assigned to purchase order |
 | cancel_products | array (option) | a set of product number which remove-assigned from purchase order |
 | reassign_products | array (option) | a set of product number which reassigned to purchase order from other purchase order |
+| importer_id | interger (option) | company id |
 
 > Return Parameters
 
@@ -682,7 +698,8 @@ Failure
 ||| **no permission:**|
 ||| **order not exist:** order number is incorrect |
 ||| **order submitted :** order submitted |
-||| **variant not exist :** variant id error |
+||| **variant not exist :** invalid variant id |
+||| **importer not exist:** invalid importer id|
 ||| **illegal form input:** form format does not pass validation |
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. |
 | *title* | string (option) | **invalid value:** value isn’t 0 or 1 |
