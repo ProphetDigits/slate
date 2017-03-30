@@ -36,7 +36,7 @@ Success
 
 ```json
 {
-	"orders": [{
+    "orders": [{
     "number": "AAAA160401000002OD",
     "currency": "JPY",
     "total": 24288,
@@ -54,7 +54,7 @@ Success
       "given_name": "QQ",
       "family_name": "Wang",
       "email": "a@gamil.com"
-    }  
+    }
   },{
     "number": "AAAA160401000001OD",
     "currency": "CHF",
@@ -535,7 +535,7 @@ Success
       "id": 1,
       "given_name": "QQ",
       "family_name": "Wang"
-    }  
+    }
   }],
   "shipping_address": {
     "title": null,
@@ -560,7 +560,17 @@ Success
     "state": null,
     "code": null,
     "country": null
-  }
+  },
+  "invoices": [{
+    "number": "AAAA170329000006IN",
+    "brand": {
+      "id": 1,
+      "name": "Company A"
+    },
+    "create_at": 1490776038,
+    "comment": "AAAA170329000001OD",
+    "download": "http://192.168.1.116/BrandCloud/order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
+  }]
 }
 ```
 
@@ -618,6 +628,14 @@ Success
 | *id* | integer | user id |
 | *given_name* | string | user’s given name |
 | *family_name* | string |  user’s family name |
+| **invoices** | **array** | invoices list|
+| *number* | string | invoice number|
+| *brand* | *object* | invoice creator |
+| *id* | integer | company id |
+| *name*| string | company name |
+| *create_at* | timestamp | creating time of invoice |
+| *comment* | *string* | order number |
+| *download* | *string* | downloading url of invoice, visit the url need to add header Authorization and value is api_key |
 
 <aside class="warning">
 Failure
