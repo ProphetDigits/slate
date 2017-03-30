@@ -14160,7 +14160,7 @@ Success
       </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gamil.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">  
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">},{</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000001OD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHF"</span><span class="p">,</span><span class="w">
@@ -15157,7 +15157,7 @@ Success
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="w">
-    </span><span class="p">}</span><span class="w">  
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
   </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -15182,7 +15182,17 @@ Success
     </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"invoices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000006IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490776038</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000001OD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://192.168.1.116/BrandCloud/order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -15451,6 +15461,46 @@ Success
 <td style="text-align: right"><em>family_name</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user’s family name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>invoices</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">invoices list</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>number</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">invoice number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>brand</em></td>
+<td style="text-align: left"><em>object</em></td>
+<td style="text-align: left">invoice creator</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>create_at</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">creating time of invoice</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left"><em>string</em></td>
+<td style="text-align: left">order number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>download</em></td>
+<td style="text-align: left"><em>string</em></td>
+<td style="text-align: left">downloading url of invoice, visit the url need to add header Authorization and value is api_key</td>
 </tr>
 </tbody></table>
 
