@@ -212,6 +212,8 @@ Failure
 |||**product sold:** product has been sold |
 |||**no product permission:** not product owner company or no option with product company |
 |||**currency not exist:** product cannot |
+|||**sale region not found:** VAT region not set |
+|||**importer region error:** importer not in VAT region |
 
 
 ## Give Discount
