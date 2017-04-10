@@ -143,7 +143,10 @@ Success
         "discount": 20,
         "payment_method": "credit_card",
         "deposit": 50,
-        "vat": 0,
+        "vat": {
+        	"price": 0,
+        	"ratio": 0.0
+        },
         "other_cost": 0,
         "shareable": 143672,
         "sharing": 40,
@@ -170,7 +173,10 @@ Success
         "discount": 20,
         "payment_method": "cash",
         "deposit": 50,
-        "vat": 0,
+        "vat": {
+        	"price": 1436,
+        	"ratio": 1
+        },
         "other_cost": 0,
         "shareable": 143672,
         "sharing": 40,
@@ -230,7 +236,9 @@ Success
 | *discount* | integer | discount of product |
 | *payment_method* | string | payment method |
 | *deposit* | double | product deposit |
-| *vat* | integer | product vat |
+| *vat* | *object* | VAT information |
+| *price* | integer | product vat price |
+| *ratio* | double | product vat ratio |
 | *other_cost* | double | other cost of product |
 | *shareable* | double | shareable price |
 | *sharing* | integer | sharing percent of option with brand  |
