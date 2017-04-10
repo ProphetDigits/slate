@@ -236,7 +236,7 @@ Success
 | *discount* | integer | discount of product |
 | *payment_method* | string | payment method |
 | *deposit* | double | product deposit |
-| *vat* | *object* | VAT information |
+| *vat* | **object** | VAT information |
 | *price* | integer | product vat price |
 | *ratio* | double | product vat ratio |
 | *other_cost* | double | other cost of product |
