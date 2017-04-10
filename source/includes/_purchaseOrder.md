@@ -243,11 +243,15 @@ Success
     "importer": {
 		"id": 2,
 		"name": "YAHOO"
-	}
+	},
     "importers": [{
     	"id": 1,
     	"name": "ZARA"
-    }]
+    }],
+    "status_message": {
+		"country": "country not found",
+		"importer": "importer not in country"
+	}
 }
 ```
 
@@ -330,6 +334,9 @@ Success
 | *importers* | *array* (option) | importers of country where retailer located |
 | *id* | integer | company id |
 | *name* | string | company name |
+| **status_message** | **object** | warning message |
+| *country* | *array* | a set of warning message about country |
+| *importer* | *array* | a set of warning message about importer |
 
 <aside class="warning">
 Failure
