@@ -241,7 +241,16 @@ Success
     "company": {
         "id": 1,
         "name": "Company A"
-    }
+    },
+    "invitations": [{
+    	"company_name": "ZARZ",
+		"given_name": "Jianhua",
+		"family_name": "Wang",
+		"email": "abc@gmail.com",
+		"status": "Waiting",
+		"invited_time": 432165987622,
+		"invited_counter": 1
+    }]
 }
 ```
 
@@ -275,6 +284,14 @@ Success
 | **distributors** | **object** | |
 | *id* | integer | company id |
 | *name* | string | company name |
+| **invitations** | **array** | invitation list of option |
+| *company_name* | string | pre-input company name |
+| *given_name* | string | pre-input given name |
+| *family_name* | string | pre-input family name |
+| *email* | string | receiver email |
+| *status* | string | invited status |
+| *last_invited_time* | timestamp | last invited time |
+| *invited_counter* | integer | invited counter |
 
 <aside class="warning">
 Failure
@@ -386,8 +403,8 @@ Failure
 ||| **not company member:** the user is not the company member |
 ||| **no permission:** |
 ||| **duplicate retailer relation:** reatiler has be joined to your other option |
-|||**illegal form input:**  form format does not pass validation option not exist |
-| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
+||| **illegal form input:**  form format does not pass validation option not exist |
+| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. |
 | name | array | **required:** it’s necessary column for this api |
 | deposit | array | **required:**  deposit not boolean |
 | deposit_sharing | array | **invalid format:**  deposit sharing not numeric |
@@ -396,3 +413,214 @@ Failure
 | **retailers** | **array** | duplicate retailer list |
 | *id* | integer | company id |
 | *name* | string | company name |
+
+
+## Create Option Invitation
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/option/invitation/create` |
+| Method | `post` |
+| Use | to invite retailer |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+	"option_id": 1,
+	"company_name": "Zara",
+	"given_name": "Jianhua",
+	"family_name": "Wang",
+	"email": "abc@gmail.com",
+	"path": "http://..../"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| option_id | integer |  option id |
+| company_name | string | pre-input company name |
+| given_name | string |pre-input given name |
+| family_name | string | pre-input family name |
+| email | string | receiver email |
+| path | string | the base path of url which to finish inviting step |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **option not exist:** option not exist |
+||| **email is invalid:** email format is invalid |
+
+
+## Reinvite Option Invitation
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/option/invitation/reinvite` |
+| Method | `post` |
+| Use | to reinvite retailer |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+	"option_id": 1,
+	"id": 1,
+	"path": "http://..../"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| option_id | integer |  option id |
+| id | integer | invitation id |
+| path | string | the base path of url which to finish inviting step |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **option not exist:** option not exist |
+||| **invitation not exist:** invitation not exist |
+
+
+## Delete Option Invitation
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/option/invitation/delete` |
+| Method | `post` |
+| Use | to delete invitation |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+	"option_id": 1,
+	"id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| option_id | integer |  option id |
+| id | integer | invitation id |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** some input parameters missing, not in the request |
+||| **does not signin:** user does not signin |
+||| **option not exist:** option not exist |
+||| **invitation not exist:** invitation not exist |

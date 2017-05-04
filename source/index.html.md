@@ -26,6 +26,7 @@ includes:
   - purchaseOrder
   - inventory
   - balance
+  - invitation
 
 search: true
 ---
