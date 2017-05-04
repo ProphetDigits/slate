@@ -81,7 +81,7 @@ Failure
 
 ```json
 {
-	"id": 1,
+	"hash_id": "e4cbcdc2faff41a7e311",
     "api_key": "e4cbcdc2faff41a7e311",
 	"company_id": 1
 }
@@ -89,7 +89,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer |invitation id |
+| hash_id | string | hash value |
 | api_key | string | api key  which user login |
 | company_id | integer (option) | company id  which user has created |
 
