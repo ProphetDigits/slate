@@ -488,6 +488,7 @@ Failure
 ||| **does not signin:** user does not signin |
 ||| **option not exist:** option not exist |
 ||| **email is invalid:** email format is invalid |
+||| **dplicate invitation:** duplicate email |
 
 
 ## Reinvite Option Invitation
