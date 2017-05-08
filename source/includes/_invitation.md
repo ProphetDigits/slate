@@ -1,12 +1,12 @@
 # Invitation
 
-## Get Invitation Detail
+## Get Retailer Invitation Detail
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `invitation/detail` |
+| URL | `invitation/retailer/detail` |
 | Method | `post` |
 | Use | to get invitation detail |
 | Notice |  |
@@ -63,13 +63,13 @@ Failure
 ||| **invitation not exist:** invitation not exist |
 
 
-## Set Invitation
+## Set Retailer Invitation
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `invitation/edit` |
+| URL | `invitation/retailer/edit` |
 | Method | `post` |
 | Use | to edit invitation |
 | Notice |  |
