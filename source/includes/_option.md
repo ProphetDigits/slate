@@ -243,6 +243,7 @@ Success
         "name": "Company A"
     },
     "invitations": [{
+    	"id": 1,
     	"company_name": "ZARZ",
 		"given_name": "Jianhua",
 		"family_name": "Wang",
@@ -285,6 +286,7 @@ Success
 | *id* | integer | company id |
 | *name* | string | company name |
 | **invitations** | **array** | invitation list of option |
+| *id* | integer | invitation id |
 | *company_name* | string | pre-input company name |
 | *given_name* | string | pre-input given name |
 | *family_name* | string | pre-input family name |
