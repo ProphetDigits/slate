@@ -560,6 +560,7 @@ Failure
 ||| **does not signin:** user does not signin |
 ||| **option not exist:** option not exist |
 ||| **invitation not exist:** invitation not exist |
+||| **invitation has been finished':** invitation has been finished |
 
 
 ## Delete Option Invitation
@@ -626,4 +627,3 @@ Failure
 ||| **lack of parameters:** some input parameters missing, not in the request |
 ||| **does not signin:** user does not signin |
 ||| **option not exist:** option not exist |
-||| **invitation not exist:** invitation not exist |
