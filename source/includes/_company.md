@@ -308,12 +308,13 @@ Success
 
 ```json
 {
+	"id": 1
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| (Nothing return) | - | - |
+| id | integer | company id |
 
 
 <aside class="warning">
