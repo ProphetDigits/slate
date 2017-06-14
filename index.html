@@ -9824,10 +9824,17 @@ Success
     </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
         </span><span class="nt">"default_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
         </span><span class="nt">"default_deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -9854,6 +9861,11 @@ Success
 <td style="text-align: left">variant’s name</td>
 </tr>
 <tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s number</td>
+</tr>
+<tr>
 <td style="text-align: right">stock</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">product number of variant</td>
@@ -9872,6 +9884,31 @@ Success
 <td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant belongs to which company</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>cover_img</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>240p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>480p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>720p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>1080p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
 </tbody></table>
 
@@ -9963,6 +10000,8 @@ Failure
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
@@ -9973,6 +10012,13 @@ Failure
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdasdasd.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -9997,6 +10043,16 @@ Failure
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s number</td>
+</tr>
+<tr>
+<td style="text-align: right">website</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s website</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>prices</strong></td>
@@ -10027,6 +10083,21 @@ Failure
 <td style="text-align: right"><em>value</em></td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">id of customization value</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
 </tr>
 </tbody></table>
 
@@ -10207,6 +10278,8 @@ Success
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"NoteBook-1"</span><span class="p">,</span><span class="w">
@@ -10234,8 +10307,27 @@ Success
             </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 <table><thead>
 <tr>
@@ -10253,6 +10345,16 @@ Success
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant’s  name</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s number</td>
+</tr>
+<tr>
+<td style="text-align: right">website</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s website</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>item</strong></td>
@@ -10323,6 +10425,46 @@ Success
 <td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">name of customization value</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>240p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>480p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>720p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>1080p</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
 </tbody></table>
 
@@ -10419,6 +10561,8 @@ Failure
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
@@ -10429,6 +10573,13 @@ Failure
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w">
         </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdasdasd.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10453,6 +10604,16 @@ Failure
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s number</td>
+</tr>
+<tr>
+<td style="text-align: right">website</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s website</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>prices</strong></td>
@@ -10483,6 +10644,21 @@ Failure
 <td style="text-align: right"><em>value</em></td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">id of customization value</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
 </tr>
 </tbody></table>
 
@@ -11756,6 +11932,110 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>no permission:</strong> cannot print</td>
+</tr>
+</tbody></table>
+
+<h2 id="product-detail-to-public">Product Detail To Public</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">product/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show particular product information</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">website</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product website</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>product not found:</strong> product not exist</td>
 </tr>
 </tbody></table>
 
