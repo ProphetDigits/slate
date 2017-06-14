@@ -43,10 +43,17 @@ Success
     "variants": [{
         "variant_id": 1,
         "name": "Color",
+        "number": "autark-k1-ss-001",
         "stock": 5,
         "default_price": 100,
         "default_deposit": 20,
-        "company_id": 1
+        "company_id": 1,
+        "cover_img": {
+			"240p": "http://abc/xxx_240p.jpg",
+			"480p": "http://abc/xxx_480p.jpg",
+			"720p": "http://abc/xxx_720p.jpg",
+			"1080p": "http://abc/xxx_1080p.jpg"
+		}
     }]
 }
 ```
@@ -56,10 +63,16 @@ Success
 | **variants** | **array** | a set of variant object |
 | id | integer |  variant’s id |
 | name | string |  variant’s name |
+| number | string |  variant’s number |
 | stock | integer | product number of variant |
 | default_price | numeric | default price of variant |
 | default_deposit | numeric | default deposit of variant |
 | company_id | integer | variant belongs to which company |
+| **cover_img** | **object** | variant cover image. It will be empty if no set cover image |
+| *240p* | string | picture url of 240 resolution (426x240) |
+| *480p* | string | picture url of 480 resolution (854x480) |
+| *720p* | string | picture url of 720 resolution (1280x720) |
+| *1080p* | string | picture url of 1080 resolution (1920x1080) |
 
 <aside class="warning">
 Failure
@@ -103,6 +116,8 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "item_id": 1,
     "name": "Basic",
+    "number": "autark-k1-ss-001",
+    "website": "",
     "prices": [{
         "currency_id": 1,
         "price": 100
@@ -113,7 +128,14 @@ Failure
     }, {
         "id": 3,
         "value": 10
-    }]
+    }],
+    "images": [{
+		"name": "asdasdasd.jpg",
+		"cover": true
+	}, {
+		"name": "qweqweq.jpg",
+		"cover": false
+	}]
 }
 ```
 
@@ -122,12 +144,17 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | item_id | integer | item’s id |
 | name | string | variant’s name |
+| number | string | variant’s number |
+| website | string | variant’s website |
 | **prices** | **array** | variant’s prices in the each currency |
 | *currency_id* | integer | currency  id |
 | *price* | number |  price of corresponding currency |
 | **customizations** | **array** | customization settings of variant |
 | *id* | integer | customization’s id |
 | *value* | integer | id of customization value |
+| **images** | **array** | variant images |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
 
 > Return Parameters
 
@@ -215,6 +242,8 @@ Success
 {
     "id": 1,
     "name": "Basic",
+    "number": "autark-k1-ss-001",
+    "website": "",
     "item": [{
         "id": 1,
         "number":"NoteBook-1",
@@ -242,7 +271,26 @@ Success
             "id":2,
             "name": "Red"
         }
-    }]
+    }],
+    "images":[{
+		"name": "xxx.jpg",
+		"cover": true,
+		"resource": {
+			"240p": "http://abc/xxx_240p.jpg",
+			"480p": "http://abc/xxx_480p.jpg",
+			"720p": "http://abc/xxx_720p.jpg",
+			"1080p": "http://abc/xxx_1080p.jpg"
+		}
+	}, {
+		"name": "yyy.jpg",
+		"cover": false,
+		"resource": {
+			"240p": "http://abc/yyy_240p.jpg",
+			"480p": "http://abc/yyy_480p.jpg",
+			"720p": "http://abc/yyy_720p.jpg",
+			"1080p": "http://abc/yyy_1080p.jpg"
+		}
+	}],
 }
 ```
 
@@ -250,6 +298,8 @@ Success
 | -------: | :---- | :--- |
 | id | integer | variant’s  id |
 | name | string | variant’s  name |
+| number | string | variant’s number |
+| website | string | variant’s website |
 | **item** | **object** | item which variant belongs |
 | *id* | integer | item’s id |
 | *number* | string | item’s number |
@@ -264,6 +314,14 @@ Success
 | *value* | **object** | customization value |
 | *id* | integer |  id of customization value |
 | *name* | string |  name of customization value |
+| **images** | **array** | variant images |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
+| *240p* | string | picture url of 240 resolution (426x240) |
+| *480p* | string | picture url of 480 resolution (854x480) |
+| *720p* | string | picture url of 720 resolution (1280x720) |
+| *1080p* | string | picture url of 1080 resolution (1920x1080) |
 
 <aside class="warning">
 Failure
@@ -308,6 +366,8 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "variant_id": 1,
     "name": "Basic",
+    "number": "autark-k1-ss-001",
+    "website": "",
     "prices": [{
         "currency_id": 1,
         "price": 100
@@ -318,7 +378,14 @@ Failure
     }, {
         "id": 3 ,
         "value": 10
-    }]
+    }],
+    "images": [{
+		"name": "asdasdasd.jpg",
+		"cover": true
+	}, {
+		"name": "qweqweq.jpg",
+		"cover": false
+	}]
 }
 ```
 
@@ -327,12 +394,17 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | variant_id | integer |  item id |
 | name | string | variant’s name |
+| number | string | variant’s number |
+| website | string | variant’s website |
 | **prices** | **array** |  variant’s prices in the each currency |
 | *currency_id* | integer | currency id |
 | *price* | numeric | price of corresponding currency |
 | **customizations** | **array** | customization settings of variant |
 | *id* | integer | customization’s id |
 | *value* | integer |  id of customization value  |
+| **images** | **array** | variant images |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
 
 
 > Return Parameters

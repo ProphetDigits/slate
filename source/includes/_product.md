@@ -563,3 +563,65 @@ Failure
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
 ||| **no permission:** cannot print |
+
+
+
+## Product Detail To Public
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `product/detail` |
+| Method | `post` |
+| Use | show particular product information |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "product_number": "1A01B021440012345"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| product_number | string | product number |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "website": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| website | string | product website |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **product not found:** product not exist |
