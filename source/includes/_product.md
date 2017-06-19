@@ -572,8 +572,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `product/detail` |
-| Method | `post` |
+| URL | `product/detail/{product_number}` |
+| Method | `get` |
 | Use | show particular product information |
 | Notice ||
 
@@ -581,12 +581,6 @@ Failure
 > Input Parameters
 
 ### Input Parameters
-
-```json
-{
-    "product_number": "1A01B021440012345"
-}
-```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
