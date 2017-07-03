@@ -584,16 +584,16 @@ Failure
 | error_name | string | the name of the wrong type. |
 |||**does not signin:** user does not signin|
 |||**illegal form input:** form format does not pass validation|
-| **validation** | **object** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. **Value (option):** |
-| *histories* | **array** | **lack of parameters: ** |
-| *packages* | **array** | **lack of parameters: ** |
-||| **product conflict: ** product has already been assigned |
-| **products (option)** | **array** | conflict products |
+| **validation** | **object** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
+| *histories* | **array (option)** | **lack of parameters:** invalid format |
+| *packages* | **array (option)** | **lack of parameters:** invalid format |
+||| **product conflict:** product has already been assigned |
+| *files* | **array (option)** | **lack of parameters:** invalid format |
+| **products** | **array (option)** | conflict products |
 | product number | string | product number |
 | *variant* | **object** | variant of product |
 | id | integer | variant id |
 | name | string | variant name |
-| *files* | **array** | **lack of parameters: ** |
 
 
 ## Delete Shipment
