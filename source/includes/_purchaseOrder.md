@@ -133,7 +133,7 @@ Failure
 ||| **no permission:** cannot sell in the company |
 
 
-## Purchase Order  Detail
+## Purchase Order Detail
 
 ### Description
 
@@ -239,19 +239,7 @@ Success
         "status": "",
         "comment": "Partly Paid",
         "create_at": 1466640111
-    }],
-    "importer": {
-		"id": 2,
-		"name": "YAHOO"
-	},
-    "importers": [{
-    	"id": 1,
-    	"name": "ZARA"
-    }],
-    "status_message": {
-		"country": "country not found",
-		"importer": "importer not in country"
-	}
+    }]
 }
 ```
 
@@ -328,15 +316,6 @@ Success
 ||| **Ignored** |
 | *comment* | string | status comment |
 | *create_at* | timestamp | |
-| *importer* | *object* | importer who pay value-added-tax for these products |
-| *id* | integer | company id |
-| *name* | string | company name |
-| *importers* | *array* (option) | importers of country where retailer located |
-| *id* | integer | company id |
-| *name* | string | company name |
-| **status_message** | **object** | warning message |
-| *country* | *array* | a set of warning message about country |
-| *importer* | *array* | a set of warning message about importer |
 
 <aside class="warning">
 Failure
@@ -611,8 +590,7 @@ Failure
     }],
     "assign_products": [],
     "cancel_products": [],
-    "reassign_products": [],
-    "importer": 1
+    "reassign_products": []
 }
 ```
 
@@ -664,7 +642,6 @@ Failure
 | assign_products | array (option) | a set of product number which assigned to purchase order |
 | cancel_products | array (option) | a set of product number which remove-assigned from purchase order |
 | reassign_products | array (option) | a set of product number which reassigned to purchase order from other purchase order |
-| importer_id | interger (option) | company id |
 
 > Return Parameters
 
