@@ -27,6 +27,7 @@ includes:
   - inventory
   - balance
   - invitation
+  - shipment
 
 search: true
 ---

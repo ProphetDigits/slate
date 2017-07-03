@@ -85,8 +85,9 @@ Success
                 "id": 1,
                 "name": "Bionicon"
             },
-            "order_number": "AAAA010120160000PO"
         }
+        "purchase_order_number": "AAAA010120160000PO",
+        "shipment_number": "AAAA010120160000SH"
     }]
 }
 ```
@@ -112,7 +113,8 @@ Success
 | *company* | **object** | the company which paid deposit|
 | *id* | integer | company id |
 | *name* | string | company name |
-| *order_number* | string | if deposit of product was not paid by purchase order then order_number will be null|
+| purchase_order_number | string | purchase order which product is assigned|
+| shipment_number | string | shipment which product is assigned|
 
 <aside class="warning">
 Failure
