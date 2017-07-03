@@ -10883,8 +10883,9 @@ Success
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA010120160000PO"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="err">}</span><span class="w">
+        </span><span class="s2">"purchase_order_number"</span><span class="err">:</span><span class="w"> </span><span class="s2">"AAAA010120160000PO"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA010120160000SH"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10991,9 +10992,14 @@ Success
 <td style="text-align: left">company name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>order_number</em></td>
+<td style="text-align: right">purchase_order_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if deposit of product was not paid by purchase order then order_number will be null</td>
+<td style="text-align: left">purchase order which product is assigned</td>
+</tr>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment which product is assigned</td>
 </tr>
 </tbody></table>
 
@@ -16588,7 +16594,7 @@ Failure
 </tr>
 </tbody></table>
 
-<h2 id="purchase-order-detail">Purchase Order  Detail</h2>
+<h2 id="purchase-order-detail">Purchase Order Detail</h2>
 
 <h3 id="description">Description</h3>
 
@@ -16723,19 +16729,7 @@ Success
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partly Paid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1466640111</span><span class="w">
-    </span><span class="p">}],</span><span class="w">
-    </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YAHOO"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"importers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZARA"</span><span class="w">
-    </span><span class="p">}],</span><span class="w">
-    </span><span class="nt">"status_message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country not found"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"importer not in country"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -17099,51 +17093,6 @@ Success
 <td style="text-align: right"><em>create_at</em></td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>importer</em></td>
-<td style="text-align: left"><em>object</em></td>
-<td style="text-align: left">importer who pay value-added-tax for these products</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>importers</em></td>
-<td style="text-align: left"><em>array</em> (option)</td>
-<td style="text-align: left">importers of country where retailer located</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>status_message</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">warning message</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left"><em>array</em></td>
-<td style="text-align: left">a set of warning message about country</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>importer</em></td>
-<td style="text-align: left"><em>array</em></td>
-<td style="text-align: left">a set of warning message about importer</td>
 </tr>
 </tbody></table>
 
@@ -17680,8 +17629,7 @@ Failure
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"assign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nt">"cancel_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"reassign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="nt">"reassign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -17920,11 +17868,6 @@ Failure
 <td style="text-align: right">reassign_products</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">a set of product number which reassigned to purchase order from other purchase order</td>
-</tr>
-<tr>
-<td style="text-align: right">importer_id</td>
-<td style="text-align: left">interger (option)</td>
-<td style="text-align: left">company id</td>
 </tr>
 </tbody></table>
 
@@ -19434,6 +19377,1705 @@ Failure
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>finished:</strong> invitation has been finished</td>
 </tr>
+</tbody></table>
+
+          <h1 id="shipment">Shipment</h1>
+
+<h2 id="shipment-list">Shipment List</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show shipment list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"shipments_of_brand"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preparing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shipped_area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aruba"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"shipments_of_importer"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>shipments_of_brand</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">the shipment is created by self</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment latest status</td>
+</tr>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment latest status</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>shipped_area</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">country of shipped area</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">country id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">country name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>company</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">shipment creator</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>importer</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">company of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">company name of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>recipient</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient given name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient family name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>shipments_of_importer</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">the shipment is assigned to self</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+</tbody></table>
+
+<h2 id="shipment-detail">Shipment Detail</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">show shipment detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preparing"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aruba"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@abc.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qq"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ww"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taiwan"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preparing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watch"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"k1-gold"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AAAA0000000011PD"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma invoice"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"uploaded_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:abc.abc.com"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"status_message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country not found"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"importer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"importer not in country"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number</td>
+</tr>
+<tr>
+<td style="text-align: right">proforma_invoice_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma invoice number of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment latest status</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment comment</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right">tracking_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">tracking number of logistics company</td>
+</tr>
+<tr>
+<td style="text-align: right">pieces</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">total unit of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>shipped_area</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">country of shipped area</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">country id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">country name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>company</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">shipment creator</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>importer</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">company of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">company name of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>recipient</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the company which recipient belongs to</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient given_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient family_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>title</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient title</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient phone</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>email</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient email</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>street</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient street</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>city</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient city</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>state</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient state</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient postal_code</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>country</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient country</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>histories</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">shipment status</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history city</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>status</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history status</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history created date</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>packages</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">shipment packages</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">package id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>item</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item information of package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>variant</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant information of package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">variant name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma description</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">show product number in the proforma invoice</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">unit value of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>currency_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">currency unit</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>files</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">relative files of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">file id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>uploaded_by</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">uploaded information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">user id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">given name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">family name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">uploaded company information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>download</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">download link</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"does not signin"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>shipment not found:</strong> shipment not exist</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-shipment">Create Shipment</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/create</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">create shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_area_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"importer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@abc.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qq"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ww"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taiwan"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"added_histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preparing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"added_packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proforma_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AAAA0000000011PD"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"added_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma invoice"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">proforma_invoice_number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">proforma_invoice_number of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">shipment comment</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right">tracking_number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">pieces</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">total unit of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_area_id</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">country id of shipped area</td>
+</tr>
+<tr>
+<td style="text-align: right">importer_id</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">company id of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>recipient</strong></td>
+<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the company which recipient belongs to</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient given_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient family_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>title</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient title</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient phone</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>email</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient email</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>street</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient street</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>city</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient city</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>state</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient state</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient postal_code</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>country</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient country</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_histories</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">added histories</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>status</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history status</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history created date</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_packages</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">added packages</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>variant_id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id of package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma description</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">show product number in the proforma invoice</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">unit value of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_files</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">uploaded files</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">uploaded data</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">shipment_number:</span><span class="w"> </span><span class="nt">"AAAA0000000001SH"</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>validation</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">if the err_name is illegal form input&rsquo;, systyem should show the name of the wrong for each error input. <strong>Value (option):</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>histories</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>packages</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">*<em>product conflict: *</em> product has already been assigned</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>products (option)</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">conflict products</td>
+</tr>
+<tr>
+<td style="text-align: right">product number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>variant</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant of product</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>files</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="edit-shipment">Edit Shipment</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">edit shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipped_area_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"importer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@abc.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qq"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ww"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taiwan"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"added_histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"added_packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"added_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"edited_histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"edited_packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proforma_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AAAA0000000011PD"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"deleted_histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"deleted_packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number.</td>
+</tr>
+<tr>
+<td style="text-align: right">proforma_invoice_number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">proforma_invoice_number of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">shipment comment</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right">tracking_number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">pieces</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">total unit of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">shipped_area_id</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">country id of shipped area</td>
+</tr>
+<tr>
+<td style="text-align: right">importer_id</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">company id of importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>recipient</strong></td>
+<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the company which recipient belongs to</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient given_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient family_name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>title</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient title</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient phone</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>email</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient email</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>street</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient street</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>city</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient city</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>state</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient state</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient postal_code</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>country</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient country</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_histories</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">added histories</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>status</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history status</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history created date</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_packages</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">added packages</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id of package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma description</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">show product number in the proforma invoice</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">the products of package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">unit value of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_files</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">uploaded files</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">uploaded data</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>edited_histories</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">edited histories</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">history id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>edited_packages</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">edited packages</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">package id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma description</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">show product number in the proforma invoice</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">unit value of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>deleted_histories</strong></td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of historie id</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>deleted_packages</strong></td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of package id</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>deleted_files</strong></td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of file id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>validation</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">if the err_name is illegal form input&rsquo;, systyem should show the name of the wrong for each error input. <strong>Value (option):</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>histories</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>packages</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">*<em>product conflict: *</em> product has already been assigned</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>products (option)</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">conflict products</td>
+</tr>
+<tr>
+<td style="text-align: right">product number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>variant</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant of product</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>files</em></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">*<em>lack of parameters: *</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-shipment">Delete Shipment</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/delete</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">delete shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>shipment not found:</strong> shipment not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>permission denied:</strong> not shipment owner</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-profoma-invoice-pdf">Get Profoma Invoice PDF</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/shipment/{shipment_number}/invoice/</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">get Profoma Invoice pdf</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Header Parameters</p>
+</blockquote>
+
+<h3 id="header-parameters">Header Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">Authorization</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">shipment_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment number.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
       </div>
