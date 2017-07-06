@@ -320,7 +320,7 @@ Failure
 	"tracking_number": "",
 	"pieces": 1,
 	"vat": {
-		"country_id": 1,
+		"shipped_area_id": 1,
 		"importer_id": 1
 	},
 	"recipient": {
@@ -363,10 +363,10 @@ Failure
 | proforma_invoice_number | string (option) | proforma_invoice_number of shipment |
 | comment | string (option) | shipment comment |
 | shipped_at | timestamp (option) | shipped date |
-| tracking_number | string (option) |  |
+| tracking_number | string | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
 | **vat** | **object (option)** | vat information |
-| *country_id* | integer  | country id of shipped area |
+| *shipped_area_id* | integer | country id of shipped area |
 | *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
@@ -471,7 +471,7 @@ Failure
 	"tracking_number": "",
 	"pieces": 1,
 	"vat": {
-		"country_id": 1,
+		"shipped_area_id": 1,
 		"importer_id": 1
 	},
 	"recipient": {
@@ -517,7 +517,7 @@ Failure
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
 | **vat** | **object (option)** | vat information |
-| *country_id* | integer  | country id of shipped area |
+| *shipped_area_id* | integer  | country id of shipped area |
 | *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
