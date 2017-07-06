@@ -319,8 +319,10 @@ Failure
 	"shipped_at": 1498730137,
 	"tracking_number": "",
 	"pieces": 1,
-	"shipped_area_id": 1,
-	"importer_id": 1,
+	"vat": {
+		"country_id": 1,
+		"importer_id": 1
+	},
 	"recipient": {
 		"company_name": "Bike",
 		"given_name": "Abc",
@@ -363,8 +365,9 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
-| shipped_area_id | integer (option) | country id of shipped area |
-| importer_id | integer (option) | company id of importer |
+| **vat** | **object (option)** | vat information |
+| *shipped_area_id* | integer  | country id of shipped area |
+| *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given_name |
@@ -404,7 +407,7 @@ Success
 
 ```json
 {
-	shipment_number: "AAAA0000000001SH"
+	"shipment_number": "AAAA0000000001SH"
 }
 ```
 
@@ -428,16 +431,18 @@ Failure
 | error_name | string | the name of the wrong type. |
 |||**does not signin:** user does not signin|
 |||**illegal form input:** form format does not pass validation|
-| **validation** | **object** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. **Value (option):** |
-| *histories* | **array** | **lack of parameters: ** |
-| *packages* | **array** | **lack of parameters: ** |
+| **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
+| *country* | **array (option)** | **country not found: ** |
+| *importer* | **array (option)** | **importer not in country: ** |
+| *histories* | **array (option)** | **invalid format: ** |
+| *packages* | **array (option)** | **invalid format: ** |
 ||| **product conflict: ** product has already been assigned |
-| **products (option)** | **array** | conflict products |
+| **products** | **array (option)** | conflict products |
 | product number | string | product number |
 | *variant* | **object** | variant of product |
 | id | integer | variant id |
 | name | string | variant name |
-| *files* | **array** | **lack of parameters: ** |
+| *files* | **array (option)** | **invalid format: ** |
 
 
 ## Edit Shipment
@@ -465,8 +470,10 @@ Failure
 	"shipped_at": 1498730137,
 	"tracking_number": "",
 	"pieces": 1,
-	"shipped_area_id": 1,
-	"importer_id": 1,
+	"vat": {
+		"country_id": 1,
+		"importer_id": 1
+	},
 	"recipient": {
 		"company_name": "Bike",
 		"given_name": "Abc",
@@ -509,8 +516,9 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
-| shipped_area_id | integer (option) | country id of shipped area |
-| importer_id | integer (option) | company id of importer |
+| **vat** | **object (option)** | vat information |
+| *shipped_area_id* | integer  | country id of shipped area |
+| *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given_name |
@@ -584,16 +592,18 @@ Failure
 | error_name | string | the name of the wrong type. |
 |||**does not signin:** user does not signin|
 |||**illegal form input:** form format does not pass validation|
-| **validation** | **object** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
-| *histories* | **array (option)** | **lack of parameters:** invalid format |
-| *packages* | **array (option)** | **lack of parameters:** invalid format |
-||| **product conflict:** product has already been assigned |
-| *files* | **array (option)** | **lack of parameters:** invalid format |
+| **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
+| *country* | **array (option)** | **country not found: ** |
+| *importer* | **array (option)** | **importer not in country: ** |
+| *histories* | **array (option)** | **invalid format: ** |
+| *packages* | **array (option)** | **invalid format: ** |
+||| **product conflict: ** product has already been assigned |
 | **products** | **array (option)** | conflict products |
 | product number | string | product number |
 | *variant* | **object** | variant of product |
 | id | integer | variant id |
 | name | string | variant name |
+| *files* | **array (option)** | **invalid format: ** |
 
 
 ## Delete Shipment
