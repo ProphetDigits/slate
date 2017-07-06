@@ -366,7 +366,7 @@ Failure
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
 | **vat** | **object (option)** | vat information |
-| *shipped_area_id* | integer  | country id of shipped area |
+| *country_id* | integer  | country id of shipped area |
 | *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
@@ -517,7 +517,7 @@ Failure
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
 | **vat** | **object (option)** | vat information |
-| *shipped_area_id* | integer  | country id of shipped area |
+| *country_id* | integer  | country id of shipped area |
 | *importer_id* | integer  | company id of importer in shipped country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
