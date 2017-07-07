@@ -432,17 +432,20 @@ Failure
 |||**does not signin:** user does not signin|
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
-| *country* | **array (option)** | **country not found: ** |
-| *importer* | **array (option)** | **importer not in country: ** |
-| *histories* | **array (option)** | **invalid format: ** |
-| *packages* | **array (option)** | **invalid format: ** |
-||| **product conflict: ** product has already been assigned |
-| **products** | **array (option)** | conflict products |
-| product number | string | product number |
+| *country* | **array (option)** | **country not found:** |
+| *importer* | **array (option)** | **importer not in country:** |
+| *added_histories* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invlid status:** invalid status |
+||| **invlid date format:** date not timestamp |
+| *added_packages* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invalid variant:** variant not found |
+||| **product conflict:** product has already been assigned |
+| *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+| **conflict products** | **array (option)** | conflict products |
+| *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
-| id | integer | variant id |
-| name | string | variant name |
-| *files* | **array (option)** | **invalid format: ** |
+| *id* | integer | variant id |
+| *name* | string | variant name |
 
 
 ## Edit Shipment
@@ -595,15 +598,18 @@ Failure
 | **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
 | *country* | **array (option)** | **country not found: ** |
 | *importer* | **array (option)** | **importer not in country: ** |
-| *histories* | **array (option)** | **invalid format: ** |
-| *packages* | **array (option)** | **invalid format: ** |
-||| **product conflict: ** product has already been assigned |
-| **products** | **array (option)** | conflict products |
-| product number | string | product number |
+| *added_histories* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invlid status:** invalid status |
+||| **invlid date format:** date not timestamp |
+| *added_packages* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invalid variant:** variant not found |
+||| **product conflict:** product has already been assigned |
+| *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+| **conflict products** | **array (option)** | conflict products |
+| *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
-| id | integer | variant id |
-| name | string | variant name |
-| *files* | **array (option)** | **invalid format: ** |
+| *id* | integer | variant id |
+| *name* | string | variant name |
 
 
 ## Delete Shipment
