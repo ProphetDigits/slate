@@ -20400,37 +20400,57 @@ Failure
 <tr>
 <td style="text-align: right"><em>country</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>country not found: *</em></td>
+<td style="text-align: left"><strong>country not found:</strong></td>
 </tr>
 <tr>
 <td style="text-align: right"><em>importer</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>importer not in country: *</em></td>
+<td style="text-align: left"><strong>importer not in country:</strong></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>histories</em></td>
+<td style="text-align: right"><em>added_histories</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left">*<em>product conflict: *</em> product has already been assigned</td>
+<td style="text-align: left"><strong>invlid status:</strong> invalid status</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>products</strong></td>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>added_packages</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid variant:</strong> variant not found</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>product conflict:</strong> product has already been assigned</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>added_files</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>conflict products</strong></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left">conflict products</td>
 </tr>
 <tr>
-<td style="text-align: right">product number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">product number</td>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>variant</em></td>
@@ -20438,19 +20458,14 @@ Failure
 <td style="text-align: left">variant of product</td>
 </tr>
 <tr>
-<td style="text-align: right">id</td>
+<td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant id</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>files</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
 </tr>
 </tbody></table>
 
@@ -20851,29 +20866,49 @@ Failure
 <td style="text-align: left">*<em>importer not in country: *</em></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>histories</em></td>
+<td style="text-align: right"><em>added_histories</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left">*<em>product conflict: *</em> product has already been assigned</td>
+<td style="text-align: left"><strong>invlid status:</strong> invalid status</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>products</strong></td>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>added_packages</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid variant:</strong> variant not found</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>product conflict:</strong> product has already been assigned</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>added_files</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>conflict products</strong></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left">conflict products</td>
 </tr>
 <tr>
-<td style="text-align: right">product number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">product number</td>
+<td style="text-align: right"><em>products</em></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>variant</em></td>
@@ -20881,19 +20916,14 @@ Failure
 <td style="text-align: left">variant of product</td>
 </tr>
 <tr>
-<td style="text-align: right">id</td>
+<td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant id</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>files</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>invalid format: *</em></td>
 </tr>
 </tbody></table>
 
