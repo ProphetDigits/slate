@@ -61,9 +61,10 @@ Success
             "comapny": {
                 "id": 1,
                 "name": "Bionicon"
-            },
-            "order_number": "AAAA010120160000PO"
-        }
+            }
+        },
+        "purchase_order_number": "AAAA010120160000PO",
+        "shipment_number": "AAAA010120160000SH"
     }, {
         "number": "1A01B021440012352",
         "short_number": "15002",
@@ -84,8 +85,8 @@ Success
             "comapny": {
                 "id": 1,
                 "name": "Bionicon"
-            },
-        }
+            }
+        },
         "purchase_order_number": "AAAA010120160000PO",
         "shipment_number": "AAAA010120160000SH"
     }]
