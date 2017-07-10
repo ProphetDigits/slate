@@ -439,8 +439,14 @@ Failure
 ||| **invlid date format:** date not timestamp |
 | *added_packages* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invalid variant:** variant not found |
-||| **product conflict:** product has already been assigned |
+||| **invalid products:** product not belongs to variant |
+||| **conflict products:** product has already been assigned |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+| **invalid products** | **array (option)** | invalid products |
+| *products* | array | a set of product number |
+| *variant* | **object** | variant of product |
+| *id* | integer | variant id |
+| *name* | string | variant name |
 | **conflict products** | **array (option)** | conflict products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
@@ -603,8 +609,14 @@ Failure
 ||| **invlid date format:** date not timestamp |
 | *added_packages* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invalid variant:** variant not found |
-||| **product conflict:** product has already been assigned |
+||| **invalid products:** product not belongs to variant |
+||| **conflict products:** product has already been assigned |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+| **invalid products** | **array (option)** | invalid products |
+| *products* | array | a set of product number |
+| *variant* | **object** | variant of product |
+| *id* | integer | variant id |
+| *name* | string | variant name |
 | **conflict products** | **array (option)** | conflict products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
