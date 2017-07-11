@@ -152,7 +152,8 @@ Success
 	},
 	"company": {
 		"id": 1,
-		"name": "Bike"
+		"name": "Bike",
+		"currency_name": "EUR"
 	},
 	"importer": {
 		"id": 1,
@@ -180,18 +181,19 @@ Success
 	"packages": [{
 		"item": {
 			"id": 1,
-			"name": "watch"
+			"name": "watch",
+			"number": "watch-001"
 		},
 		"variant": {
 			"id": 1,
-			"name": "k1-gold"
+			"name": "k1-gold",
+			"taric_code": ""
 		},
 		"id": 1,
 		"description": "",
 		"invoice_show": true,
 		"products": ["AAAA0000000001PD", "AAAA0000000011PD"],
-		"unit_value": 999.99,
-		"currency_name": "EUR"
+		"unit_value": 999.99
 	}],
 	"files": [{
 		"id": 1,
@@ -231,6 +233,7 @@ Success
 | **company** | **object** | shipment creator |
 | *id* | integer | company id |
 | *name* | name | company name |
+| *currency_name* | string | default currency of company |
 | **importer** | **object** | company of importer |
 | *id* | integer | company id of importer |
 | *name* | name | company name of importer |
@@ -255,15 +258,16 @@ Success
 | *id* | integer | package id |
 | *item* | **object** | item information of package |
 | *id* | integer | item id |
-| *name* | name | item name |
+| *name* | string | item name |
+| *number* | string | item number |
 | *variant* | **object** | variant information of package |
 | *id* | integer | variant id |
-| *name* | name | variant name |
+| *name* | string | variant name |
+| *taric_code* | string | variant taric code |
 | *proforma_description* | string | proforma description |
 | *invoice_show* | boolean | show product number in the proforma invoice |
 | *products* | array | a set of product number in the package |
 | *unit_value* | double | unit value of item |
-| *currency_name* | string | currency unit |
 | **files** | **array** | relative files of shipment |
 | *id* | integer | file id |
 | *name* | string | file name |

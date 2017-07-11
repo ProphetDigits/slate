@@ -1486,6 +1486,7 @@ Success
 {
     "countries": [{
         "company_country_id": 2,
+        "id": 228,
         "name": "Taiwan",
         "importers": 2
     }]
@@ -1495,9 +1496,10 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | **countries** | **array** | countries of company |
-| *company_country_id* | integer | country id |
+| *company_country_id* | integer | company country id |
+| *id* | integer | country id |
 | *name* | string | country name |
-| *importers* | integer | importer number in country |
+| *importers* | integer | importer number in the country |
 
 <aside class="warning">
 Failure
