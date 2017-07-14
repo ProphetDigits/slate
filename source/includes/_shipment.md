@@ -190,7 +190,7 @@ Success
 			"taric_code": ""
 		},
 		"id": 1,
-		"description": "",
+		"proforma_description": "",
 		"invoice_show": true,
 		"products": ["AAAA0000000001PD", "AAAA0000000011PD"],
 		"unit_value": 999.99
@@ -445,18 +445,15 @@ Failure
 ||| **invalid variant:** variant not found |
 ||| **invalid products:** product not belongs to variant |
 ||| **conflict products:** product has already been assigned |
+||| **sold products:** product has already sold |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
-| **invalid products** | **array (option)** | invalid products |
+| **invalid_products** | **array (option)** | invalid products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
 | *id* | integer | variant id |
 | *name* | string | variant name |
-| **conflict products** | **array (option)** | conflict products |
-| *products* | array | a set of product number |
-| *variant* | **object** | variant of product |
-| *id* | integer | variant id |
-| *name* | string | variant name |
-
+| **conflict_products** | **array (option)** | conflict products |
+| **sold_products** | **array (option)** | sold products |
 
 ## Edit Shipment
 
@@ -615,17 +612,25 @@ Failure
 ||| **invalid variant:** variant not found |
 ||| **invalid products:** product not belongs to variant |
 ||| **conflict products:** product has already been assigned |
+||| **sold products:** product has already sold |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+| *edited_histories* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invalid histories:** history id not found |
+| *edited_packages* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invalid packages:** package id not found |
+||| **invalid products:** product not belongs to variant |
+||| **conflict products:** product has already been assigned |
+||| **sold products:** product has already sold |
+| *deleted_histories* | **array (option)** | **invalid packages:** package id not found |
+| *deleted_packages* | **array (option)** | **invalid histories:** history id not found |
+||| **sold products:** product has already sold |
 | **invalid products** | **array (option)** | invalid products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
 | *id* | integer | variant id |
 | *name* | string | variant name |
 | **conflict products** | **array (option)** | conflict products |
-| *products* | array | a set of product number |
-| *variant* | **object** | variant of product |
-| *id* | integer | variant id |
-| *name* | string | variant name |
+| **sold_products** | **array (option)** | sold products |
 
 
 ## Delete Shipment
@@ -688,6 +693,7 @@ Failure
 |||**does not signin:** user does not signin|
 |||**shipment not found:** shipment not exist|
 |||**permission denied:** not shipment owner|
+||| **sold products:** products which assigned to shipment has be sold |
 
 
 ## Get Profoma Invoice PDF
