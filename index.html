@@ -19717,7 +19717,7 @@ Success
             </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proforma_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AAAA0000000011PD"</span><span class="p">],</span><span class="w">
         </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
@@ -20462,12 +20462,17 @@ Failure
 <td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
 </tr>
 <tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
+</tr>
+<tr>
 <td style="text-align: right"><em>added_files</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>invalid products</strong></td>
+<td style="text-align: right"><strong>invalid_products</strong></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left">invalid products</td>
 </tr>
@@ -20492,29 +20497,14 @@ Failure
 <td style="text-align: left">variant name</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>conflict products</strong></td>
+<td style="text-align: right"><strong>conflict_products</strong></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left">conflict products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product number</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>variant</em></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant of product</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">variant name</td>
+<td style="text-align: right"><strong>sold_products</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">sold products</td>
 </tr>
 </tbody></table>
 
@@ -20950,9 +20940,64 @@ Failure
 <td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
 </tr>
 <tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
+</tr>
+<tr>
 <td style="text-align: right"><em>added_files</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>edited_histories</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid histories:</strong> history id not found</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>edited_packages</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid packages:</strong> package id not found</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid products:</strong> product not belongs to variant</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>deleted_histories</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid packages:</strong> package id not found</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>deleted_packages</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid histories:</strong> history id not found</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>invalid products</strong></td>
@@ -20985,24 +21030,9 @@ Failure
 <td style="text-align: left">conflict products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product number</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>variant</em></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant of product</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">variant name</td>
+<td style="text-align: right"><strong>sold_products</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">sold products</td>
 </tr>
 </tbody></table>
 
@@ -21111,6 +21141,11 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>permission denied:</strong> not shipment owner</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>sold products:</strong> products which assigned to shipment has be sold</td>
 </tr>
 </tbody></table>
 
