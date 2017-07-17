@@ -118,6 +118,7 @@ Failure
     "name": "Basic",
     "number": "autark-k1-ss-001",
     "website": "",
+    "taric_code": "",
     "prices": [{
         "currency_id": 1,
         "price": 100
@@ -146,6 +147,7 @@ Failure
 | name | string | variant’s name |
 | number | string | variant’s number |
 | website | string | variant’s website |
+| taric_code | string | variant’s taric code |
 | **prices** | **array** | variant’s prices in the each currency |
 | *currency_id* | integer | currency  id |
 | *price* | number |  price of corresponding currency |
@@ -244,6 +246,7 @@ Success
     "name": "Basic",
     "number": "autark-k1-ss-001",
     "website": "",
+    "taric_code": "",
     "item": [{
         "id": 1,
         "number":"NoteBook-1",
@@ -300,6 +303,7 @@ Success
 | name | string | variant’s  name |
 | number | string | variant’s number |
 | website | string | variant’s website |
+| taric_code | string | variant’s taric code |
 | **item** | **object** | item which variant belongs |
 | *id* | integer | item’s id |
 | *number* | string | item’s number |
@@ -368,6 +372,7 @@ Failure
     "name": "Basic",
     "number": "autark-k1-ss-001",
     "website": "",
+    "taric_code": "",
     "prices": [{
         "currency_id": 1,
         "price": 100
@@ -396,6 +401,7 @@ Failure
 | name | string | variant’s name |
 | number | string | variant’s number |
 | website | string | variant’s website |
+| taric_code | string | variant’s taric code |
 | **prices** | **array** |  variant’s prices in the each currency |
 | *currency_id* | integer | currency id |
 | *price* | numeric | price of corresponding currency |
