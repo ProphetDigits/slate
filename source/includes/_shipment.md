@@ -702,7 +702,7 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/shipment/{shipment_number}/invoice/` |
+| URL | `shipment/{shipment_number}/invoice/download` |
 | Method | `get` |
 | Use | get Profoma Invoice pdf |
 | Notice |  |
