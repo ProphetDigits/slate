@@ -280,7 +280,7 @@ Success
 | *company* | **object** | uploaded company information |
 | *id* | integer | company id |
 | *name* | string | company name |
-| *download* | string | download link |
+| *download* | string | download link, need include Authorization header in the request |
 
 <aside class="warning">
 Failure
@@ -398,7 +398,7 @@ Failure
 | *name* | string | file name |
 | *date* | timestamp | uploaded date |
 | *comment* | string | file comment |
-| *resource* | string | uploaded data |
+| *resource* | string | uploaded data which is encrypted by base64, exclude mime type |
 
 
 > Return Parameters
@@ -447,6 +447,7 @@ Failure
 ||| **conflict products:** product has already been assigned |
 ||| **sold products:** product has already sold |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invlid date format:** date not timestamp |
 | **invalid_products** | **array (option)** | invalid products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
@@ -555,7 +556,7 @@ Failure
 | *name* | string | file name |
 | *date* | timestamp | uploaded date |
 | *comment* | string | file comment |
-| *resource* | string | uploaded data |
+| *resource* | string | uploaded data which is encrypted by base64, exclude mime type |
 | **edited_histories** | **array (option)** | edited histories |
 | *id* | integer | history id |
 | *comment* | string | history comment |
@@ -614,6 +615,7 @@ Failure
 ||| **conflict products:** product has already been assigned |
 ||| **sold products:** product has already sold |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invlid date format:** date not timestamp |
 | *edited_histories* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invalid histories:** history id not found |
 | *edited_packages* | **array (option)** | **invalid format:** required parameter not exist |
@@ -624,6 +626,7 @@ Failure
 | *deleted_histories* | **array (option)** | **invalid packages:** package id not found |
 | *deleted_packages* | **array (option)** | **invalid histories:** history id not found |
 ||| **sold products:** product has already sold |
+| *deleted_files* | **array (option)** | **invalid files:** file id not found |
 | **invalid products** | **array (option)** | invalid products |
 | *products* | array | a set of product number |
 | *variant* | **object** | variant of product |
