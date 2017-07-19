@@ -20072,7 +20072,7 @@ Success
 <tr>
 <td style="text-align: right"><em>download</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">download link</td>
+<td style="text-align: left">download link, need include Authorization header in the request</td>
 </tr>
 </tbody></table>
 
@@ -20369,7 +20369,7 @@ Failure
 <tr>
 <td style="text-align: right"><em>resource</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">uploaded data</td>
+<td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
 </tr>
 </tbody></table>
 
@@ -20488,6 +20488,11 @@ Failure
 <td style="text-align: right"><em>added_files</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>invalid_products</strong></td>
@@ -20793,7 +20798,7 @@ Failure
 <tr>
 <td style="text-align: right"><em>resource</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">uploaded data</td>
+<td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>edited_histories</strong></td>
@@ -20968,6 +20973,11 @@ Failure
 <td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
 </tr>
 <tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
+</tr>
+<tr>
 <td style="text-align: right"><em>edited_histories</em></td>
 <td style="text-align: left"><strong>array (option)</strong></td>
 <td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
@@ -21016,6 +21026,11 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>deleted_files</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid files:</strong> file id not found</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>invalid products</strong></td>
