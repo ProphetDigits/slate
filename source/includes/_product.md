@@ -304,7 +304,23 @@ Success
             "id": 1,
             "name": "Bionicon"
         }
-    }
+    },
+	"files": [{
+		"id": 1,
+		"name": "proforma.jpg",
+		"date": 1498730137,
+		"comment": "proforma invoice",
+		"uploaded_by": {
+			"id": 1,
+			"given_name": "Abc",
+			"family_name": "Hi",
+			"company": {
+				"id": 1,
+				"name": "Bike"
+			}
+		},
+		"download": "http:abc.abc.com"
+	}]
 }
 ```
 
@@ -349,6 +365,19 @@ Success
 | *company* | **object** | deposit is paid by which company |
 | *id* | integer | company id |
 | *name* | string | company name |
+| **files** | **array** | relative files of shipment |
+| *id* | integer | file id |
+| *name* | string | file name |
+| *date* | timestamp | uploaded date |
+| *comment* | string | file comment |
+| *uploaded_by* | **object** | uploaded information |
+| *id* | integer | user id |
+| *given_name* | string | given name of user |
+| *family_name* | string | family name of user |
+| *company* | **object** | uploaded company information |
+| *id* | integer | company id |
+| *name* | string | company name |
+| *download* | string | download link, need include Authorization header in the request |
 
 <aside class="warning">
 Failure
@@ -386,7 +415,14 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "product_num": "1A01B021440012345",
-    "serial_number": "1A01B021440012345"
+    "serial_number": "1A01B021440012345",
+    "added_files": [{
+		"name": "proforma.jpg",
+		"date": 1498730137,
+		"comment": "proforma invoice",
+		"resource": ""
+	}],
+    "deleted_files": [1, 2, 3]
 }
 ```
 
@@ -394,7 +430,13 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | product_number | string | product’s number |
-| serial_number | string | product serial number |
+| serial_number | string (option) | product serial number |
+| **added_files** | **array (option)** | uploaded files |
+| *name* | string | file name |
+| *date* | timestamp | uploaded date |
+| *comment* | string | file comment |
+| *resource* | string | uploaded data which is encrypted by base64, exclude mime type |
+| **deleted_files** | array (option) | a set of file id |
 
 
 > Return Parameters
@@ -432,7 +474,10 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** |
+||| **permission deny:** not product owner or shipment importer|
+| *added_files* | **array (option)** | **invalid format:** required parameter not exist |
+||| **invlid date format:** date not timestamp |
+| *deleted_files* | **array (option)** | **invalid files:** file id not found |
 
 
 ## Change Product Location
