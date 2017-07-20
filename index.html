@@ -11332,7 +11332,23 @@ Success
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma invoice"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"uploaded_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:abc.abc.com"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -11537,6 +11553,71 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
+<tr>
+<td style="text-align: right"><strong>files</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">relative files of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">file id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>uploaded_by</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">uploaded information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">user id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">given name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">family name of user</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>company</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">uploaded company information</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>download</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">download link, need include Authorization header in the request</td>
+</tr>
 </tbody></table>
 
 <aside class="warning">
@@ -11601,7 +11682,14 @@ Failure
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"product_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="w">
+    </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"added_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma invoice"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -11623,8 +11711,38 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">serial_number</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">product serial number</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>added_files</strong></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">uploaded files</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>date</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>deleted_files</strong></td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of file id</td>
 </tr>
 </tbody></table>
 
@@ -11701,7 +11819,22 @@ Failure
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong></td>
+<td style="text-align: left"><strong>permission deny:</strong> not product owner or shipment importer</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>added_files</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>deleted_files</em></td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left"><strong>invalid files:</strong> file id not found</td>
 </tr>
 </tbody></table>
 
