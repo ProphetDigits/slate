@@ -264,7 +264,8 @@ Success
     },
     "variant": {
         "id": 1,
-        "name": "Edison Evo"
+        "name": "Edison Evo",
+        "number": ""
     },
     "histories":[{
         "location": "CC Lee",
@@ -342,6 +343,7 @@ Success
 | **variant** | **object** | products belongs to which variant |
 | *id* | integer | variant id |
 | *name* | string | variant name |
+| *number* | string |  variant’s number |
 | sold | boolean | product state, **0:** normal **1:** sold |
 | qrcode | string | product qrcode encoded by base64 |
 | printed_at | timestamp | the last printed time of product |
