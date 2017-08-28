@@ -49,10 +49,14 @@ Success
         "default_deposit": 20,
         "company_id": 1,
         "cover_img": {
-			"240p": "http://abc/xxx_240p.jpg",
-			"480p": "http://abc/xxx_480p.jpg",
-			"720p": "http://abc/xxx_720p.jpg",
-			"1080p": "http://abc/xxx_1080p.jpg"
+			"name": "xxx.jpg",
+			"cover": true,
+			"resource": {
+				"240p": "http://abc/xxx_240p.jpg",
+				"480p": "http://abc/xxx_480p.jpg",
+				"720p": "http://abc/xxx_720p.jpg",
+				"1080p": "http://abc/xxx_1080p.jpg"
+			}
 		}
     }]
 }
@@ -69,6 +73,9 @@ Success
 | default_deposit | numeric | default deposit of variant |
 | company_id | integer | variant belongs to which company |
 | **cover_img** | **object** | variant cover image. It will be empty if no set cover image |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
 | *240p* | string | picture url of 240 resolution (426x240) |
 | *480p* | string | picture url of 480 resolution (854x480) |
 | *720p* | string | picture url of 720 resolution (1280x720) |

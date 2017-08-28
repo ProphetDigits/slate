@@ -206,10 +206,17 @@ Success
 		"id": 1,
 		"name": "Bionicon"
 	},
-	"price": {
-		"min": 50,
-		"basic": 100,
-		"max": 150
+	"prices": {
+		"EUR": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		},
+		"TWD": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		}
 	},
 	"discount": 50,
 	"unit": "Set",
