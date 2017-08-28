@@ -136,7 +136,8 @@ Failure
 ```json
 {
   "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id":"C00001"
+  "cart_id":"C00001",
+  "type": "credir_card"
 }
 ```
 
@@ -144,6 +145,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart  id |
+| type | string | "credit_card" or “cash" or "PayPal" |
 
 > Return Parameters
 
@@ -155,13 +157,17 @@ Success
 
 ```json
 {
-  "order_number":"AAAA160509000001OD"
+  "order_number":"AAAA160509000001OD",
+  "payment_method": "PayPal",
+  "qrcode": ""
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | order_number | string | order number |
+| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" |
+| qrcode | string | payment link for PayPal, others is null |
 
 <aside class="warning">
 Failure
@@ -186,7 +192,7 @@ Failure
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
 |||**no permission:** cannot sell in the company|
-|||**repeat:**  the order already been created |
+|||**repeat:**  the order already been created. |
 |||**no products:** can’t order if no product in the cart |
 |||**product invalid:** some products which had be deleted, but its still in the cart. Server will return these product number to data. |
 
@@ -211,7 +217,6 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "order_number": "C00001",
-  "type": "credir_card",
   "transaction_id": "UXI2KS784JOC9A0"
 }
 ```
@@ -220,7 +225,6 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | order number |
-| type | string | "credit_card" or “cash" |
 | transaction_id | string | transaction id with payworks |
 
 > Return Parameters
@@ -657,3 +661,160 @@ Failure
 |||**not company member:** the user is not the company member|
 |||**no permission:** cannot sell in the company|
 |||**order not exist:** order number is incorrect|
+
+
+## Send PayPal Payment Link
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/paypal/send` |
+| Method | `post` |
+| Use | to send PayPal Payment link to consumer. |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "email": "a@gmail.com",
+    "order_number": "AAAA0000000789OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| email | string | consumer email |
+| order_number | string | order number which consumer want to pay by PayPal buy no scanner |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type |
+||| **does not signin:** user does not signin |
+||| **order not exist:** invalid order number |
+||| **invalid email:** invalid email |
+||| **invalid payment:** only PayPal can use this api |
+||| **paid:** order has been paid |
+||| **confirming:**  order is confirming |
+||| **closed :** order has been closed |
+||| **refunded:** order has been refunded |
+
+
+## Payment Log
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `transaction/log/{token}` |
+| Method | `get` |
+| Use | to get the information for PayPal payment. |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "token": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| token | string | a temporary token for payment. |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"date": 1459491797,
+	"status": "success",
+	"odrer": {
+		"number": "AAAA170329000001OD",
+		"payment_method": "PayPal",
+		"transaction": "123546876",
+		"currency": "EUR",
+		"total": 100,
+		"retailer": "TW Shop",
+		"payer": "a@gmail.com"
+	},
+	"fail": {
+		"refused_by": "PayPal",
+		"code": "012",
+		"description": "card expired"
+	}
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| date | timestamp | payment date |
+| status | string | payment status, success or fail <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
+| **odrer** | **object (option)** | order information |
+| *number* | string | order number |
+| *payment_method* | string | payment method of order |
+| *transaction* | string | transaction id of order |
+| *currency* | string | payment currency |
+| *total* | number | total price of payment |
+| *retailer* | string | seller's company name |
+| *payer* | string | payer email |
+| **fail** | **object (option)** | fail information |
+| *refused_by* | string | By whom was this action refused, Server or PayPal |
+| *code* | string | fail code of PayPal |
+| *description* | string | fail description |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"log expired"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type |
+||| **log expired:** order number invalid |

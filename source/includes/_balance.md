@@ -144,8 +144,8 @@ Success
         "payment_method": "credit_card",
         "deposit": 50,
         "vat": {
-        	"price": 0,
-        	"ratio": 0.0
+            "price": 0,
+            "ratio": 0.0
         },
         "other_cost": 0,
         "shareable": 143672,
@@ -160,7 +160,9 @@ Success
         "deposit_owner": {
             "id": 1,
             "name": "Company A"
-        }
+        },
+        "payment_fee": 10,
+        "refunded_fee" 0
     },{
         "order_date": 1469577800,
         "retailer": "CITIZEN",
@@ -174,8 +176,8 @@ Success
         "payment_method": "cash",
         "deposit": 50,
         "vat": {
-        	"price": 1436,
-        	"ratio": 1
+            "price": 1436,
+            "ratio": 1
         },
         "other_cost": 0,
         "shareable": 143672,
@@ -190,7 +192,9 @@ Success
         "deposit_owner": {
             "id": 1,
             "name": "Company A"
-        }
+        },
+        "payment_fee": 5,
+        "refunded_fee" 0
     }],
     "deposit_payable": [{
         "date": 1469577800,
@@ -251,6 +255,8 @@ Success
 | *deposit_owner* | *object* | deposit owner |
 | *id* | integer | company id |
 | *name* | string | company name |
+| *payment_fee* | number | payment fee |
+| *refunded_fee* | number | refund fee |
 | **deposit_payable** | **array** |  |
 | *date* | timestamp | which date the purchase order was submitted or canceled |
 | *brand* | *object* | brand information |
@@ -283,3 +289,67 @@ Failure
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
 ||| **no permission:**cannot search balance report |
+
+
+
+## Send PayPal Payment Link
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/paypal/send` |
+| Method | `post` |
+| Use | to send PayPal Payment link to consumer. |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "email": "a@gmail.com",
+    "order_number": "AAAA0000000789OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| email | string | consumer email |
+| order_number | string | order number which consumer want to pay by PayPal buy no scanner |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **does not signin:** user does not signin |
