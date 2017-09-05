@@ -732,13 +732,13 @@ Failure
 ||| **refunded:** order has been refunded |
 
 
-## Payment Log
+## Transaction Result
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `transaction/log/{token}` |
+| URL | `transaction/{token}/result` |
 | Method | `get` |
 | Use | to get the information for PayPal payment. |
 | Notice |  |
@@ -778,7 +778,14 @@ Success
 		"total": 100,
 		"retailer": "TW Shop",
 		"payer": "a@gmail.com"
-	},
+	}
+}
+```
+
+```json
+{
+	"date": 1459491797,
+	"status": "fail",
 	"fail": {
 		"refused_by": "PayPal",
 		"code": "012",
@@ -787,10 +794,17 @@ Success
 }
 ```
 
+```json
+{
+	"date": 1459491797,
+	"status": "info"
+}
+```
+
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | date | timestamp | payment date |
-| status | string | payment status, success or fail <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
+| status | string | payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
 | **odrer** | **object (option)** | order information |
 | *number* | string | order number |
 | *payment_method* | string | payment method of order |
@@ -817,4 +831,4 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | the name of the wrong type |
-||| **log expired:** order number invalid |
+||| **result not exist:** order number invalid |
