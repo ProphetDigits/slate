@@ -411,6 +411,7 @@ Failure
 |||**not company member:** the user is not the company member|
 |||**no permission:**|
 |||**order not exist:**  order is not exist|
+|||**refund expired:** after the order has been created over 30 days, it can't refund|
 |||**repeated:** transaction is exist|
 |||**confirming:**  order is confirming|
 |||**closed :** order has been closed|
