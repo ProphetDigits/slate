@@ -403,7 +403,7 @@ Failure
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area |
 | **importer** | **object (option)** | importer information |
-| *id* | integer  | company id of importer in shipped country |
+| *id* | integer | company id of importer in shipped country <br/> the id will be ignored if the shipped_area_id does not exist in the request |
 | *given_name* | string | given_name of contact person of importer |
 | *family_name* | string | family_name of contact person of importer |
 | *title* | string | title of contact person of importer |
@@ -581,7 +581,7 @@ Failure
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area |
 | **importer** | **object (option)** | importer information |
-| *id* | integer  | company id of importer in shipped country |
+| *id* | integer  | company id of importer in shipped country <br/> the id will be ignored if the shipped_area_id does not exist in the request |
 | *given_name* | string | given_name of contact person of importer |
 | *family_name* | string | family_name of contact person of importer |
 | *title* | string | title of contact person of importer |
