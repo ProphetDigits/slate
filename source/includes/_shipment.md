@@ -55,6 +55,7 @@ Success
 			"name": "Bike"
 		},
 		"recipient": {
+			"company_name": "Bike",
 			"given_name": "Abc",
 			"family_name": "Hi"
 		}
@@ -80,6 +81,7 @@ Success
 | *id* | integer | company id of importer |
 | *name* | name | company name of importer |
 | **recipient** | **object** | recipient information |
+| *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given name |
 | *family_name* | string | recipient family name |
 | **shipments_of_importer** | **array** | the shipment is assigned to self |
@@ -157,7 +159,17 @@ Success
 	},
 	"importer": {
 		"id": 1,
-		"name": "Bike"
+		"name": "Bike",
+		"given_name": "Abc",
+		"family_name": "Hi",
+		"title": 1,
+		"phone": "0123456789",
+		"email": "abc@abc.com",
+		"street": "qq",
+		"city": "ww",
+		"state": "ee",
+		"postal_code": "123",
+		"country": "Taiwan"
 	},
 	"recipient": {
 		"company_name": "Bike",
@@ -237,6 +249,16 @@ Success
 | **importer** | **object** | company of importer |
 | *id* | integer | company id of importer |
 | *name* | name | company name of importer |
+| *given_name* | string | given_name of contact person of importer |
+| *family_name* | string | family_name of contact person of importer |
+| *title* | string | title of contact person of importer |
+| *phone* | string | phone of contact person of importer |
+| *email* | string | email of contact person of importer |
+| *street* | string | importer street |
+| *city* | string | importer city |
+| *state* | string | importer state |
+| *postal_code* | string | importer postal_code |
+| *country* | string | importer country |
 | **recipient** | **object** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given_name |
@@ -323,9 +345,19 @@ Failure
 	"shipped_at": 1498730137,
 	"tracking_number": "",
 	"pieces": 1,
-	"vat": {
-		"shipped_area_id": 1,
-		"importer_id": 1
+	"shipped_area_id": 1,
+	"importer": {
+		"id": 1,
+		"given_name": "Abc",
+		"family_name": "Hi",
+		"title": 1,
+		"phone": "0123456789",
+		"email": "abc@abc.com",
+		"street": "qq",
+		"city": "ww",
+		"state": "ee",
+		"postal_code": "123",
+		"country": "Taiwan"
 	},
 	"recipient": {
 		"company_name": "Bike",
@@ -369,9 +401,19 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
-| **vat** | **object (option)** | vat information |
-| *shipped_area_id* | integer | country id of shipped area |
-| *importer_id* | integer  | company id of importer in shipped country |
+| shipped_area_id | integer (option) | country id of shipped area |
+| **importer** | **object (option)** | importer information |
+| *id* | integer  | company id of importer in shipped country |
+| *given_name* | string | given_name of contact person of importer |
+| *family_name* | string | family_name of contact person of importer |
+| *title* | string | title of contact person of importer |
+| *phone* | string | phone of contact person of importer |
+| *email* | string | email of contact person of importer |
+| *street* | string | importer street |
+| *city* | string | importer city |
+| *state* | string | importer state |
+| *postal_code* | string | importer postal_code |
+| *country* | string | importer country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given_name |
@@ -481,9 +523,19 @@ Failure
 	"shipped_at": 1498730137,
 	"tracking_number": "",
 	"pieces": 1,
-	"vat": {
-		"shipped_area_id": 1,
-		"importer_id": 1
+	"shipped_area_id": 1,
+	"importer": {
+		"id": 1,
+		"given_name": "Abc",
+		"family_name": "Hi",
+		"title": 1,
+		"phone": "0123456789",
+		"email": "abc@abc.com",
+		"street": "qq",
+		"city": "ww",
+		"state": "ee",
+		"postal_code": "123",
+		"country": "Taiwan"
 	},
 	"recipient": {
 		"company_name": "Bike",
@@ -527,9 +579,19 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
-| **vat** | **object (option)** | vat information |
-| *shipped_area_id* | integer  | country id of shipped area |
-| *importer_id* | integer  | company id of importer in shipped country |
+| shipped_area_id | integer (option) | country id of shipped area |
+| **importer** | **object (option)** | importer information |
+| *id* | integer  | company id of importer in shipped country |
+| *given_name* | string | given_name of contact person of importer |
+| *family_name* | string | family_name of contact person of importer |
+| *title* | string | title of contact person of importer |
+| *phone* | string | phone of contact person of importer |
+| *email* | string | email of contact person of importer |
+| *street* | string | importer street |
+| *city* | string | importer city |
+| *state* | string | importer state |
+| *postal_code* | string | importer postal_code |
+| *country* | string | importer country |
 | **recipient** | **object (option)** | recipient information |
 | *company_name* | string | the company which recipient belongs to |
 | *given_name* | string | recipient given_name |
