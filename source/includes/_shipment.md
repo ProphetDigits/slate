@@ -401,9 +401,9 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
-| shipped_area_id | integer (option) | country id of shipped area |
+| shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
 | **importer** | **object (option)** | importer information |
-| *id* | integer | company id of importer in shipped country <br/> the id will be ignored if the shipped_area_id does not exist in the request |
+| *id* | integer | company id of importer in shipped country |
 | *given_name* | string | given_name of contact person of importer |
 | *family_name* | string | family_name of contact person of importer |
 | *title* | string | title of contact person of importer |
@@ -479,7 +479,7 @@ Failure
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
 | *country* | **array (option)** | **country not found:** |
-| *importer* | **array (option)** | **importer not in country:** |
+| *importer* | **array (option)** | **importer not in country:** <br /> **shipped_area_id is required** |
 | *added_histories* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invlid status:** invalid status |
 ||| **invlid date format:** date not timestamp |
@@ -579,9 +579,9 @@ Failure
 | shipped_at | timestamp (option) | shipped date |
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
-| shipped_area_id | integer (option) | country id of shipped area |
+| shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
 | **importer** | **object (option)** | importer information |
-| *id* | integer  | company id of importer in shipped country <br/> the id will be ignored if the shipped_area_id does not exist in the request |
+| *id* | integer  | company id of importer in shipped country |
 | *given_name* | string | given_name of contact person of importer |
 | *family_name* | string | family_name of contact person of importer |
 | *title* | string | title of contact person of importer |
@@ -667,7 +667,7 @@ Failure
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object (option)** | if the err_name is illegal form input', systyem should show the name of the wrong for each error input. |
 | *country* | **array (option)** | **country not found: ** |
-| *importer* | **array (option)** | **importer not in country: ** |
+| *importer* | **array (option)** | **importer not in country: ** <br /> **shipped_area_id is required** |
 | *added_histories* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invlid status:** invalid status |
 ||| **invlid date format:** date not timestamp |
