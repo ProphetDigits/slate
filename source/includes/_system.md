@@ -9,7 +9,7 @@
 | -------: | :---- |
 | URL | `system/currency/list` |
 | Method | `post` |
-| Use | to get all currencies in the system |
+| Use | To get all currencies in the system |
 | Notice |  |
 
 
@@ -25,7 +25,7 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
 
 
 > Return Parameters
@@ -50,9 +50,9 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **currencies** | array | all currencies in the system. Order by name from A-Z |
-| id | number | currency id |
-| name | string | currency name |
+| **currencies** | **array** | All currencies in the system. Order by name from A-Z |
+| *id* | number | The currency id |
+| *name* | string | The currency name |
 
 
 <aside class="warning">
@@ -67,9 +67,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
 
 
 ## System Country List
@@ -96,7 +96,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
 
 
 > Return Parameters
@@ -117,12 +117,13 @@ Success
 		"name": "Taiwan"
 	}]
 }
+```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | array | all countries in the system |
-| *id* | number | country id |
-| *name* | string | country name |
+| **countries** | **array** | All countries in the system |
+| *id* | number | The country id |
+| *name* | string | The country name |
 
 
 <aside class="warning">
@@ -137,6 +138,138 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  the name of the wrong type.|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
+
+
+
+## Upload Image
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/upload/image` |
+| Method | `post` |
+| Use | To upload image for company and item |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311",
+	"image":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQAAAk..."
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| image | string | base64 encode image string. Image format require as jpg, jpeg, png, gif |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"file_name":"asdasdasds.jpg"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| file_name | string | The filename which just uploaded  |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```
+{
+	"error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
+||| **not image:** The MIME-type is not image |
+||| **invalid image format:** The subtype of MIME-type is not jpg, jpeg, png and gif |
+
+
+## Delete Image
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/delete/image` |
+| Method | `post` |
+| Use | To delete image |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311",
+	"file_name":"asdasdasds.jpg"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| file_name | string | The filename which given by system after upload image |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
