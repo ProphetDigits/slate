@@ -833,3 +833,74 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | the name of the wrong type |
 ||| **result not exist:** order number invalid |
+
+
+## Query Refund Requirement Of Order
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/refund/query` |
+| Method | `post` |
+| Use | To check the order meets refund requirement |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "order_number": "C00001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | Order number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**lack of parameters:** the request does not include the necessary parameters|
+|||**does not signin:** user does not signin|
+|||**not select company yet:** user need change current company|
+|||**company not exist:** currenct company not exist|
+|||**not company member:** the user is not the company member|
+|||**order not exist:**  order is not exist|
+|||**refund expired:** after the order has been created over 30 days, it can't refund|
+|||**confirming:**  order is confirming|
+|||**closed :** order has been closed|
+|||**refunded:** order has been refunded|
+|||**open:**  initial order status|

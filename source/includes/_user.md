@@ -9,8 +9,8 @@
 | -------: | :---- |
 | URL | `user/signin` |
 | Method | `post` |
-| Use | Let user sign in system from app |
-| Notice |  |
+| Use | Let user sign in and get it api key |
+| Notice ||
 
 
 > Input Parameters
@@ -26,8 +26,8 @@
 
 | Parameter | Type | Description |
 | -------: | :----: | :--- |
-| email | string | the user’s account |
-| password | string | the user's password |
+| email | string | The user’s account |
+| password | string | The user's password |
 
 
 > Return Parameters
@@ -47,8 +47,8 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| user_id | integer | user id |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| user_id | integer | The user id |
 
 <aside class="warning">
 Failure
@@ -62,9 +62,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not match:** the user’s account or password does not match each other|
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**lack of parameters:** Some required parameters missing in the request |
+|||**does not match:** The account does not sign up yet or the password not match the account |
+
 
 
 ## Sign out
@@ -75,8 +76,8 @@ Failure
 | -------: | :---- |
 | URL | `user/signout` |
 | Method | `post` |
-| Use | Let user sign out system from app |
-| Notice |  |
+| Use | Let user sign out system and deactivated the api key |
+| Notice ||
 
 
 > Input Parameters
@@ -91,7 +92,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :----: | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
 
 
 > Return Parameters
@@ -123,9 +124,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
 
 
 
@@ -137,8 +138,8 @@ Failure
 | -------: | :---- |
 | URL | `user/signup` |
 | Method | `post` |
-| Use | Let user sign up an account from app |
-| Notice |  |
+| Use | Let user sign up an account |
+| Notice ||
 
 
 > Input Parameters
@@ -157,11 +158,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| given_name | string | user’s given name |
-| family_name | string | user’s family name |
-| title | number | 0: Mr. 1: Mrs. |
-| email | string | user's email |
-| password | string | user's password |
+| given_name | string | The user given name |
+| family_name | string | The user family name |
+| title | integer | The user gender - 0: Mr. 1: Mrs. |
+| email | string | The user email |
+| password | string | The user password |
 
 
 > Return Parameters
@@ -198,23 +199,23 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty. **Valid Value:**|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**illegal format input:** form format does not pass validation|
-| **validation** | object |  if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input **Valid Value(option):**|
-| given_name | array | **required:** it’s necessary parameter for this api |
-| family_name | array | **required:** it’s necessary parameter for this api |
-| title | array | **required:** it’s necessary parameter for this api |
-|||**invalid title:** the text need accord with boolean|
-| email | array | **required:** it’s necessary parameter for this api |
-|||**invalid email:** the text need accord with email format|
-|||**dulicate:** the text has already been taken|
-| password | array | **required:** it’s necessary parameter for this api |
-|||**word count:** the word count too more or too less|
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**lack of parameters:** Some required parameters missing in the request |
+|||**illegal form input:** The data validation failed |
+| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
+| *given_name* | array | **required:** The data cannot be empty or null |
+| *family_name* | array | **required:** The data cannot be empty or null |
+| *title* | array | **required:** The data cannot be empty or null |
+|||**invalid title:** The data only can be 0 or 1 |
+| *email* | array | **required:** The data cannot be empty or null |
+|||**invalid email:** The data need accord with email format |
+|||**dulicate:** The data has already been used |
+| *password* | array | **required:** The data cannot be empty or null |
+|||**word count:** The data need more than 7 words and less than 21 words |
 
 
 
-## Search User
+## Search Users
 
 ### Description
 
@@ -222,8 +223,8 @@ Failure
 | -------: | :---- |
 | URL | `user/search` |
 | Method | `post` |
-| Use |  |
-| Notice |  |
+| Use | To search other users |
+| Notice | The search data change to full user email from part user email or user name |
 
 
 > Input Parameters
@@ -233,14 +234,14 @@ Failure
 ```json
 {
 	"api_key": "e4cbcdc2faff41a7e311",
-	"search_text":"Wang"
+	"search_text":"test@test.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| search_text | string | key word about user name or user email |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| search_text | string | The data need input a full user email |
 
 
 > Return Parameters
@@ -270,10 +271,10 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | **users** | array | users related to search text |
-| id | integer | user's id |
-| email | string | user's email |
-| given_name | string | user's given name |
-| family_name | string | user's family name |
+| id | integer | The user id |
+| email | string | The user email |
+| given_name | string | The user given name |
+| family_name | string | The user family name |
 
 
 <aside class="warning">
@@ -288,13 +289,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**empty text:** search text can't be empty|
-|||**does not signin:** user does not signin|
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
+||| **empty text:** The search text cannot be empty |
 
 
-## My Profile
+
+## Get My Profile
 
 ### Description
 
@@ -302,8 +304,8 @@ Failure
 | -------: | :---- |
 | URL | `user/profile` |
 | Method | `post` |
-| Use | to get my profile |
-| Notice |  |
+| Use | To get my profile |
+| Notice ||
 
 
 > Input Parameters
@@ -318,7 +320,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
 
 
 > Return Parameters
@@ -341,11 +343,11 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | user id |
-| email | string | user email |
-| given_name | string | user given name |
-| family_name | string | user family name |
-| picture | string | user image path |
+| id | integer | The user id |
+| email | string | The user email |
+| given_name | string | The user given name |
+| family_name | string | The user family name |
+| picture | string | The user image path |
 
 
 <aside class="warning">
@@ -360,143 +362,13 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **lack of parameters:** Some required parameters missing in the request |
+||| **does not signin:** The user does not signin |
 
 
 
-## Upload Image
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/upload/image` |
-| Method | `post` |
-| Use | to upload image |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311",
-	"image":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQAAAk..."
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| image | string | base64 encode image string. Image format require as jpg, jpeg, png, gif |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-	"file_name":"asdasdasds.jpg"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| file_name | string | file name which just uploaded  |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```
-{
-	"error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not image:** type is not image|
-|||**invalid image format:**|
-
-
-## Delete Image
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/delete/image` |
-| Method | `post` |
-| Use | to delete image |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311",
-	"file_name":"asdasdasds.jpg"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| file_name | string | image name |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-	"error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-
-
-## Send Validation Code For Forget Password
+## Forget Password
 
 ### Description
 
@@ -504,8 +376,8 @@ Failure
 | -------: | :---- |
 | URL | `user/password/forget` |
 | Method | `post` |
-| Use | send validation code to user by email |
-| Notice |  |
+| Use | To send validation code to user by email |
+| Notice ||
 
 
 > Input Parameters
@@ -520,7 +392,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | the user’s account |
+| email | string | the user account |
 
 > Return Parameters
 
@@ -551,11 +423,12 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | the name of the wrong type |
-|||**email not exist:** email does not register |
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **email not exist:** The email is not signed up yet |
 
 
-## Update User Passward For Forget Password
+
+## Resett Password
 
 ### Description
 
@@ -563,8 +436,8 @@ Failure
 | -------: | :---- |
 | URL | `user/password/cover` |
 | Method | `post` |
-| Use | update user passward for forget passward |
-| Notice |  |
+| Use | To reset user password |
+| Notice ||
 
 
 > Input Parameters
@@ -581,9 +454,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | the user’s account |
-| password | string | the user’s new passward |
-| validation_code | string | validation code that get from email |
+| email | string | The user account |
+| password | string | The user new passward |
+| validation_code | string | The validation code which gets from email |
 
 > Return Parameters
 
@@ -614,12 +487,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | the name of the wrong type |
-|||**illegal format input:** form format does not pass validation|
-|||**email not exist:** email is not registered|
-|||**validation code not match:** validation code is incorrect|
-|||**timeout:** validation code has been expired|
-| **validation** | object |  if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input **Valid Value(option):**|
-| password | array | **required:** it’s necessary parameter for this api |
-|||**word count:** the word count too more or too less|
-| validation_code | array | **required:** it’s necessary parameter for this api |
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**illegal form input:** The data validation failed |
+|||**email not exist:** The email is not signed up yet |
+|||**validation code not match:** The validation code is invalid |
+|||**timeout:** The validation code has been expired |
+| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
+| *password* | array | **required:** The data cannot be empty or null |
+|||**word count:** The data need more than 7 words and less than 21 words |
