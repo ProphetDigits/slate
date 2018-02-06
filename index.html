@@ -279,7 +279,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">Let user sign in system from app</td>
+<td style="text-align: left">Let user sign in and get it api key</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -307,12 +307,12 @@ Failure
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: center">string</td>
-<td style="text-align: left">the user’s account</td>
+<td style="text-align: left">The user’s account</td>
 </tr>
 <tr>
 <td style="text-align: right">password</td>
 <td style="text-align: center">string</td>
-<td style="text-align: left">the user&rsquo;s password</td>
+<td style="text-align: left">The user&rsquo;s password</td>
 </tr>
 </tbody></table>
 
@@ -340,12 +340,12 @@ Success
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">user_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">user id</td>
+<td style="text-align: left">The user id</td>
 </tr>
 </tbody></table>
 
@@ -365,18 +365,18 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not match:</strong> the user’s account or password does not match each other</td>
+<td style="text-align: left"><strong>does not match:</strong> The account does not sign up yet or the password not match the account</td>
 </tr>
 </tbody></table>
 
@@ -400,7 +400,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">Let user sign out system from app</td>
+<td style="text-align: left">Let user sign out system and deactivated the api key</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -427,7 +427,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: center">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 </tbody></table>
 
@@ -473,13 +473,18 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 </tbody></table>
 
@@ -503,7 +508,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">Let user sign up an account from app</td>
+<td style="text-align: left">Let user sign up an account</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -534,27 +539,27 @@ Failure
 <tr>
 <td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user’s given name</td>
+<td style="text-align: left">The user given name</td>
 </tr>
 <tr>
 <td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user’s family name</td>
+<td style="text-align: left">The user family name</td>
 </tr>
 <tr>
 <td style="text-align: right">title</td>
-<td style="text-align: left">number</td>
-<td style="text-align: left">0: Mr. 1: Mrs.</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The user gender - 0: Mr. 1: Mrs.</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user&rsquo;s email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
 <td style="text-align: right">password</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user&rsquo;s password</td>
+<td style="text-align: left">The user password</td>
 </tr>
 </tbody></table>
 
@@ -604,72 +609,72 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty. <strong>Valid Value:</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal format input:</strong> form format does not pass validation</td>
+<td style="text-align: left"><strong>illegal form input:</strong> The data validation failed</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input <strong>Valid Value(option):</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The validation parameter will appear if the error_name is illegal form input</td>
 </tr>
 <tr>
-<td style="text-align: right">given_name</td>
+<td style="text-align: right"><em>given_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">family_name</td>
+<td style="text-align: right"><em>family_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">title</td>
+<td style="text-align: right"><em>title</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid title:</strong> the text need accord with boolean</td>
+<td style="text-align: left"><strong>invalid title:</strong> The data only can be 0 or 1</td>
 </tr>
 <tr>
-<td style="text-align: right">email</td>
+<td style="text-align: right"><em>email</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid email:</strong> the text need accord with email format</td>
+<td style="text-align: left"><strong>invalid email:</strong> The data need accord with email format</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>dulicate:</strong> the text has already been taken</td>
+<td style="text-align: left"><strong>dulicate:</strong> The data has already been used</td>
 </tr>
 <tr>
-<td style="text-align: right">password</td>
+<td style="text-align: right"><em>password</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>word count:</strong> the word count too more or too less</td>
+<td style="text-align: left"><strong>word count:</strong> The data need more than 7 words and less than 21 words</td>
 </tr>
 </tbody></table>
 
-<h2 id="search-user">Search User</h2>
+<h2 id="search-users">Search Users</h2>
 
 <h3 id="description">Description</h3>
 
@@ -689,11 +694,11 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">To search other users</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">The search data change to full user email from part user email or user name</td>
 </tr>
 </tbody></table>
 
@@ -704,7 +709,7 @@ Failure
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"search_text"</span><span class="p">:</span><span class="s2">"Wang"</span><span class="w">
+    </span><span class="nt">"search_text"</span><span class="p">:</span><span class="s2">"test@test.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -717,12 +722,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">search_text</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">key word about user name or user email</td>
+<td style="text-align: left">The data need input a full user email</td>
 </tr>
 </tbody></table>
 
@@ -764,22 +769,22 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">user&rsquo;s id</td>
+<td style="text-align: left">The user id</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user&rsquo;s email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
 <td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user&rsquo;s given name</td>
+<td style="text-align: left">The user given name</td>
 </tr>
 <tr>
 <td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user&rsquo;s family name</td>
+<td style="text-align: left">The user family name</td>
 </tr>
 </tbody></table>
 
@@ -799,27 +804,27 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>empty text:</strong> search text can&rsquo;t be empty</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>empty text:</strong> The search text cannot be empty</td>
 </tr>
 </tbody></table>
 
-<h2 id="my-profile">My Profile</h2>
+<h2 id="get-my-profile">Get My Profile</h2>
 
 <h3 id="description">Description</h3>
 
@@ -839,7 +844,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get my profile</td>
+<td style="text-align: left">To get my profile</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -866,7 +871,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 </tbody></table>
 
@@ -897,27 +902,27 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">user id</td>
+<td style="text-align: left">The user id</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
 <td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user given name</td>
+<td style="text-align: left">The user given name</td>
 </tr>
 <tr>
 <td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user family name</td>
+<td style="text-align: left">The user family name</td>
 </tr>
 <tr>
 <td style="text-align: right">picture</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user image path</td>
+<td style="text-align: left">The user image path</td>
 </tr>
 </tbody></table>
 
@@ -937,256 +942,22 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
-</tr>
-</tbody></table>
-
-<h2 id="upload-image">Upload Image</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/upload/image</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to upload image</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"image"</span><span class="p">:</span><span class="s2">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQAAAk..."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">image</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">base64 encode image string. Image format require as jpg, jpeg, png, gif</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"file_name"</span><span class="p">:</span><span class="s2">"asdasdasds.jpg"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">file_name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">file name which just uploaded</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not image:</strong> type is not image</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid image format:</strong></td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 </tbody></table>
 
-<h2 id="delete-image">Delete Image</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/delete/image</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to delete image</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"file_name"</span><span class="p">:</span><span class="s2">"asdasdasds.jpg"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">file_name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">image name</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-</tbody></table>
-
-<h2 id="send-validation-code-for-forget-password">Send Validation Code For Forget Password</h2>
+<h2 id="forget-password">Forget Password</h2>
 
 <h3 id="description">Description</h3>
 
@@ -1206,7 +977,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">send validation code to user by email</td>
+<td style="text-align: left">To send validation code to user by email</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -1233,7 +1004,7 @@ Failure
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the user’s account</td>
+<td style="text-align: left">the user account</td>
 </tr>
 </tbody></table>
 
@@ -1278,17 +1049,17 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">the name of the wrong type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>email not exist:</strong> email does not register</td>
+<td style="text-align: left"><strong>email not exist:</strong> The email is not signed up yet</td>
 </tr>
 </tbody></table>
 
-<h2 id="update-user-passward-for-forget-password">Update User Passward For Forget Password</h2>
+<h2 id="resett-password">Resett Password</h2>
 
 <h3 id="description">Description</h3>
 
@@ -1308,7 +1079,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">update user passward for forget passward</td>
+<td style="text-align: left">To reset user password</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -1337,17 +1108,17 @@ Failure
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the user’s account</td>
+<td style="text-align: left">The user account</td>
 </tr>
 <tr>
 <td style="text-align: right">password</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the user’s new passward</td>
+<td style="text-align: left">The user new passward</td>
 </tr>
 <tr>
 <td style="text-align: right">validation_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">validation code that get from email</td>
+<td style="text-align: left">The validation code which gets from email</td>
 </tr>
 </tbody></table>
 
@@ -1392,48 +1163,43 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">the name of the wrong type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal format input:</strong> form format does not pass validation</td>
+<td style="text-align: left"><strong>illegal form input:</strong> The data validation failed</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>email not exist:</strong> email is not registered</td>
+<td style="text-align: left"><strong>email not exist:</strong> The email is not signed up yet</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>validation code not match:</strong> validation code is incorrect</td>
+<td style="text-align: left"><strong>validation code not match:</strong> The validation code is invalid</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>timeout:</strong> validation code has been expired</td>
+<td style="text-align: left"><strong>timeout:</strong> The validation code has been expired</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">if the error_name is illegal form input, web backend should assign the name of the wrong type for each error input <strong>Valid Value(option):</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The validation parameter will appear if the error_name is illegal form input</td>
 </tr>
 <tr>
-<td style="text-align: right">password</td>
+<td style="text-align: right"><em>password</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>word count:</strong> the word count too more or too less</td>
-</tr>
-<tr>
-<td style="text-align: right">validation_code</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter for this api</td>
+<td style="text-align: left"><strong>word count:</strong> The data need more than 7 words and less than 21 words</td>
 </tr>
 </tbody></table>
 
@@ -1459,7 +1225,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get all currencies in the system</td>
+<td style="text-align: left">To get all currencies in the system</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -1486,7 +1252,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 </tbody></table>
 
@@ -1518,18 +1284,18 @@ Success
 </thead><tbody>
 <tr>
 <td style="text-align: right"><strong>currencies</strong></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">all currencies in the system. Order by name from A-Z</td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">All currencies in the system. Order by name from A-Z</td>
 </tr>
 <tr>
-<td style="text-align: right">id</td>
+<td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">currency id</td>
+<td style="text-align: left">The currency id</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">currency name</td>
+<td style="text-align: left">The currency name</td>
 </tr>
 </tbody></table>
 
@@ -1549,18 +1315,18 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 </tbody></table>
 
@@ -1611,7 +1377,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 </tbody></table>
 
@@ -1633,24 +1399,38 @@ Success
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taiwan"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-</span><span class="err">|</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Description</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">-------:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">:----</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">:---</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">**countries**</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">countries</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">*id*</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">country</span><span class="w"> </span><span class="err">id</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">*name*</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">country</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-
-</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"warning"</span><span class="err">&gt;</span><span class="w">
-</span><span class="err">Failure</span><span class="w">
-</span><span class="err">&lt;/aside&gt;</span><span class="w">
-
 </span></code></pre>
-<p>{
-    &ldquo;error_name&rdquo;:&ldquo;lack of parameters&rdquo;
-}
-&ldquo;`</p>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>countries</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">All countries in the system</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">The country id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The country name</td>
+</tr>
+</tbody></table>
 
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th style="text-align: right">Parameter</th>
@@ -1661,23 +1441,262 @@ Success
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
+</tr>
+</tbody></table>
+
+<h2 id="upload-image">Upload Image</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/upload/image</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To upload image for company and item</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"image"</span><span class="p">:</span><span class="s2">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQAAAk..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
+</tr>
+<tr>
+<td style="text-align: right">image</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">base64 encode image string. Image format require as jpg, jpeg, png, gif</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"file_name"</span><span class="p">:</span><span class="s2">"asdasdasds.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">file_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The filename which just uploaded</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not image:</strong> The MIME-type is not image</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>invalid image format:</strong> The subtype of MIME-type is not jpg, jpeg, png and gif</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-image">Delete Image</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/delete/image</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To delete image</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"file_name"</span><span class="p">:</span><span class="s2">"asdasdasds.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
+</tr>
+<tr>
+<td style="text-align: right">file_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The filename which given by system after upload image</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 </tbody></table>
 
           <h1 id="company">Company</h1>
 
-<h2 id="search-company">Search Company</h2>
+<h2 id="search-companies">Search Companies</h2>
 
 <h3 id="description">Description</h3>
 
@@ -1697,7 +1716,7 @@ Success
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get all companies in the system</td>
+<td style="text-align: left">To get relative companies by company name</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -1725,12 +1744,12 @@ Success
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">search_text</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">key word about company name</td>
+<td style="text-align: left">A keyword about the company name</td>
 </tr>
 </tbody></table>
 
@@ -1743,34 +1762,32 @@ Success
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"companies"</span><span class="p">:[{</span><span class="w">
+<pre class="highlight json"><code><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Shop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Shop"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jianhua"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gmail.com"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Bike"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jianhua"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gmail.com"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jianhua"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gmail.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Bike"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jianhua"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gmail.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <table><thead>
 <tr>
@@ -1780,24 +1797,19 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><strong>companies</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">all companies in the system. Order by company name from A-Z</td>
-</tr>
-<tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">company’s id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
+<td style="text-align: left">The company name</td>
 </tr>
 <tr>
-<td style="text-align: right">cover_image</td>
+<td style="text-align: right"><strong>cover_image</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company’s cover image.If no set cover image, return empty. <strong>Include:</strong></td>
+<td style="text-align: left">The company’s cover image <br /> If no set cover image, return empty</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>240p</em></td>
@@ -1820,29 +1832,29 @@ Success
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
 <tr>
-<td style="text-align: right">owner</td>
+<td style="text-align: right"><strong>owner</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company owner&rsquo;s information. <strong>Include:</strong></td>
+<td style="text-align: left">The founder information of company</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">owner&rsquo;s user id</td>
+<td style="text-align: left">The user id of founder</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>given_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner given_name</td>
+<td style="text-align: left">The given name of founder</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>family_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner family_name</td>
+<td style="text-align: left">The family name of founder</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>email</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner email</td>
+<td style="text-align: left">The email of founder</td>
 </tr>
 </tbody></table>
 
@@ -1862,18 +1874,18 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 </tbody></table>
 
@@ -2134,7 +2146,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to create company</td>
+<td style="text-align: left">To create company</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -2164,11 +2176,11 @@ Failure
     </span><span class="nt">"contact_phone"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contact_email"</span><span class="p">:</span><span class="w">  </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2182,102 +2194,92 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">short_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company short_number, four letter and uppercase</td>
+<td style="text-align: left">The company short number, four letter and uppercase</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
+<td style="text-align: left">The company name</td>
 </tr>
 <tr>
 <td style="text-align: right">website</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company website link</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The company website link</td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company description</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The company description</td>
 </tr>
 <tr>
 <td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">street of company</td>
+<td style="text-align: left">The street of company</td>
 </tr>
 <tr>
 <td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">city of company</td>
+<td style="text-align: left">The city of company</td>
 </tr>
 <tr>
 <td style="text-align: right">state</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">state of company</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The state of company</td>
 </tr>
 <tr>
 <td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">postal code of company</td>
+<td style="text-align: left">The postal code of company</td>
 </tr>
 <tr>
 <td style="text-align: right">system_country_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">country id</td>
+<td style="text-align: left">The system country id</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact given name</td>
+<td style="text-align: left">The given name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact family name</td>
+<td style="text-align: left">The family name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_job_title</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact job title</td>
+<td style="text-align: left">The job title of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_phone</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact phone number</td>
+<td style="text-align: left">The phone number of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact email</td>
+<td style="text-align: left">The email of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>images</strong></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">company images</td>
+<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: left">The company images</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+<td style="text-align: left">The file name which get from API after uploded image</td>
 </tr>
 <tr>
-<td style="text-align: right">cover</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cover image tag</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">0: normal image</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">1: cover image</td>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The tag decide image is covered or not <br /> false: normal image <br /> true: cover image</td>
 </tr>
 </tbody></table>
 
@@ -2304,7 +2306,7 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 </tbody></table>
 
@@ -2329,106 +2331,106 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+<td style="text-align: left"><strong>illegal form input:</strong> The data validation failed</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>validation</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input. <strong>Value(option):</strong></td>
+<td style="text-align: left">The validation parameter will appear if the error_name is illegal form input</td>
 </tr>
 <tr>
-<td style="text-align: right">short_number</td>
+<td style="text-align: right"><em>short_number</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>dulicate:</strong> the short number has already been taken</td>
+<td style="text-align: left"><strong>dulicate:</strong> The short number has already been taken</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid value:</strong> the short number not be allow to use</td>
+<td style="text-align: left"><strong>invalid value:</strong> The short number not be allow to use</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>dulicate:</strong> the name has already been taken</td>
+<td style="text-align: left"><strong>dulicate:</strong> The name has already been taken</td>
 </tr>
 <tr>
-<td style="text-align: right">street</td>
+<td style="text-align: right"><em>street</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">city</td>
+<td style="text-align: right"><em>city</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">state</td>
+<td style="text-align: right"><em>state</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">postal_code</td>
+<td style="text-align: right"><em>postal_code</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">country</td>
+<td style="text-align: right"><em>country</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>invalid country:</strong> The country not exist</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_given_name</td>
+<td style="text-align: right"><em>contact_given_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_family_name</td>
+<td style="text-align: right"><em>contact_family_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_job_title</td>
+<td style="text-align: right"><em>contact_job_title</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_phone</td>
+<td style="text-align: right"><em>contact_phone</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_email</td>
+<td style="text-align: right"><em>contact_email</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 </tbody></table>
 
-<h2 id="company-detail">Company Detail</h2>
+<h2 id="get-company-detail">Get Company Detail</h2>
 
 <h3 id="description">Description</h3>
 
@@ -2448,7 +2450,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get the company detail</td>
+<td style="text-align: left">To get the company detail</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -2476,12 +2478,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company&rsquo;s id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 </tbody></table>
 
@@ -2601,47 +2603,47 @@ Success
 <tr>
 <td style="text-align: right">short_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company short_number, four letter and uppercase</td>
+<td style="text-align: left">The company short number</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
+<td style="text-align: left">The company name</td>
 </tr>
 <tr>
 <td style="text-align: right">website</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company website link</td>
+<td style="text-align: left">The company website link</td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company description</td>
+<td style="text-align: left">The company description</td>
 </tr>
 <tr>
 <td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">street of company</td>
+<td style="text-align: left">The street address of company</td>
 </tr>
 <tr>
 <td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">city of company</td>
+<td style="text-align: left">The city of company</td>
 </tr>
 <tr>
 <td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">state of company</td>
+<td style="text-align: left">The state of company</td>
 </tr>
 <tr>
 <td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">postal code of company</td>
+<td style="text-align: left">The postal code of company</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left"><em>object</em></td>
-<td style="text-align: left">country of company</td>
+<td style="text-align: right"><strong>country</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The country of company</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>id</em></td>
@@ -2656,47 +2658,47 @@ Success
 <tr>
 <td style="text-align: right">contact_given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact given name</td>
+<td style="text-align: left">The given name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact family name</td>
+<td style="text-align: left">The family name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_job_title</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact job title</td>
+<td style="text-align: left">The job title of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_phone</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact phone number</td>
+<td style="text-align: left">The phone number of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact email</td>
+<td style="text-align: left">The email of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>images</strong></td>
 <td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">company&rsquo;s images</td>
+<td style="text-align: left">The company images</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">The image name</td>
 </tr>
 <tr>
-<td style="text-align: right">cover</td>
+<td style="text-align: right"><em>cover</em></td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Is cover image <br /> false: normal image <br /> true: cover image</td>
 </tr>
 <tr>
-<td style="text-align: right">resource</td>
+<td style="text-align: right"><strong>resource</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">each resolution of picture</td>
+<td style="text-align: left">The resolution of picture</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>240p</em></td>
@@ -2719,79 +2721,79 @@ Success
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
 <tr>
-<td style="text-align: right">owner</td>
+<td style="text-align: right"><strong>owner</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company owner&rsquo;s information. <strong>Include:</strong></td>
+<td style="text-align: left">The information of company owner</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">owner&rsquo;s user id</td>
+<td style="text-align: left">The user id</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>given_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner given_name</td>
+<td style="text-align: left">The user given name</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>family_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner family_name</td>
+<td style="text-align: left">The owner family name</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>email</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">owner email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>members</strong></td>
 <td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">members of company</td>
+<td style="text-align: left">The members of company</td>
 </tr>
 <tr>
-<td style="text-align: right">id</td>
+<td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">member&rsquo;s user id</td>
+<td style="text-align: left">The user id</td>
 </tr>
 <tr>
-<td style="text-align: right">given_name</td>
+<td style="text-align: right"><em>given_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">member&rsquo;s given name</td>
+<td style="text-align: left">The user given name</td>
 </tr>
 <tr>
-<td style="text-align: right">family_name</td>
+<td style="text-align: right"><em>family_name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">member&rsquo;s family name</td>
+<td style="text-align: left">The user family name</td>
 </tr>
 <tr>
-<td style="text-align: right">email</td>
+<td style="text-align: right"><em>email</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">member&rsquo;s email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
-<td style="text-align: right">role</td>
+<td style="text-align: right"><strong>role</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
 <td style="text-align: left">member&rsquo;s role of company</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">role id in the company</td>
+<td style="text-align: left">The role id in the company</td>
 </tr>
 <tr>
 <td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">role name in the company</td>
+<td style="text-align: left">The role name in the company</td>
 </tr>
 <tr>
-<td style="text-align: right">administrator</td>
+<td style="text-align: right"><em>administrator</em></td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">administrator identify in the company</td>
+<td style="text-align: left">The administrator identify in the company</td>
 </tr>
 <tr>
-<td style="text-align: right">manager</td>
+<td style="text-align: right"><em>manager</em></td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">highest manager in the company</td>
+<td style="text-align: left">The highest manager in the company</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>roles</strong></td>
@@ -2864,34 +2866,29 @@ Success
 <td style="text-align: left">currencies which company own</td>
 </tr>
 <tr>
-<td style="text-align: right">id</td>
+<td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">currency id of system</td>
+<td style="text-align: left">The currency id of system</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">currency name</td>
+<td style="text-align: left">The currency name</td>
 </tr>
 <tr>
-<td style="text-align: right">default</td>
+<td style="text-align: right"><em>default</em></td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">default currency</td>
+<td style="text-align: left">The default currency of company</td>
 </tr>
 <tr>
-<td style="text-align: right">exchange_rate</td>
+<td style="text-align: right"><em>exchange_rate</em></td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">exchange rate of currency in the company</td>
+<td style="text-align: left">The exchange rate of currency in the company</td>
 </tr>
 <tr>
-<td style="text-align: right">display_precision_point</td>
+<td style="text-align: right"><em>display_precision_point</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">precision point of currency. Display_precision_point &gt; 0 indicate the digits of presicion</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">ex: display_precision_point = 2, price should round to 9.12 from 9.119</td>
+<td style="text-align: left">The precision point of currency. Display_precision_point &gt; 0 indicate the digits of presicion <br /> ex: If the display_precision_point is 2, than the price should round to 9.12 from 9.119</td>
 </tr>
 </tbody></table>
 
@@ -2911,28 +2908,23 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 </tbody></table>
 
@@ -2956,7 +2948,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to edit company profile</td>
+<td style="text-align: left">To edit company profile</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -2971,6 +2963,7 @@ Failure
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Bike"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2996,72 +2989,77 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
+</tr>
+<tr>
+<td style="text-align: right">company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
+<td style="text-align: left">The company name</td>
 </tr>
 <tr>
 <td style="text-align: right">website</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company website link</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The company website link</td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company description</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The company description</td>
 </tr>
 <tr>
 <td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">street of company</td>
+<td style="text-align: left">The street of company</td>
 </tr>
 <tr>
 <td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">city of company</td>
+<td style="text-align: left">The city of company</td>
 </tr>
 <tr>
 <td style="text-align: right">state</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">state of company</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The state of company</td>
 </tr>
 <tr>
 <td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">postal code of company</td>
+<td style="text-align: left">The postal code of company</td>
 </tr>
 <tr>
 <td style="text-align: right">system_country_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">country id</td>
+<td style="text-align: left">The system country id</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact given name</td>
+<td style="text-align: left">The given name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact family name</td>
+<td style="text-align: left">The family name of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_job_title</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact job title</td>
+<td style="text-align: left">The job title of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_phone</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact phone number</td>
+<td style="text-align: left">The phone number of contactor</td>
 </tr>
 <tr>
 <td style="text-align: right">contact_email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">contact email</td>
+<td style="text-align: left">The email of contactor</td>
 </tr>
 </tbody></table>
 
@@ -3112,106 +3110,106 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong> authority too low</td>
+<td style="text-align: left"><strong>no permission:</strong> The permission deny</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+<td style="text-align: left"><strong>illegal form input:</strong> The data validation failed</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>validation</strong></td>
 <td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input. <strong>Value(option):</strong></td>
+<td style="text-align: left">The validation parameter will appear if the error_name is illegal form input</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>dulicate:</strong> the name has already been taken</td>
+<td style="text-align: left"><strong>dulicate:</strong> The name has already been taken</td>
 </tr>
 <tr>
-<td style="text-align: right">street</td>
+<td style="text-align: right"><em>street</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">city</td>
+<td style="text-align: right"><em>city</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">state</td>
+<td style="text-align: right"><em>state</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">postal_code</td>
+<td style="text-align: right"><em>postal_code</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">country</td>
+<td style="text-align: right"><em>country</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>invalid country:</strong> The country not exist</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_given_name</td>
+<td style="text-align: right"><em>contact_given_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_family_name</td>
+<td style="text-align: right"><em>contact_family_name</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_job_title</td>
+<td style="text-align: right"><em>contact_job_title</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_phone</td>
+<td style="text-align: right"><em>contact_phone</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 <tr>
-<td style="text-align: right">contact_email</td>
+<td style="text-align: right"><em>contact_email</em></td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left"><strong>required:</strong> The data cannot be empty or null</td>
 </tr>
 </tbody></table>
 
-<h2 id="edit-company-image">Edit Company Image</h2>
+<h2 id="edit-company-images">Edit Company Images</h2>
 
 <h3 id="description">Description</h3>
 
@@ -3249,10 +3247,10 @@ Failure
     </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3266,37 +3264,27 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>images</strong></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">company images</td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">The company images</td>
 </tr>
 <tr>
-<td style="text-align: right">name</td>
+<td style="text-align: right"><em>name</em></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+<td style="text-align: left">The file name which get from API after uploded image</td>
 </tr>
 <tr>
-<td style="text-align: right">cover</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cover image tag</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">0: normal image</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">1: cover image</td>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The tag decide image is covered or not <br /> false: normal image <br /> true: cover image</td>
 </tr>
 </tbody></table>
 
@@ -3343,32 +3331,32 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong> authority too low</td>
+<td style="text-align: left"><strong>no permission:</strong> The permission deny</td>
 </tr>
 </tbody></table>
 
@@ -3392,7 +3380,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to add user into company</td>
+<td style="text-align: left">To add user into company as member</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -3421,17 +3409,17 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">email of new member</td>
+<td style="text-align: left">The user email</td>
 </tr>
 </tbody></table>
 
@@ -3478,42 +3466,42 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong>  not company administrator</td>
+<td style="text-align: left"><strong>no permission:</strong>  Not company administrator</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>duplicate join:</strong> user of email already joined to this company</td>
+<td style="text-align: left"><strong>duplicate join:</strong> The user email is already joined to this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>user not exist:</strong> email is incorrent</td>
+<td style="text-align: left"><strong>user not exist:</strong> The email is incorrent</td>
 </tr>
 </tbody></table>
 
@@ -3537,7 +3525,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to edit authority of company member</td>
+<td style="text-align: left">To edit authority of company member</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -3568,27 +3556,27 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 <tr>
 <td style="text-align: right">role_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">role id of company</td>
+<td style="text-align: left">The role id of company</td>
 </tr>
 <tr>
 <td style="text-align: right">administrator</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">administrator tag</td>
+<td style="text-align: left">Is company administrator</td>
 </tr>
 </tbody></table>
 
@@ -3635,37 +3623,37 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong>  not company administrator</td>
+<td style="text-align: left"><strong>no permission:</strong>  Not company administrator</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not join:</strong> user of email not join to this company</td>
+<td style="text-align: left"><strong>not join:</strong> The user email not join to this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
@@ -3699,7 +3687,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to delete relations with company member</td>
+<td style="text-align: left">To remove user from company member</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -3728,17 +3716,17 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">user email</td>
+<td style="text-align: left">The user email</td>
 </tr>
 </tbody></table>
 
@@ -3785,37 +3773,37 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> user are not member in this company or no option with this company</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not exist</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong>  not company administrator</td>
+<td style="text-align: left"><strong>no permission:</strong>  Not company administrator</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not join:</strong> user of email not join to this company</td>
+<td style="text-align: left"><strong>not join:</strong> The user email not join to this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
@@ -4104,7 +4092,7 @@ Failure
 </tr>
 </tbody></table>
 
-<h2 id="edit-company-currency">Edit Company Currency</h2>
+<h2 id="edit-company-currencies">Edit Company Currencies</h2>
 
 <h3 id="description">Description</h3>
 
@@ -4124,7 +4112,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to edit exchange rate of currency</td>
+<td style="text-align: left">To edit company currencies</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -4143,7 +4131,7 @@ Failure
     </span><span class="nt">"currencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"exchange_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4157,32 +4145,32 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company_id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>currencies</strong></td>
 <td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">company currency setting</td>
+<td style="text-align: left">The company currencies</td>
 </tr>
 <tr>
-<td style="text-align: right">currency_id</td>
+<td style="text-align: right"><em>currency_id</em></td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">currency id</td>
+<td style="text-align: left">The currency id</td>
 </tr>
 <tr>
-<td style="text-align: right">exchange_rate</td>
+<td style="text-align: right"><em>exchange_rate</em></td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">default currency to specific currency exchange rate</td>
+<td style="text-align: left">The default currency to specific currency exchange rate</td>
 </tr>
 <tr>
-<td style="text-align: right">default</td>
+<td style="text-align: right"><em>default</em></td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">default currency tag</td>
+<td style="text-align: left">Is default currency</td>
 </tr>
 </tbody></table>
 
@@ -4228,38 +4216,43 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: left"><strong>lack of parameters:</strong> Some required parameters missing in the request</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left"><strong>does not signin:</strong> The user does not signin</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> doesn’t join to this company</td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong> not company manager</td>
+<td style="text-align: left"><strong>not company member:</strong> The user are not member in this company or no option with this company</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>duplicate default currency</strong></td>
+<td style="text-align: left"><strong>no permission:</strong>  Not company administrator</td>
 </tr>
 <tr>
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>no default currency</strong></td>
+<td style="text-align: left"><strong>duplicate default currency:</strong> Two currencies is setted as the default currency</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>no default currency:</strong> No currencies is setted as the default currency</td>
 </tr>
 </tbody></table>
 
@@ -4549,12 +4542,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">An unique token after user sign in, then user can use it to request data from API</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 </tbody></table>
 
@@ -16884,6 +16877,165 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>result not exist:</strong> order number invalid</td>
+</tr>
+</tbody></table>
+
+<h2 id="query-refund-requirement-of-order">Query Refund Requirement Of Order</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/order/refund/query</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To check the order meets refund requirement</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Order number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">(Nothing return)</td>
+<td style="text-align: left">-</td>
+<td style="text-align: left">-</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>order not exist:</strong>  order is not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>refund expired:</strong> after the order has been created over 30 days, it can&rsquo;t refund</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>open:</strong>  initial order status</td>
 </tr>
 </tbody></table>
 
