@@ -242,100 +242,204 @@ Success
 </aside>
 
 ```json
-{
-    "number":"1A01B021440012345",
-    "short_number":"15001",
-    "serial_number": "EE123456",
-    "qrcode": ".......",
-    "sold": 0,
-    "location":"CC Lee",
-    "prices": {
-        "EUR": "2,700",
-        "USA": "2,900"
+  "id": 1836,
+  "number": "AAAA01PD",
+  "short_number": "00001",
+  "serial_number": "",
+  "qrcode": "xxxx",
+  "sold": 0,
+  "printed_at": 1520479638,
+  "company": {
+    "id": 107,
+    "name": "AAAA Corp."
+  },
+  "item": {
+    "id": 131,
+    "number": "NX.GK6AA.001",
+    "name": " Swift 7"
+  },
+  "variant": {
+    "id": 169,
+    "name": "White",
+    "number": "NX.GK6AA.001"
+  },
+  "price": [
+    {
+      "company_currency_id": 227,
+      "currency": "EUR",
+      "product_price": 1000
     },
-    "company": {
-        "id": 1,
-        "name": "Bionicon"
-    },
-    "item": {
-        "id": 1,
-        "nmber": "Edison-Evo-1",
-        "name": "Edison Evo"
-    },
-    "variant": {
-        "id": 1,
-        "name": "Edison Evo",
-        "number": ""
-    },
-    "histories":[{
-        "location": "CC Lee",
-        "type": "Check in",
-        "modify_by": {
-            "user": {
-                "id": 1,
-                "given_name": "CC",
-                "family_name": "Lee"
-            },
-                "company": {
-                "id": 1,
-                "name": "Bionicon"
-            }
+    {
+      "company_currency_id": 228,
+      "currency": "TWD",
+      "product_price": 33602
+    }
+  ],
+  "histories": [
+    {
+      "id": 2388,
+      "location": "",
+      "type": "Assign To Shipment",
+      "modify_by": {
+        "user": {
+          "id": 82,
+          "given_name": "Simon",
+          "family_name": "Chang"
         },
-        "timestamp": "1447679405",
-        "comment": "cc check in !"
-    }, {
-        "location": "Billy Yan",
-        "type": "Check out",
-        "modify_by": {
-            "user": {
-                "id": 1,
-                "given_name": "CC",
-                "family_name": "Lee"
-            },
-            "company": {
-                "id": 1,
-                "name": "Bionicon"
-            }
-        },
-        "timestamp": "1447601052",
-        "comment": "Billy check out !"
-    }],
-    "deposit_by": {
         "company": {
-            "id": 1,
-            "name": "Bionicon"
+          "id": 107,
+          "name": "AAAA Corp."
         }
+      },
+      "create_at": 1519713617,
+      "comment": "Shipment Number: AAAA02SH"
     },
-	"files": [{
-		"id": 1,
-		"name": "proforma.jpg",
-		"date": 1498730137,
-		"comment": "proforma invoice",
-		"uploaded_by": {
-			"id": 1,
-			"given_name": "Abc",
-			"family_name": "Hi",
-			"company": {
-				"id": 1,
-				"name": "Bike"
-			}
-		},
-		"download": "http:abc.abc.com"
-	}]
+    {
+      "id": 2385,
+      "location": "",
+      "type": "Assign To PO",
+      "modify_by": {
+        "user": {
+          "id": 82,
+          "given_name": "Simon",
+          "family_name": "Chang"
+        },
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "create_at": 1519713509,
+      "comment": "PO Number: AAAA01PO"
+    },
+    {
+      "id": 2207,
+      "location": "Simon Chang",
+      "type": "checkin",
+      "modify_by": {
+        "user": {
+          "id": 83,
+          "given_name": "Simon",
+          "family_name": "Chang"
+        },
+        "company": {
+          "id": 108,
+          "name": "Tsannkuen"
+        }
+      },
+      "create_at": 1517886745,
+      "comment": "swift7*1"
+    },
+    {
+      "id": 2206,
+      "location": "",
+      "type": "checkout",
+      "modify_by": {
+        "user": {
+          "id": 82,
+          "given_name": "Simon",
+          "family_name": "Chang"
+        },
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "create_at": 1517886745,
+      "comment": "auto checkout by system"
+    },
+    {
+      "id": 2092,
+      "location": "Simon Chang",
+      "type": "checkin",
+      "modify_by": {
+        "user": {
+          "id": 82,
+          "given_name": "Simon",
+          "family_name": "Chang"
+        },
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "create_at": 1517370951,
+      "comment": "Refunded, automatically check in by system"
+    },
+    {
+      "id": 2085,
+      "location": "",
+      "type": "sell",
+      "modify_by": {
+        "user": {
+          "id": 82,
+          "given_name": "Simon",
+          "family_name": "Chang"
+        },
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "create_at": 1517369660,
+      "comment": ""
+    }
+  ],
+  "deposit_by": {
+    "company": {
+      "id": 107,
+      "name": "AAAA Corp."
+    }
+  },
+  "files": [
+    {
+      "id": 79,
+      "name": "ii.jpg",
+      "date": 1517542365,
+      "comment": "",
+      "uploaded_by": {
+        "id": 82,
+        "given_name": "Simon",
+        "family_name": "Chang",
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "download": "http://xxx.com/xxx/download"
+    },
+    {
+      "id": 101,
+      "name": "xxxx.png",
+      "date": 1520318004,
+      "comment": "123",
+      "uploaded_by": {
+        "id": 82,
+        "given_name": "Simon",
+        "family_name": "Chang",
+        "company": {
+          "id": 107,
+          "name": "AAAA Corp."
+        }
+      },
+      "download": "http://xxx.com/xxx/download"
+    }
+  ]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
+| id | integer | product id |
 | number | integer | product number |
 | short_number | number | product short number |
 | serial_number | string | product serial  number |
+| qrcode | string | product qrcode encoded by base64 |
+| sold | boolean | product state, **0:** normal **1:** sold |
+| printed_at | timestamp | the last printed time of product |
 | **company** | **object** | products belongs to which company |
 | *id* | integer | company id |
 | *name* | string | company name |
-| **prices** | **object** | product prices |
-| currency |  | price currency |
-| price |  | price price |
 | **item** | **object** | products belongs to which item |
 | *id* | integer | item id |
 | *number* | string | item number |
@@ -344,15 +448,19 @@ Success
 | *id* | integer | variant id |
 | *name* | string | variant name |
 | *number* | string |  variant’s number |
-| sold | boolean | product state, **0:** normal **1:** sold |
-| qrcode | string | product qrcode encoded by base64 |
-| printed_at | timestamp | the last printed time of product |
+| **prices** | **array** | product prices |
+| company_currency_id | integer | company currency id |
+| currency | string | company currency |
+| product_price |  | product price |
 | **histories** | **array** | product histories |
 | location | string | the user who is the last check in |
 | type | string | product check type |
 ||| param: |
 ||| **check in** |
 ||| **check out** |
+||| **Assign To Shipment** |
+||| **Assign To PO** |
+||| **sell** |
 | **modify_by** | **object** |  |
 | *user* | **object** | modify by whom |
 | *id* | integer | user id |
@@ -418,6 +526,16 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "product_num": "1A01B021440012345",
     "serial_number": "1A01B021440012345",
+    "prices": [
+        {
+          "company_currency_id": 227,
+          "product_price": 1000
+        },
+        {
+          "company_currency_id": 228,
+          "product_price": 33602
+        }
+    ],
     "added_files": [{
 		"name": "proforma.jpg",
 		"date": 1498730137,
@@ -433,6 +551,9 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | product_number | string | product’s number |
 | serial_number | string (option) | product serial number |
+| **prices** | **array (option)** | product prices |
+| *company_currency_id* | integer | company currency id |
+| *product_price* | integer | product price |
 | **added_files** | **array (option)** | uploaded files |
 | *name* | string | file name |
 | *date* | timestamp | uploaded date |
@@ -477,6 +598,7 @@ Failure
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
 ||| **permission deny:** not product owner or shipment importer|
+||| **product sold:** product is sold |
 | *added_files* | **array (option)** | **invalid format:** required parameter not exist |
 ||| **invlid date format:** date not timestamp |
 | *deleted_files* | **array (option)** | **invalid files:** file id not found |
