@@ -264,7 +264,7 @@ Success
     "name": "White",
     "number": "NX.GK6AA.001"
   },
-  "prices": [
+  "prices": [
     {
       "company_currency_id": 227,
       "currency": "EUR",
