@@ -498,7 +498,6 @@ Success
       "name": "Variant Test"
     },
     "price": 100,
-    "discount": 15,
     "discount_price": 85,
     "product_status": "initial"
   },{
@@ -517,7 +516,6 @@ Success
       "name": "Variant Test"
     },
     "price": 100,
-    "discount": 15,
     "discount_price": 85,
     "product_status": "initial"
   }],

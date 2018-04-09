@@ -224,7 +224,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/cart/product/discount/edit` |
 | Method | `post` |
-| Use | give product discount |
+| Use | give product discount amount |
 | Notice |  |
 
 
@@ -236,7 +236,7 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "product_number": "BION000001",
-  "discount": 100,
+  "discount_amount": 1,
   "cart_id": 1
 }
 ```
@@ -246,7 +246,7 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
 | **product_number** | **array** | product number (from scan QR-Code or user keyin) |
-| currency | string | product be paid by this currency |
+| *discount_amount* | integer | product discount amount |
 
 > Return Parameters
 
@@ -437,10 +437,10 @@ Success
   },
   "products":[{
     "number":"A00001",
-    "discount": 0
+    "discount_amount": 0
     }, {
     "number":"A00002",
-    "discount":"0"
+    "discount_amount": 0
   }]
 }
 ```
@@ -453,7 +453,7 @@ Success
 | *name* | string | company name |
 | **products** | **array** | products in the cart |
 | *product_number* | string | product number |
-| *discount* | integer | product discount amount |
+| *discount_amount* | integer | product discount amount |
 | company_id | integer | compay id |
 | **price** | **object** | |
 | *subtotal* | number | total product original price |

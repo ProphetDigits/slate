@@ -140,7 +140,6 @@ Success
         "product": "HORA001PD",
         "currency": "TWD",
         "sell_price": 143672,
-        "discount": 20,
         "payment_method": "credit_card",
         "deposit": 50,
         "vat": {
@@ -172,7 +171,6 @@ Success
         "product": "HORA001PD",
         "currency": "TWD",
         "sell_price": 143672,
-        "discount": 20,
         "payment_method": "cash",
         "deposit": 50,
         "vat": {
