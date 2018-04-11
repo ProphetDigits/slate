@@ -236,7 +236,7 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "product_number": "BION000001",
-  "discount_amount": 1,
+  "discount_amount": 1.01,
   "cart_id": 1
 }
 ```
@@ -246,7 +246,7 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
 | **product_number** | **array** | product number (from scan QR-Code or user keyin) |
-| *discount_amount* | integer | product discount amount |
+| *discount_amount* | double | product discount amount |
 
 > Return Parameters
 
