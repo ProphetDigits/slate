@@ -38,29 +38,29 @@ Success
 ```json
 {
     "shipments_of_brand": [{
-		"number": "AAAA0000000001SH",
-		"status": "Preparing",
-		"shipped_at": 1498730137,
-		"comment": "",
-		"shipped_area": {
-			"id": 1,
-			"name": "Aruba"
-		},
-		"company": {
-			"id": 1,
-			"name": "Bike"
-		},
-		"importer": {
-			"id": 1,
-			"name": "Bike"
-		},
-		"recipient": {
-			"company_name": "Bike",
-			"given_name": "Abc",
-			"family_name": "Hi"
-		}
-	}],
-	"shipments_of_importer": []
+        "number": "AAAA0000000001SH",
+        "status": "Preparing",
+        "shipped_at": 1498730137,
+        "comment": "",
+        "shipped_area": {
+            "id": 1,
+            "name": "Aruba"
+        },
+        "company": {
+            "id": 1,
+            "name": "Bike"
+        },
+        "importer": {
+            "id": 1,
+            "name": "Bike"
+        },
+        "recipient": {
+            "company_name": "Bike",
+            "given_name": "Abc",
+            "family_name": "Hi"
+        }
+    }],
+    "shipments_of_importer": []
 }
 ```
 
@@ -141,92 +141,92 @@ Success
 
 ```json
 {
-	"number": "AAAA0000000001SH",
-	"status": "Preparing",
-	"proforma_invoice_number": "",
-	"comment": "",
-	"shipped_at": 1498730137,
-	"tracking_number": "",
-	"pieces": 1,
-	"shipped_area": {
-		"id": 1,
-		"name": "Aruba"
-	},
-	"company": {
-		"id": 1,
-		"name": "Bike",
-		"currency_name": "EUR"
-	},
-	"importer": {
-		"id": 1,
-		"name": "Bike",
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"recipient": {
-		"company_name": "Bike",
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"histories": [{
-		"id": 1,
-		"status": "Preparing",
-		"comment": "",
-		"date": 1498730137
-	}],
-	"packages": [{
-		"item": {
-			"id": 1,
-			"name": "watch",
-			"number": "watch-001"
-		},
-		"variant": {
-			"id": 1,
-			"name": "k1-gold",
-			"taric_code": ""
-		},
-		"id": 1,
-		"proforma_description": "",
-		"invoice_show": true,
-		"products": ["AAAA0000000001PD", "AAAA0000000011PD"],
-		"unit_value": 999.99
-	}],
-	"files": [{
-		"id": 1,
-		"name": "proforma.jpg",
-		"date": 1498730137,
-		"comment": "proforma invoice",
-		"uploaded_by": {
-			"id": 1,
-			"given_name": "Abc",
-			"family_name": "Hi",
-			"company": {
-				"id": 1,
-				"name": "Bike"
-			}
-		},
-		"download": "http:abc.abc.com"
-	}],
-	"status_message": {
-		"country": "country not found",
-		"importer": "importer not in country"
-	}
+    "number": "AAAA0000000001SH",
+    "status": "Preparing",
+    "proforma_invoice_number": "",
+    "comment": "",
+    "shipped_at": 1498730137,
+    "tracking_number": "",
+    "pieces": 1,
+    "shipped_area": {
+        "id": 1,
+        "name": "Aruba"
+    },
+    "company": {
+        "id": 1,
+        "name": "Bike",
+        "currency_name": "EUR"
+    },
+    "importer": {
+        "id": 1,
+        "name": "Bike",
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "recipient": {
+        "company_name": "Bike",
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "histories": [{
+        "id": 1,
+        "status": "Preparing",
+        "comment": "",
+        "date": 1498730137
+    }],
+    "packages": [{
+        "item": {
+            "id": 1,
+            "name": "watch",
+            "number": "watch-001"
+        },
+        "variant": {
+            "id": 1,
+            "name": "k1-gold",
+            "taric_code": ""
+        },
+        "id": 1,
+        "proforma_description": "",
+        "invoice_show": true,
+        "products": ["AAAA0000000001PD", "AAAA0000000011PD"],
+        "unit_value": 999.99
+    }],
+    "files": [{
+        "id": 1,
+        "name": "proforma.jpg",
+        "date": 1498730137,
+        "comment": "proforma invoice",
+        "uploaded_by": {
+            "id": 1,
+            "given_name": "Abc",
+            "family_name": "Hi",
+            "company": {
+                "id": 1,
+                "name": "Bike"
+            }
+        },
+        "download": "http:abc.abc.com"
+    }],
+    "status_message": {
+        "country": "country not found",
+        "importer": "importer not in country"
+    }
 }
 ```
 
@@ -341,55 +341,58 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "proforma_invoice_number": "",
-	"comment": "",
-	"shipped_at": 1498730137,
-	"tracking_number": "",
-	"pieces": 1,
-	"shipped_area_id": 1,
-	"importer": {
-		"id": 1,
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"recipient": {
-		"company_name": "Bike",
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"added_histories": [{
-		"status": "Preparing",
-		"comment": "",
-		"date": 1498730137
-	}],
-	"added_packages": [{
-		"variant_id": 1,
-		"proforma_description": "",
-		"invoice_show": true,
-		"products": ["AAAA0000000001PD", "AAAA0000000011PD"],
-		"unit_value": 999.99
-	}],
-	"added_files": [{
-		"name": "proforma.jpg",
-		"date": 1498730137,
-		"comment": "proforma invoice",
-		"resource": ""
-	}]
+    "comment": "",
+    "shipped_at": {
+        "timestamp": 1498730137,
+        "offset": 28800
+    },
+    "tracking_number": "",
+    "pieces": 1,
+    "shipped_area_id": 1,
+    "importer": {
+        "id": 1,
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "recipient": {
+        "company_name": "Bike",
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "added_histories": [{
+        "status": "Preparing",
+        "comment": "",
+        "date": 1498730137
+    }],
+    "added_packages": [{
+        "variant_id": 1,
+        "proforma_description": "",
+        "invoice_show": true,
+        "products": ["AAAA0000000001PD", "AAAA0000000011PD"],
+        "unit_value": 999.99
+    }],
+    "added_files": [{
+        "name": "proforma.jpg",
+        "date": 1498730137,
+        "comment": "proforma invoice",
+        "resource": ""
+    }]
 }
 ```
 
@@ -398,7 +401,9 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | proforma_invoice_number | string (option) | proforma_invoice_number of shipment |
 | comment | string (option) | shipment comment |
-| shipped_at | timestamp (option) | shipped date |
+| **shipped_at** | **object (option)** | shipped date |
+| *timestamp* | timestamp | specifies the desired time as seconds since midnight, January 1, 1970 UTC |
+| *offset* | integer | the offset from UTC (in seconds) for the current area |
 | tracking_number | string | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
@@ -453,7 +458,7 @@ Success
 
 ```json
 {
-	"shipment_number": "AAAA0000000001SH"
+    "shipment_number": "AAAA0000000001SH"
 }
 ```
 
@@ -519,54 +524,57 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "shipment_number": "AAAA0000000001SH",
     "proforma_invoice_number": "",
-	"comment": "",
-	"shipped_at": 1498730137,
-	"tracking_number": "",
-	"pieces": 1,
-	"shipped_area_id": 1,
-	"importer": {
-		"id": 1,
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"recipient": {
-		"company_name": "Bike",
-		"given_name": "Abc",
-		"family_name": "Hi",
-		"title": 1,
-		"phone": "0123456789",
-		"email": "abc@abc.com",
-		"street": "qq",
-		"city": "ww",
-		"state": "ee",
-		"postal_code": "123",
-		"country": "Taiwan"
-	},
-	"added_histories": [],
-	"added_packages": [],
-	"added_files": [],
-	"edited_histories": [{
-		"id": 1,
-		"comment": ""
-	}],
-	"edited_packages": [{
-		"id": 1,
-		"proforma_description": "",
-		"invoice_show": true,
-		"products": ["AAAA0000000001PD", "AAAA0000000011PD"],
-		"unit_value": 999.99
-	}],
-	"deleted_histories": [1, 2, 3],
-	"deleted_packages": [1, 2, 3],
-	"deleted_files": [1, 2, 3]
+    "comment": "",
+    "shipped_at": {
+        "timestamp": 1498730137,
+        "offset": 28800
+    },
+    "tracking_number": "",
+    "pieces": 1,
+    "shipped_area_id": 1,
+    "importer": {
+        "id": 1,
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "recipient": {
+        "company_name": "Bike",
+        "given_name": "Abc",
+        "family_name": "Hi",
+        "title": 1,
+        "phone": "0123456789",
+        "email": "abc@abc.com",
+        "street": "qq",
+        "city": "ww",
+        "state": "ee",
+        "postal_code": "123",
+        "country": "Taiwan"
+    },
+    "added_histories": [],
+    "added_packages": [],
+    "added_files": [],
+    "edited_histories": [{
+        "id": 1,
+        "comment": ""
+    }],
+    "edited_packages": [{
+        "id": 1,
+        "proforma_description": "",
+        "invoice_show": true,
+        "products": ["AAAA0000000001PD", "AAAA0000000011PD"],
+        "unit_value": 999.99
+    }],
+    "deleted_histories": [1, 2, 3],
+    "deleted_packages": [1, 2, 3],
+    "deleted_files": [1, 2, 3]
 }
 ```
 
@@ -576,7 +584,9 @@ Failure
 | shipment_number | string | shipment number. |
 | proforma_invoice_number | string (option) | proforma_invoice_number of shipment |
 | comment | string (option) | shipment comment |
-| shipped_at | timestamp (option) | shipped date |
+| **shipped_at** | **object (option)** | shipped date |
+| *timestamp* | timestamp | specifies the desired time as seconds since midnight, January 1, 1970 UTC |
+| *offset* | integer | the offset from UTC (in seconds) for the current area |
 | tracking_number | string (option) |  |
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
