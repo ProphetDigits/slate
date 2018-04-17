@@ -76,7 +76,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 
 
 ## Create Customization
@@ -167,7 +166,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
 | name | array | **required:** it’s necessary parameter |
@@ -271,7 +269,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 
 
 ## Edit Customization
@@ -432,5 +429,4 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**customization using**|

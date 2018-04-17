@@ -130,7 +130,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** cannot sell in the company |
 
 
 ## Purchase Order Detail
@@ -334,7 +333,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** cannot sell in the company |
 ||| **order not exist:** order number is incorrect |
 
 
@@ -402,7 +400,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:**  cannot purchase in the current company |
 
 
 ## Submit Purchase Order
@@ -468,7 +465,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:**  cannot purchase in the current company |
 ||| **order not exis:**  order number is incorrect |
 
 
@@ -537,7 +533,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:**cannot purchase in the current company |
 ||| **order not exist:** order number is incorrect |
 ||| **order submitted :** order submitted |
 
@@ -679,7 +674,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:**|
 ||| **order not exist:** order number is incorrect |
 ||| **order submitted :** order submitted |
 ||| **variant not exist :** invalid variant id |

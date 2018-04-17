@@ -115,7 +115,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**item not exist:** item number is incorrect|
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
@@ -298,7 +297,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**item not exist:** item number is incorrect|
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
@@ -432,7 +430,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**item not exist:** item number is incorrect|
 |||**illegal form input:** form format does not pass validation|
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
@@ -514,7 +511,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 |||**item not exist:** item number is incorrect|
 
 

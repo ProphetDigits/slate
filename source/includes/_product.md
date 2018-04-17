@@ -133,7 +133,6 @@ Failure
 ||| **lack of parameters:** the request does not include the necessary parameters |
 ||| **does not signin:** user does not signin |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** |
 
 
 ## Generate Product
@@ -201,7 +200,6 @@ Failure
 ||| **does not signin:** user does not signin |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** |
 
 
 ## Product Detail
@@ -735,7 +733,6 @@ Failure
 ||| **not select company yet:** user need change current company |
 ||| **company not exist:** currenct company not exist |
 ||| **not company member:** the user is not the company member |
-||| **no permission:** cannot print |
 
 
 

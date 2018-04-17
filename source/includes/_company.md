@@ -489,14 +489,6 @@ Success
 | *email* | string | The user email |
 | *administrator* | boolean | The administrator identify in the company |
 | *manager* | boolean | The highest manager in the company |
-| *item* | object | permission detail |
-||| **view:**  [boolean] user can view |
-||| **edit:**  [boolean] user can add and edit |
-||| **delete:**  [boolean] user can delete |
-| *product* | object | permission detail, as item. |
-| *option* | object | permission detail, as item. |
-| *order* | object | permission detail, as item. |
-| *sell* | boolean | user can sell. |
 | **currencies** | **array** | currencies which company own |
 | *id* | number | The currency id of system|
 | *name* | string | The currency name |
@@ -1004,7 +996,6 @@ Failure
 ||| **does not signin:** The user does not signin |
 ||| **company not exist:** The company not exist |
 ||| **not company member:** The user are not member in this company or no option with this company |
-||| **no permission:**  Not company administrator |
 ||| **duplicate default currency:** Two currencies is setted as the default currency |
 ||| **no default currency:** No currencies is setted as the default currency |
 
