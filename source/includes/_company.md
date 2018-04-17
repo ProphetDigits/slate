@@ -419,39 +419,7 @@ Success
 		"family_name": "Wang",
 		"email": "a@gmail.com",
 		"administrator": 1,
-		"manager": 1,
-		"role": {
-			"id": 1,
-			"name": "Unsigned"
-		}
-	}],
-	"role": [{
-		"id": 1,
-		"name": "Unsigned",
-		"default": 1,
-		"permissions": {
-			"item": {
-				"view": 0,
-				"edit": 0,
-				"delete": 0
-			}
-		},
-			"product": {
-				"view": 0,
-				"edit": 0,
-				"delete": 0
-			},
-			"option": {
-				"view": 0,
-				"edit": 0,
-				"delete": 0
-			},
-			"order": {
-				"view": 0,
-				"edit": 0,
-				"delete": 0
-			},
-			"sell": 0
+		"manager": 1
 	}],
 	"images":[{
 		"name": "xxx.jpg",
@@ -519,16 +487,8 @@ Success
 | *given_name* | string | The user given name |
 | *family_name* | string | The user family name |
 | *email* | string | The user email |
-| **role** | **object** | member's role of company |
-| *id* | integer | The role id in the company |
-| *name* | string | The role name in the company |
 | *administrator* | boolean | The administrator identify in the company |
 | *manager* | boolean | The highest manager in the company |
-| **roles** | **array** | roles of company |
-| id | integer | role id |
-| name | string | role name |
-| default | boolean | default currency |
-| permissions | **object** | permission of role |
 | *item* | object | permission detail |
 ||| **view:**  [boolean] user can view |
 ||| **edit:**  [boolean] user can add and edit |
@@ -847,7 +807,6 @@ Failure
 	"api_key": "e4cbcdc2faff41a7e311",
 	"company_id": 1,
 	"email": "cc.lee@prophetdigits.com",
-	"role_id": 1,
 	"adminstrator": false
 }
 ```
@@ -857,7 +816,6 @@ Failure
 | api_key | string | An unique token after user sign in, then user can use it to request data from API |
 | company_id | integer | The company id |
 | email | string | The user email |
-| role_id | integer | The role id of company |
 | administrator | boolean | Is company administrator |
 
 
@@ -899,7 +857,6 @@ Failure
 ||| **no permission:**  Not company administrator |
 ||| **not join:** The user email not join to this company |
 ||| **user not exist:** email is incorrent |
-||| **role not exist:** role id is incorrent |
 
 
 
@@ -971,148 +928,6 @@ Failure
 ||| **no permission:**  Not company administrator |
 ||| **not join:** The user email not join to this company |
 ||| **user not exist:** email is incorrent |
-
-
-
-## Create Company Role
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/create/role` |
-| Method | `post` |
-| Use | to create role into company |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"name": "CEO"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| company_id | string | company id |
-| name | string | role name |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-	"error_name": "no permission"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not company member:** user are not member in this company or no option with this company|
-|||**company not exist:** company not exist|
-|||**no permission:**  not company administrator|
-
-
-
-## Delete Company Role
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/delete/role` |
-| Method | `post` |
-| Use | to delete company role |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"role_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| company_id | string | company id |
-| role_id | integer | role id of company |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-	"error_name": "no permission"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not company member:** user are not member in this company or no option with this company|
-|||**company not exist:** company not exist|
-|||**no permission:**  not company administrator|
-|||**role not exist:** role id incorrent|
-|||**default role:** default role cannot be deleted|
 
 
 
@@ -1193,124 +1008,6 @@ Failure
 ||| **duplicate default currency:** Two currencies is setted as the default currency |
 ||| **no default currency:** No currencies is setted as the default currency |
 
-
-
-## Authority Of Company
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/auth` |
-| Method | `post` |
-| Use | to get authority of currency |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| company_id | integer | company_id |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-	"manager": {
-		"profile":{
-			"edit": false
-		},
-		"member": {
-			"edit": false,
-			"delete": false
-		},
-		"role": {
-			"edit": false,
-			"delete": false
-		},
-		"currency": {
-			"edit": false
-		}
-	},
-	"role": {
-		"item":{
-			"view": true,
-			"edit": false,
-			"delete": false
-		},
-		"product": {
-			"view": true,
-			"edit": false,
-			"delete": false
-		},
-		"option": {
-			"view": true,
-			"edit": false,
-			"delete": false
-		},
-		"order": {
-			"view": true,
-			"edit": false,
-			"delete": false
-		},
-		"sell": true
-	}
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| **manager** | **object** | user's authority in the company |
-| *profile* | object | **edit:** [boolean] user can edit company profile|
-|||**delete:** [boolean] user can delete member|
-| *member* | object | **edit:** [boolean] user can add and edit member|
-| *role* | object | **edit:** [boolean] user can add and edit role|
-|||**delete:** [boolean] user can delete role|
-| *currency* | object | **edit:** [boolean] user can add and edit currency|
-| **role** | **object** | user permissions in the company |
-| *item* | object | permission detail |
-||| **view:**  [boolean] user can view |
-||| **edit:**  [boolean] user can add and edit |
-||| **delete:**  [boolean] user can delete |
-| *product* | object | permission detail, as item. |
-| *option* | object | permission detail, as item. |
-| *order* | object | permission detail, as item. |
-| *sell* | boolean | user can sell. |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-	"error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not company member:** doesn’t join to this company|
-|||**no permission:** not company manager|
 
 
 ## Change Current Company
