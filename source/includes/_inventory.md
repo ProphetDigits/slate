@@ -95,7 +95,6 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
-|||**no permission:**|
 
 
 ## Search Inventory
@@ -201,4 +200,3 @@ Failure
 |||**not select company yet:** user need change current company |
 |||**company not exist:** currenct company not exist |
 |||**not company member:** the user is not the company member |
-|||**no permission:**cannot purchase in the current company |
