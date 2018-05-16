@@ -6018,7 +6018,12 @@ Failure
     </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -6132,6 +6137,26 @@ Failure
 <td style="text-align: right"><em>value</em></td>
 <td style="text-align: left">value id of spec</td>
 <td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type - Limited or Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">value unit - Years or Months</td>
 </tr>
 </tbody></table>
 
@@ -6398,7 +6423,12 @@ Success
     </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contain"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -6633,6 +6663,26 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">value unit</td>
+</tr>
 </tbody></table>
 
 <aside class="warning">
@@ -6813,7 +6863,12 @@ Failure
     </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -6932,6 +6987,26 @@ Failure
 <td style="text-align: right"><em>value</em></td>
 <td style="text-align: left">value id of spec</td>
 <td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type - Limited or Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">value unit - Years or Months</td>
 </tr>
 </tbody></table>
 
@@ -9304,7 +9379,12 @@ Failure
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -9388,6 +9468,26 @@ Failure
 <td style="text-align: right"><em>cover</em></td>
 <td style="text-align: left">boolean</td>
 <td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type - Limited or Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">value unit - Years or Months</td>
 </tr>
 </tbody></table>
 
@@ -9613,7 +9713,12 @@ Success
             </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}],</span><span class="w">
-</span><span class="err">}</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
 <tr>
@@ -9757,6 +9862,26 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">value unit</td>
+</tr>
 </tbody></table>
 
 <aside class="warning">
@@ -9867,7 +9992,12 @@ Failure
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -9951,6 +10081,26 @@ Failure
 <td style="text-align: right"><em>cover</em></td>
 <td style="text-align: left">boolean</td>
 <td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type - Limited or Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">value unit - Years or Months</td>
 </tr>
 </tbody></table>
 
@@ -10529,173 +10679,161 @@ Failure
 Success
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1836</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA01PD"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"short_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"qrcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"printed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520479638</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NX.GK6AA.001"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Swift 7"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NX.GK6AA.001"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"company_currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">227</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"company_currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">228</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TWD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">33602</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2388</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assign To Shipment"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713617</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment Number: AAAA02SH"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2385</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assign To PO"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713509</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO Number: AAAA01PO"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2207</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Chang"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tsannkuen"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517886745</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swift7*1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2206</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkout"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517886745</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto checkout by system"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2092</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Chang"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517370951</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refunded, automatically check in by system"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2085</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517369660</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"deposit_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1836</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA01PD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"short_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"qrcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"printed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520479638</span><span class="p">,</span><span class="w">
     </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ii.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"uploaded_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxx.com/xxx/download"</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NX.GK6AA.001"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Swift 7"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NX.GK6AA.001"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"company_currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">227</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"company_currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">228</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TWD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">33602</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2388</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assign To Shipment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713617</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment Number: AAAA02SH"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2385</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assign To PO"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713509</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO Number: AAAA01PO"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2207</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Chang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tsannkuen"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517886745</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swift7*1"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2206</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkout"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517886745</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto checkout by system"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2092</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Chang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517370951</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refunded, automatically check in by system"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2085</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"modify_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517369660</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"deposit_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ii.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"uploaded_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxx.com/xxx/download"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520318004</span><span class="p">,</span><span class="w">
@@ -10710,8 +10848,14 @@ Success
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxx.com/xxx/download"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -11011,6 +11155,36 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">download link, need include Authorization header in the request</td>
 </tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">value unit</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>start_date</em></td>
+<td style="text-align: left">timestamp or null</td>
+<td style="text-align: left">start date of warranty</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>end_date</em></td>
+<td style="text-align: left">timestamp or null</td>
+<td style="text-align: left">end date of warranty</td>
+</tr>
 </tbody></table>
 
 <aside class="warning">
@@ -11092,7 +11266,12 @@ Failure
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proforma invoice"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}],</span><span class="w">
-    </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -11161,6 +11340,36 @@ Failure
 <td style="text-align: right"><strong>deleted_files</strong></td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">a set of file id</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>warranty</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">warranty setting of item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>type</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">warranty type - Limited or Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">warranty value</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>unit</em></td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">value unit - Years or Months</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>start_date</em></td>
+<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: left">start date of limited warranty for sold product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>end_date</em></td>
+<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: left">end date of limited warranty for sold product</td>
 </tr>
 </tbody></table>
 
