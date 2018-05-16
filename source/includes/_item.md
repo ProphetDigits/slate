@@ -46,7 +46,12 @@
 	"specs": [{
 		"id": 1,
 		"value": 2
-	}]
+	}],
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -73,6 +78,11 @@
 | **specs** | **array** | spec setting |
 | *id* | spec id |
 | *value* | value id of spec |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type - Limited or Lifetime |
+| *value* | positive integer (option) | warranty value |
+| *unit* | string (option) | value unit - Years or Months |
+
 
 
 > Return Parameters
@@ -221,7 +231,12 @@ Success
 	"unit": "Set",
 	"contain": 1,
 	"stock": 3,
-	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."
+	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -272,6 +287,10 @@ Success
 | **company** | **object** | the item belong to which company |
 | *id* | integer | company id |
 | *name* | string | company name |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type |
+| *value* | integer | warranty value |
+| *unit* | string | value unit |
 
 
 
@@ -360,7 +379,12 @@ Failure
 	"specs": [{
 		"id": 1,
 		"value": 2
-	}]
+	}],
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -388,6 +412,10 @@ Failure
 | **specs** | **array** | spec setting |
 | *id* | spec id |
 | *value* | value id of spec |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type - Limited or Lifetime |
+| *value* | positive integer (option) | warranty value |
+| *unit* | string (option) | value unit - Years or Months |
 
 
 > Return Parameters

@@ -142,7 +142,12 @@ Failure
 	}, {
 		"name": "qweqweq.jpg",
 		"cover": false
-	}]
+	}],
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -163,6 +168,10 @@ Failure
 | **images** | **array** | variant images |
 | *name* | string | file name which get from back end after specific image has been updated |
 | *cover* | boolean | cover image tag |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type - Limited or Lifetime |
+| *value* | positive integer (option) | warranty value |
+| *unit* | string (option) | value unit - Years or Months |
 
 > Return Parameters
 
@@ -299,6 +308,11 @@ Success
 			"1080p": "http://abc/yyy_1080p.jpg"
 		}
 	}],
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -331,6 +345,10 @@ Success
 | *480p* | string | picture url of 480 resolution (854x480) |
 | *720p* | string | picture url of 720 resolution (1280x720) |
 | *1080p* | string | picture url of 1080 resolution (1920x1080) |
+| **warranty** | **object** | warranty setting of variant |
+| *type* | string | warranty type |
+| *value* | integer | warranty value |
+| *unit* | string | value unit |
 
 <aside class="warning">
 Failure
@@ -394,7 +412,12 @@ Failure
 	}, {
 		"name": "qweqweq.jpg",
 		"cover": false
-	}]
+	}],
+	"warranty": {
+		"type": "Limited",
+		"value": 2,
+		"unit": "Years"
+	}
 }
 ```
 
@@ -415,6 +438,10 @@ Failure
 | **images** | **array** | variant images |
 | *name* | string | file name which get from back end after specific image has been updated |
 | *cover* | boolean | cover image tag |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type - Limited or Lifetime |
+| *value* | positive integer (option) | warranty value |
+| *unit* | string (option) | value unit - Years or Months |
 
 
 > Return Parameters

@@ -241,173 +241,161 @@ Success
 
 ```json
 {
-  "id": 1836,
-  "number": "AAAA01PD",
-  "short_number": "00001",
-  "serial_number": "",
-  "qrcode": "xxxx",
-  "sold": 0,
-  "printed_at": 1520479638,
-  "company": {
-    "id": 107,
-    "name": "AAAA Corp."
-  },
-  "item": {
-    "id": 131,
-    "number": "NX.GK6AA.001",
-    "name": " Swift 7"
-  },
-  "variant": {
-    "id": 169,
-    "name": "White",
-    "number": "NX.GK6AA.001"
-  },
-  "prices": [
-    {
-      "company_currency_id": 227,
-      "currency": "EUR",
-      "product_price": 1000
-    },
-    {
-      "company_currency_id": 228,
-      "currency": "TWD",
-      "product_price": 33602
-    }
-  ],
-  "histories": [
-    {
-      "id": 2388,
-      "location": "",
-      "type": "Assign To Shipment",
-      "modify_by": {
-        "user": {
-          "id": 82,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "create_at": 1519713617,
-      "comment": "Shipment Number: AAAA02SH"
-    },
-    {
-      "id": 2385,
-      "location": "",
-      "type": "Assign To PO",
-      "modify_by": {
-        "user": {
-          "id": 82,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "create_at": 1519713509,
-      "comment": "PO Number: AAAA01PO"
-    },
-    {
-      "id": 2207,
-      "location": "Simon Chang",
-      "type": "checkin",
-      "modify_by": {
-        "user": {
-          "id": 83,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 108,
-          "name": "Tsannkuen"
-        }
-      },
-      "create_at": 1517886745,
-      "comment": "swift7*1"
-    },
-    {
-      "id": 2206,
-      "location": "",
-      "type": "checkout",
-      "modify_by": {
-        "user": {
-          "id": 82,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "create_at": 1517886745,
-      "comment": "auto checkout by system"
-    },
-    {
-      "id": 2092,
-      "location": "Simon Chang",
-      "type": "checkin",
-      "modify_by": {
-        "user": {
-          "id": 82,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "create_at": 1517370951,
-      "comment": "Refunded, automatically check in by system"
-    },
-    {
-      "id": 2085,
-      "location": "",
-      "type": "sell",
-      "modify_by": {
-        "user": {
-          "id": 82,
-          "given_name": "Simon",
-          "family_name": "Chang"
-        },
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "create_at": 1517369660,
-      "comment": ""
-    }
-  ],
-  "deposit_by": {
+    "id": 1836,
+    "number": "AAAA01PD",
+    "short_number": "00001",
+    "serial_number": "",
+    "qrcode": "xxxx",
+    "sold": 0,
+    "printed_at": 1520479638,
     "company": {
-      "id": 107,
-      "name": "AAAA Corp."
-    }
-  },
-  "files": [
-    {
-      "id": 79,
-      "name": "ii.jpg",
-      "date": 1517542365,
-      "comment": "",
-      "uploaded_by": {
-        "id": 82,
-        "given_name": "Simon",
-        "family_name": "Chang",
-        "company": {
-          "id": 107,
-          "name": "AAAA Corp."
-        }
-      },
-      "download": "http://xxx.com/xxx/download"
+        "id": 107,
+        "name": "AAAA Corp."
     },
-    {
+    "item": {
+        "id": 131,
+        "number": "NX.GK6AA.001",
+        "name": " Swift 7"
+    },
+    "variant": {
+        "id": 169,
+        "name": "White",
+        "number": "NX.GK6AA.001"
+    },
+    "prices": [{
+        "company_currency_id": 227,
+        "currency": "EUR",
+        "product_price": 1000
+    }, {
+        "company_currency_id": 228,
+        "currency": "TWD",
+        "product_price": 33602
+    }],
+    "histories": [{
+        "id": 2388,
+        "location": "",
+        "type": "Assign To Shipment",
+        "modify_by": {
+            "user": {
+                "id": 82,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "create_at": 1519713617,
+        "comment": "Shipment Number: AAAA02SH"
+    }, {
+        "id": 2385,
+        "location": "",
+        "type": "Assign To PO",
+        "modify_by": {
+            "user": {
+                "id": 82,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "create_at": 1519713509,
+        "comment": "PO Number: AAAA01PO"
+    }, {
+        "id": 2207,
+        "location": "Simon Chang",
+        "type": "checkin",
+        "modify_by": {
+            "user": {
+                "id": 83,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 108,
+                "name": "Tsannkuen"
+            }
+        },
+        "create_at": 1517886745,
+        "comment": "swift7*1"
+    }, {
+        "id": 2206,
+        "location": "",
+        "type": "checkout",
+        "modify_by": {
+            "user": {
+                "id": 82,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "create_at": 1517886745,
+        "comment": "auto checkout by system"
+    }, {
+        "id": 2092,
+        "location": "Simon Chang",
+        "type": "checkin",
+        "modify_by": {
+            "user": {
+                "id": 82,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "create_at": 1517370951,
+        "comment": "Refunded, automatically check in by system"
+    }, {
+        "id": 2085,
+        "location": "",
+        "type": "sell",
+        "modify_by": {
+            "user": {
+                "id": 82,
+                "given_name": "Simon",
+                "family_name": "Chang"
+            },
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "create_at": 1517369660,
+        "comment": ""
+    }],
+    "deposit_by": {
+        "company": {
+        "id": 107,
+        "name": "AAAA Corp."
+        }
+    },
+    "files": [{
+        "id": 79,
+        "name": "ii.jpg",
+        "date": 1517542365,
+        "comment": "",
+        "uploaded_by": {
+            "id": 82,
+            "given_name": "Simon",
+            "family_name": "Chang",
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "download": "http://xxx.com/xxx/download"
+    }, {
       "id": 101,
       "name": "xxxx.png",
       "date": 1520318004,
@@ -422,8 +410,14 @@ Success
         }
       },
       "download": "http://xxx.com/xxx/download"
+    }],
+    "warranty": {
+        "type": "Limited",
+        "value": 2,
+        "unit": "Years",
+        "start_date": 1517542365,
+        "end_date": 1517542365
     }
-  ]
 }
 ```
 
@@ -487,6 +481,13 @@ Success
 | *id* | integer | company id |
 | *name* | string | company name |
 | *download* | string | download link, need include Authorization header in the request |
+| **warranty** | **object** | warranty setting of variant |
+| *type* | string | warranty type |
+| *value* | integer | warranty value |
+| *unit* | string | value unit |
+| *start_date* | timestamp or null | start date of warranty |
+| *end_date* | timestamp or null | end date of warranty |
+
 
 <aside class="warning">
 Failure
@@ -536,12 +537,17 @@ Failure
         }
     ],
     "added_files": [{
-		"name": "proforma.jpg",
-		"date": 1498730137,
-		"comment": "proforma invoice",
-		"resource": ""
-	}],
-    "deleted_files": [1, 2, 3]
+        "name": "proforma.jpg",
+        "date": 1498730137,
+        "comment": "proforma invoice",
+        "resource": ""
+    }],
+    "deleted_files": [1, 2, 3],
+    "warranty": {
+        "type": "Limited",
+        "value": 2,
+        "unit": "Years"
+    }
 }
 ```
 
@@ -559,6 +565,12 @@ Failure
 | *comment* | string | file comment |
 | *resource* | string | uploaded data which is encrypted by base64, exclude mime type |
 | **deleted_files** | array (option) | a set of file id |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type - Limited or Lifetime |
+| *value* | positive integer (option) | warranty value |
+| *unit* | string (option) | value unit - Years or Months |
+| *start_date* | timestamp (option) | start date of limited warranty for sold product |
+| *end_date* | timestamp (option) | end date of limited warranty for sold product |
 
 
 > Return Parameters
