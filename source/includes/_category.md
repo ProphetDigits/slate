@@ -202,7 +202,10 @@ Failure
 {
 	"api_key": "e4cbcdc2faff41a7e311",
 	"target_company_id": 1,
-	"category_id": 1
+	"category_id": 1,
+	"pager": true,
+	"page": 1,
+	"perpage": 2
 }
 ```
 
@@ -211,6 +214,9 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | target_company_id | integer | company id which user want get category detail |
 | category_id | integer | category id |
+| pager | string/boolean(option) | the flag of all items pager(true/false, default:false) |
+| page | integer(option) | the page of all items list |
+| perpage | integer(option) | items per page |
 
 
 > Return Parameters
@@ -265,7 +271,13 @@ Success
 		"name": "Cargo",
 		"company_id": 1,
 		"cover_img": {}
-	}]
+	}],
+	"all_items_pager": {																								// 本次修改 新增 pager:true show this pager
+        "total": 31,																								// 本次修改 新增 total data records
+        "per_page": 2,																								// 本次修改 新增 show per_page
+        "current_page": 1,																							// 本次修改 新增 show current page
+        "last_page": 16																					// 本次修改 新增 show last page number
+    }
 }
 ```
 
@@ -306,6 +318,11 @@ Success
 | *480p* | string | picture url of 480 resolution (854x480) |
 | *720p* | string | picture url of 720 resolution (1280x720) |
 | *1080p* | string | picture url of 1080 resolution (1920x1080) |
+| **all_items_pager** | **object** | all_items pager |
+| *total* | integer | total number of data records |
+| *per_page* | integer | items per page for input |
+| *current_page* | integer | current page number |
+| *last_page* | integer | last page number |
 
 
 <aside class="warning">
