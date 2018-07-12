@@ -215,7 +215,7 @@ Failure
 | target_company_id | integer | company id which user want get category detail |
 | category_id | integer | category id |
 | pager | string/boolean(option) | the flag of all items pager(true/false, default:false) |
-| page | integer(option) | the page of all items list |
+| page | integer(option) | the page of all items list, page < 0 will set to first page, page > last page will set to last page |
 | perpage | integer(option) | items per page |
 
 
