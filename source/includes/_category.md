@@ -272,11 +272,11 @@ Success
 		"company_id": 1,
 		"cover_img": {}
 	}],
-	"all_items_pager": {																								// 本次修改 新增 pager:true show this pager
-        "total": 31,																								// 本次修改 新增 total data records
-        "per_page": 2,																								// 本次修改 新增 show per_page
-        "current_page": 1,																							// 本次修改 新增 show current page
-        "last_page": 16																					// 本次修改 新增 show last page number
+	"all_items_pager": {	
+        "total": 31,
+		"per_page": 2,
+		"current_page": 1,
+		"last_page": 16
     }
 }
 ```
