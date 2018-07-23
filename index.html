@@ -5997,7 +5997,7 @@ Failure
 <tr>
 <td style="text-align: right">page</td>
 <td style="text-align: left">integer(option)</td>
-<td style="text-align: left">the page of all items list</td>
+<td style="text-align: left">the page of all items list, page &lt; 0 will set to first page, page &gt; last page will set to last page</td>
 </tr>
 <tr>
 <td style="text-align: right">perpage</td>
@@ -6059,11 +6059,11 @@ Success
         </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">}],</span><span class="w">
-    </span><span class="s2">"all_items_pager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                </span><span class="err">//</span><span class="w"> </span><span class="err">本次修改</span><span class="w"> </span><span class="err">新增</span><span class="w"> </span><span class="err">pager</span><span class="p">:</span><span class="kc">true</span><span class="w"> </span><span class="err">show</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">pager</span><span class="w">
-        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">                                                                                                </span><span class="err">//</span><span class="w"> </span><span class="err">本次修改</span><span class="w"> </span><span class="err">新增</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">records</span><span class="w">
-        </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">                                                                                              </span><span class="err">//</span><span class="w"> </span><span class="err">本次修改</span><span class="w"> </span><span class="err">新增</span><span class="w"> </span><span class="err">show</span><span class="w"> </span><span class="err">per_page</span><span class="w">
-        </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                                                                                          </span><span class="err">//</span><span class="w"> </span><span class="err">本次修改</span><span class="w"> </span><span class="err">新增</span><span class="w"> </span><span class="err">show</span><span class="w"> </span><span class="err">current</span><span class="w"> </span><span class="err">page</span><span class="w">
-        </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">                                                                                 </span><span class="err">//</span><span class="w"> </span><span class="err">本次修改</span><span class="w"> </span><span class="err">新增</span><span class="w"> </span><span class="err">show</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">number</span><span class="w">
+    </span><span class="s2">"all_items_pager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -21099,7 +21099,10 @@ Failure
     </span><span class="s2">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">28800</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipped_area_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -21172,9 +21175,19 @@ Failure
 <td style="text-align: left">shipment comment</td>
 </tr>
 <tr>
-<td style="text-align: right">shipped_at</td>
-<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: right"><strong>shipped_at</strong></td>
+<td style="text-align: left"><strong>object (option)</strong></td>
 <td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>timestamp</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>offset</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
 </tr>
 <tr>
 <td style="text-align: right">tracking_number</td>
@@ -21584,7 +21597,10 @@ Failure
     </span><span class="s2">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipped_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">28800</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipped_area_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -21661,9 +21677,19 @@ Failure
 <td style="text-align: left">shipment comment</td>
 </tr>
 <tr>
-<td style="text-align: right">shipped_at</td>
-<td style="text-align: left">timestamp (option)</td>
+<td style="text-align: right"><strong>shipped_at</strong></td>
+<td style="text-align: left"><strong>object (option)</strong></td>
 <td style="text-align: left">shipped date</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>timestamp</em></td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>offset</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
 </tr>
 <tr>
 <td style="text-align: right">tracking_number</td>
