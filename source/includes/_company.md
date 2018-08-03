@@ -100,6 +100,79 @@ Failure
 
 
 
+## Company List
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `company/list` |
+| Method | `get` |
+| Use | to get all companies list |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "companies":[
+        {
+          "id": 1,
+          "name": "CC Bike",
+        },
+        {
+          "id": 2,
+          "name": "BB Bike"
+        }
+    ]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **companies** | **array** | all companies in the system. Order by company name from A-Z |
+| id | number | company’s id |
+| name | string | company name |
+
+
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+
+
+
+
 ## Company List Of User
 
 ### Description
