@@ -1,5 +1,76 @@
 # Category
 
+## Category List Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `company/{company_id}/category/list` | 
+| Method | `get` | 
+| Use | to get company category |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"company_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| company_id | integer | company id which user want get category list |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"id": 1,
+	"name": "Root",
+	"subCategories": [{
+		"id": 2,
+		"name": "Category Test",
+		"subCategories": [],
+	}],
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | category id |
+| name | string | category name |
+| id | integer | item id |
+| name | string | item name |
+| subCategories | **object** | property same as above |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+|||**lack of parameters:** some input parameters missing, not in the request|
+|||**company not exist:** currenct company not exist|
+
 ## Category List
 
 ### Description
