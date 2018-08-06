@@ -252,6 +252,108 @@ Failure
 | parent_id | array | **required:** it’s necessary parameter 
 |||**not exist:** category id not exist|
 
+## Category Item List Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `category/{category_id}/item/list` | 
+| Method | `get` | 
+| Use | to show category item list |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"category_id": 1,
+	"page": 1,
+	"perpage": 2
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| category_id | integer | category id |
+| page | integer(option) | the page of all items list, page < 0 will set to first page, page > last page will set to last page, default: 1 |
+| perpage | integer(option) | items per page, default: 60 |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"id": 1,
+	"name": "Category Name",
+	"items":[{
+		"id": 1,
+		"name": "Edison Evo",
+		"cover_img": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		},
+        "currency": "EUR",
+        "price": 10
+	}],
+	"pager": {	
+        "total": 31,
+		"per_page": 2,
+		"current_page": 1,
+		"last_page": 16
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | category id |
+| name | string | category name |
+| **items** | **array** | items in this category |
+| *id* | integer | item id |
+| *name* | string | item name |
+| *price* | number | item price |
+| *currency* | string | default currency name of company |
+| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| **pager** | **object** | items pager |
+| *total* | integer | total number of data records |
+| *per_page* | integer | items per page for input |
+| *current_page* | integer | current page number |
+| *last_page* | integer | last page number |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+|||**lack of parameters:** some input parameters missing, not in the request|
+|||**company not exist:** currenct company not exist|
+|||**category not exist:** category id is incorrect|
+|||**illegal form input':** form format does not pass validation|
 
 ## Category Detail
 
