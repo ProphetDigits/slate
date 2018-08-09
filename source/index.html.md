@@ -10,7 +10,6 @@ toc_footers:
 
 includes:
   - introduction
-  - sampleAPI
   - user
   - system
   - company
@@ -18,6 +17,7 @@ includes:
   - item
   - specification
   - customization
+  - spec2
   - variant
   - product
   - option
