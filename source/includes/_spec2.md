@@ -74,7 +74,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ol><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ol> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
 
 
 
@@ -159,7 +159,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ol><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ol> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_found:<ol><li>The spec is not exist</li><li>The spec does not belongs to current company</li></ol></li></ul> |
 
 
 
@@ -230,7 +230,7 @@ Failure
 
 ```json
 {
-	"error_name": "illegal form input",
+	"error_name": "illegal_form_input",
 	"validation": {
 		"display_name": ["required"],
 		"categories": ["invalid"]
@@ -240,10 +240,97 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ol><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal form input: The form format does not pass validation</li></ol> |
-| **validation** | object (option) | if the err_name is 'illegal form input', system should assign the name of wrong type for each error input |
-| name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol> |
-| display_name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| name | array | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| display_name | array | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| comment | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| part | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
+| categories | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+
+
+
+## Edit Spec2
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/spec2/edit` |
+| Method | `post` |
+| Use | to edit spec |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311",
+	"id": 1,
+	"name": "color",
+	"display_name": "Color",
+	"categories": [1, 2, 3]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | System gives it after user sign in |
+| id | integer | The id of spec |
+| name | string (option) | The name of spec |
+| display_name | string (option) | The display name of spec |
+| comment | string (option) | The comment of spec |
+| part | boolean (option) | The spec is part or not |
+| categories | array (option) | The set of id of category |
+
+
+> Return Parameters When Success
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"spec": {
+		"id": 1
+	}
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **spec** | *object* | |
+| id | integer | The id of spec |
+
+
+> Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name": "illegal_form_input",
+	"validation": {
+		"name": ["dulicate"],
+		"display_name": ["required"],
+		"categories": ["not exist"]
+	}
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_found:<ol><li>The spec is not exist</li><li>The spec does not belongs to current company</li></ol></li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| display_name | array (option) | required: <ol><li>The data is empty</li></ol> |
 | part | array (option) | invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
-
