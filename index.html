@@ -2431,6 +2431,175 @@ Failure
 </tr>
 </tbody></table>
 
+<h2 id="get-company-detail-without-login">Get Company Detail Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">company/{company_id}/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To get the company detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Bike"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">The company images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The image name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">Is cover image <br /> false: normal image <br /> true: cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>resource</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">The resolution of picture</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"company not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> The company not exist</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-company-detail">Get Company Detail</h2>
 
 <h3 id="description">Description</h3>
@@ -4885,6 +5054,141 @@ Failure
 
           <h1 id="category">Category</h1>
 
+<h2 id="category-list-without-login">Category List Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">company/{company_id}/category/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to get company category</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id which user want get category list</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Root"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category Test"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="err">}</span><span class="p">],</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">category id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">category name</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right">subCategories</td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">property same as above</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+</tbody></table>
+
 <h2 id="category-list">Category List</h2>
 
 <h3 id="description">Description</h3>
@@ -5267,6 +5571,236 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>not exist:</strong> category id not exist</td>
+</tr>
+</tbody></table>
+
+<h2 id="category-item-list-without-login">Category Item List Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">category/{category_id}/item/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to show category item list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"perpage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">category_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">category id</td>
+</tr>
+<tr>
+<td style="text-align: right">page</td>
+<td style="text-align: left">integer(option)</td>
+<td style="text-align: left">the page of all items list, page &lt; 0 will set to first page, page &gt; last page will set to last page, default: 1</td>
+</tr>
+<tr>
+<td style="text-align: right">perpage</td>
+<td style="text-align: left">integer(option)</td>
+<td style="text-align: left">items per page, default: 60</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edison Evo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"pager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">category id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">category name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>items</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">items in this category</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>price</em></td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">item price</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>currency</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">default currency name of company</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>pager</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">items pager</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>total</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">total number of data records</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>per_page</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">items per page for input</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>current_page</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">current page number</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>last_page</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">last page number</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>category not exist:</strong> category id is incorrect</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>illegal form input&rsquo;:</strong> form format does not pass validation</td>
 </tr>
 </tbody></table>
 
@@ -6351,6 +6885,249 @@ Failure
 </tr>
 </tbody></table>
 
+<h2 id="item-detail-without-login">Item Detail Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">item/{item_id}/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to create item</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item&rsquo;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Edison Evo"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"EUR"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"basic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"TWD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"basic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>prices</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item prices of currency</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>min</em></td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">min price in all variants of item. value is null if item doesn’t own variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>basic</em></td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">basic price which be set by user in the item</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>max</em></td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">max price in all variants of item. value is null if item doesn’t own variant</td>
+</tr>
+<tr>
+<td style="text-align: right">description</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item description</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">item images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>specs</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">spec setting</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">spec id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">spec display name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>value</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">value id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">spec value id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">spec value display name</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal form input"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>item not exist:</strong> item number is incorrect</td>
+</tr>
+</tbody></table>
+
 <h2 id="item-detail">Item Detail</h2>
 
 <h3 id="description">Description</h3>
@@ -6426,6 +7203,30 @@ Success
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Edison Evo"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://evo.bionicon.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contain"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"EUR"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"basic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"TWD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"basic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deposit_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">    
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6452,6 +7253,7 @@ Success
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youtube"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"hyperlink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://youtu.be/G2reQQUQ-Dc"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
+</span><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="err">HEAD</span><span class="w">
     </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://evo.bionicon.com/"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -6474,9 +7276,69 @@ Success
     </span><span class="nt">"contain"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIX1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIX1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPTION1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIX2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIX2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPTION2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUST1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUST1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHITE"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLACK"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEMBLUE"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIZE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIZE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9507,7 +10369,7 @@ Failure
 <tr>
 <td style="text-align: right">part</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">The spec is part or not</td>
+<td style="text-align: left">The spec is part or not<br />Accepted input are true, false, 1, 0, &ldquo;1&rdquo;, and &ldquo;0&rdquo;</td>
 </tr>
 <tr>
 <td style="text-align: right">categories</td>
@@ -9584,27 +10446,27 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">name</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">display_name</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">comment</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">part</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">categories</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
 </tr>
 </tbody></table>
@@ -9685,7 +10547,7 @@ Failure
 <tr>
 <td style="text-align: right">part</td>
 <td style="text-align: left">boolean (option)</td>
-<td style="text-align: left">The spec is part or not</td>
+<td style="text-align: left">The spec is part or not<br />Accepted input are true, false, 1, 0, &ldquo;1&rdquo;, and &ldquo;0&rdquo;</td>
 </tr>
 <tr>
 <td style="text-align: right">categories</td>
@@ -9764,12 +10626,17 @@ Failure
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The data is empty</li></ol></td>
+<td style="text-align: left">required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">display_name</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The data is empty</li></ol></td>
+<td style="text-align: left">required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">part</td>
@@ -9784,6 +10651,184 @@ Failure
 </tbody></table>
 
           <h1 id="variant">Variant</h1>
+
+<h2 id="variant-list-without-login">Variant List Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">item/{item_id}/variant/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to get variant list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item’s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"default_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>variants</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">a set of variant object</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s name</td>
+</tr>
+<tr>
+<td style="text-align: right">default_price</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">default price of variant</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>cover_img</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>item not exist:</strong> currenct item not exist</td>
+</tr>
+</tbody></table>
 
 <h2 id="variant-list">Variant List</h2>
 
@@ -10277,6 +11322,175 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>duplicate:</strong>  this customization setting has been used</td>
+</tr>
+</tbody></table>
+
+<h2 id="variant-detail-without-login">Variant  Detail Without Login</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">variant/{variant_id}/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to show variant  detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s  id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant’s  id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant’s  name</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>images</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left">variant images</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name which get from back end after specific image has been updated</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover</em></td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">cover image tag</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"variant not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the name of the wrong type.</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>variant not exist:</strong></td>
 </tr>
 </tbody></table>
 
