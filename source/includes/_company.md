@@ -423,6 +423,95 @@ Failure
 | *contact_email* | array | **required:** The data cannot be empty or null |
 
 
+## Get Company Detail Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `company/{company_id}/detail` |
+| Method | `get` |
+| Use | To get the company detail |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"company_id": "1"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| company_id | integer | The company id |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "id": 1,
+	"name": "CC Bike",
+	"images":[{
+		"name": "xxx.jpg",
+		"cover": true,
+		"resource": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		}
+	}, {
+		"name": "yyy.jpg",
+		"cover": false,
+		"resource": {
+			"px240": "http://abc/yyy_240p.jpg",
+			"px480": "http://abc/yyy_480p.jpg",
+			"px720": "http://abc/yyy_720p.jpg",
+			"px1080": "http://abc/yyy_1080p.jpg"
+		}
+	}],
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id|
+| name | string | The company name |
+| **images** | **array** | The company images |
+| *name* | string | The image name |
+| *cover* | boolean | Is cover image <br /> false: normal image <br /> true: cover image |
+| **resource** | **object** | The resolution of picture |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name":"company not exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+||| **company not exist:** The company not exist |
+
 
 ## Get Company Detail
 
@@ -585,7 +674,6 @@ Failure
 ||| **lack of parameters:** Some required parameters missing in the request |
 ||| **does not signin:** The user does not signin |
 ||| **company not exist:** The company not exist |
-
 
 
 ## Edit Company Profile

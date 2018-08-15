@@ -140,6 +140,127 @@ Failure
 | deposit_ratio | array | **invaid value:** price need accord to integer and between 0 to 100|
 
 
+## Item Detail Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `item/{item_id}/detail` | 
+| Method | `get` | 
+| Use | to create item |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"item_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| item_id | integer | item's id |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"id": 1,
+	"name":"Edison Evo",
+	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
+	"prices": {
+		"EUR": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		},
+		"TWD": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		}
+	},
+	"images":[{
+		"name": "xxx.jpg",
+		"cover": true,
+		"resource": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		}
+	}, {
+		"name": "yyy.jpg",
+		"cover": false,
+		"resource": {
+			"px240": "http://abc/yyy_240p.jpg",
+			"px480": "http://abc/yyy_480p.jpg",
+			"px720": "http://abc/yyy_720p.jpg",
+			"px1080": "http://abc/yyy_1080p.jpg"
+		}
+	}],
+
+    "warranty": {
+        "type": "Limited",
+        "value": 0,
+        "unit": "Years"
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer |  item id |
+| name | string |  item name |
+| **prices** | **object** |  item prices of currency |
+| *min* | number | min price in all variants of item. value is null if item doesn’t own variant |
+| *basic* | number | basic price which be set by user in the item |
+| *max* | number | max price in all variants of item. value is null if item doesn’t own variant |
+| description | string | item description |
+| **images** | **array** | item images |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| **specs** | **array** | spec setting |
+| *id* | integer | spec id |
+| *name* | string | spec display name |
+| *value* | **object** | value id of spec |
+| *id* | integer | spec value id |
+| *name* | string | spec value display name |
+
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+	"error_name": "illegal form input"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+|||**item not exist:** item number is incorrect|
+
 
 ## Item Detail
 
@@ -184,6 +305,30 @@ Success
 {
 	"id": 1,
 	"name":"Edison Evo",
+	"number": "xxxx",
+	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
+	"weblink": "http://evo.bionicon.com/",
+	"ean": "",
+	"unit": "Set",
+	"contain": 1,
+	"prices": {
+		"EUR": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		},
+		"TWD": {
+			"min": 50,
+			"basic": 100,
+			"max": 150
+		}
+	},
+	"discount": 50,
+    "deposit_ratio": 30,	
+	"company": {
+		"id": 1,
+		"name": "Bionicon"
+	},
 	"images":[{
 		"name": "xxx.jpg",
 		"cover": true,
@@ -210,6 +355,7 @@ Success
 		"name": "youtube",
 		"hyperlink": "https://youtu.be/G2reQQUQ-Dc"
 	}],
+<<<<<<< HEAD
 	"weblink": "http://evo.bionicon.com/",
 	"company": {
 		"id": 1,
@@ -232,11 +378,71 @@ Success
 	"contain": 1,
 	"stock": 3,
 	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
-	"warranty": {
-		"type": "Limited",
-		"value": 2,
-		"unit": "Years"
-	}
+    "categories": [
+        {
+            "id": 1,
+            "name": "xxx"
+        },
+        {
+            "id": 2,
+            "name": "yyy"
+        }
+    ],
+    "specs": [
+        {
+            "id": 1,
+            "name": "FIX1",
+            "display_name": "FIX1",
+            "value": {
+                "id": 3,
+                "name": "OPTION1"
+            }
+        },
+        {
+            "id": 2,
+            "name": "FIX2",
+            "display_name": "FIX2",
+            "value": {
+                "id": 4,
+                "name": "OPTION2"
+            }
+        }
+    ],
+    "customizations": [
+        {
+            "id": 5,
+            "name": "CUST1",
+            "display_name": "CUST1",
+            "values": [
+                {
+                    "id": 6,
+                    "name": "WHITE",
+                    "price": 5
+                },
+                {
+                    "id": 7,
+                    "name": "BLACK",
+                    "price": 10
+                },
+                {
+                    "id": 8,
+                    "name": "GEMBLUE",
+                    "price": 15
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "SIZE",
+            "display_name": "SIZE",
+            "values": []
+        }
+    ],
+    "warranty": {
+        "type": "Limited",
+        "value": 0,
+        "unit": "Years"
+    }
 }
 ```
 

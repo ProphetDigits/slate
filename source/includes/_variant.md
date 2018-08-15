@@ -1,5 +1,90 @@
 # Variant
 
+## Variant List Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `item/{item_id}/variant/list` |
+| Method | `get` |
+| Use | to get variant list |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "item_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| item_id | integer | item’s id |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "variants": [{
+        "id": 1,
+        "name": "Color",
+        "default_price": 100,
+        "cover_img": {
+			"name": "xxx.jpg",
+			"cover": true,
+			"resource": {
+				"px240": "http://abc/xxx_240p.jpg",
+				"px480": "http://abc/xxx_480p.jpg",
+				"px720": "http://abc/xxx_720p.jpg",
+				"px1080": "http://abc/xxx_1080p.jpg"
+			}
+		}
+    }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **variants** | **array** | a set of variant object |
+| id | integer |  variant’s id |
+| name | string |  variant’s name |
+| default_price | numeric | default price of variant |
+| **cover_img** | **object** | variant cover image. It will be empty if no set cover image |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **lack of parameters:** the request does not include the necessary parameters |
+||| **item not exist:** currenct item not exist |
+
 ## Variant List
 
 ### Description
@@ -214,6 +299,94 @@ Failure
 | *customizations* | array | **required:** it’s necessary parameter |
 ||| **duplicate:**  this customization setting has been used |
 
+## Variant  Detail Without Login
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `variant/{variant_id}/detail` |
+| Method | `get` |
+| Use | to show variant  detail |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "variant_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| variant_id | integer | variant’s  id |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "id": 1,
+    "name": "Basic",
+    "images":[{
+		"name": "xxx.jpg",
+		"cover": true,
+		"resource": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		}
+	}, {
+		"name": "yyy.jpg",
+		"cover": false,
+		"resource": {
+			"px240": "http://abc/yyy_240p.jpg",
+			"px480": "http://abc/yyy_480p.jpg",
+			"px720": "http://abc/yyy_720p.jpg",
+			"px1080": "http://abc/yyy_1080p.jpg"
+		}
+	}],
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | variant’s  id |
+| name | string | variant’s  name |
+| **images** | **array** | variant images |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"variant not exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **variant not exist:** |
 
 ## Variant  Detail
 
