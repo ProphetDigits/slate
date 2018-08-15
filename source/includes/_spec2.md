@@ -196,7 +196,7 @@ Failure
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
 | comment | string | The comment of spec |
-| part | boolean | The spec is part or not |
+| part | boolean | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array | The set of id of category |
 
 
@@ -242,11 +242,11 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
-| name | array | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| display_name | array | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| comment | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| part | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
-| categories | array | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| display_name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| part | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
+| categories | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
 
 
 
@@ -283,7 +283,7 @@ Failure
 | name | string (option) | The name of spec |
 | display_name | string (option) | The display name of spec |
 | comment | string (option) | The comment of spec |
-| part | boolean (option) | The spec is part or not |
+| part | boolean (option) | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array (option) | The set of id of category |
 
 
@@ -330,7 +330,8 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_found:<ol><li>The spec is not exist</li><li>The spec does not belongs to current company</li></ol></li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
-| name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| display_name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| name | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| display_name | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| comment | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
