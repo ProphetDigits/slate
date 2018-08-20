@@ -114,6 +114,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:**|
 
 
 ## Create Order
@@ -144,7 +145,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart  id |
-| type | string | "credit_card" or “cash" or "PayPal" |
+| type | string | "credit_card" or “cash" or "PayPal" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app" |
 
 > Return Parameters
 
@@ -165,8 +166,8 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | order_number | string | order number |
-| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" |
-| qrcode | string | payment link for PayPal, others is null |
+| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app"  |
+| qrcode | string | payment link for PayPal or Order Number QR-Code  , others is null |
 
 <aside class="warning">
 Failure
@@ -190,6 +191,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:** cannot sell in the company|
 |||**repeat:**  the order already been created. |
 |||**no products:** can’t order if no product in the cart |
 |||**product invalid:** some products which had be deleted, but its still in the cart. Server will return these product number to data. |
@@ -260,6 +262,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:**|
 |||**order not exist:**  order is not exist|
 |||**not retailer order:**|
 |||**repeated:** transaction is exist|
@@ -333,6 +336,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:**|
 |||**order not exist:**  order is not exist|
 |||**paid:** order has been paid |
 |||**confirming:**  order is confirming|
@@ -405,6 +409,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:**|
 |||**order not exist:**  order is not exist|
 |||**refund expired:** after the order has been created over 30 days, it can't refund|
 |||**repeated:** transaction is exist|
@@ -653,6 +658,7 @@ Failure
 |||**not select company yet:** user need change current company|
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
+|||**no permission:** cannot sell in the company|
 |||**order not exist:** order number is incorrect|
 
 
