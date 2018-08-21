@@ -17462,6 +17462,379 @@ Failure
 </tr>
 </tbody></table>
 
+<h2 id="partial-order-detail">Partial  Order  Detail</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">order/{order_number}/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">get</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to get the partial order detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Header Parameters</p>
+</blockquote>
+
+<h3 id="header-parameters">Header Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">Authorization</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000003OD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">25300</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">886</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24414</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_240p.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_480p.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_720p.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_1080p.jpeg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333 West San Carlos Street Suite 1500"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">" San Jose"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95110"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000004PD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Test"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-Item-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Item 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Variant Test"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_240p.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_480p.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_720p.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_1080p.png"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="w">
+  </span><span class="p">},{</span><span class="w">
+    </span><span class="s2">"product_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000005PD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Test"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-Item-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Item 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Variant Test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cover_img"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_240p.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_480p.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_720p.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_1080p.png"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
+</tr>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment currency</td>
+</tr>
+<tr>
+<td style="text-align: right">subtotal</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">order subtotal price</td>
+</tr>
+<tr>
+<td style="text-align: right">totalDiscount</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">order total discount price</td>
+</tr>
+<tr>
+<td style="text-align: right">total</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">order total price</td>
+</tr>
+<tr>
+<td style="text-align: right">order_status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order status</td>
+</tr>
+<tr>
+<td style="text-align: right">payment_status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment status</td>
+</tr>
+<tr>
+<td style="text-align: right">payment_method</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment method</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>retailer</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company  id</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>products</strong></td>
+<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>number</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>company</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">company of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company id of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>item</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id of products</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>number</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item number of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>variant</strong></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">variant of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>id</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant id of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>name</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant name of product</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 720 resolution (1280x720)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>price</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product price</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>discount</em></td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">product discount</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>discount_price</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product discount price</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left"><strong>order not exist:</strong> order number is incorrect or order is binding with user</td>
+</tr>
+</tbody></table>
+
 <h2 id="order-detail">Order   Detail</h2>
 
 <h3 id="description">Description</h3>
