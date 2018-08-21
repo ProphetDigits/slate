@@ -423,6 +423,191 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
+## Partial  Order  Detail
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/{order_number}/detail` |
+| Method | `get` |
+| Use | to get the partial order detail |
+| Notice |  |
+
+> Header Parameters
+
+### Header Parameters
+
+```json
+{
+    "Authorization": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "number": "AAAA160401000003OD",
+  "currency": "JPY",
+  "subtotal": 25300,
+  "totalDiscount": 886,
+  "total": 24414,
+  "order_status": "Open",
+  "payment_status": "Open",
+  "payment_method": null,
+  "retailer": {
+    "id": 1,
+    "name": "Company A",
+    "cover_img": {
+        "resource": {
+            "px240": "http://xxxx_240p.jpeg",
+            "px480": "http://xxxx_480p.jpeg",
+            "px720": "http://xxxx_720p.jpeg",
+            "px1080": "http://xxxx_1080p.jpeg"
+        }
+    },
+    "Address": {
+        "street": "333 West San Carlos Street Suite 1500",
+        "city": " San Jose",
+        "state": "CA",
+        "postal_code": "95110",
+        "country": "United States"
+    }
+  },
+  "products": [{
+    "number": "AAAA0000000004PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variant": {
+      "id": 2,
+      "name": "Variant Test",
+      "cover_img": {
+          "resource": {
+              "px240": "http://xxxx_240p.png",
+              "px480": "http://xxxx_480p.png",
+              "px720": "http://xxxx_720p.png",
+              "px1080": "http://xxxx_1080p.png"
+          }
+      }
+    },
+    "price": 100,
+    "discount_price": 85
+  },{
+    "product_num": "AAAA0000000005PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variant": {
+      "id": 2,
+      "name": "Variant Test",
+        "cover_img": {
+            "resource": {
+                "px240": "http://xxxx_240p.png",
+                "px480": "http://xxxx_480p.png",
+                "px720": "http://xxxx_720p.png",
+                "px1080": "http://xxxx_1080p.png"
+            }
+        }
+    },
+    "price": 100,
+    "discount_price": 85
+  }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| number | string | order number |
+| currency | string | payment currency |
+| subtotal | double | order subtotal price |
+| totalDiscount | double | order total discount price |
+| total | double | order total price |
+| order_status | string | order status |
+| payment_status | string | payment status |
+| payment_method | string | payment method |
+| **retailer** | **object** | |
+| *id* | integer | company  id |
+| *name* | string | company name |
+| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| **products** | **array** |  |
+| *number* | string | product number |
+| **company** | **object** | company of product |
+| *id* | string | company id of product |
+| *name* | string | company name of product |
+| **item** | **object** | item of product |
+| *id* | integer | item id of products |
+| *number* | string | item number of product |
+| *name* | string | item name of product |
+| **variant** | **object** | variant of product |
+| *id* | string | variant id of product |
+| *name* | string | variant name of product |
+| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| *price* | double | product price |
+| *discount* | integer | product discount |
+| *discount_price* | double | product discount price |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+|||**order not exist:** order number is incorrect or order is binding with user|
+
+
 ## Order   Detail
 
 ### Description
