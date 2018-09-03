@@ -129,6 +129,73 @@ Failure
 ||| **does not signin:** The user does not signin |
 
 
+## Sign up Simply
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/signupsimply` |
+| Method | `post` |
+| Use | Let user sign up an account in payment |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"email": "cc.lee@prophetdigits.com",
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| email | string | The user email |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```
+{
+	"error_name": "illegal form input",
+	"validation": {
+        "email": ["required"],
+	}
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+| *email* | array | **required:** The data cannot be empty or null |
+|||**invalid email:** The data need accord with email format |
+|||**dulicate:** The data has already been used |
+
+
 
 ## Sign up
 
