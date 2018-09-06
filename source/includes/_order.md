@@ -423,6 +423,92 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
+## Confirm Purchase
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/confirmpurchase` |
+| Method | `get` |
+| Use | to bind the order with current user |
+| Notice |  |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "order_number": "AAAA160401000001OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "profile" : {
+        "given_name": "CC",
+        "family_name": "Lee",
+        "title": 1,
+        "phone": "0912345678",
+    },
+    "default_address" : {
+        "street":"ABC st.",
+        "city":"Taichung",
+        "state":"Taiwan",
+        "code":"30123",
+        "country":"R.O.C."
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **profile** | **object** | |
+| *given_name* | string | given_name |
+| *family_name* | string | family_name |
+| *title* | integer | title (0=Mr. 1=Ms.) |
+| *phone* | string | phone number |
+| **default_address** | **object** | |
+| *street* | string | recipient’s address |
+| *city* | string | recipient’s address |
+| *state* | string | recipient’s address |
+| *code* | string | recipient’s address |
+| *country* | string | recipient’s address |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+|||**lack of parameters:** some input parameters missing, not in the request|
+|||**order_not_bound_same_user:** order has been bound with another user |
+|||**order_not_exist:** order number is incorrect |
+
+
 ## Partial  Order  Detail
 
 ### Description
@@ -605,7 +691,8 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**order not exist:** order number is incorrect or order is binding with user|
+|||**order_not_bound_same_user:** order has been bound with another user |
+|||**order_not_exist:** order number is incorrect |
 
 
 ## Order   Detail
