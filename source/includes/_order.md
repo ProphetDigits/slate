@@ -505,6 +505,7 @@ Failure
 | -------: | :---- | :--- |
 | error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
+|||**does not signin:** user does not signin|
 |||**order_not_bound_same_user:** order has been bound with another user |
 |||**order_not_exist:** order number is incorrect |
 
@@ -691,6 +692,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+|||**does_not_signin:** user does not signin|
 |||**order_not_bound_same_user:** order has been bound with another user |
 |||**order_not_exist:** order number is incorrect |
 
