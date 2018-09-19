@@ -10444,9 +10444,9 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
@@ -10745,6 +10745,41 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol></td>
 </tr>
+<tr>
+<td style="text-align: right">values.*.name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.display_name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.price</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.part_number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.supplier_number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.description</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.comment</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
 </tbody></table>
 
 <h2 id="edit-spec2">Edit Spec2</h2>
@@ -10790,6 +10825,15 @@ Failure
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"part_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
         </span><span class="nt">"part_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -10856,8 +10900,8 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">id</td>
-<td style="text-align: left">number</td>
-<td style="text-align: left">0 added</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value <br />It indicate adding value if id is 0</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
@@ -10991,7 +11035,42 @@ Failure
 <tr>
 <td style="text-align: right">values</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">invalid</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.display_name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.price</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.part_number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.supplier_number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.description</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">values.*.comment</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 </tbody></table>
 
