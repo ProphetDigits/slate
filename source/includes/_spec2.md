@@ -166,7 +166,7 @@ Success
 
 | spec_value | | |
 | -------: | :---- | :--- |
-|
+| id | integer | The id of value |
 | name | string | The name is for brand to identify spec value |
 | display_name | string | The display name is to displayed for consumer |
 | price | number | The price of value, the currency is default by company |
@@ -299,7 +299,13 @@ Failure
 | part | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
 | values | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol> |
-
+| values.*.name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
+| values.*.part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
 
 
 ## Edit Spec2
@@ -334,6 +340,15 @@ Failure
         "supplier_number": "",
         "description": "",
         "comment": ""
+    }, {
+        "id": 0,
+        "name": "blue",
+        "display_name": "Blue",
+        "price": 10,
+        "part_number": "",
+        "supplier_number": "",
+        "description": "",
+        "comment": ""
     }]
 }
 ```
@@ -351,7 +366,7 @@ Failure
 
 | spec_value | | |
 | -------: | :---- | :--- |
-| id | number | 0 added |
+| id | integer | The id of value <br />It indicate adding value if id is 0 |
 | name | string | The name is for brand to identify spec value |
 | display_name | string | The display name is to displayed for consumer |
 | price | number | The price of value, the currency is default by company |
@@ -409,4 +424,11 @@ Failure
 | comment | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
-| values | array (option) | invalid |
+| values | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol> |
+| values.*.name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
+| values.*.part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.*.comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
