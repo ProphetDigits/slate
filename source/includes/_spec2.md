@@ -18,7 +18,7 @@
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311"
+    "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -37,23 +37,26 @@ Success
 
 ```json
 {
-	"specs": [{
-		"id": 1,
-		"name": "spec name",
-		"display_name": "spec 1",
-		"part": true
-	}, {
-		"id": 2,
-		"name": "spec name2",
-		"display_name": "spec 1",
-		"part": false
-	}]
+    "specs": [{
+        "id": 1,
+        "name": "spec name",
+        "display_name": "spec 1",
+        "part": true
+    }, {
+        "id": 2,
+        "name": "spec name2",
+        "display_name": "spec 1",
+        "part": false
+    }]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **specs** | array |  |
+| specs | array | The spec list |
+
+| specs | | |
+| -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
@@ -68,7 +71,7 @@ Failure
 
 ```json
 {
-	"error_name": "not_sign_in"
+    "error_name": "not_sign_in"
 }
 ```
 
@@ -96,8 +99,8 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "id": 1
 }
 ```
 
@@ -117,32 +120,60 @@ Success
 
 ```json
 {
-	"spec": {
-		"id": 1,
-		"name": "color",
-		"display_name": "color",
-		"comment": "",
-		"part": true,
-		"categories": [{
-			"id": 1,
-			"name": "root"
-		}]
-	}
+    "spec": {
+        "id": 1,
+        "name": "color",
+        "display_name": "color",
+        "comment": "",
+        "part": true,
+        "categories": [{
+            "id": 1,
+            "name": "root"
+        }],
+        "values": [{
+            "id": 1,
+            "name": "red",
+            "display_name": "Red",
+            "price": 10,
+            "part_number": "",
+            "supplier_number": "",
+            "description": "",
+            "comment": ""
+        }]
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **spec** | object | |
+| spec | object | The spec detail |
+
+| spec | | |
+| -------: | :---- | :--- |
+| Parameter | Type | Description |
 | id | integer | The id of spec |
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not |
-| **categories** | *array* | The set of category |
+| categories | array | The set of category |
+| values | array | The set of value of spec |
+
+| spec_category | | |
+| -------: | :---- | :--- |
 | id | integer | The id of category |
 | name | string | The name of category |
 
+| spec_value | | |
+| -------: | :---- | :--- |
+|
+| name | string | The name is for brand to identify spec value |
+| display_name | string | The display name is to displayed for consumer |
+| price | number | The price of value, the currency is default by company |
+| part_number | string | The part number of value |
+| supplier_number | string | The supplier number of value |
+| description | string | The description is to displayed for consumer |
+| comment | string | The comment is a note for brand |
 
 
 > Return Parameters When Failure
@@ -153,7 +184,7 @@ Failure
 
 ```json
 {
-	"error_name":"not_sign_in"
+    "error_name":"not_sign_in"
 }
 ```
 
@@ -181,12 +212,21 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"name": "color",
-	"display_name": "Color",
-	"comment": "",
-	"part": false,
-	"categories": [1, 2, 3]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "name": "color",
+    "display_name": "Color",
+    "comment": "",
+    "part": false,
+    "categories": [1, 2, 3],
+    "values": [{
+        "name": "red",
+        "display_name": "Red",
+        "price": 10,
+        "part_number": "",
+        "supplier_number": "",
+        "description": "",
+        "comment": ""
+    }]
 }
 ```
 
@@ -198,6 +238,17 @@ Failure
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array | The set of id of category |
+| values | array | The set of value of spec |
+
+| spec_value | | |
+| -------: | :---- | :--- |
+| name | string | The name is for brand to identify spec value |
+| display_name | string | The display name is to displayed for consumer |
+| price | number | The price of value, the currency is default by company |
+| part_number | string | The part number of value |
+| supplier_number | string | The supplier number of value |
+| description | string | The description is to displayed for consumer |
+| comment | string | The comment is a note for brand |
 
 
 > Return Parameters When Success
@@ -210,9 +261,9 @@ Success
 
 ```json
 {
-	"spec": {
-		"id": 1
-	}
+    "spec": {
+        "id": 1
+    }
 }
 ```
 
@@ -230,11 +281,11 @@ Failure
 
 ```json
 {
-	"error_name": "illegal_form_input",
-	"validation": {
-		"display_name": ["required"],
-		"categories": ["invalid"]
-	}
+    "error_name": "illegal_form_input",
+    "validation": {
+        "display_name": ["required"],
+        "categories": ["invalid"]
+    }
 }
 ```
 
@@ -246,7 +297,8 @@ Failure
 | display_name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
 | comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
-| categories | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| categories | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| values | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol> |
 
 
 
@@ -268,11 +320,21 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"id": 1,
-	"name": "color",
-	"display_name": "Color",
-	"categories": [1, 2, 3]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "id": 1,
+    "name": "color",
+    "display_name": "Color",
+    "categories": [1, 2, 3],
+    "values": [{
+        "id": 1,
+        "name": "red",
+        "display_name": "Red",
+        "price": 10,
+        "part_number": "",
+        "supplier_number": "",
+        "description": "",
+        "comment": ""
+    }]
 }
 ```
 
@@ -285,6 +347,18 @@ Failure
 | comment | string (option) | The comment of spec |
 | part | boolean (option) | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array (option) | The set of id of category |
+| values | array (option) | The set of value of spec |
+
+| spec_value | | |
+| -------: | :---- | :--- |
+| id | number | 0 added |
+| name | string | The name is for brand to identify spec value |
+| display_name | string | The display name is to displayed for consumer |
+| price | number | The price of value, the currency is default by company |
+| part_number | string | The part number of value |
+| supplier_number | string | The supplier number of value |
+| description | string | The description is to displayed for consumer |
+| comment | string | The comment is a note for brand |
 
 
 > Return Parameters When Success
@@ -297,9 +371,9 @@ Success
 
 ```json
 {
-	"spec": {
-		"id": 1
-	}
+    "spec": {
+        "id": 1
+    }
 }
 ```
 
@@ -317,12 +391,12 @@ Failure
 
 ```json
 {
-	"error_name": "illegal_form_input",
-	"validation": {
-		"name": ["dulicate"],
-		"display_name": ["required"],
-		"categories": ["not exist"]
-	}
+    "error_name": "illegal_form_input",
+    "validation": {
+        "name": ["dulicate"],
+        "display_name": ["required"],
+        "categories": ["not exist"]
+    }
 }
 ```
 
@@ -335,3 +409,4 @@ Failure
 | comment | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| values | array (option) | invalid |
