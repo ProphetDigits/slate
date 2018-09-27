@@ -129,15 +129,15 @@ Failure
 ||| **does not signin:** The user does not signin |
 
 
-## Sign up Simply
+## Sign up with Email only
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/signupsimply` |
+| URL | `user/signupwithemailonly` |
 | Method | `post` |
-| Use | Let user sign up an account in payment |
+| Use | Let user sign up an account with email only in payment |
 | Notice ||
 
 
@@ -147,7 +147,7 @@ Failure
 
 ```json
 {
-	"email": "cc.lee@prophetdigits.com",
+	"email": "cc.lee@prophetdigits.com"
 }
 ```
 
@@ -166,7 +166,7 @@ Success
 
 ```json
 {
-  "api_key": "e4cbcdc2faff41a7e311",
+  "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -183,7 +183,7 @@ Failure
 {
 	"error_name": "illegal form input",
 	"validation": {
-        "email": ["required"],
+        "email": ["required"]
 	}
 }
 ```

@@ -464,7 +464,7 @@ Success
         "given_name": "CC",
         "family_name": "Lee",
         "title": 1,
-        "phone": "0912345678",
+        "phone": "0912345678"
     },
     "default_address" : {
         "street":"ABC st.",
