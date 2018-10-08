@@ -41,12 +41,17 @@ Success
         "id": 1,
         "name": "spec name",
         "display_name": "spec 1",
-        "part": true
+        "part": true,
+        "values": [{
+            "id": 1,
+            "name": "value1"
+        }]
     }, {
         "id": 2,
         "name": "spec name2",
         "display_name": "spec 1",
-        "part": false
+        "part": false,
+        "values": []
     }]
 }
 ```
@@ -61,7 +66,12 @@ Success
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
 | part | boolean | The spec is part or not |
+| values | array | The set of value of spec |
 
+| spec_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value |
+| name | string | The name is for brand to identify spec value |
 
 > Return Parameters When Failure
 
@@ -122,23 +132,36 @@ Success
 {
     "spec": {
         "id": 1,
-        "name": "color",
-        "display_name": "color",
+        "name": "Second hand",
+        "display_name": "Second hand",
         "comment": "",
         "part": true,
         "categories": [{
             "id": 1,
             "name": "root"
         }],
+        "compositions": [{
+            "id": 2,
+            "name": "color",
+            "part": true
+        }],
         "values": [{
             "id": 1,
-            "name": "red",
-            "display_name": "Red",
+            "name": "small multiply",
+            "display_name": "Small Multiply",
             "price": 10,
             "part_number": "",
             "supplier_number": "",
             "description": "",
-            "comment": ""
+            "comment": "",
+            "compositions": [{
+                "id": 2,
+                "name": "color",
+                "value": {
+                    "id": 1,
+                    "name": "red"
+                }
+            }]
         }]
     }
 }
@@ -157,12 +180,19 @@ Success
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not |
 | categories | array | The set of category |
+| compositions | array | The compositions of spec |
 | values | array | The set of value of spec |
 
 | spec_category | | |
 | -------: | :---- | :--- |
 | id | integer | The id of category |
 | name | string | The name of category |
+
+| spec_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| part | boolean | The spec is part or not |
 
 | spec_value | | |
 | -------: | :---- | :--- |
@@ -174,6 +204,18 @@ Success
 | supplier_number | string | The supplier number of value |
 | description | string | The description is to displayed for consumer |
 | comment | string | The comment is a note for brand |
+| compositions | array | The set of compositions |
+
+| spec_value_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| value | object | The setting of value of composition |
+
+| spec_value_composition_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value of spec |
+| name | string | The name of value of spec |
 
 
 > Return Parameters When Failure
@@ -213,19 +255,24 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "name": "color",
-    "display_name": "Color",
+    "name": "Second hand",
+    "display_name": "Second hand",
     "comment": "",
     "part": false,
     "categories": [1, 2, 3],
+    "compositions": [2],
     "values": [{
-        "name": "red",
-        "display_name": "Red",
+        "name": "small multiply",
+        "display_name": "Small Multiply",
         "price": 10,
         "part_number": "",
         "supplier_number": "",
         "description": "",
-        "comment": ""
+        "comment": "",
+        "compositions": [{
+            "id": 2,
+            "value": 1
+        }]
     }]
 }
 ```
@@ -238,6 +285,7 @@ Failure
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array | The set of id of category |
+| compositions | array | The set of id of spec |
 | values | array | The set of value of spec |
 
 | spec_value | | |
@@ -249,6 +297,12 @@ Failure
 | supplier_number | string | The supplier number of value |
 | description | string | The description is to displayed for consumer |
 | comment | string | The comment is a note for brand |
+| compositions | array | The set of compositions |
+
+| spec_value_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| value | integer | The id of value of spec |
 
 
 > Return Parameters When Success
@@ -262,15 +316,91 @@ Success
 ```json
 {
     "spec": {
-        "id": 1
+        "id": 1,
+        "name": "Second hand",
+        "display_name": "Second hand",
+        "comment": "",
+        "part": true,
+        "categories": [{
+            "id": 1,
+            "name": "root"
+        }],
+        "compositions": [{
+            "id": 2,
+            "name": "color",
+            "part": true
+        }],
+        "values": [{
+            "id": 1,
+            "name": "small multiply",
+            "display_name": "Small Multiply",
+            "price": 10,
+            "part_number": "",
+            "supplier_number": "",
+            "description": "",
+            "comment": "",
+            "compositions": [{
+                "id": 2,
+                "name": "color",
+                "value": {
+                    "id": 1,
+                    "name": "red"
+                }
+            }]
+        }]
     }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **spec** | *object* | |
+| spec | object | The spec detail |
+
+| spec | | |
+| -------: | :---- | :--- |
+| Parameter | Type | Description |
 | id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| comment | string | The comment of spec |
+| part | boolean | The spec is part or not |
+| categories | array | The set of category |
+| compositions | array | The compositions of spec |
+| values | array | The set of value of spec |
+
+| spec_category | | |
+| -------: | :---- | :--- |
+| id | integer | The id of category |
+| name | string | The name of category |
+
+| spec_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| part | boolean | The spec is part or not |
+
+| spec_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value |
+| name | string | The name is for brand to identify spec value |
+| display_name | string | The display name is to displayed for consumer |
+| price | number | The price of value, the currency is default by company |
+| part_number | string | The part number of value |
+| supplier_number | string | The supplier number of value |
+| description | string | The description is to displayed for consumer |
+| comment | string | The comment is a note for brand |
+| compositions | array | The set of compositions |
+
+| spec_value_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| value | object | The setting of value of composition |
+
+| spec_value_composition_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value of spec |
+| name | string | The name of value of spec |
 
 
 > Return Parameters When Failure
@@ -298,14 +428,18 @@ Failure
 | comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| compositions | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol> |
 | values | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol> |
-| values.*.name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
-| values.*.part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
+| values.(index).part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).compositions | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The number of data is differ to compositions of spec</li></ol> |
+| values.(index).compositions.(index).id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec </li></ol> |
+| values.(index).compositions.(index).value | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of value of spec is not exist</li><li>The value of spec is not belongs to the spec </li></ol> |
 
 
 ## Edit Spec2
@@ -328,27 +462,36 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "id": 1,
-    "name": "color",
-    "display_name": "Color",
+    "name": "Second hand",
+    "display_name": "Second hand",
     "categories": [1, 2, 3],
+    "compositions": [2],
     "values": [{
         "id": 1,
-        "name": "red",
-        "display_name": "Red",
+        "name": "small multiply",
+        "display_name": "Small Multiply",
         "price": 10,
         "part_number": "",
         "supplier_number": "",
         "description": "",
-        "comment": ""
+        "comment": "",
+        "compositions": [{
+            "id": 2,
+            "value": 1
+        }]
     }, {
         "id": 0,
-        "name": "blue",
-        "display_name": "Blue",
+        "name": "center multiply",
+        "display_name": "Center Multiply",
         "price": 10,
         "part_number": "",
         "supplier_number": "",
         "description": "",
-        "comment": ""
+        "comment": "",
+        "compositions": [{
+            "id": 2,
+            "value": 1
+        }]
     }]
 }
 ```
@@ -362,6 +505,7 @@ Failure
 | comment | string (option) | The comment of spec |
 | part | boolean (option) | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array (option) | The set of id of category |
+| compositions | array (option) | The set of id of spec |
 | values | array (option) | The set of value of spec |
 
 | spec_value | | |
@@ -374,6 +518,12 @@ Failure
 | supplier_number | string | The supplier number of value |
 | description | string | The description is to displayed for consumer |
 | comment | string | The comment is a note for brand |
+| compositions | array | The set of compositions |
+
+| spec_value_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| value | integer | The id of value of spec <br />It indicate empty if value is 0 |
 
 
 > Return Parameters When Success
@@ -387,15 +537,91 @@ Success
 ```json
 {
     "spec": {
-        "id": 1
+        "id": 1,
+        "name": "Second hand",
+        "display_name": "Second hand",
+        "comment": "",
+        "part": true,
+        "categories": [{
+            "id": 1,
+            "name": "root"
+        }],
+        "compositions": [{
+            "id": 2,
+            "name": "color",
+            "part": true
+        }],
+        "values": [{
+            "id": 1,
+            "name": "small multiply",
+            "display_name": "Small Multiply",
+            "price": 10,
+            "part_number": "",
+            "supplier_number": "",
+            "description": "",
+            "comment": "",
+            "compositions": [{
+                "id": 2,
+                "name": "color",
+                "value": {
+                    "id": 1,
+                    "name": "red"
+                }
+            }]
+        }]
     }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **spec** | *object* | |
+| spec | object | The spec detail |
+
+| spec | | |
+| -------: | :---- | :--- |
+| Parameter | Type | Description |
 | id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| comment | string | The comment of spec |
+| part | boolean | The spec is part or not |
+| categories | array | The set of category |
+| compositions | array | The compositions of spec |
+| values | array | The set of value of spec |
+
+| spec_category | | |
+| -------: | :---- | :--- |
+| id | integer | The id of category |
+| name | string | The name of category |
+
+| spec_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| part | boolean | The spec is part or not |
+
+| spec_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value |
+| name | string | The name is for brand to identify spec value |
+| display_name | string | The display name is to displayed for consumer |
+| price | number | The price of value, the currency is default by company |
+| part_number | string | The part number of value |
+| supplier_number | string | The supplier number of value |
+| description | string | The description is to displayed for consumer |
+| comment | string | The comment is a note for brand |
+| compositions | array | The set of compositions |
+
+| spec_value_composition | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| value | object | The setting of value of composition |
+
+| spec_value_composition_value | | |
+| -------: | :---- | :--- |
+| id | integer | The id of value of spec |
+| name | string | The name of value of spec |
 
 
 > Return Parameters When Failure
@@ -424,11 +650,16 @@ Failure
 | comment | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 | part | array (option) | invalid: <ol><li>The data is not boolean</li></ol> |
 | categories | array (option) | invalid: <ol><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| compositions | array (option) | invalid: <ol><li>The data is not array</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol> |
 | values | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li></ol> |
-| values.*.name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
-| values.*.part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| values.*.comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of value is not exist</li><li>The value is not belongs to the spec </li></ol> |
+| values.(index).name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).display_name | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).price | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not number</li></ol> |
+| values.(index).part_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).supplier_number | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).comment | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| values.(index).compositions | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not array</li><li>The number of data is differ to compositions of spec</li></ol> |
+| values.(index).compositions.(index).id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec </li></ol> |
+| values.(index).compositions.(index).value | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of value of spec is not exist</li><li>The value of spec is not belongs to the spec </li></ol> |
