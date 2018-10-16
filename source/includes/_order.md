@@ -612,7 +612,7 @@ Success
     "price": 100,
     "discount_price": 85
   },{
-    "product_num": "AAAA0000000005PD",
+    "number": "AAAA0000000005PD",
     "company": {
       "id": 1,
       "name": "Company Test"
