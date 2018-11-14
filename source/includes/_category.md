@@ -458,11 +458,11 @@ Failure
 | error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| description | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| parent_id | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
-| specs | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
-| customizations | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
-| spec2s | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| parent_id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
+| specs | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| customizations | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
+| spec2s | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
 
 
 
@@ -590,7 +590,7 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "category_id": 1,
+    "id": 1,
     "name": "category name",
     "description": "",
     "parent_id": 1,
@@ -603,7 +603,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | api_key | string | System gives it after user sign in |
-| category_id | integer | The id of category |
+| id | integer | The id of category |
 | name | string (option) | The name of category |
 | description | string (option) | The description of category |
 | parent_id | integer (option) | The parent id of category |
@@ -624,6 +624,16 @@ Success
 {
     "category" : {
         "id": 1,
+        "name": "Category Name",
+        "description": "",
+        "parent": {
+            "id": "",
+            "name": ""
+        },
+        "specs": [{
+            "id": 1,
+            "name": "Spec Name"
+        }],
     }
 }
 ```
@@ -631,6 +641,21 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of category |
+| name | string | The name of category |
+| description | string | The comment of category |
+| parent | object | The parent of category |
+| specs | array | The specs connect with category |
+
+| category_parent | | |
+| -------: | :---- | :--- |
+| id | integer | The id of parent category |
+| name | string | The name of parent category |
+
+| category_spec | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+
 
 > Return Parameters When Failure
 
@@ -650,18 +675,15 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** current company not exist|
-|||**not company member:** the user is not the company member|
-|||**category not exist:** category id is incorrect|
-|||**illegal form input:** form format does not pass validation|
-| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
-| name | array | **required:** it’s necessary parameter |
-| parent_id | array | **required:** it’s necessary parameter
-|||**not exist:** category id not exist|
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
+| name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| description | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| parent_id | array (option) | invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
+| specs | array (option) | invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| customizations | array (option) | invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
+| spec2s | array (option) | invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
 
 
 
