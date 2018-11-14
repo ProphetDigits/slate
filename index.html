@@ -6184,27 +6184,27 @@ Failure
 <tr>
 <td style="text-align: right">description</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">parent_id</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">customizations</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">spec2s</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
 </tr>
 </tbody></table>
 
@@ -6477,7 +6477,7 @@ Failure
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category name"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -6499,7 +6499,7 @@ Failure
 <td style="text-align: left">System gives it after user sign in</td>
 </tr>
 <tr>
-<td style="text-align: right">category_id</td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">The id of category</td>
 </tr>
@@ -6547,6 +6547,16 @@ Success
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"category"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spec Name"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
     </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -6561,6 +6571,64 @@ Success
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">The id of category</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of category</td>
+</tr>
+<tr>
+<td style="text-align: right">description</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The comment of category</td>
+</tr>
+<tr>
+<td style="text-align: right">parent</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The parent of category</td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The specs connect with category</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">category_parent</th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of parent category</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of parent category</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">category_spec</th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of spec</td>
 </tr>
 </tbody></table>
 
@@ -6588,63 +6656,48 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> current company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>category not exist:</strong> category id is incorrect</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input. <strong>Value(option):</strong></td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the err_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">description</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">parent_id</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left"><strong>required:</strong> it’s necessary parameter</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not exist:</strong> category id not exist</td>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">customizations</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">spec2s</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol></td>
 </tr>
 </tbody></table>
 
