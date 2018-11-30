@@ -213,20 +213,20 @@ Success
 	}],
     "specs": [
         {
-            "id": 86,
-            "name": "Operating System",
-            "display_name": "Operating System",
+            "id": 1,
+            "name": "son EVO ist ",
+            "display_name": "son EVO ist ",
             "value": {
                 "id": 206,
-                "name": "Windows 10 PRO"
+                "name": "EVO"
             }
         },{
             "id": 87,
-            "name": "HDD (GB)",
-            "display_name": "HDD (GB)",
+            "name": "son EVO 2st ",
+            "display_name": "son EVO ist ",
             "value": {
                 "id": 210,
-                "name": "640-1000"
+                "name": "SON"
             }
         }
     ],
