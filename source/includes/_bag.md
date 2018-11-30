@@ -286,7 +286,7 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `bag/variant/remove` |
+| URL | `user/bag/variant/remove` |
 | Method | `post` |
 | Use | to remove variant from shopping bag. |
 | Notice |  |
@@ -476,8 +476,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `variant/quantity/plus` |
-| URL | `variant/quantity/minus` |
+| URL | `user/variant/quantity/plus` |
+| URL | `user/variant/quantity/minus` |
 | Method | `post` |
 | Use | to adjust variant quantity from shopping bag. |
 | Notice |  |
