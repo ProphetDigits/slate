@@ -211,7 +211,25 @@ Success
 			"px1080": "http://abc/yyy_1080p.jpg"
 		}
 	}],
-
+    "specs": [
+        {
+            "id": 86,
+            "name": "Operating System",
+            "display_name": "Operating System",
+            "value": {
+                "id": 206,
+                "name": "Windows 10 PRO"
+            }
+        },{
+            "id": 87,
+            "name": "HDD (GB)",
+            "display_name": "HDD (GB)",
+            "value": {
+                "id": 210,
+                "name": "640-1000"
+            }
+        }
+    ],
     "warranty": {
         "type": "Limited",
         "value": 0,
@@ -237,12 +255,17 @@ Success
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| **specs** | **array** | spec setting |
+| **specs** | **array** | The spec list |
 | *id* | integer | spec id |
-| *name* | string | spec display name |
+| *name* | string | spec name |
+| *display_name* | string | spec display name |
 | *value* | **object** | value id of spec |
 | *id* | integer | spec value id |
 | *name* | string | spec value display name |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type |
+| *value* | integer | warranty value |
+| *unit* | string | value unit |
 
 
 
