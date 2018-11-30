@@ -37,6 +37,7 @@ Success
 </aside>
 
 > Empty Bag
+
 ```json
 {
     "bag_id": null,
