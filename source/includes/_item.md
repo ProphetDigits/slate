@@ -355,29 +355,6 @@ Success
 		"name": "youtube",
 		"hyperlink": "https://youtu.be/G2reQQUQ-Dc"
 	}],
-<<<<<<< HEAD
-	"weblink": "http://evo.bionicon.com/",
-	"company": {
-		"id": 1,
-		"name": "Bionicon"
-	},
-	"prices": {
-		"EUR": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		},
-		"TWD": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		}
-	},
-	"discount": 50,
-	"unit": "Set",
-	"contain": 1,
-	"stock": 3,
-	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
     "categories": [
         {
             "id": 1,

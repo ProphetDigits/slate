@@ -461,26 +461,50 @@ Success
 ```json
 {
     "id": 1,
-	"name": "CC Bike",
-	"images":[{
-		"name": "xxx.jpg",
-		"cover": true,
-		"resource": {
-			"px240": "http://abc/xxx_240p.jpg",
-			"px480": "http://abc/xxx_480p.jpg",
-			"px720": "http://abc/xxx_720p.jpg",
-			"px1080": "http://abc/xxx_1080p.jpg"
-		}
-	}, {
-		"name": "yyy.jpg",
-		"cover": false,
-		"resource": {
-			"px240": "http://abc/yyy_240p.jpg",
-			"px480": "http://abc/yyy_480p.jpg",
-			"px720": "http://abc/yyy_720p.jpg",
-			"px1080": "http://abc/yyy_1080p.jpg"
-		}
-	}],
+    "name": "CC Bike",
+    "default_currency": "USD",
+    "currencies": [
+        {
+            "id": 1,
+            "name": "EUR",
+            "default": false,
+            "exchange_rate": 1,
+            "display_precision_point": 2
+        },
+        {
+            "id": 3,
+            "name": "USD",
+            "default": true,
+            "exchange_rate": 1.137,
+            "display_precision_point": 2
+        },
+        {
+            "id": 4,
+            "name": "TWD",
+            "default": false,
+            "exchange_rate": 36,
+            "display_precision_point": 0
+        }
+    ],
+    "images":[{
+        "name": "xxx.jpg",
+        "cover": 1,
+        "resource": {
+            "px240": "http://abc/xxx_240p.jpg",
+            "px480": "http://abc/xxx_480p.jpg",
+            "px720": "http://abc/xxx_720p.jpg",
+            "px1080": "http://abc/xxx_1080p.jpg"
+        }
+    }, {
+        "name": "yyy.jpg",
+        "cover": 0,
+        "resource": {
+            "px240": "http://abc/yyy_240p.jpg",
+            "px480": "http://abc/yyy_480p.jpg",
+            "px720": "http://abc/yyy_720p.jpg",
+            "px1080": "http://abc/yyy_1080p.jpg"
+        }
+    }]
 }
 ```
 
@@ -488,6 +512,13 @@ Success
 | -------: | :---- | :--- |
 | id | integer | company id|
 | name | string | The company name |
+| default_currency | string | default currency of company |
+| **currencies** | **array** | currencies which company own |
+| *id* | number | The currency id of system|
+| *name* | string | The currency name |
+| *default* | boolean | The default currency of company |
+| *exchange_rate* | number | The exchange rate of currency in the company|
+| *display_precision_point* | integer | The precision point of currency. Display_precision_point > 0 indicate the digits of presicion <br /> ex: If the display_precision_point is 2, than the price should round to 9.12 from 9.119 |
 | **images** | **array** | The company images |
 | *name* | string | The image name |
 | *cover* | boolean | Is cover image <br /> false: normal image <br /> true: cover image |
