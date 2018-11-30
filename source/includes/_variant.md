@@ -399,13 +399,11 @@ Failure
 
 ```json
 {
-    "variant_id": 1
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| variant_id | integer | variant’s  id |
 
 
 > Return Parameters
@@ -418,27 +416,48 @@ Success
 
 ```json
 {
-    "id": 1,
-    "name": "Basic",
-    "images":[{
-		"name": "xxx.jpg",
-		"cover": true,
-		"resource": {
-			"px240": "http://abc/xxx_240p.jpg",
-			"px480": "http://abc/xxx_480p.jpg",
-			"px720": "http://abc/xxx_720p.jpg",
-			"px1080": "http://abc/xxx_1080p.jpg"
-		}
-	}, {
-		"name": "yyy.jpg",
-		"cover": false,
-		"resource": {
-			"px240": "http://abc/yyy_240p.jpg",
-			"px480": "http://abc/yyy_480p.jpg",
-			"px720": "http://abc/yyy_720p.jpg",
-			"px1080": "http://abc/yyy_1080p.jpg"
-		}
-	}]
+	"id": 1,
+	"name": "CB SBC26",
+    "item_name": "CB SBC",
+    "default_price": 10000,
+    "customizations": [
+        {
+            "id": 79,
+            "name": "SIZE",
+            "value": {
+                "id": 274,
+                "name": "SMALL"
+            }
+        },{
+            "id": 80,
+            "name": "COLOR",
+            "value": {
+                "id": 275,
+                "name": "WHITE"
+            }
+        }],
+    "images": [
+        {
+            "name": "xxx.jpg",
+            "cover": 0,
+            "resource": {
+				"px240": "http://abc/xxx_240p.jpg",
+				"px480": "http://abc/xxx_480p.jpg",
+				"px720": "http://abc/xxx_720p.jpg",
+				"px1080": "http://abc/xxx_1080p.jpg"
+            }
+        },
+        {
+            "name": "yyy.jpg",
+            "cover": 1,
+            "resource": {
+				"px240": "http://abc/yyy_240p.jpg",
+				"px480": "http://abc/yyy_480p.jpg",
+				"px720": "http://abc/yyy_720p.jpg",
+				"px1080": "http://abc/yyy_1080p.jpg"
+            }
+        }
+    ]
 }
 ```
 
@@ -446,6 +465,15 @@ Success
 | -------: | :---- | :--- |
 | id | integer | variant’s  id |
 | name | string | variant’s  name |
+| item_name | string | item name of variant  |
+| default_price | integer | variant default price |
+| **customizations** | **array** | customizations setting of variant |
+| *id* | integer | customization’s id |
+| *name* | string | customization name |
+| *display_name* | string | customization display name |
+| *value* | **object** | customization value |
+| *id* | integer |  id of customization value |
+| *name* | string |  name of customization value |
 | **images** | **array** | variant images |
 | *name* | string | file name which get from back end after specific image has been updated |
 | *cover* | boolean | cover image tag |

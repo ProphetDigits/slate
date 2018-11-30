@@ -319,6 +319,7 @@ Success
 </aside>
 
 > Empty Bag
+
 ```json
 {
     "bag_id": null,
@@ -350,6 +351,7 @@ Success
 | badge_number | integer | total variant quantity in bag |
 
 > Not Empty Bag
+
 ```json
 {
     "bag_id": 1,
