@@ -6,8 +6,8 @@
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/create` | 
-| Method | `post` | 
+| URL | `user/company/item/create` |
+| Method | `post` |
 | Use | to create item |
 | Notice |  |
 
@@ -57,9 +57,9 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| name | string |  item name |
-| number | string | item number |
+| api_key | string | System gives it after user sign in |
+| name | string | The name of item |
+| number | string | The number of item |
 | categories | array | category id set |
 | price | number | item default price |
 | discount | integer | item max discount percent |
@@ -119,14 +119,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 |||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**item not exist:** item number is incorrect|
-|||**illegal form input:** form format does not pass validation|
 | **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. **Value(option):**|
 | name | array | **required:** it’s necessary parameter |
 | number | array | **required:** it’s necessary parameter |
@@ -146,8 +142,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `item/{item_id}/detail` | 
-| Method | `get` | 
+| URL | `item/{item_id}/detail` |
+| Method | `get` |
 | Use | to create item |
 | Notice |  |
 
@@ -258,7 +254,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**item not exist:** item number is incorrect|
 
 
@@ -268,8 +264,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/detail` | 
-| Method | `post` | 
+| URL | `user/company/item/detail` |
+| Method | `post` |
 | Use | to create item |
 | Notice |  |
 
@@ -324,7 +320,7 @@ Success
 		}
 	},
 	"discount": 50,
-    "deposit_ratio": 30,	
+    "deposit_ratio": 30,
 	"company": {
 		"id": 1,
 		"name": "Bionicon"
@@ -355,29 +351,6 @@ Success
 		"name": "youtube",
 		"hyperlink": "https://youtu.be/G2reQQUQ-Dc"
 	}],
-<<<<<<< HEAD
-	"weblink": "http://evo.bionicon.com/",
-	"company": {
-		"id": 1,
-		"name": "Bionicon"
-	},
-	"prices": {
-		"EUR": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		},
-		"TWD": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		}
-	},
-	"discount": 50,
-	"unit": "Set",
-	"contain": 1,
-	"stock": 3,
-	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
     "categories": [
         {
             "id": 1,
@@ -438,6 +411,11 @@ Success
             "values": []
         }
     ],
+    "spec2s": [{
+    	"id": 1,
+    	"name": "Movement",
+		"part": true
+    }],
     "warranty": {
         "type": "Limited",
         "value": 0,
@@ -498,6 +476,10 @@ Success
 | *value* | integer | warranty value |
 | *unit* | string | value unit |
 
+| item_spec2 | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
 
 
 <aside class="warning">
@@ -516,7 +498,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -544,8 +526,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/edit` | 
-| Method | `post` | 
+| URL | `user/company/item/edit` |
+| Method | `post` |
 | Use | to edit item |
 | Notice |  |
 
@@ -598,27 +580,27 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | item_id | integer |  item id |
-| name | string |  item name |
-| number | string | item number |
-| categories | array | category id set |
-| price | number | item default price |
-| discount | integer | item max discount percent |
-| deposit_ratio | integer | deposit ratio of item |
-| ean | string | item ean |
-| unit | string | item unit |
-| contain | string | how many items per unit |
-| weblink | string | item’s website URL |
-| description | string | item description |
-| **images** | **array** | item images |
+| name | string (option) |  item name |
+| number | string (option) | item number |
+| categories | array (option) | category id set |
+| price | number (option) | item default price |
+| discount | integer (option) | item max discount percent |
+| deposit_ratio | integer (option) | deposit ratio of item |
+| ean | string (option) | item ean |
+| unit | string (option) | item unit |
+| contain | string (option) | how many items per unit |
+| weblink | string (option) | item’s website URL |
+| description | string (option) | item description |
+| **images** | **array** (option) | item images |
 | *name* | string | file name which get from back end after specific image has been updated |
 | *cover* | boolean | cover image tag |
-| **videos** | **array** | item videos |
-| *weblink* | video url |
-| *description* | video description |
-| **specs** | **array** | spec setting |
+| **videos** | **array** (option) | item videos |
+| *weblink* | string | video url |
+| *description* | string | video description |
+| **specs** | **array** (option) | spec setting |
 | *id* | spec id |
 | *value* | value id of spec |
-| **warranty** | **object** | warranty setting of item |
+| **warranty** | **object** (option) | warranty setting of item |
 | *type* | string | warranty type - Limited or Lifetime |
 | *value* | positive integer (option) | warranty value |
 | *unit* | string (option) | value unit - Years or Months |
@@ -658,7 +640,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|
@@ -686,8 +668,8 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/delete` | 
-| Method | `post` | 
+| URL | `user/company/item/delete` |
+| Method | `post` |
 | Use | to delete item |
 | Notice |  |
 
@@ -739,7 +721,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:| 
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
 |||**lack of parameters:** some input parameters missing, not in the request|
 |||**does not signin:** user does not signin|
 |||**not select company yet:** user need change current company|

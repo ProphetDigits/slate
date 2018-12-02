@@ -115,7 +115,12 @@ Success
         "id": 2,
         "name": "Category Test",
         "subCategory": [],
-        "items": []
+        "items": [],
+        "spec2s": [{
+            "id": 1,
+            "name": "Movement",
+            "part": true
+        }]
     }],
     "items": [{
         "id": 1,
@@ -127,6 +132,11 @@ Success
             "720p": "asdsad_720p.jpeg",
             "1080p": "asdsad_1080p.jpeg"
         }
+    }],
+    "spec2s": [{
+        "id": 1,
+        "name": "Movement",
+        "part": true
     }]
 }
 ```
@@ -135,8 +145,15 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The category id |
 | name | string | The category name |
-| items | array | The items belong to current category |
+| spec2s | array | The spec2s of category include self and ancestors |
 | subCategory | array | The subCategories of current category <br />The content same as category |
+| items | array | The items belong to current category |
+
+| category_spec2s | | |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| part | boolean | The spec is part or not |
 
 | category_item | | |
 | -------: | :---- | :--- |
@@ -217,7 +234,8 @@ Success
         "id": "",
         "name": "",
         "specs": [],
-        "customizations": []
+        "customizations": [],
+        "spec2s": []
     },
     "specs": [{
         "id": 1,
