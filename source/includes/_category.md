@@ -391,7 +391,6 @@ Failure
 | customizations | array | The id set of customization |
 
 
-
 > Return Parameters
 
 ### Return Parameters
@@ -413,7 +412,7 @@ Success
         "specs": [{
             "id": 1,
             "name": "Spec Name"
-        }],
+        }]
     }
 }
 ```
@@ -466,15 +465,15 @@ Failure
 
 
 
-## Category Item List Without Login
+## Category Detail Without Login
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `category/{category_id}/item/list` |
+| URL | `category/{category_id}/detail` |
 | Method | `get` |
-| Use | to show category item list |
+| Use | to show category detail |
 | Notice |  |
 
 
@@ -484,7 +483,6 @@ Failure
 
 ```json
 {
-    "category_id": 1,
     "page": 1,
     "perpage": 2
 }
@@ -492,7 +490,6 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| category_id | integer | category id |
 | page | integer(option) | the page of all items list, page < 0 will set to first page, page > last page will set to last page, default: 1 |
 | perpage | integer(option) | items per page, default: 60 |
 
@@ -518,6 +515,25 @@ Success
             "px720": "http://abc/xxx_720p.jpg",
             "px1080": "http://abc/xxx_1080p.jpg"
         },
+        "images": [{
+            "name": "xxx.jpg",
+            "cover": 0,
+            "resource": {
+                "px240": "http://abc/xxx_240p.jpg",
+                "px480": "http://abc/xxx_480p.jpg",
+                "px720": "http://abc/xxx_720p.jpg",
+                "px1080": "http://abc/xxx_1080p.jpg"
+            }
+        },{
+            "name": "yyy.jpg",
+            "cover": 1,
+            "resource": {
+                "px240": "http://abc/yyy_240p.jpg",
+                "px480": "http://abc/yyy_480p.jpg",
+                "px720": "http://abc/yyy_720p.jpg",
+                "px1080": "http://abc/yyy_1080p.jpg"
+            }
+        }],
         "currency": "EUR",
         "price": 10
     }],
@@ -540,6 +556,14 @@ Success
 | *price* | number | item price |
 | *currency* | string | default currency name of company |
 | *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| **images** | **object** | It will get item images .It will be empty if there is no item image |
+| *name* | string | file name which get from back end after specific image has been updated |
+| *cover* | boolean | cover image tag |
+| *resource* | **object** | cover image tag |
 | *px240* | string | picture url of 240 resolution (426x240) |
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |

@@ -28,6 +28,7 @@ includes:
   - balance
   - invitation
   - shipment
+  - bag
 
 search: true
 ---

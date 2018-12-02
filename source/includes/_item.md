@@ -211,7 +211,25 @@ Success
 			"px1080": "http://abc/yyy_1080p.jpg"
 		}
 	}],
-
+    "specs": [
+        {
+            "id": 1,
+            "name": "son EVO ist ",
+            "display_name": "son EVO ist ",
+            "value": {
+                "id": 206,
+                "name": "EVO"
+            }
+        },{
+            "id": 87,
+            "name": "son EVO 2st ",
+            "display_name": "son EVO ist ",
+            "value": {
+                "id": 210,
+                "name": "SON"
+            }
+        }
+    ],
     "warranty": {
         "type": "Limited",
         "value": 0,
@@ -237,12 +255,17 @@ Success
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| **specs** | **array** | spec setting |
+| **specs** | **array** | The spec list |
 | *id* | integer | spec id |
-| *name* | string | spec display name |
+| *name* | string | spec name |
+| *display_name* | string | spec display name |
 | *value* | **object** | value id of spec |
 | *id* | integer | spec value id |
 | *name* | string | spec value display name |
+| **warranty** | **object** | warranty setting of item |
+| *type* | string | warranty type |
+| *value* | integer | warranty value |
+| *unit* | string | value unit |
 
 
 
@@ -355,29 +378,6 @@ Success
 		"name": "youtube",
 		"hyperlink": "https://youtu.be/G2reQQUQ-Dc"
 	}],
-<<<<<<< HEAD
-	"weblink": "http://evo.bionicon.com/",
-	"company": {
-		"id": 1,
-		"name": "Bionicon"
-	},
-	"prices": {
-		"EUR": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		},
-		"TWD": {
-			"min": 50,
-			"basic": 100,
-			"max": 150
-		}
-	},
-	"discount": 50,
-	"unit": "Set",
-	"contain": 1,
-	"stock": 3,
-	"description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und 	Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
     "categories": [
         {
             "id": 1,
