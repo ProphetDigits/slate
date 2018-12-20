@@ -143,6 +143,71 @@ Failure
 ||| **does not signin:** The user does not signin |
 
 
+## System Country List Without Sign In
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `system/country/list` |
+| Method | `get` |
+| Use | to get all countries in the system |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+	"countries":[{
+		"id": 115,
+		"name": "Japan"
+	}, {
+		"id": 228,
+		"name": "Taiwan"
+	}]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **countries** | **array** | All countries in the system |
+| *id* | number | The country id |
+| *name* | string | The country name |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+
 
 ## Upload Image
 
