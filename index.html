@@ -7140,7 +7140,7 @@ Failure
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item number"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
     </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.456</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"duscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -8615,7 +8615,7 @@ Failure
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item number"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
     </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.456</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"duscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -8673,72 +8673,72 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">name</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The name of item</td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The number of item</td>
 </tr>
 <tr>
 <td style="text-align: right">categories</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">The set of category id</td>
 </tr>
 <tr>
 <td style="text-align: right">price</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">number (option)</td>
 <td style="text-align: left">The price of item</td>
 </tr>
 <tr>
 <td style="text-align: right">discount</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">The max discount of item</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">The max discount precent of item</td>
 </tr>
 <tr>
 <td style="text-align: right">deposit_ratio</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">integer (option)</td>
 <td style="text-align: left">The deposit ratio of item</td>
 </tr>
 <tr>
 <td style="text-align: right">ean</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The European Article Number</td>
 </tr>
 <tr>
 <td style="text-align: right">unit</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The unit of amount</td>
 </tr>
 <tr>
 <td style="text-align: right">contain</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The amount contained in this item</td>
 </tr>
 <tr>
 <td style="text-align: right">weblink</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The outside website of item</td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">string (option)</td>
 <td style="text-align: left">The description of item</td>
 </tr>
 <tr>
 <td style="text-align: right">images</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">The images of item</td>
 </tr>
 <tr>
 <td style="text-align: right">videos</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">The videos of item</td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
-<td style="text-align: left">array</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">The spec configurations of item</td>
 </tr>
 <tr>
@@ -8853,7 +8853,7 @@ Failure
 <tr>
 <td style="text-align: right">type</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The warranty type - Limited or Lifetime <br/>The value and unit is unnecessary when type is Lifetime</td>
+<td style="text-align: left">The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
@@ -8916,7 +8916,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li><li>lack of parameters: some input parameters missing, not in the request</li></ul></td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
@@ -8935,72 +8935,82 @@ Failure
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>duplicate: <ol><li>The data has already been taken</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">categories</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>not exist: <ol><li>The category is not belongs to the current company</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">price</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not number</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not number</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">discount</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not number</li><li>The data need between 0 to 100</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">deposit_ratio</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">invalid value: <ol><li>The data is not number</li><li>The data need between 0 to 100</li></ol></td>
+<td style="text-align: left">invalid value: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">ean</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">unit</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">contain</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">weblink</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">images</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">videos</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">videos.(index).weblink</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">videos.(index).description</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">spec2s</td>
@@ -9010,17 +9020,37 @@ Failure
 <tr>
 <td style="text-align: right">spec2s.(index).id</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec2 </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">spec2s.(index).id.configurable_values</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">spec2s.(index).id.configurable_values.(index).id</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec2 value </li></ol></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to the spec </li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.type</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.unit</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol></td>
 </tr>
 </tbody></table>
 
