@@ -23,7 +23,7 @@
     "number": "item number",
     "categories": [1, 2, 3],
     "price": 123.456,
-    "duscount": 30,
+    "dscount": 30,
     "ean": "",
     "unit": "",
     "contain": "",
@@ -670,7 +670,7 @@ Failure
     "number": "item number",
     "categories": [1, 2, 3],
     "price": 123.456,
-    "duscount": 30,
+    "dscount": 30,
     "ean": "",
     "unit": "",
     "contain": "",
@@ -714,20 +714,20 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The key will be returned by Sign In API |
 | item_id | integer | The id id item |
-| name | string | The name of item |
-| number | string | The number of item |
-| categories | array | The set of category id |
-| price | number | The price of item |
-| discount | integer | The max discount of item |
-| deposit_ratio | integer | The deposit ratio of item |
-| ean | string | The European Article Number |
-| unit | string | The unit of amount |
-| contain | string | The amount contained in this item |
-| weblink | string | The outside website of item |
-| description | string | The description of item |
-| images | array | The images of item |
-| videos | array | The videos of item |
-| specs | array | The spec configurations of item |
+| name | string (option) | The name of item |
+| number | string (option) | The number of item |
+| categories | array (option) | The set of category id |
+| price | number (option) | The price of item |
+| discount | integer (option) | The max discount precent of item |
+| deposit_ratio | integer (option) | The deposit ratio of item |
+| ean | string (option) | The European Article Number |
+| unit | string (option) | The unit of amount |
+| contain | string (option) | The amount contained in this item |
+| weblink | string (option) | The outside website of item |
+| description | string (option) | The description of item |
+| images | array (option) | The images of item |
+| videos | array (option) | The videos of item |
+| specs | array (option) | The spec configurations of item |
 | spec2s | array (option) | The configurable values of spec2 of item |
 | warranty | object (option) | The warranty configuration of item |
 
@@ -757,7 +757,7 @@ Failure
 
 | item_warranty | Type | Description |
 | -------: | :---- | :--- |
-| type | string | The warranty type - Limited or Lifetime <br/>The value and unit is unnecessary when type is Lifetime |
+| type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
@@ -798,29 +798,35 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li><li>lack of parameters: some input parameters missing, not in the request</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | | |
 | -------: | :---- | :--- |
-| name | array (option) | required: <ol><li>The field is required</li></ol> |
-| number | array (option) | required: <ol><li>The field is required</li></ol>duplicate: <ol><li>The data has already been taken</li></ol> |
-| categories | array (option) | required: <ol><li>The field is required</li></ol>not exist: <ol><li>The category is not belongs to the current company</li></ol> |
-| price | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not number</li></ol> |
-| discount | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not number</li><li>The data need between 0 to 100</li></ol> |
-| deposit_ratio | array (option) | invalid value: <ol><li>The data is not number</li><li>The data need between 0 to 100</li></ol> |
-| ean | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol> |
-| unit | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol> |
-| contain | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol> |
-| weblink | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol> |
-| description | array (option) | required: <ol><li>The field is required</li></ol>invalid value: <ol><li>The data is not string</li></ol> |
-| images | array (option) | required: <ol><li>The field is required</li></ol> |
-| videos | array (option) | required: <ol><li>The field is required</li></ol> |
-| specs | array (option) | required: <ol><li>The field is required</li></ol> |
+| name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| number | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| categories | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| price | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not number</li></ol> |
+| discount | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
+| deposit_ratio | array (option) | invalid value: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
+| ean | array (option) | required: <ol><li>The field is required</li></ol> |
+| unit | array (option) | required: <ol><li>The field is required</li></ol> |
+| contain | array (option) | required: <ol><li>The field is required</li></ol> |
+| weblink | array (option) | required: <ol><li>The field is required</li></ol> |
+| description | array (option) | required: <ol><li>The field is required</li></ol> |
+| images | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos.(index).weblink | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| videos.(index).description | array (option) | required: <ol><li>The field is required</li></ol> |
+| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec2 </li></ol> |
-| spec2s.(index).id.configurable_values.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec2 value </li></ol> |
+| spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol> |
+| spec2s.(index).id.configurable_values | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| spec2s.(index).id.configurable_values.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to the spec </li></ol> |
 | warranty | array (option) | required: <ol><li>The field is required</li></ol> |
+| warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
+| warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
+| warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 
 
 
