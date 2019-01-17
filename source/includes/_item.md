@@ -70,7 +70,7 @@
 | number | string | The number of item |
 | categories | array | The set of category id |
 | price | number | The price of item |
-| discount | integer | The max discount of item |
+| discount | integer | The max discount precent of item |
 | deposit_ratio | integer | The deposit ratio of item |
 | ean | string | The European Article Number |
 | unit | string | The unit of amount |
@@ -122,14 +122,7 @@
 Success
 </aside>
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+The return same to Item Detail API
 
 
 ### Return Parameters When Failure
@@ -373,16 +366,16 @@ Success
     "unit": "Set",
     "contain": 1,
     "prices": {
-        "EUR": {
+        "EUR": [{
             "min": 50,
             "basic": 100,
             "max": 150
-        },
-        "TWD": {
+        }],
+        "TWD": [{
             "min": 50,
             "basic": 100,
             "max": 150
-        }
+        }]
     },
     "discount": 50,
     "deposit_ratio": 30,
@@ -410,11 +403,11 @@ Success
         }
     }],
     "videos":[{
-        "name": "",
-        "hyperlink": "https://youtu.be/70ZkhewCDD8"
+        "description": "",
+        "weblink": "https://youtu.be/70ZkhewCDD8"
     }, {
-        "name": "youtube",
-        "hyperlink": "https://youtu.be/G2reQQUQ-Dc"
+        "description": "youtube",
+        "weblink": "https://youtu.be/G2reQQUQ-Dc"
     }],
     "categories": [
         {
@@ -520,7 +513,7 @@ Success
 | name | string | The name of item |
 | number | string | The number of item |
 | categories | array | The set of category of item |
-| prices | object | The prices of item |
+| prices | array | The prices of item |
 | discount | integer | The max discount percent of item |
 | deposit_ratio | integer | The deposit ratio of item |
 | ean | string | The European Article Number |
@@ -544,7 +537,7 @@ Success
 | item_price | Type | Description |
 | -------: | :---- | :--- |
 | min | number<br/>null | The min price in all variants of item<br/>The value is null indicate no variant of item |
-| basic | number | The basic price which be set in the item |
+| basic | number | The basic price which be set in the item<br/>The value is null indicate it not default currency for company |
 | max | number<br/>null | The max price in all variants of item<br/>The value is null indicate no variant of item |
 
 | item_image | Type | Description |
@@ -568,13 +561,14 @@ Success
 | item_spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
-| name | string | The display name of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
 | value | object | The value of spec |
 
 | item_spec_value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec value |
-| name | string | The display name of spec value |
+| name | string | The name of spec value |
 
 | item_customization | Type | Description |
 | -------: | :---- | :--- |
@@ -614,6 +608,8 @@ Success
 | id | integer | The id of spec2 |
 | name | string | The name of spec2 |
 | display_name | string | The display name of spec2 |
+| comment | string | The comment of spec2 |
+| part | boolean | The part of spec2 |
 | value | object | The configuration of relative spec value<br/>The structure same to item_spec2_configurable_value |
 
 | item_company | Type | Description |
@@ -621,7 +617,7 @@ Success
 | id | integer | The id of company |
 | name | string | The name of company |
 
-| item_company | Type | Description |
+| item_warranty | Type | Description |
 | -------: | :---- | :--- |
 | type | string | The warranty type |
 | value | integer | The duration of warranty |
@@ -646,7 +642,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: some input parameters missing, not in the request</li><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: item number is incorrect</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: some input parameters missing, not in the request</li><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul> |
 
 
 
