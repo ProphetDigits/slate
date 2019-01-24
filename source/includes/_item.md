@@ -161,6 +161,8 @@ Failure
 | description | array (option) | required: <ol><li>The field is required</li></ol> |
 | images | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | videos | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos.(index).weblink | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| videos.(index).description | array (option) | required: <ol><li>The field is required</li></ol> |
 | specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol> |
