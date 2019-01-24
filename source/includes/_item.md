@@ -161,6 +161,8 @@ Failure
 | description | array (option) | required: <ol><li>The field is required</li></ol> |
 | images | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | videos | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos.(index).weblink | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| videos.(index).description | array (option) | required: <ol><li>The field is required</li></ol> |
 | specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
 | spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol> |
@@ -482,21 +484,7 @@ Success
             "part_number": "PK1011",
             "supplier_number": "SK1011",
             "description": "description",
-            "comment": "comment....",
-            "compositions": [{
-                "id": 2,
-                "name": "Second Hands",
-                "value": {
-                    "id": 2,
-                    "name": "Multiply Center Silver",
-                    "display_name": "Center Silver",
-                    "part_number": "MCS0001",
-                    "supplier_number": "SKMCS0001",
-                    "description": "description",
-                    "comment": "comment....",
-                    "compositions": []
-                }
-            }]
+            "comment": "comment...."
         }]
     }],
     "warranty": {
@@ -601,16 +589,6 @@ Success
 | supplier_number | string | The supplier number of spec2 value |
 | description | string | The description of spec2 value |
 | comment | string | The comment of spec2 value |
-| compositions | array | The compositions of spec2 value |
-
-| item_spec2_configurable_value_composition | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The id of spec2 |
-| name | string | The name of spec2 |
-| display_name | string | The display name of spec2 |
-| comment | string | The comment of spec2 |
-| part | boolean | The part of spec2 |
-| value | object | The configuration of relative spec value<br/>The structure same to item_spec2_configurable_value |
 
 | item_company | Type | Description |
 | -------: | :---- | :--- |
