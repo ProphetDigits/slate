@@ -143,6 +143,7 @@ Success
         "compositions": [{
             "id": 2,
             "name": "color",
+            "display_name": "color",
             "part": true
         }],
         "values": [{
@@ -157,9 +158,11 @@ Success
             "compositions": [{
                 "id": 2,
                 "name": "color",
+            	"display_name": "color",
                 "value": {
                     "id": 1,
-                    "name": "red"
+                    "name": "red",
+            		"display_name": "red"
                 }
             }]
         }]
@@ -176,7 +179,7 @@ Success
 | Parameter | Type | Description |
 | id | integer | The id of spec |
 | name | string | The name of spec |
-| display_name | string | The display name of spec |
+| display_name | string | The display name is to displayed for consumer |
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not |
 | categories | array | The set of category |
@@ -192,6 +195,7 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
+| display_name | string | The display name is to displayed for consumer |
 | part | boolean | The spec is part or not |
 
 | spec_value | | |
@@ -210,12 +214,14 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
+| display_name | string | The display name is to displayed for consumer |
 | value | object | The setting of value of composition |
 
 | spec_value_composition_value | | |
 | -------: | :---- | :--- |
 | id | integer | The id of value of spec |
 | name | string | The name of value of spec |
+| display_name | string | The display name is to displayed for consumer |
 
 
 > Return Parameters When Failure
