@@ -485,6 +485,8 @@ Success
             "supplier_number": "SK1011",
             "description": "description",
             "comment": "comment...."
+            "currency"
+            "price"
         }]
     }],
     "warranty": {

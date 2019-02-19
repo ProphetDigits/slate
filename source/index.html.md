@@ -19,6 +19,7 @@ includes:
   - customization
   - spec2
   - variant
+  - variant2
   - product
   - option
   - cart
