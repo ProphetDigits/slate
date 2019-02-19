@@ -8045,6 +8045,8 @@ Success
             </span><span class="nt">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK1011"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment...."</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="w">
+            </span><span class="s2">"price"</span><span class="w">
         </span><span class="p">}]</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -14231,6 +14233,1361 @@ Failure
 <td style="text-align: right"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left"><strong>dulicate:</strong>  this customization style has been used</td>
+</tr>
+</tbody></table>
+
+          <h1 id="variant2">Variant2</h1>
+
+<h2 id="get-variant2-list">Get Variant2 List</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">company/item/variant2/list</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to get variant list</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">System gives it after user sign in</td>
+</tr>
+<tr>
+<td style="text-align: right">target_company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id of item</td>
+</tr>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of item</td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">The filter setting of spec for variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">spec</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value of spec</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply bl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mbl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variants</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The variants data</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">stock</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The product amount of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The default currency of company</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The price of variant for default currency</td>
+</tr>
+<tr>
+<td style="text-align: right">deposit</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The deposit of price for default currency</td>
+</tr>
+<tr>
+<td style="text-align: right">cover_image</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The url of each resolution for cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The company which variant belongs to</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.cover_image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">px240</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 240 resolution (426x240)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px480</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 480 resolution (854x480)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px720</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 720 resolution (1280x720<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px1080</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 1080 resolution (1920x1080)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of company of variant</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"does not signin"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-variant2-detail">Get Variant2 Detail</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">company/item/variant2/detail</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to show variant detail</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">System gives it after user sign in</td>
+</tr>
+<tr>
+<td style="text-align: right">target_company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The company id of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of variant</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply bl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mbl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply K1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"defualt_currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.45</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TWD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"defualt_currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Movement"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Movement"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"part"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1-11 auto"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1-11"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_1080p.jpg"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The variant data</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">weblink</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The website URL of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The taric code of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The item belongs to variant</td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The spec configuration of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The prices for each currency of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">images</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The images of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">warranty</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The warranty configuration of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.item</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of item</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of item</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency of price</td>
+</tr>
+<tr>
+<td style="text-align: right">defualt_currency</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The default currency of company</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">The price of currency</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.spec</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">display_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The display_name of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">part</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The spec is part or not</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The value of spec of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.spec.value</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of value of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">display_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The display_name of value of spec</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The file name</td>
+</tr>
+<tr>
+<td style="text-align: right">cover</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The tag of cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">resource</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The url of each resolution for cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.image.resource</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">px240</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 240 resolution (426x240)</td>
+</tr>
+<tr>
+<td style="text-align: right">px480</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 480 resolution (854x480)</td>
+</tr>
+<tr>
+<td style="text-align: right">px720</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 720 resolution (1280x720</td>
+</tr>
+<tr>
+<td style="text-align: right">px1080</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 1080 resolution (1920x1080)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.warranty</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The warranty type</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The duration of warranty</td>
+</tr>
+<tr>
+<td style="text-align: right">unit</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The unit of duration</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"does not signin"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-variant2">Create Variant2</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant2/create</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to create variant</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdasdasd.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">System gives it after user sign in</td>
+</tr>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of item</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">weblink</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The website URL of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The taric code of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The spec configuration of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The prices for each currency of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">images</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The images of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">warranty</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The warranty configuration of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency of price</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">The price of currency of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">spec</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero indicate no setting</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name will be returned by Upload Image API</td>
+</tr>
+<tr>
+<td style="text-align: right">cover</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The tag of cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">warranty</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">The duration of warranty</td>
+</tr>
+<tr>
+<td style="text-align: right">unit</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The unit of duration - Years or Months</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>The return same to Get Variant2 Detail API</p>
+
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dulicate"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the err_name is &lsquo;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">item_id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be integer</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">weblink</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices.(index).currency</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The currency not set in company</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices.(index).value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be numeric</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">spec2s.(index).id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to item </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">specs.(index).value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not set in item </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images.(index).name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images.(index).cover</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be boolean</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.type</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.unit</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol></td>
+</tr>
+</tbody></table>
+
+<h2 id="edit-variant2">Edit Variant2</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to edit variant</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdasdasd.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qweqweq.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The name of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The number of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">weblink</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The website URL of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The taric code of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">The spec configuration of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">The prices for each currency of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">images</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">The images of variant</td>
+</tr>
+<tr>
+<td style="text-align: right">warranty</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">The warranty configuration of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency of price</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">The price of currency of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">spec</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of spec</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero indicate no setting</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name will be returned by Upload Image API</td>
+</tr>
+<tr>
+<td style="text-align: right">cover</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The tag of cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">warranty</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">positive integer (option)</td>
+<td style="text-align: left">The duration of warranty</td>
+</tr>
+<tr>
+<td style="text-align: right">unit</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The unit of duration - Years or Months</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>The return same to Get Variant2 Detail API</p>
+
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dulicate"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the err_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">weblink</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices.(index).currency</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The currency not set in company</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">prices.(index).value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be numeric</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">specs</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">spec2s.(index).id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to item </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">specs.(index).value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not set in item </li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images.(index).name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">images.(index).cover</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be boolean</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.type</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.value</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">warranty.unit</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol></td>
 </tr>
 </tbody></table>
 
