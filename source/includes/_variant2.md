@@ -109,13 +109,13 @@ Failure
 
 ```json
 {
-    "error_name": "does not signin"
+    "error_name": "item_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul> |
 
 
 ## Get Variant2 Detail
@@ -196,7 +196,7 @@ Success
         "images":[{
 			"name": "xxx.jpg",
 			"cover": true,
-			"resource": {
+			"resources": {
 				"px240": "http://abc/xxx_240p.jpg",
 				"px480": "http://abc/xxx_480p.jpg",
 				"px720": "http://abc/xxx_720p.jpg",
@@ -205,7 +205,7 @@ Success
 		}, {
 			"name": "yyy.jpg",
 			"cover": false,
-			"resource": {
+			"resources": {
 				"px240": "http://abc/yyy_240p.jpg",
 				"px480": "http://abc/yyy_480p.jpg",
 				"px720": "http://abc/yyy_720p.jpg",
@@ -296,7 +296,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
 
 
 ## Create Variant2
@@ -412,7 +412,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | | |
