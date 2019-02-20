@@ -14479,7 +14479,7 @@ Success
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"does not signin"</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_not_exist"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -14492,7 +14492,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul></td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -14607,7 +14607,7 @@ Success
         </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
@@ -14616,7 +14616,7 @@ Success
         </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyy.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"cover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_240p.jpg"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_480p.jpg"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/yyy_720p.jpg"</span><span class="p">,</span><span class="w">
@@ -14901,7 +14901,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul></td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -15145,7 +15145,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
