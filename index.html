@@ -8044,9 +8044,11 @@ Success
             </span><span class="nt">"part_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK1011"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK1011"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment...."</span><span class="w">
-            </span><span class="s2">"currency"</span><span class="w">
-            </span><span class="s2">"price"</span><span class="w">
+            </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment...."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">}]</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"warranty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8457,7 +8459,16 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">The comment of spec2 value</td>
 </tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The price information of spec2 value</td>
+</tr>
 </tbody></table>
+
+<p>| item_spec2_configurable_value.price | Type | Description |
+| currency | string | The currency of value of spec |
+| value | numeric | The price of value of spec<br /> It&rsquo;s zero if spec of variant not setting |</p>
 
 <table><thead>
 <tr>
@@ -14596,12 +14607,11 @@ Success
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1-11 auto"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1-11"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1-11"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.2</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}],</span><span class="w">
         </span><span class="nt">"images"</span><span class="p">:[{</span><span class="w">
@@ -14693,6 +14703,11 @@ Success
 <td style="text-align: left">The prices for each currency of variant</td>
 </tr>
 <tr>
+<td style="text-align: right">deposit</td>
+<td style="text-align: left">object The deposit information of variant</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
 <td style="text-align: right">images</td>
 <td style="text-align: left">array</td>
 <td style="text-align: left">The images of variant</td>
@@ -14749,6 +14764,25 @@ Success
 
 <table><thead>
 <tr>
+<th style="text-align: right">variant.deposit</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency of deposit</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">The deposit of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
 <th style="text-align: right">variant.spec</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
@@ -14791,19 +14825,28 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of value of spec</td>
+<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero if spec of variant not setting</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of value of spec</td>
+<td style="text-align: left">The name of value of spec<br />It&rsquo;s empty string if spec of variant not setting</td>
 </tr>
 <tr>
 <td style="text-align: right">display_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The display_name of value of spec</td>
+<td style="text-align: left">The display_name of value of spec<br />It&rsquo;s empty string if spec of variant not setting</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The price information of value of spec</td>
 </tr>
 </tbody></table>
+
+<p>| variant.spec.value.price | Type | Description |
+| currency | string | The currency of value of spec |
+| value | numeric | The price of value of spec<br /> It&rsquo;s zero if spec of variant not setting |</p>
 
 <table><thead>
 <tr>
@@ -15265,7 +15308,7 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/item/variant/edit</code></td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/variant2/edit</code></td>
 </tr>
 <tr>
 <td style="text-align: right">Method</td>
