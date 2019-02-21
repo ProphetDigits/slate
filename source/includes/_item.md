@@ -484,9 +484,11 @@ Success
             "part_number": "PK1011",
             "supplier_number": "SK1011",
             "description": "description",
-            "comment": "comment...."
-            "currency"
-            "price"
+            "comment": "comment....",
+            "price": {
+        		"currency": "EUR",
+        		"value": 9.2
+        	}
         }]
     }],
     "warranty": {
@@ -591,6 +593,11 @@ Success
 | supplier_number | string | The supplier number of spec2 value |
 | description | string | The description of spec2 value |
 | comment | string | The comment of spec2 value |
+| price | object | The price information of spec2 value |
+
+| item_spec2_configurable_value.price | Type | Description |
+| currency | string | The currency of value of spec |
+| value | numeric | The price of value of spec<br /> It's zero if spec of variant not setting |
 
 | item_company | Type | Description |
 | -------: | :---- | :--- |

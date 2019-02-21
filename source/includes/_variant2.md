@@ -185,12 +185,11 @@ Success
         	"value": {
         		"id": 1,
         		"name": "K1-11 auto",
-        		"display_name": "K1-11"
-        	},
-        	"value": {
-        		"id": 0,
-        		"name": "",
-        		"display_name": ""
+        		"display_name": "K1-11",
+        		"price": {
+        			"currency": "EUR",
+        			"value": 9.2
+        		}
         	}
         }],
         "images":[{
@@ -235,6 +234,7 @@ Success
 | item | object | The item belongs to variant |
 | specs | array | The spec configuration of variant |
 | prices | array | The prices for each currency of variant |
+| deposit | object The deposit information of variant |
 | images | array | The images of variant |
 | warranty | object | The warranty configuration of variant |
 
@@ -249,6 +249,11 @@ Success
 | defualt_currency | boolean | The default currency of company |
 | value | number | The price of currency |
 
+| variant.deposit | Type | Description |
+| -------: | :---- | :--- |
+| currency | string | The currency of deposit |
+| value | number | The deposit of variant |
+
 | variant.spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
@@ -259,9 +264,14 @@ Success
 
 | variant.spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value of spec |
-| name | string | The name of value of spec |
-| display_name | string | The display_name of value of spec |
+| id | integer | The id of value of spec<br />It's zero if spec of variant not setting |
+| name | string | The name of value of spec<br />It's empty string if spec of variant not setting |
+| display_name | string | The display_name of value of spec<br />It's empty string if spec of variant not setting |
+| price | object | The price information of value of spec |
+
+| variant.spec.value.price | Type | Description |
+| currency | string | The currency of value of spec |
+| value | numeric | The price of value of spec<br /> It's zero if spec of variant not setting |
 
 | variant.image | Type | Description |
 | -------: | :---- | :--- |
@@ -443,7 +453,7 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/variant/edit` |
+| URL | `user/company/item/variant2/edit` |
 | Method | `post` |
 | Use | to edit variant |
 | Notice | |
