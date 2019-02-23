@@ -14286,13 +14286,7 @@ Failure
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="nt">"spec_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -14318,28 +14312,9 @@ Failure
 <td style="text-align: left">The id of item</td>
 </tr>
 <tr>
-<td style="text-align: right">specs</td>
+<td style="text-align: right">spec_values</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">The filter setting of spec for variant</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: right">spec</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">The id of spec</td>
-</tr>
-<tr>
-<td style="text-align: right">value</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">The id of value of spec</td>
+<td style="text-align: left">The set of id of spec value indicate the variants combine by those spec value<br />It&rsquo;s empty array mean no specify spec values</td>
 </tr>
 </tbody></table>
 
@@ -15331,7 +15306,7 @@ Failure
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autark-k1-ss-001"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
