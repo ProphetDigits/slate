@@ -21,13 +21,7 @@
     "api_key": "e4cbcdc2faff41a7e311",
     "target_company_id": 1,
     "item_id": 1,
-    "specs": [{
-    	"id": 1,
-    	"value": 1
-    }, {
-    	"id": 1,
-    	"value": 2
-    }]
+    "spec_values": [1, 2]
 }
 ```
 
@@ -36,12 +30,8 @@
 | api_key | string | System gives it after user sign in |
 | target_company_id | integer | The company id of item |
 | item_id | integer | The id of item |
-| specs | array (option) | The filter setting of spec for variant |
+| spec_values | array (option) | The set of id of spec value indicate the variants combine by those spec value<br />It's empty array mean no specify spec values |
 
-| spec | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of value of spec |
 
 > Return Parameters
 
@@ -466,7 +456,7 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "item_id": 1,
+    "id": 1,
     "name": "Basic",
     "number": "autark-k1-ss-001",
     "weblink": "",
