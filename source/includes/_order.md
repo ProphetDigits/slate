@@ -423,279 +423,6 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
-## Confirm Purchase
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `order/confirmpurchase` |
-| Method | `get` |
-| Use | to bind the order with current user |
-| Notice |  |
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-    "api_key": "e4cbcdc2faff41a7e311",
-    "order_number": "AAAA160401000001OD"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| order_number | string | order number |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-    "profile" : {
-        "given_name": "CC",
-        "family_name": "Lee",
-        "title": 1,
-        "phone": "0912345678"
-    },
-    "default_address" : {
-        "street":"ABC st.",
-        "city":"Taichung",
-        "state":"Taiwan",
-        "code":"30123",
-        "country":"R.O.C."
-    }
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| **profile** | **object** | |
-| *given_name* | string | given_name |
-| *family_name* | string | family_name |
-| *title* | integer | title (0=Mr. 1=Ms.) |
-| *phone* | string | phone number |
-| **default_address** | **object** | |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**order_not_bound_same_user:** order has been bound with another user |
-|||**order_not_exist:** order number is incorrect |
-
-
-## Partial  Order  Detail
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `order/{order_number}/detail` |
-| Method | `get` |
-| Use | to get the partial order detail |
-| Notice |  |
-
-> Header Parameters
-
-### Header Parameters
-
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| Authorization | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-  "number": "AAAA160401000003OD",
-  "currency": "JPY",
-  "subtotal": 25300,
-  "totalDiscount": 886,
-  "total": 24414,
-  "order_status": "Open",
-  "payment_status": "Open",
-  "payment_method": null,
-  "retailer": {
-    "id": 1,
-    "name": "Company A",
-    "cover_img": {
-        "resource": {
-            "px240": "http://xxxx_240p.jpeg",
-            "px480": "http://xxxx_480p.jpeg",
-            "px720": "http://xxxx_720p.jpeg",
-            "px1080": "http://xxxx_1080p.jpeg"
-        }
-    },
-    "Address": {
-        "street": "333 West San Carlos Street Suite 1500",
-        "city": " San Jose",
-        "state": "CA",
-        "postal_code": "95110",
-        "country": "United States"
-    }
-  },
-  "products": [{
-    "number": "AAAA0000000004PD",
-    "company": {
-      "id": 1,
-      "name": "Company Test"
-    },
-    "item": {
-      "id": 1,
-      "number": "Test-Item-1",
-      "name": "Test Item 1"
-    },
-    "variant": {
-      "id": 2,
-      "name": "Variant Test",
-      "cover_img": {
-          "resource": {
-              "px240": "http://xxxx_240p.png",
-              "px480": "http://xxxx_480p.png",
-              "px720": "http://xxxx_720p.png",
-              "px1080": "http://xxxx_1080p.png"
-          }
-      }
-    },
-    "price": 100,
-    "discount_price": 85
-  },{
-    "number": "AAAA0000000005PD",
-    "company": {
-      "id": 1,
-      "name": "Company Test"
-    },
-    "item": {
-      "id": 1,
-      "number": "Test-Item-1",
-      "name": "Test Item 1"
-    },
-    "variant": {
-      "id": 2,
-      "name": "Variant Test",
-        "cover_img": {
-            "resource": {
-                "px240": "http://xxxx_240p.png",
-                "px480": "http://xxxx_480p.png",
-                "px720": "http://xxxx_720p.png",
-                "px1080": "http://xxxx_1080p.png"
-            }
-        }
-    },
-    "price": 100,
-    "discount_price": 85
-  }]
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| number | string | order number |
-| currency | string | payment currency |
-| subtotal | double | order subtotal price |
-| totalDiscount | double | order total discount price |
-| total | double | order total price |
-| order_status | string | order status |
-| payment_status | string | payment status |
-| payment_method | string | payment method |
-| **retailer** | **object** | |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| **products** | **array** |  |
-| *number* | string | product number |
-| **company** | **object** | company of product |
-| *id* | string | company id of product |
-| *name* | string | company name of product |
-| **item** | **object** | item of product |
-| *id* | integer | item id of products |
-| *number* | string | item number of product |
-| *name* | string | item name of product |
-| **variant** | **object** | variant of product |
-| *id* | string | variant id of product |
-| *name* | string | variant name of product |
-| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| *price* | double | product price |
-| *discount* | integer | product discount |
-| *discount_price* | double | product discount price |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**does_not_signin:** user does not signin|
-|||**order_not_bound_same_user:** order has been bound with another user |
-|||**order_not_exist:** order number is incorrect |
-
 
 ## Order   Detail
 
@@ -1043,7 +770,7 @@ Success
 {
 	"date": 1459491797,
 	"status": "success",
-	"odrer": {
+	"order": {
 		"number": "AAAA170329000001OD",
 		"payment_method": "PayPal",
 		"transaction": "123546876",
@@ -1176,3 +903,375 @@ Failure
 |||**closed :** order has been closed|
 |||**refunded:** order has been refunded|
 |||**open:**  initial order status|
+
+
+## Partial  Order  Detail
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/{order_number}/detail` |
+| Method | `get` |
+| Use | to get the partial order detail |
+| Notice |  |
+
+> Header Parameters
+
+### Header Parameters
+
+```json
+{
+    "Authorization": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "number": "AAAA160401000003OD",
+  "currency": "JPY",
+  "subtotal": 25300,
+  "totalDiscount": 886,
+  "total": 24414,
+  "order_status": "Open",
+  "payment_status": "Open",
+  "payment_method": null,
+  "retailer": {
+    "id": 1,
+    "name": "Company A",
+    "cover_img": {
+        "resource": {
+            "px240": "http://xxxx_240p.jpeg",
+            "px480": "http://xxxx_480p.jpeg",
+            "px720": "http://xxxx_720p.jpeg",
+            "px1080": "http://xxxx_1080p.jpeg"
+        }
+    },
+    "Address": {
+        "street": "333 West San Carlos Street Suite 1500",
+        "city": " San Jose",
+        "state": "CA",
+        "postal_code": "95110",
+        "country": "United States"
+    }
+  },
+  "products": [{
+    "number": "AAAA0000000004PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variant": {
+      "id": 2,
+      "name": "Variant Test",
+      "cover_img": {
+          "resource": {
+              "px240": "http://xxxx_240p.png",
+              "px480": "http://xxxx_480p.png",
+              "px720": "http://xxxx_720p.png",
+              "px1080": "http://xxxx_1080p.png"
+          }
+      }
+    },
+    "price": 100,
+    "discount_price": 85
+  },{
+    "number": "AAAA0000000005PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variant": {
+      "id": 2,
+      "name": "Variant Test",
+        "cover_img": {
+            "resource": {
+                "px240": "http://xxxx_240p.png",
+                "px480": "http://xxxx_480p.png",
+                "px720": "http://xxxx_720p.png",
+                "px1080": "http://xxxx_1080p.png"
+            }
+        }
+    },
+    "price": 100,
+    "discount_price": 85
+  }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| number | string | order number |
+| currency | string | payment currency |
+| subtotal | double | order subtotal price |
+| totalDiscount | double | order total discount price |
+| total | double | order total price |
+| order_status | string | order status |
+| payment_status | string | payment status |
+| payment_method | string | payment method |
+| **retailer** | **object** | |
+| *id* | integer | company  id |
+| *name* | string | company name |
+| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| **products** | **array** |  |
+| *number* | string | product number |
+| **company** | **object** | company of product |
+| *id* | string | company id of product |
+| *name* | string | company name of product |
+| **item** | **object** | item of product |
+| *id* | integer | item id of products |
+| *number* | string | item number of product |
+| *name* | string | item name of product |
+| **variant** | **object** | variant of product |
+| *id* | string | variant id of product |
+| *name* | string | variant name of product |
+| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *px240* | string | picture url of 240 resolution (426x240) |
+| *px480* | string | picture url of 480 resolution (854x480) |
+| *px720* | string | picture url of 720 resolution (1280x720) |
+| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| *price* | double | product price |
+| *discount* | integer | product discount |
+| *discount_price* | double | product discount price |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String | The name of wrong type |
+| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
+| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
+| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+
+
+## Confirm Purchase
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/confirmpurchase` |
+| Method | `get` |
+| Use | to bind the order with current user |
+| Notice |  |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "order_number": "AAAA160401000001OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "profile" : {
+        "given_name": "CC",
+        "family_name": "Lee",
+        "title": 1,
+        "phone": "0912345678"
+    },
+    "default_address" : {
+        "street":"ABC st.",
+        "city":"Taichung",
+        "state":"Taiwan",
+        "code":"30123",
+        "country":"R.O.C."
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **profile** | **object** | |
+| *given_name* | string | given_name |
+| *family_name* | string | family_name |
+| *title* | integer | title (0=Mr. 1=Ms.) |
+| *phone* | string | phone number |
+| **default_address** | **object** | |
+| *street* | string | recipient’s address |
+| *city* | string | recipient’s address |
+| *state* | string | recipient’s address |
+| *code* | string | recipient’s address |
+| *country* | string | recipient’s address |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String | The name of wrong type |
+| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
+| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
+| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+
+
+
+## Edit Order
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/edit` |
+| Method | `post` |
+| Use | to edit the order's billing address with current user |
+| Notice |  |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "order_number": "AAAA160401000001OD",
+    "billing_address": {
+      "given_name":"Lee",
+      "family_name":"CC",
+      "title": 0,    
+      "phone":"0912345678",
+      "street":"ABC st.",
+      "street2":"ABC st.",
+      "city":"Taichung",
+      "state":"Taiwan",
+      "code":"30123",
+      "country":"R.O.C."
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
+| billing_address | object | order's billing address |
+| *given_name* | string | recipient’s given_name |
+| *family_name* | string | recipient’s family_name |
+| *phone* | string | recipient’s phone number |
+| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
+| *street* | string | recipient’s address |
+| *street2* | string | recipient’s address |
+| *city* | string | recipient’s address |
+| *state* | string | recipient’s address |
+| *code* | string | recipient’s address |
+| *country* | string | recipient’s address |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"illegal_form_input",
+  "validation": {
+      "given_name": ["required"],
+      "family_name": ["required"]
+      "title": ["invalid"]
+  }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type|
+| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
+| | | <ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul>|
+| | | <ul><li>order_not_exist: The order is not exist</li></ul>|
+| | | <ul><li>order_is_timeout: The order is bounded by another user</li></ul>|
+| | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
+| validation | array(option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
+| | |**given_name:** required|
+| | |**family_name:** required |
+| | |**title:** invalid |
+
+
