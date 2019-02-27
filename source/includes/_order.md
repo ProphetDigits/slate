@@ -1255,7 +1255,7 @@ Failure
   "error_name":"illegal_form_input",
   "validation": {
       "given_name": ["required"],
-      "family_name": ["required"]
+      "family_name": ["required"],
       "title": ["invalid"]
   }
 }
@@ -1269,9 +1269,9 @@ Failure
 | | | <ul><li>order_not_exist: The order is not exist</li></ul>|
 | | | <ul><li>order_is_timeout: The order is bounded by another user</li></ul>|
 | | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
-| validation | array(option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
-| | |**given_name:** required|
-| | |**family_name:** required |
-| | |**title:** invalid |
+| validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
+| given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| family_name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
 
 
