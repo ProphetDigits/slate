@@ -1267,7 +1267,7 @@ Failure
 | | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
 | | | <ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul>|
 | | | <ul><li>order_not_exist: The order is not exist</li></ul>|
-| | | <ul><li>order_is_timeout: The order is bounded by another user</li></ul>|
+| | | <ul><li>order_is_timeout: The order is expired(order timeout 15 minutes)</li></ul>|
 | | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
 | validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
 | given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
