@@ -957,7 +957,7 @@ Success
   "number": "AAAA160401000003OD",
   "currency": "JPY",
   "subtotal": 25300,
-  "totalDiscount": 886,
+  "total_discount": 886,
   "total": 24414,
   "order_status": "Open",
   "payment_status": "Open",
@@ -973,7 +973,7 @@ Success
             "px1080": "http://xxxx_1080p.jpeg"
         }
     },
-    "Address": {
+    "address": {
         "street": "333 West San Carlos Street Suite 1500",
         "city": " San Jose",
         "state": "CA",
@@ -1040,7 +1040,7 @@ Success
 | number | string | order number |
 | currency | string | payment currency |
 | subtotal | double | order subtotal price |
-| totalDiscount | double | order total discount price |
+| total_discount | double | order total discount price |
 | total | double | order total price |
 | order_status | string | order status |
 | payment_status | string | payment status |
@@ -1049,10 +1049,17 @@ Success
 | *id* | integer | company  id |
 | *name* | string | company name |
 | *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *resource* | **object** | item cover image. It will be empty if no set cover image |
 | *px240* | string | picture url of 240 resolution (426x240) |
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| *address* | **object** | retailer's address |
+| *street* | string | retailer's street  |
+| *city* | string |  retailer's city  |
+| *state* | string |  retailer's state  |
+| *post_code* | string |  retailer's post code  |
+| *country* | string |  retailer's country  |
 | **products** | **array** |  |
 | *number* | string | product number |
 | **company** | **object** | company of product |
@@ -1066,6 +1073,7 @@ Success
 | *id* | string | variant id of product |
 | *name* | string | variant name of product |
 | *cover_img* | **object** | item cover image. It will be empty if no set cover image |
+| *resource* | **object** | item cover image. It will be empty if no set cover image |
 | *px240* | string | picture url of 240 resolution (426x240) |
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
