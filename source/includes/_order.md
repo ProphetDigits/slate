@@ -1099,7 +1099,7 @@ Failure
 | Title | Description |
 | -------: | :---- |
 | URL | `order/confirmpurchase` |
-| Method | `get` |
+| Method | `post` |
 | Use | to bind the order with current user |
 | Notice |  |
 
@@ -1272,6 +1272,6 @@ Failure
 | validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
 | given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
 | family_name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
+| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not a number</li></ol> |
 
 
