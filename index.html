@@ -22083,7 +22083,7 @@ Success
   </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000003OD"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">25300</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"totalDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">886</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">886</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24414</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
@@ -22099,7 +22099,7 @@ Success
             </span><span class="s2">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxx_1080p.jpeg"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333 West San Carlos Street Suite 1500"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">" San Jose"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
@@ -22183,7 +22183,7 @@ Success
 <td style="text-align: left">order subtotal price</td>
 </tr>
 <tr>
-<td style="text-align: right">totalDiscount</td>
+<td style="text-align: right">total_discount</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">order total discount price</td>
 </tr>
@@ -22228,6 +22228,11 @@ Success
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
 <tr>
+<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
 <td style="text-align: right"><em>px240</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 240 resolution (426x240)</td>
@@ -22246,6 +22251,36 @@ Success
 <td style="text-align: right"><em>px1080</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>address</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">retailer&rsquo;s address</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>street</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">retailer&rsquo;s street</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>city</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">retailer&rsquo;s city</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>state</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">retailer&rsquo;s state</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>post_code</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">retailer&rsquo;s post code</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>country</em></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">retailer&rsquo;s country</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>products</strong></td>
@@ -22309,6 +22344,11 @@ Success
 </tr>
 <tr>
 <td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">item cover image. It will be empty if no set cover image</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>resource</em></td>
 <td style="text-align: left"><strong>object</strong></td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
