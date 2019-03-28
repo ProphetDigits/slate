@@ -1079,8 +1079,8 @@ Success
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
 | *price* | double | product price |
-| *discount* | integer | product discount |
 | *discount_price* | double | product discount price |
+| *preferential_price* | integer | product preferential price |
 
 <aside class="warning">
 Failure
