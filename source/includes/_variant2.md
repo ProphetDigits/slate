@@ -57,6 +57,7 @@ Success
 			"px720": "http://abc/xxx_720p.jpg",
 			"px1080": "http://abc/xxx_1080p.jpg"
 		},
+		"duplicate_combination": true,
 		"company": {
 			"id": 1
 		}
@@ -78,6 +79,7 @@ Success
 | price | numeric | The price of variant for default currency |
 | deposit | numeric | The deposit of price for default currency |
 | cover_image | object | The url of each resolution for cover image |
+| duplicate_combination | boolean | The combination of variant is duplicate with others |
 | company | object | The company which variant belongs to |
 
 | variant.cover_image | Type | Description |
@@ -205,7 +207,11 @@ Success
 			"type": "Limited",
 			"value": 2,
 			"unit": "Years"
-		}
+		},
+		"variants_of_same_combinations": [{
+			"id": 2,
+			"name": "Multiply bk"
+		}]
 	}
 }
 ```
@@ -224,9 +230,10 @@ Success
 | item | object | The item belongs to variant |
 | specs | array | The spec configuration of variant |
 | prices | array | The prices for each currency of variant |
-| deposit | object The deposit information of variant |
+| deposit | object | The deposit information of variant |
 | images | array | The images of variant |
 | warranty | object | The warranty configuration of variant |
+| variants_of_same_combinations | array | The variants of same combinations |
 
 | variant.item | Type | Description |
 | -------: | :---- | :--- |
@@ -248,7 +255,7 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
-| display_name | string | The display_name of spec |
+| display_name | string | The display name of spec for consumer |
 | part | boolean | The spec is part or not |
 | value | object | The value of spec of variant |
 
@@ -256,10 +263,11 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The id of value of spec<br />It's zero if spec of variant not setting |
 | name | string | The name of value of spec<br />It's empty string if spec of variant not setting |
-| display_name | string | The display_name of value of spec<br />It's empty string if spec of variant not setting |
+| display_name | string | The display name of spec for consumer<br />It's empty string if spec of variant not setting |
 | price | object | The price information of value of spec |
 
 | variant.spec.value.price | Type | Description |
+| -------: | :---- | :--- |
 | currency | string | The currency of value of spec |
 | value | numeric | The price of value of spec<br /> It's zero if spec of variant not setting |
 
@@ -267,7 +275,7 @@ Success
 | -------: | :---- | :--- |
 | name | string | The file name |
 | cover | boolean | The tag of cover image |
-| resource | object | The url of each resolution for cover image |
+| resources | object | The url of each resolution for cover image |
 
 | variant.image.resource | Type | Description |
 | -------: | :---- | :--- |
@@ -281,6 +289,11 @@ Success
 | type | string | The warranty type |
 | value | integer | The duration of warranty |
 | unit | string | The unit of duration |
+
+| variant.variants_of_same_combination | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of variant |
+| name | string | The name of variant |
 
 ### Return Parameters When Failure
 
@@ -403,7 +416,7 @@ Failure
 ```json
 {
     "validation": {
-        "name": ["dulicate"],
+        "name": ["invalid"],
         "number": ["required"]
     },
     "error_name": "illegal_form_input"
@@ -540,7 +553,7 @@ Failure
 ```json
 {
     "validation": {
-        "name": ["dulicate"],
+        "name": ["invalid"],
         "number": ["required"]
     },
     "error_name": "illegal_form_input"
