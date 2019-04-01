@@ -1005,7 +1005,8 @@ Success
       }
     },
     "price": 100,
-    "discount_price": 85
+    "discount_price": 85,
+    "selling_price": 15
   },{
     "number": "AAAA0000000005PD",
     "company": {
@@ -1029,8 +1030,9 @@ Success
             }
         }
     },
-    "price": 100,
-    "discount_price": 85
+    "price": 1358.85,
+    "discount_price": 289.38,
+    "selling_price": 1069.47
   }]
 }
 ```
@@ -1080,7 +1082,7 @@ Success
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
 | *price* | double | product price |
 | *discount_price* | double | product discount price |
-| *preferential_price* | integer | product preferential price |
+| *selling_price* | double | product selling price |
 
 <aside class="warning">
 Failure
