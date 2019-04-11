@@ -1100,6 +1100,9 @@ Failure
 | | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
 | | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
 | | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+| | | <ul><li>order_is_finished: order is finished</li></ul> |
+| | | <ul><li>order_is_aborted: order is aborted</li></ul> |
+| | | <ul><li>order_is_timeout: order is timeout</li></ul> |
 
 
 ## Confirm Purchase
