@@ -212,6 +212,7 @@ Failure
 |||**currency not exist:** product cannot |
 |||**sale region not found:** VAT region not set |
 |||**importer region error:** importer not in VAT region |
+|||**cart_is_lock:** cart is lock |
 
 
 ## Give Discount
@@ -288,6 +289,7 @@ Failure
 |||**product sold:** product has been sold |
 |||**no product permission:** not product owner company or no option with product company |
 |||**currency not exist:** product cannot |
+|||**cart_is_lock:** cart is lock |
 
 
 ## Delete Products From Cart
@@ -356,6 +358,7 @@ Failure
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
 |||**cart not exist:** cart id error |
+|||**cart_is_lock:** cart is lock |
 
 
 ## Cart Detail
@@ -592,3 +595,4 @@ Failure
 |||**company not exist:** currenct company not exist|
 |||**not company member:** the user is not the company member|
 |||**cart not exist:** cart id error |
+|||**cart_is_lock:** cart is lock |
