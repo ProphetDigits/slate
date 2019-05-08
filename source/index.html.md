@@ -21,6 +21,7 @@ includes:
   - variant
   - variant2
   - product
+  - product2
   - option
   - cart
   - order
