@@ -83,6 +83,7 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "target_company_id": 1,
+    "item_id": 1,
     "variant_id": 1,
     "pagination": {
         "page": 2,
@@ -95,6 +96,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The key will be returned by Sign In API |
 | target_company_id | integer | The company id of variant |
+| item_id | integer | The id of item which variant belongs to |
 | variant_id | integer | The id of variant<br />It's 0 will return all products |
 | pagination | object | The setting of pagination |
 
@@ -118,6 +120,7 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "sold": false,
         "variants": [],
         "last_holder": {
             "id": 1,
@@ -143,6 +146,7 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "sold": true,
         "variants": [{
             "id": 1,
             "name": "mutiply k1"
@@ -168,8 +172,8 @@ Success
             "id": 1,
             "name": "Bionicon"
         },
-        "purchase_order_number": "AAAA010120160000PO",
-        "shipment_number": "AAAA010120160000SH"
+        "purchase_order_number": null,
+        "shipment_number": null
     }],
     "pagination": {
         "total": 50,
@@ -190,18 +194,18 @@ Success
 | number | string | The number of product |
 | short_number | string | The short number of product |
 | serial_number | string | The serial number of product |
-| sold | boolean | The status of product. <ol><li>true: sold</li><li>false: unsold</li></ol> |
+| sold | boolean | The status of product<ol><li>true: sold</li><li>false: unsold</li></ol> |
 | printed_at | timestamp | The last printed time of product, the product is not printed will show null |
-| last_holder | object | The last holder of product <br /> Last holder will be empty if product is check out or sold |
+| last_holder | object | The last holder of product<br />It's null when product not checkin, checkout or sold |
 | deposit_owner | object | The company which pay deposit for product |
-| purchase_order_number | string | The purchase order number which product is assigned |
-| shipment_number | string | The shipment number which product is assigned |
+| purchase_order_number | string | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
+| shipment_number | string | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
 
 | product.last_holder | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
-| given_name | string | The given name of user |
-| family_name | string | The family name of user |
+| id | integer | The id of user<br />It will be 0 if product is check out or sold |
+| given_name | string | The given name of user<br />It will be empty if product is check out or sold |
+| family_name | string | The family name of user<br />It will be empty if product is check out or sold |
 | operator | object | The operator for check in or check out or sell |
 
 | product.last_holder.operator | Type | Description |
@@ -241,7 +245,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist or not belongs to target company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li><li>no_option: The current company does not have option with target company</li></ul> |
 
 
 ## Product2 Detail
