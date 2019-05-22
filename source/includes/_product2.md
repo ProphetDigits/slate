@@ -326,45 +326,8 @@ Success
         }
     }],
     "histories": [{
-        "id": 3,
-        "type": "checkin",
-        "last_holder": {
-            "id": 1,
-            "given_name": "Simon",
-            "family_name": "Chang",
-        },
-        "operator": {
-            "id": 82,
-            "given_name": "Simon",
-            "family_name": "Chang",
-            "company": {
-                "id": 107,
-                "name": "AAAA Corp."
-            }
-        },
-        "created_at": 1519713617,
-        "comment": "Shipment Number: AAAA02SH",
-        "change_spec": null
-    }, {
-        "id": 2,
-        "last_holder": null,
-        "type": "Assign To Shipment",
-        "operator": {
-            "id": 82,
-            "given_name": "Simon",
-            "family_name": "Chang",
-            "company": {
-                "id": 107,
-                "name": "AAAA Corp."
-            }
-        },
-        "created_at": 1519713617,
-        "comment": "Shipment Number: AAAA02SH",
-        "change_spec": null
-    }, {
         "id": 1,
-        "last_holder": null,
-        "type": "Change Spec",
+        "type": "change_spec",
         "operator": {
             "id": 82,
             "given_name": "Simon",
@@ -375,12 +338,22 @@ Success
             }
         },
         "created_at": 1519713617,
-        "comment": "Shipment Number: AAAA02SH",
-        "change_spec": {
-            "type": "add",
-            "spec": "Movement",
-            "from": "",
-            "to": "k1-12 auto"
+        "spec": {
+            "spec": {
+                "id": 1,
+                "name": "Movement",
+                "display_name": "Movement"
+            },
+            "old_value": {
+                "id": 1,
+                "name": "Movement",
+                "display_name": "Movement"
+            },
+            "new_value": {
+                "id": 0,
+                "name": "",
+                "display_name": ""
+            }
         }
     }],
     "deposit_owner": {
@@ -470,9 +443,11 @@ Success
 
 | product.histories | Type | Description |
 | -------: | :---- | :--- |
-| last_holder | object | The user who hold the product<br />It is null when type is not check in and check out and sell |
-| type | string | product check type  <ul><li>check in</li><li>check out</li><li>Assign To Shipment</li><li>Un-assign To Shipment</li><li>Assign To PO</li><li>Un-assign To PO</li><li>sell</li><li>Change Spec</li></ul>|
+| id | integer | The id of history
+| type | string | The type of history <ul><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
 | operator | object | The operator of current action |
+| created_at | timestamp | The create time of history |
+| spec | object (option) | It's appear when type is add_spec, change_spec and delete_spec |
 
 | product.histories.operator | Type | Description |
 | -------: | :---- | :--- |
@@ -480,13 +455,31 @@ Success
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
 | company | object | The company of operator |
-| created_at | timestamp | The create time of history |
-| comment | string | The comment of action |
 
 | product.histories.operator.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of company |
 | name | string | The name of company |
+
+| product.histories.spec | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| old_value | object | The old setting of spec in the product |
+| new_value | object | The current setting of spec in the product |
+
+| product.histories.spec.old_value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
+| display_name | string | The display name of spec value |
+
+| product.histories.spec.new_value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
+| display_name | string | The display name of spec value |
 
 | product.deposit_owner | Type | Description |
 | -------: | :---- | :--- |
@@ -535,7 +528,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li></ul> |
 
 
 ## Edit Product
@@ -652,7 +645,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
@@ -662,8 +655,8 @@ Failure
 | prices.(index).currency | array (option) | required: <ol><li>The field is required</li></ol> invalid: <ol><li>The currency not set in company</li></ol> |
 | prices.(index).value | array (option) | required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be numeric</li></ol> |
 | specs | array (option) | invalid: <ol><li>The data should be array</li></ol> |
-| specs.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to item </li></ol> |
-| specs.(index).value | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not set in item </li></ol> |
+| specs.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to item or product </li></ol> |
+| specs.(index).value | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The value is not belongs to spec </li></ol> |
 | added_files | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 | deleted_files | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 | warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
