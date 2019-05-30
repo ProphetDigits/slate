@@ -134,7 +134,7 @@ Success
                     "id": 1,
                     "name": "Bionicon"
                 }
-            },
+            }
         },
         "deposit_owner": {
             "id": 1,
@@ -166,7 +166,7 @@ Success
                     "id": 1,
                     "name": "Bionicon"
                 }
-            },
+            }
         },
         "deposit_owner": {
             "id": 1,
@@ -322,7 +322,25 @@ Success
         "value": {
             "id": 1,
             "name": "K1-12 auto",
-            "display_name": "K1-12 auto"
+            "display_name": "K1-12 auto",
+            "price": {
+                "currency": "EUR",
+                "value": 9.2
+            }
+        }
+    }, {
+        "id": 1,
+        "name": "Strap",
+        "display_name": "Strap",
+        "part": true,
+        "value": {
+            "id": 0,
+            "name": "",
+            "display_name": "",
+            "price": {
+                "currency": "EUR",
+                "value": 0
+            }
         }
     }],
     "histories": [{
@@ -440,6 +458,11 @@ Success
 | id | integer | The id of spec value |
 | name | string | The name of spec value |
 | display_name | string | The display name of spec value |
+| price | object | The price information of spec value |
+
+| product.specs.value.price | Type | Description |
+| currency | string | The currency of price |
+| value | numeric | The price of spec value<br /> It's zero if spec of variant not setting |
 
 | product.histories | Type | Description |
 | -------: | :---- | :--- |
