@@ -155,6 +155,7 @@ Success
             "supplier_number": "",
             "description": "",
             "comment": "",
+            "sofe_delete": false,
             "compositions": [{
                 "id": 2,
                 "name": "color",
@@ -208,6 +209,7 @@ Success
 | supplier_number | string | The supplier number of value |
 | description | string | The description is to displayed for consumer |
 | comment | string | The comment is a note for brand |
+| sofe_delete | boolean | The tag for deleted value |
 | compositions | array | The set of compositions |
 
 | spec_value_composition | | |
@@ -238,7 +240,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_found:<ol><li>The spec is not exist</li><li>The spec does not belongs to current company</li></ol></li></ul> |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_exist: The spec is not exist</li><li>no_option: The current company of user does not have option with company of spec</li></ul> |
 
 
 
