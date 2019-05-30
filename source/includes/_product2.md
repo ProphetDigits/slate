@@ -134,7 +134,7 @@ Success
                     "id": 1,
                     "name": "Bionicon"
                 }
-            },
+            }
         },
         "deposit_owner": {
             "id": 1,
@@ -166,7 +166,7 @@ Success
                     "id": 1,
                     "name": "Bionicon"
                 }
-            },
+            }
         },
         "deposit_owner": {
             "id": 1,
@@ -322,7 +322,25 @@ Success
         "value": {
             "id": 1,
             "name": "K1-12 auto",
-            "display_name": "K1-12 auto"
+            "display_name": "K1-12 auto",
+            "price": {
+                "currency": "EUR",
+                "value": 9.2
+            }
+        }
+    }, {
+        "id": 1,
+        "name": "Strap",
+        "display_name": "Strap",
+        "part": true,
+        "value": {
+            "id": 0,
+            "name": "",
+            "display_name": "",
+            "price": {
+                "currency": "EUR",
+                "value": 0
+            }
         }
     }],
     "histories": [{
@@ -440,6 +458,11 @@ Success
 | id | integer | The id of spec value |
 | name | string | The name of spec value |
 | display_name | string | The display name of spec value |
+| price | object | The price information of spec value |
+
+| product.specs.value.price | Type | Description |
+| currency | string | The currency of price |
+| value | numeric | The price of spec value<br /> It's zero if spec of variant not setting |
 
 | product.histories | Type | Description |
 | -------: | :---- | :--- |
@@ -664,3 +687,52 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product not sold</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 | warranty.start_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
+
+
+## Download Product File
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | it's given by system |
+| Method | `get` |
+| Use | download product file |
+| Notice | |
+
+> Input Headers
+
+### Input Headers
+
+```json
+{
+    "Authorization": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Headers | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | The key will be returned by Sign In API |
+
+<aside class="success">
+Success
+</aside>
+
+The Content-Disposition is inline if file is pdf, others is attachment
+
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "no_authorization"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
