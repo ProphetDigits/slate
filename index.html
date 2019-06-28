@@ -14322,6 +14322,25 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">The set of id of spec value indicate the variants combine by those spec value<br />It&rsquo;s empty array mean no specify spec values</td>
 </tr>
+<tr>
+<td style="text-align: right">filter</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">The setting of filter</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">filter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean (option)</td>
+<td style="text-align: left">The stock is affected by it. <ul><li>(option): The stock quantity contain sold and unsold products</li><li>true: The stock quantity just contain sold products </li><li>false: The stock quantity just contain unsold products </li></ul></td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -17438,6 +17457,9 @@ Failure
     </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -17466,12 +17488,17 @@ Failure
 <tr>
 <td style="text-align: right">variant_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of variant<br />It&rsquo;s 0 will return all products</td>
+<td style="text-align: left">The id of variant<br />It&rsquo;s 0 will return all products of item</td>
 </tr>
 <tr>
 <td style="text-align: right">pagination</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">The setting of pagination</td>
+</tr>
+<tr>
+<td style="text-align: right">filter</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">The setting of filter</td>
 </tr>
 </tbody></table>
 
@@ -17491,6 +17518,20 @@ Failure
 <td style="text-align: right">per_page</td>
 <td style="text-align: left">integer (option)</td>
 <td style="text-align: left">The quantity of per page<br /> The default is 50</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">filter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean (option)</td>
+<td style="text-align: left"><ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol></td>
 </tr>
 </tbody></table>
 
@@ -17913,6 +17954,20 @@ Success
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"last_holder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"operator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bionicon"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"change_spec"</span><span class="p">,</span><span class="w">
@@ -17943,6 +17998,20 @@ Success
                 </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"operator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA Corp."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713617</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"deposit_owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
@@ -18039,6 +18108,11 @@ Success
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array</td>
 <td style="text-align: left">The specs of product</td>
+</tr>
+<tr>
+<td style="text-align: right">last_holder</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The current holder of product</td>
 </tr>
 <tr>
 <td style="text-align: right">histories</td>
@@ -18211,9 +18285,101 @@ Success
 </tr>
 </tbody></table>
 
-<p>| product.specs.value.price | Type | Description |
-| currency | string | The currency of price |
-| value | numeric | The price of spec value<br /> It&rsquo;s zero if spec of variant not setting |</p>
+<table><thead>
+<tr>
+<th style="text-align: right">product.specs.value.price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency of price</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The price of spec value<br /> It&rsquo;s zero if spec of variant not setting</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.last_holder</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of user<br />It will be 0 if product is check out or sold</td>
+</tr>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The given name of user<br />It will be empty if product is check out or sold</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The family name of user<br />It will be empty if product is check out or sold</td>
+</tr>
+<tr>
+<td style="text-align: right">operator</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The operator for check in or check out or sell</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.last_holder.operator</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of user</td>
+</tr>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The given name of user</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The family name of user</td>
+</tr>
+<tr>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The current company when user check in or check out product or sell it</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.last_holder.operator.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The id of company</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of company</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -18241,6 +18407,11 @@ Success
 <td style="text-align: right">created_at</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">The create time of history</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The comment of history<br />It&rsquo;s appear when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment</td>
 </tr>
 <tr>
 <td style="text-align: right">spec</td>
@@ -18776,7 +18947,7 @@ Failure
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"invalid"</span><span class="p">],</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_sign_in"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -18874,6 +19045,194 @@ Failure
 <td style="text-align: right">warranty.end_date</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol></td>
+</tr>
+</tbody></table>
+
+<h2 id="check-in-product">Check in Product</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product2/checkin</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">checkin product</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of product</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The comment for check in</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: Same user check in same product twice</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="check-out-product">Check out Product</h2>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/item/product2/checkout</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">checkout product</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A01B021440012345"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of product</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The comment for check in</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_sign_in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul></td>
 </tr>
 </tbody></table>
 
