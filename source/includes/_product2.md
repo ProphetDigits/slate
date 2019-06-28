@@ -720,7 +720,7 @@ Failure
         "name": ["invalid"],
         "number": ["required"]
     },
-    "error_name": "illegal_form_input"
+    "error_name": "not_sign_in"
 }
 ```
 
@@ -745,6 +745,122 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product not sold</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 | warranty.start_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
+
+
+## Check in Product
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product2/checkin` |
+| Method | `post` |
+| Use | checkin product |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": "1A01B021440012345",
+    "comment": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The key will be returned by Sign In API |
+| product_number | string | The number of product |
+| comment | string | The comment for check in |
+
+### Return Parameters When Success
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "illegal_form_input"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: Same user check in same product twice</li></ul> |
+
+
+## Check out Product
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product2/checkout` |
+| Method | `post` |
+| Use | checkout product |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": "1A01B021440012345",
+    "comment": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The key will be returned by Sign In API |
+| product_number | string | The number of product |
+| comment | string | The comment for check in |
+
+### Return Parameters When Success
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "not_sign_in"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul> |
 
 
 ## Download Product File
