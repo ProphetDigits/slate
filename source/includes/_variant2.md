@@ -31,6 +31,11 @@
 | target_company_id | integer | The company id of item |
 | item_id | integer | The id of item |
 | spec_values | array (option) | The set of id of spec value indicate the variants combine by those spec value<br />It's empty array mean no specify spec values |
+| filter | object (option) | The setting of filter |
+
+| filter | Type | Description |
+| -------: | :---- | :--- |
+| sold | boolean (option) | The stock is affected by it. <ul><li>(option): The stock quantity contain sold and unsold products</li><li>true: The stock quantity just contain sold products </li><li>false: The stock quantity just contain unsold products </li></ul> |
 
 
 > Return Parameters

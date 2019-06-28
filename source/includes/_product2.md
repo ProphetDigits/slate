@@ -88,6 +88,9 @@ Failure
     "pagination": {
         "page": 2,
         "per_page": 50
+    },
+    "filter": {
+        "sold": true
     }
 }
 ```
@@ -97,13 +100,18 @@ Failure
 | api_key | string | The key will be returned by Sign In API |
 | target_company_id | integer | The company id of variant |
 | item_id | integer | The id of item which variant belongs to |
-| variant_id | integer | The id of variant<br />It's 0 will return all products |
+| variant_id | integer | The id of variant<br />It's 0 will return all products of item |
 | pagination | object | The setting of pagination |
+| filter | object (option) | The setting of filter |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
 | page | integer (option) | The specific page in the pagination <ol><li>The default is 1</li><li>The number is 1 when it less than 1</li><li>The number is max page when it more than max page</li></ol> |
 | per_page | integer (option) | The quantity of per page<br /> The default is 50 |
+
+| filter | Type | Description |
+| -------: | :---- | :--- |
+| sold | boolean (option) | <ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
 
 
 > Return Parameters
