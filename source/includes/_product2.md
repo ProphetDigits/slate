@@ -343,6 +343,20 @@ Success
             }
         }
     }],
+    "last_holder": {
+        "id": 1,
+        "given_name": "CC",
+        "family_name": "Lee",
+        "operator": {
+            "id": 1,
+            "given_name": "CC",
+            "family_name": "Lee",
+            "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        }
+    },
     "histories": [{
         "id": 1,
         "type": "change_spec",
@@ -373,6 +387,20 @@ Success
                 "display_name": ""
             }
         }
+    }, {
+        "id": 1,
+        "type": "checkin",
+        "operator": {
+            "id": 82,
+            "given_name": "Simon",
+            "family_name": "Chang",
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "created_at": 1519713617,
+        "comment": ""
     }],
     "deposit_owner": {
         "id": 107,
@@ -418,6 +446,7 @@ Success
 | variants | array | The variants which the spec same as product |
 | prices | array | The prices of product in each currencies |
 | specs | array | The specs of product |
+| last_holder | object | The current holder of product |
 | histories | array | The histories of product |
 | deposit_owner | object | The company of paying deposit |
 | files | array | The upload files of product |
@@ -461,15 +490,36 @@ Success
 | price | object | The price information of spec value |
 
 | product.specs.value.price | Type | Description |
+| -------: | :---- | :--- |
 | currency | string | The currency of price |
 | value | numeric | The price of spec value<br /> It's zero if spec of variant not setting |
 
+| product.last_holder | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of user<br />It will be 0 if product is check out or sold |
+| given_name | string | The given name of user<br />It will be empty if product is check out or sold |
+| family_name | string | The family name of user<br />It will be empty if product is check out or sold |
+| operator | object | The operator for check in or check out or sell |
+
+| product.last_holder.operator | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of user |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The current company when user check in or check out product or sell it |
+
+| product.last_holder.operator.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of company |
+| name | string | The name of company |
+
 | product.histories | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of history
+| id | integer | The id of history |
 | type | string | The type of history <ul><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
 | operator | object | The operator of current action |
 | created_at | timestamp | The create time of history |
+| comment | string (option) | The comment of history<br />It's appear when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
 | spec | object (option) | It's appear when type is add_spec, change_spec and delete_spec |
 
 | product.histories.operator | Type | Description |
