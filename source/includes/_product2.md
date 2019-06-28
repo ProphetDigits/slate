@@ -88,6 +88,9 @@ Failure
     "pagination": {
         "page": 2,
         "per_page": 50
+    },
+    "filter": {
+        "sold": true
     }
 }
 ```
@@ -97,13 +100,18 @@ Failure
 | api_key | string | The key will be returned by Sign In API |
 | target_company_id | integer | The company id of variant |
 | item_id | integer | The id of item which variant belongs to |
-| variant_id | integer | The id of variant<br />It's 0 will return all products |
+| variant_id | integer | The id of variant<br />It's 0 will return all products of item |
 | pagination | object | The setting of pagination |
+| filter | object (option) | The setting of filter |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
 | page | integer (option) | The specific page in the pagination <ol><li>The default is 1</li><li>The number is 1 when it less than 1</li><li>The number is max page when it more than max page</li></ol> |
 | per_page | integer (option) | The quantity of per page<br /> The default is 50 |
+
+| filter | Type | Description |
+| -------: | :---- | :--- |
+| sold | boolean (option) | <ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
 
 
 > Return Parameters
@@ -343,6 +351,20 @@ Success
             }
         }
     }],
+    "last_holder": {
+        "id": 1,
+        "given_name": "CC",
+        "family_name": "Lee",
+        "operator": {
+            "id": 1,
+            "given_name": "CC",
+            "family_name": "Lee",
+            "company": {
+                "id": 1,
+                "name": "Bionicon"
+            }
+        }
+    },
     "histories": [{
         "id": 1,
         "type": "change_spec",
@@ -373,6 +395,20 @@ Success
                 "display_name": ""
             }
         }
+    }, {
+        "id": 1,
+        "type": "checkin",
+        "operator": {
+            "id": 82,
+            "given_name": "Simon",
+            "family_name": "Chang",
+            "company": {
+                "id": 107,
+                "name": "AAAA Corp."
+            }
+        },
+        "created_at": 1519713617,
+        "comment": ""
     }],
     "deposit_owner": {
         "id": 107,
@@ -418,6 +454,7 @@ Success
 | variants | array | The variants which the spec same as product |
 | prices | array | The prices of product in each currencies |
 | specs | array | The specs of product |
+| last_holder | object | The current holder of product |
 | histories | array | The histories of product |
 | deposit_owner | object | The company of paying deposit |
 | files | array | The upload files of product |
@@ -461,15 +498,36 @@ Success
 | price | object | The price information of spec value |
 
 | product.specs.value.price | Type | Description |
+| -------: | :---- | :--- |
 | currency | string | The currency of price |
 | value | numeric | The price of spec value<br /> It's zero if spec of variant not setting |
 
+| product.last_holder | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of user<br />It will be 0 if product is check out or sold |
+| given_name | string | The given name of user<br />It will be empty if product is check out or sold |
+| family_name | string | The family name of user<br />It will be empty if product is check out or sold |
+| operator | object | The operator for check in or check out or sell |
+
+| product.last_holder.operator | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of user |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The current company when user check in or check out product or sell it |
+
+| product.last_holder.operator.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of company |
+| name | string | The name of company |
+
 | product.histories | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of history
+| id | integer | The id of history |
 | type | string | The type of history <ul><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
 | operator | object | The operator of current action |
 | created_at | timestamp | The create time of history |
+| comment | string (option) | The comment of history<br />It's appear when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
 | spec | object (option) | It's appear when type is add_spec, change_spec and delete_spec |
 
 | product.histories.operator | Type | Description |
@@ -662,7 +720,7 @@ Failure
         "name": ["invalid"],
         "number": ["required"]
     },
-    "error_name": "illegal_form_input"
+    "error_name": "not_sign_in"
 }
 ```
 
@@ -687,6 +745,122 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product not sold</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 | warranty.start_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
+
+
+## Check in Product
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product2/checkin` |
+| Method | `post` |
+| Use | checkin product |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": "1A01B021440012345",
+    "comment": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The key will be returned by Sign In API |
+| product_number | string | The number of product |
+| comment | string | The comment for check in |
+
+### Return Parameters When Success
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "illegal_form_input"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: Same user check in same product twice</li></ul> |
+
+
+## Check out Product
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product2/checkout` |
+| Method | `post` |
+| Use | checkout product |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": "1A01B021440012345",
+    "comment": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The key will be returned by Sign In API |
+| product_number | string | The number of product |
+| comment | string | The comment for check in |
+
+### Return Parameters When Success
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "not_sign_in"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul> |
 
 
 ## Download Product File
