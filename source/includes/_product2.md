@@ -112,6 +112,9 @@ Failure
 | filter | Type | Description |
 | -------: | :---- | :--- |
 | sold | boolean (option) | <ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
+| deposit_owner | integer (option) | The id of company <br />It's 0 will get the products which deposit owner is not current company |
+| holder | integer (option) | The id of user <br />It's 0 will get the products which last holder is not current user |
+| location | integer (option) | The id of company <br />It's 0 will get the products which location is not current company |
 
 
 > Return Parameters
