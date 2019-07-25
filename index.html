@@ -25090,6 +25090,35 @@ Success
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: right">purchase_orders_of_brand</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The purchase orders from brand point of view</td>
+</tr>
+<tr>
+<td style="text-align: right">purchase_orders_of_distributor</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">(not implements)The purchase orders from distributor point of view</td>
+</tr>
+<tr>
+<td style="text-align: right">purchase_orders_of_retailer</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The purchase orders from retailer point of view</td>
+</tr>
+<tr>
+<td style="text-align: right">purchase_orders_of_not_submmit</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The not submitted purchase orders from user point of view</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">purchase_orders</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">purchase order number</td>
@@ -25100,19 +25129,9 @@ Success
 <td style="text-align: left">state of purchase order</td>
 </tr>
 <tr>
-<td style="text-align: right">create_at</td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">create time (s)</td>
-</tr>
-<tr>
-<td style="text-align: right">delivery_at</td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">expected delivery date (s)</td>
-</tr>
-<tr>
-<td style="text-align: right">submit_at</td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">submit date (s)</td>
+<td style="text-align: right">deposit_status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the current deposit status of purchase order</td>
 </tr>
 <tr>
 <td style="text-align: right">currency</td>
@@ -25125,37 +25144,65 @@ Success
 <td style="text-align: left">total deposit of purchase order</td>
 </tr>
 <tr>
-<td style="text-align: right">deposit_status</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">the current deposit status of purchase order</td>
+<td style="text-align: right">create_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">create time. Timestamp in seconds</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>brand</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: right">delivery_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">expected delivery date. Timestamp in seconds</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">submit_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">submit date. Timestamp in seconds</td>
+</tr>
+<tr>
+<td style="text-align: right">brand</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The brand company</td>
+</tr>
+<tr>
+<td style="text-align: right">retailer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The purchase company</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">purchase_orders.brand</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>retailer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">purchase_orders.retailer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
@@ -25178,32 +25225,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -25304,8 +25326,8 @@ Success
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
-            </span><span class="err">}</span><span class="w">
+                </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">}],</span><span class="w">
         </span><span class="nt">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
         </span><span class="nt">"assign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -25368,7 +25390,7 @@ Success
 <tr>
 <td style="text-align: right">enable_assign</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">False means that exception case in this purchase order <ol><li>duplicate spec combination of variant</li><li>product of changing spec combination is assigned to item</li></ol></td>
+<td style="text-align: left">The false means that exception case in this purchase order <ol><li>duplicate spec combination of variant</li><li>product of changing spec combination is assigned to item</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
@@ -25403,7 +25425,7 @@ Success
 <tr>
 <td style="text-align: right">pay_deposit</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">the result that whether retailer want to pay deposit or not</td>
+<td style="text-align: left">the retailer want to pay deposit or not</td>
 </tr>
 <tr>
 <td style="text-align: right">currency</td>
@@ -25803,32 +25825,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong> order number is incorrect</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -25933,32 +25930,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li>&gt;</ul></td>
 </tr>
 </tbody></table>
 
@@ -26062,37 +26034,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exis:</strong>  order number is incorrect</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>no item: The items of purchase order should more than 0</li><li>invalid address: all column of address is required</li><li>no option: The option is expired or stop</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -26196,42 +26138,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong> order number is incorrect</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order submitted :</strong> order submitted</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted : order submitted</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -26284,7 +26191,7 @@ Failure
         </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -26320,11 +26227,6 @@ Failure
 <td style="text-align: left">number of purchase order</td>
 </tr>
 <tr>
-<td style="text-align: right">pay_deposit</td>
-<td style="text-align: left">boolean (option)</td>
-<td style="text-align: left">the result that whether retailer want to pay deposit or not</td>
-</tr>
-<tr>
 <td style="text-align: right">delivery_at</td>
 <td style="text-align: left">timestamp (option)</td>
 <td style="text-align: left">the day which goods was delivered</td>
@@ -26335,194 +26237,29 @@ Failure
 <td style="text-align: left">the result that whether retailer want to pay deposit or not</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>add_items</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">to add item to purchase order which not submitted yet.</td>
+<td style="text-align: right">add_items</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">to add variant to purchase order as item when order not submitted yet</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>variant_id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
+<td style="text-align: right">edit_items</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">to edit item of purchase order when order not submitted yet</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>quantity</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">purchase quantity</td>
+<td style="text-align: right">address</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">to edit address of purchase order when order not submitted yet</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>edit_items</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">to edit item of purchase order which not submitted yet.</td>
+<td style="text-align: right">histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of histories of purchase order</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>variant_id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>quantity</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">purchase quantity</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>address</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">to edit address of purchase order which not submitted yet.</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>given_name</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">given name of receiver</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>family_name</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">family name of receiver</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>phone</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s phone number</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>title</em></td>
-<td style="text-align: left">integer (option)</td>
-<td style="text-align: left">recipient’s title (0=Mr. 1=Ms.)</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>email</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s email</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>street</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s address</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>city</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s address</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>state</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s address</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>code</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s address</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left">recipient’s address</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>histories</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>status</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">status of purchase order</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Empty</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Order Confirmed</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Delivery Date Confirmed</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Delivering</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Completed</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Order Cancelled</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">status comment</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>create_at</em></td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>deposit_histories</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>status</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">status of purchase order</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Empty</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Confirmed</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Paid</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Partly  Paid</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Delayed</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Unpaid</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>Ignored</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">status comment</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>create_at</em></td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left"></td>
+<td style="text-align: right">deposit_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">a set of deposit histories of purchase order</td>
 </tr>
 <tr>
 <td style="text-align: right">assign_products</td>
@@ -26541,6 +26278,151 @@ Failure
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th style="text-align: right">add_items</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id<br />system will add quantity if to add exist variant as item</td>
+</tr>
+<tr>
+<td style="text-align: right">quantity</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">purchase quantity</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">edit_items</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right">quantity</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">purchase quantity<br />It will delete item from purchase order if quantity is 0</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">given name of receiver</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">family name of receiver</td>
+</tr>
+<tr>
+<td style="text-align: right">phone</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s phone number</td>
+</tr>
+<tr>
+<td style="text-align: right">title</td>
+<td style="text-align: left">integer (option)</td>
+<td style="text-align: left">recipient’s title (0=Mr. 1=Ms.)</td>
+</tr>
+<tr>
+<td style="text-align: right">email</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s email</td>
+</tr>
+<tr>
+<td style="text-align: right">street</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s address</td>
+</tr>
+<tr>
+<td style="text-align: right">city</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s address</td>
+</tr>
+<tr>
+<td style="text-align: right">state</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s address</td>
+</tr>
+<tr>
+<td style="text-align: right">postal_code</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s address</td>
+</tr>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">recipient’s address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">status of purchase order <ul><li>Empty</li><li>Order Confirmed</li><li>Delivery Date Confirmed</li><li>Delivering</li><li>Completed</li><li>Order Cancelled</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">status comment</td>
+</tr>
+<tr>
+<td style="text-align: right">create_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">deposit_histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">deposit status of purchase order <ul><li>Empty</li><li>Confirmed</li><li>Paid</li><li>Partly Paid</li><li>Delayed</li><li>Unpaid</li><li>Ignored</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">status comment</td>
+</tr>
+<tr>
+<td style="text-align: right">create_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Return Parameters</p>
 </blockquote>
@@ -26550,9 +26432,7 @@ Failure
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
 <p>The return same to Get Purchase Order Detail API</p>
 
 <aside class="warning">
@@ -26572,67 +26452,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong> order number is incorrect</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order submitted :</strong> order submitted</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>variant not exist :</strong> invalid variant id</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>importer not exist:</strong> invalid importer id</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, web backend should assign the name of the wrong type for each error input.</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>title</em></td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left"><strong>invalid value:</strong> value isn’t 0 or 1</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted: order submitted</li><li>variant not exist: invalid variant id</li><li>invalid item: variant id not exist in brand</li><li>invalid histories: The quantity of histories should more than 0</li><li>product sold: It&rsquo;s forbidden to change sold product</li><li>product not belong to order: the spec combination of product is not same as item </li></ul></td>
 </tr>
 </tbody></table>
 
