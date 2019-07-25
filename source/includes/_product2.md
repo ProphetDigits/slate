@@ -101,7 +101,7 @@ Failure
 | target_company_id | integer | The company id of variant |
 | item_id | integer | The id of item which variant belongs to |
 | variant_id | integer | The id of variant<br />It's 0 will return all products of item |
-| pagination | object | The setting of pagination |
+| pagination | object (option) | The setting of pagination <br /> It get all data without pagination if this parameter not appear |
 | filter | object (option) | The setting of filter |
 
 | pagination | Type | Description |
@@ -198,7 +198,7 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | products | array | The products which spec same to variant combination |
-| pagination | object | The page information |
+| pagination | object (option) | The page information <br /> The parameter will appear if you get data with pagination |
 
 | product | Type | Description |
 | -------: | :---- | :--- |
