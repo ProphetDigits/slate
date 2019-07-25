@@ -97,20 +97,34 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
+| purchase_orders_of_brand | array | The purchase orders from brand point of view |
+| purchase_orders_of_distributor | array | (not implements)The purchase orders from distributor point of view |
+| purchase_orders_of_retailer | array | The purchase orders from retailer point of view |
+| purchase_orders_of_not_submmit | array | The not submitted purchase orders from user point of view |
+
+| purchase_orders | Type | Description |
+| -------: | :---- | :--- |
 | number | string | purchase order number |
 | order_status | string | state of purchase order |
-| create_at | timestamp | create time (s) |
-| delivery_at | timestamp | expected delivery date (s) |
-| submit_at | timestamp | submit date (s) |
+| deposit_status | string | the current deposit status of purchase order |
 | currency | string | currency name |
 | total_deposit | numberic | total deposit of purchase order |
-| deposit_status | string | the current deposit status of purchase order |
-| **brand** | **object** |  |
-| *id* | integer | company id |
-| *name* | string | company name |
-| **retailer** | **object** |  |
-| *id* | integer | company id |
-| *name* | string | company name |
+| create_at | timestamp | create time. Timestamp in seconds |
+| delivery_at | timestamp | expected delivery date. Timestamp in seconds |
+| submit_at | timestamp | submit date. Timestamp in seconds |
+| brand | object | The brand company |
+| retailer | object | The purchase company |
+
+| purchase_orders.brand | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name | string | company name |
+
+| purchase_orders.retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name | string | company name |
+
 
 <aside class="warning">
 Failure
@@ -124,12 +138,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
 
 
 ## Purchase Order Detail
@@ -200,7 +209,7 @@ Success
             "value": {
         		"id": 1,
             	"name": "Red",
-            	"display_name": "Red",
+            	"display_name": "Red"
             }
         }],
         "deposit": 400,
@@ -253,14 +262,14 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | want_deposit | boolean | the result that brand allow retailer to pay deposit |
-| enable_assign | boolean | False means that exception case in this purchase order <ol><li>duplicate spec combination of variant</li><li>product of changing spec combination is assigned to item</li></ol> |
+| enable_assign | boolean | The false means that exception case in this purchase order <ol><li>duplicate spec combination of variant</li><li>product of changing spec combination is assigned to item</li></ol> |
 | number | string | purchase order number |
 | order_status | string | state of purchase order |
 | deposit_status | string | deposit state of purchase order |
 | create_at | timestamp | create time(s) |
 | delivery_at | timestamp | expected delivery date (s) |
 | submit_at | timestamp | submit date (s) |
-| pay_deposit | boolean | the result that whether retailer want to pay deposit or not |
+| pay_deposit | boolean | the retailer want to pay deposit or not |
 | currency | string | currency name |
 | total_deposit | numberic | the amount of deposit of items |
 | brand | object | The brand company |
@@ -363,12 +372,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
-||| **order not exist:** order number is incorrect |
+| error_name | string | The name of wrong type <br/><ul><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li></ul> |
 
 
 ## Create Purchase Order
@@ -429,12 +433,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |the name of the wrong type. |
-||| **lack of parameters:** the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li>></ul> |
 
 
 ## Submit Purchase Order
@@ -494,13 +493,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
-||| **order not exis:**  order number is incorrect |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>no item: The items of purchase order should more than 0</li><li>invalid address: all column of address is required</li><li>no option: The option is expired or stop</li></ul> |
 
 
 ## Delete Purchase Order
@@ -562,14 +555,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** some input parameters missing, not in the request |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
-||| **order not exist:** order number is incorrect |
-||| **order submitted :** order submitted |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted : order submitted</li></ul> |
 
 
 ## Edit Purchase Order
@@ -605,7 +591,7 @@ Failure
         "street": "",
         "city": "",
         "state": "",
-        "code": "",
+        "postal_code": "",
         "country": ""
     },
     "histories": [{
@@ -628,50 +614,52 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
-| pay_deposit | boolean (option) | the result that whether retailer want to pay deposit or not |
 | delivery_at | timestamp (option) | the day which goods was delivered |
 | pay_deposit | boolean (option) | the result that whether retailer want to pay deposit or not |
-| **add_items** | **array (option)** | to add item to purchase order which not submitted yet. |
-| *variant_id* | integer | variant id |
-| *quantity* | integer | purchase quantity |
-| **edit_items** | **array** | to edit item of purchase order which not submitted yet. |
-| *variant_id* | integer | variant id |
-| *quantity* | integer | purchase quantity |
-| **address** | **object (option)** | to edit address of purchase order which not submitted yet. |
-| *given_name* | string (option) | given name of receiver |
-| *family_name* | string (option) | family name of receiver |
-| *phone* | string (option) | recipient’s phone number |
-| *title* | integer (option) | recipient’s title (0=Mr. 1=Ms.) |
-| *email* | string (option) | recipient’s email |
-| *street* | string (option) | recipient’s address |
-| *city* | string (option) | recipient’s address |
-| *state* | string (option) | recipient’s address |
-| *code* | string (option) | recipient’s address |
-| *country* | string (option) | recipient’s address |
-| **histories** | **array (option)** |  |
-| *status* | string | status of purchase order |
-|||**Empty**|
-|||**Order Confirmed**|
-|||**Delivery Date Confirmed**|
-|||**Delivering**|
-|||**Completed**|
-|||**Order Cancelled**|
-| *comment* | string | status comment |
-| *create_at* | timestamp | |
-| **deposit_histories** | **array (option)** ||
-| *status* | string | status of purchase order |
-|||**Empty**|
-|||**Confirmed**|
-|||**Paid**|
-|||**Partly  Paid**|
-|||**Delayed**|
-|||**Unpaid**|
-|||**Ignored**|
-| *comment* | string | status comment |
-| *create_at* | timestamp ||
+| add_items | array (option) | to add variant to purchase order as item when order not submitted yet |
+| edit_items | array (option) | to edit item of purchase order when order not submitted yet |
+| address | object (option) | to edit address of purchase order when order not submitted yet |
+| histories | array (option) | a set of histories of purchase order |
+| deposit_histories | array (option) | a set of deposit histories of purchase order |
 | assign_products | array (option) | a set of product number which assigned to purchase order |
 | cancel_products | array (option) | a set of product number which remove-assigned from purchase order |
 | reassign_products | array (option) | a set of product number which reassigned to purchase order from other purchase order |
+
+| add_items | Type | Description |
+| -------: | :---- | :--- |
+| variant_id | integer | variant id<br />system will add quantity if to add exist variant as item |
+| quantity | integer | purchase quantity |
+
+| edit_items | Type | Description |
+| -------: | :---- | :--- |
+| variant_id | integer | variant id |
+| quantity | integer | purchase quantity<br />It will delete item from purchase order if quantity is 0 |
+
+| address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string (option) | given name of receiver |
+| family_name | string (option) | family name of receiver |
+| phone | string (option) | recipient’s phone number |
+| title | integer (option) | recipient’s title (0=Mr. 1=Ms.) |
+| email | string (option) | recipient’s email |
+| street | string (option) | recipient’s address |
+| city | string (option) | recipient’s address |
+| state | string (option) | recipient’s address |
+| postal_code | string (option) | recipient’s address |
+| country | string (option) | recipient’s address |
+
+| histories | Type | Description |
+| -------: | :---- | :--- |
+| status | string | status of purchase order <ul><li>Empty</li><li>Order Confirmed</li><li>Delivery Date Confirmed</li><li>Delivering</li><li>Completed</li><li>Order Cancelled</li></ul> |
+| comment | string | status comment |
+| create_at | timestamp | |
+
+| deposit_histories | Type | Description |
+| -------: | :---- | :--- |
+| status | string | deposit status of purchase order <ul><li>Empty</li><li>Confirmed</li><li>Paid</li><li>Partly Paid</li><li>Delayed</li><li>Unpaid</li><li>Ignored</li></ul> |
+| comment | string | status comment |
+| create_at | timestamp | |
+
 
 > Return Parameters
 
@@ -680,11 +668,6 @@ Failure
 <aside class="success">
 Success
 </aside>
-
-```json
-{
-}
-```
 
 The return same to Get Purchase Order Detail API
 
@@ -701,16 +684,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** some input parameters missing, not in the request |
-||| **does not signin:** user does not signin |
-||| **not select company yet:** user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
-||| **order not exist:** order number is incorrect |
-||| **order submitted :** order submitted |
-||| **variant not exist :** invalid variant id |
-||| **importer not exist:** invalid importer id|
-||| **illegal form input:** form format does not pass validation |
-| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. |
-| *title* | string (option) | **invalid value:** value isn’t 0 or 1 |
+| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted: order submitted</li><li>variant not exist: invalid variant id</li><li>invalid item: variant id not exist in brand</li><li>invalid histories: The quantity of histories should more than 0</li><li>product sold: It's forbidden to change sold product</li><li>product not belong to order: the spec combination of product is not same as item </li></ul> |
