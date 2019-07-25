@@ -171,6 +171,7 @@ Success
 ```json
 {
     "want_deposit": 1,
+    "enable_assign": true,
     "number": "AAAA260621000001PO",
     "order_status": "Order Confirmed",
     "deposit_status": "",
@@ -191,9 +192,16 @@ Success
         "id": 1,
         "name": "Basic",
         "quantity": 1,
-        "customizations": [{
+        "specs": [{
+        	"id": 1,
             "name": "Color",
-            "value": "white"
+            "display_name": "Color",
+            "part": false,
+            "value": {
+        		"id": 1,
+            	"name": "Red",
+            	"display_name": "Red",
+            }
         }],
         "deposit": 400,
         "assign_products": [],
@@ -244,7 +252,8 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| want_deposit | boolean |  the result that brand allow retailer to pay deposit |
+| want_deposit | boolean | the result that brand allow retailer to pay deposit |
+| enable_assign | boolean | False means that exception case in this purchase order <ol><li>duplicate spec combination of variant</li><li>product of changing spec combination is assigned to item</li></ol> |
 | number | string | purchase order number |
 | order_status | string | state of purchase order |
 | deposit_status | string | deposit state of purchase order |
@@ -254,67 +263,93 @@ Success
 | pay_deposit | boolean | the result that whether retailer want to pay deposit or not |
 | currency | string | currency name |
 | total_deposit | numberic | the amount of deposit of items |
-| **brand** | **object** | |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| **retailer** | **object** | |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| **purchaser** | **object** |  |
-| *id* | integer | user id |
-| *given_name* | string | sell agent’s given name |
-| *family_name* | string | sell agent’s family name |
-| *email* | string | email of purchaser |
-| **items** | **array** | a set of items |
-| *id* | integer | variant id  |
-| *name* | string | variant name |
-| *customizations* | **array** | variant customizations |
-| *name* | string | customization name |
-| *value* | string | name of cusotmization value |
-| *quantity* | integer | buy number |
-| *deposit* | numberic | item deposit |
-| *assign_products* | array | a set of product number |
-| *item* | **array** | item information |
-| *id* | integer | item id  |
-| *name* | string | item name |
-| *number* | string | item number |
-| *cover_img* | **object** | item cover image it will be empty if no set sover image |
-| *240p* | string | picture url of 240 resolution (426x240) |
-| *480p* | string | picture url of 240 resolution (854x480) |
-| *720p* | string | picture url of 240 resolution (1280x720) |
-| *1080p* | string | picture url of 240 resolution (1920x1080) |
-| **address** | **object** | |
-| *given_name* | string | given name of receiver |
-| *family_name* | string | family name of receiver |
-| *phone* | string | phone number of recipients |
-| *title* | integer | title of recipients (0=Mr. 1=Ms.) |
-| *email* | string | email of recipients |
-| *street* | string | street of recipients |
-| *city* | string | city of recipients |
-| *state* | string | state of recipients |
-| *postal_code* | string | postal_code of recipients |
-| *country* | string | country of recipients |
-| **histories** | **array** | a set of histories of purchase order |
-| *status* | string | status of purchase order |
-||| **Empty** |
-||| **Order Confirmed** |
-||| **Delivery Date Confirmed** |
-||| **Delivering** |
-||| **Completed** |
-||| **Order Cancelled** |
-| *comment* | string | status comment |
-| *create_at* | timestamp | |
-| **deposit_histories** | **array** | |
-| *status* | string | status of purchase order |
-||| **Empty** |
-||| **Confirmed** |
-||| **Paid** |
-||| **Partly  Paid** |
-||| **Delayed** |
-||| **Unpaid** |
-||| **Ignored** |
-| *comment* | string | status comment |
-| *create_at* | timestamp | |
+| brand | object | The brand company |
+| retailer | object | The purchase company |
+| purchaser | object | The purchaser in the purchase order |
+| items | array | a set of items |
+| address | object | |
+| histories | array | a set of histories of purchase order |
+| deposit_histories | array | a set of histories of purchase order |
+
+| brand | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company  id |
+| name | string | company name |
+
+| retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company  id |
+| name | string | company name |
+
+| purchaser | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of user |
+| given_name | string | The given name |
+| family_name | string | The family name |
+| email | string | The email |
+
+| items | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | variant id  |
+| name | string | variant name |
+| specs | array | variant specs |
+| quantity | integer | the purchasing quantity |
+| deposit | numberic | item deposit |
+| assign_products | array | a set of product number |
+| item | object | item information |
+
+| items.specs | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| part | boolean | The spec is part or not<ol><li>true: It is part</li><li>false: It is not part</li></ol> |
+| value | object | The setting of spec in the product |
+
+| items.specs.value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
+| display_name | string | The display name of spec value |
+
+| items.item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | item id  |
+| name | string | item name |
+| number | string | item number |
+| cover_img | object | item cover image it will be empty if no set sover image |
+
+| items.item.cover_img | Type | Description |
+| -------: | :---- | :--- |
+| 240p | string | picture url of 240 resolution (426x240) |
+| 480p | string | picture url of 240 resolution (854x480) |
+| 720p | string | picture url of 240 resolution (1280x720) |
+| 1080p | string | picture url of 240 resolution (1920x1080) |
+
+| address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | given name of receiver |
+| family_name | string | family name of receiver |
+| phone | string | phone number of recipients |
+| title | integer | title of recipients (0=Mr. 1=Ms.) |
+| email | string | email of recipients |
+| street | string | street of recipients |
+| city | string | city of recipients |
+| state | string | state of recipients |
+| postal_code | string | postal_code of recipients |
+| country | string | country of recipients |
+
+| histories | Type | Description |
+| -------: | :---- | :--- |
+| status | string | status of purchase order <ul><li>Empty</li><li>Order Confirmed</li><li>Delivery Date Confirmed</li><li>Delivering</li><li>Completed</li><li>Order Cancelled</li></ul> |
+| comment | string | status comment |
+| create_at | timestamp | |
+
+| deposit_histories | Type | Description |
+| -------: | :---- | :--- |
+| status | string | deposit status of purchase order <ul><li>Empty</li><li>Confirmed</li><li>Paid</li><li>Partly Paid</li><li>Delayed</li><li>Unpaid</li><li>Ignored</li></ul> |
+| comment | string | status comment |
+| create_at | timestamp | |
 
 <aside class="warning">
 Failure
@@ -651,9 +686,7 @@ Success
 }
 ```
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+The return same to Get Purchase Order Detail API
 
 
 <aside class="warning">
