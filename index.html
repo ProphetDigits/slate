@@ -28130,6 +28130,7 @@ Failure
 Success
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preparing"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"proforma_invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -28179,7 +28180,12 @@ Success
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="w">
     </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"abnormal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proforma_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="p">,</span><span class="w">
         </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watch"</span><span class="p">,</span><span class="w">
@@ -28190,11 +28196,13 @@ Success
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"k1-gold"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"proforma_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"invoice_show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AAAA0000000011PD"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"unit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
+        </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001PD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaa"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"purchase_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA010120160000PO"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"abnormal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -28225,6 +28233,11 @@ Success
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">shipment id</td>
+</tr>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
@@ -28261,324 +28274,467 @@ Success
 <td style="text-align: left">total unit of shipment</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>shipped_area</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">shipped_area</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">country of shipped area</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">the company of creating shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">the importer company</td>
+</tr>
+<tr>
+<td style="text-align: right">recipient</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right">histories</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">shipment status</td>
+</tr>
+<tr>
+<td style="text-align: right">abnormal</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">it&rsquo;s true mean shipment include below problem <ol><li>There are duplicate spec combination of variant as package</li><li>The spec combination of product is not match package</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">packages</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">shipment packages</td>
+</tr>
+<tr>
+<td style="text-align: right">files</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">relative files of shipment</td>
+</tr>
+<tr>
+<td style="text-align: right">status_message</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">the hint to tell user this shipment is not complete</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">shipped_area</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">country id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">country name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>company</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">shipment creator</td>
+<th style="text-align: right">company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">company name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>currency_name</em></td>
+<td style="text-align: right">currency_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">default currency of company</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>importer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company of importer</td>
+<th style="text-align: right">importer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">company name of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">given_name of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">family_name of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">title of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">phone of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">email of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer postal_code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>recipient</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">recipient information</td>
+<th style="text-align: right">recipient</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: right">company_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the company which recipient belongs to</td>
+<td style="text-align: left">the company of recipient</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient title</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient phone</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient email</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient postal_code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>histories</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">shipment status</td>
+<th style="text-align: right">histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">history city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>status</em></td>
+<td style="text-align: right">status</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">history status</td>
+<td style="text-align: left">history status <ol><li>(empty)</li><li>Preparing</li><li>Prepared</li><li>On Route</li><li>Complete</li><li>Returned</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">history comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>date</em></td>
-<td style="text-align: left">string</td>
+<td style="text-align: right">date</td>
+<td style="text-align: left">timestamp</td>
 <td style="text-align: left">history created date</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>packages</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">shipment packages</td>
+<th style="text-align: right">packages</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">package id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>item</em></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">item information of package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">item id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">item name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>number</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">item number</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>variant</em></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant information of package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">variant name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>taric_code</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">variant taric code</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: right">proforma_description</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">proforma description</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: right">invoice_show</td>
 <td style="text-align: left">boolean</td>
 <td style="text-align: left">show product number in the proforma invoice</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product number in the package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: right">unit_value</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">unit value of item</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>files</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">relative files of shipment</td>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">item information of package</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">variant</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">variant information of package</td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">packages.item</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">item id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item name</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">item number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">packages.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant name</td>
+</tr>
+<tr>
+<td style="text-align: right">taric_code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">variant taric code</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">packages.products</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of product</td>
+</tr>
+<tr>
+<td style="text-align: right">serial_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The serial number of product</td>
+</tr>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The status of product<ol><li>true: sold</li><li>false: unsold</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">purchase_order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The purchase order number which product is assigned<br />It&rsquo;s null when product is not assigned to purchase order</td>
+</tr>
+<tr>
+<td style="text-align: right">abnormal</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">it&rsquo;s true mean the spec combination of product is not match package</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">files</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">file id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">file name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>date</em></td>
+<td style="text-align: right">date</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">uploaded date</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">file comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>uploaded_by</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">uploaded_by</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">uploaded information</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">download</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">download link, need include Authorization header in the request</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">files.uploaded_by</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">user id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">given name of user</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">family name of user</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>company</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">uploaded company information</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<th style="text-align: right">files.uploaded_by.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>download</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">download link, need include Authorization header in the request</td>
 </tr>
 </tbody></table>
 
@@ -28961,23 +29117,8 @@ Failure
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"shipment_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000001SH"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">shipment_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">shipment number</td>
-</tr>
-</tbody></table>
+
+<p>The return same to Get Purchase Order Detail API</p>
 
 <aside class="warning">
 Failure
@@ -29523,17 +29664,8 @@ Failure
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+
+<p>The return same to Get Purchase Order Detail API</p>
 
 <aside class="warning">
 Failure
