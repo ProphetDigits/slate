@@ -27893,7 +27893,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 </tbody></table>
 
@@ -27941,10 +27941,24 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><strong>shipments_of_brand</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: right">shipments_of_brand</td>
+<td style="text-align: left">array</td>
 <td style="text-align: left">the shipment is created by self</td>
 </tr>
+<tr>
+<td style="text-align: right">shipments_of_importer</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">the shipment is assigned to self</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">shipment</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
@@ -27966,74 +27980,105 @@ Success
 <td style="text-align: left">shipment comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>shipped_area</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">shipped_area</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">country of shipped area</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">shipment creator</td>
+</tr>
+<tr>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">company of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">recipient</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">recipient information</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">shipped_area</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">country id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">country name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>company</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">shipment creator</td>
+<th style="text-align: right">company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">company name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>importer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company of importer</td>
+<th style="text-align: right">importer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">name</td>
 <td style="text-align: left">company name of importer</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>recipient</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">recipient information</td>
+<th style="text-align: right">recipient</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: right">company_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">the company which recipient belongs to</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient given name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient family name</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>shipments_of_importer</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">the shipment is assigned to self</td>
 </tr>
 </tbody></table>
 
@@ -28054,12 +28099,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -28111,12 +28151,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 <tr>
 <td style="text-align: right">shipment_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">shipment number.</td>
+<td style="text-align: left">shipment number</td>
 </tr>
 </tbody></table>
 
@@ -28511,7 +28551,7 @@ Success
 <tr>
 <td style="text-align: right">status</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">history status <ol><li>(empty)</li><li>Preparing</li><li>Prepared</li><li>On Route</li><li>Complete</li><li>Returned</li></ol></td>
+<td style="text-align: left">history status</td>
 </tr>
 <tr>
 <td style="text-align: right">comment</td>
@@ -28755,17 +28795,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>shipment not found:</strong> shipment not exist</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>permission denied: Just the company of creating shipment or importer can get detail</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -28869,7 +28899,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 <tr>
 <td style="text-align: right">proforma_invoice_number</td>
@@ -28882,19 +28912,9 @@ Failure
 <td style="text-align: left">shipment comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>shipped_at</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">object (option)</td>
 <td style="text-align: left">shipped date</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>timestamp</em></td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>offset</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
 </tr>
 <tr>
 <td style="text-align: right">tracking_number</td>
@@ -28912,197 +28932,261 @@ Failure
 <td style="text-align: left">country id of shipped area <br/> the shipped_area_id is required if the importer exist</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>importer</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">object (option)</td>
 <td style="text-align: left">importer information</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">recipient</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">recipient information</td>
+</tr>
+<tr>
+<td style="text-align: right">added_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">added histories</td>
+</tr>
+<tr>
+<td style="text-align: right">added_packages</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">added packages</td>
+</tr>
+<tr>
+<td style="text-align: right">added_files</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">uploaded files</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">shipped_at</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">timestamp</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
+</tr>
+<tr>
+<td style="text-align: right">offset</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">importer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id of importer in shipped country</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">given_name of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">family_name of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">title of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">phone of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">email of contact person of importer</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer postal_code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">importer country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>recipient</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">recipient information</td>
+<th style="text-align: right">recipient</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: right">company_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">the company which recipient belongs to</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient title</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient phone</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient email</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>postal_code</em></td>
+<td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient postal_code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>added_histories</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">added histories</td>
+<th style="text-align: right">added_histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>status</em></td>
+<td style="text-align: right">status</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">history status</td>
+<td style="text-align: left">history status <ul><li>(empty)</li><li>Preparing</li><li>Prepared</li><li>On Route</li><li>Complete</li><li>Returned</li></ul></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">history comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>date</em></td>
+<td style="text-align: right">date</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">history created date</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>added_packages</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">added packages</td>
+<th style="text-align: right">added_packages</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>variant_id</em></td>
+<td style="text-align: right">variant_id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant id of package</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>proforma_description</em></td>
+<td style="text-align: right">proforma_description</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">proforma description</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>invoice_show</em></td>
+<td style="text-align: right">invoice_show</td>
 <td style="text-align: left">boolean</td>
 <td style="text-align: left">show product number in the proforma invoice</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product number in the package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>unit_value</em></td>
+<td style="text-align: right">unit_value</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">unit value of item</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>added_files</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">uploaded files</td>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<th style="text-align: right">added_files</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">file name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>date</em></td>
+<td style="text-align: right">date</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">uploaded date</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">file comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: right">resource</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
 </tr>
@@ -29137,117 +29221,99 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the err_name is &lsquo;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, systyem should show the name of the wrong for each error input.</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>country not found:</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>importer</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>importer not in country:</strong> <br /> <strong>shipped_area_id is required</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_histories</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid status:</strong> invalid status</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid variant:</strong> variant not found</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid products:</strong> product not belongs to variant</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_files</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>invalid_products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">invalid_products</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">invalid products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
+<td style="text-align: right">conflict_products</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">conflict products</td>
+</tr>
+<tr>
+<td style="text-align: right">sold_products</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">sold products</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>country not found: shipped_area_id is invalid</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>shipped_area_id is required: </li><li>importer not in country: </li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invlid status: invalid status</li><li>invlid date format: date not timestamp</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_packages</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invalid variant: variant not found</li><li>invalid products: product not belongs to variant</li><li>conflict products: product has already been assigned</li><li>sold products: product has already sold</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_files</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invlid date format: date not timestamp</li></ul></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">products</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">products</td>
 <td style="text-align: left">array</td>
 <td style="text-align: left">a set of product number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>variant</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">variant</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">variant of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<th style="text-align: right">products.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>conflict_products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">conflict products</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>sold_products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">sold products</td>
 </tr>
 </tbody></table>
 
@@ -29351,12 +29417,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 <tr>
 <td style="text-align: right">shipment_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">shipment number.</td>
+<td style="text-align: left">shipment number</td>
 </tr>
 <tr>
 <td style="text-align: right">proforma_invoice_number</td>
@@ -29369,24 +29435,14 @@ Failure
 <td style="text-align: left">shipment comment</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>shipped_at</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: right">shipped_at</td>
+<td style="text-align: left">object (option)</td>
 <td style="text-align: left">shipped date</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>timestamp</em></td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>offset</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
-</tr>
-<tr>
 <td style="text-align: right">tracking_number</td>
-<td style="text-align: left">string (option)</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">tracking number of logistics company</td>
 </tr>
 <tr>
 <td style="text-align: right">pieces</td>
@@ -29399,261 +29455,316 @@ Failure
 <td style="text-align: left">country id of shipped area <br/> the shipped_area_id is required if the importer exist</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>importer</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">object (option)</td>
 <td style="text-align: left">importer information</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">company id of importer in shipped country</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>given_name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">given_name of contact person of importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>family_name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">family_name of contact person of importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>title</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">title of contact person of importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>phone</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">phone of contact person of importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>email</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">email of contact person of importer</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>street</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">importer street</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>city</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">importer city</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>state</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">importer state</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>postal_code</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">importer postal_code</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">importer country</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>recipient</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
+<td style="text-align: right">recipient</td>
+<td style="text-align: left">object (option)</td>
 <td style="text-align: left">recipient information</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>company_name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">the company which recipient belongs to</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>given_name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient given_name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>family_name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient family_name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>title</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient title</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>phone</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient phone</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>email</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient email</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>street</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient street</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>city</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient city</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>state</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient state</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>postal_code</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient postal_code</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">recipient country</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>added_histories</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">added_histories</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">added histories</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>status</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">history status</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">history comment</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>date</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">history created date</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>added_packages</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">added_packages</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">added packages</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant id of package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>proforma_description</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">proforma description</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>invoice_show</em></td>
-<td style="text-align: left">boolean</td>
-<td style="text-align: left">show product number in the proforma invoice</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">the products of package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>unit_value</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">unit value of item</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>added_files</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">added_files</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">uploaded files</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">file name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>date</em></td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">uploaded date</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">file comment</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>resource</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>edited_histories</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">edited_histories</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">edited histories</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">history id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">history comment</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>edited_packages</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">edited_packages</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">edited packages</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">package id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>proforma_description</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">proforma description</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>invoice_show</em></td>
-<td style="text-align: left">boolean</td>
-<td style="text-align: left">show product number in the proforma invoice</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>products</em></td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product number in the package</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>unit_value</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">unit value of item</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>deleted_histories</strong></td>
+<td style="text-align: right">deleted_histories</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">a set of historie id</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>deleted_packages</strong></td>
+<td style="text-align: right">deleted_packages</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">a set of package id</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>deleted_files</strong></td>
+<td style="text-align: right">deleted_files</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">a set of file id</td>
 </tr>
 </tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">shipped_at</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">timestamp</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">specifies the desired time as seconds since midnight, January 1, 1970 UTC</td>
+</tr>
+<tr>
+<td style="text-align: right">offset</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">the offset from UTC (in seconds) for the current area</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">importer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id of importer in shipped country</td>
+</tr>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">given_name of contact person of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">family_name of contact person of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">title</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">title of contact person of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">phone</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">phone of contact person of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">email</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">email of contact person of importer</td>
+</tr>
+<tr>
+<td style="text-align: right">street</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">importer street</td>
+</tr>
+<tr>
+<td style="text-align: right">city</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">importer city</td>
+</tr>
+<tr>
+<td style="text-align: right">state</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">importer state</td>
+</tr>
+<tr>
+<td style="text-align: right">postal_code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">importer postal_code</td>
+</tr>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">importer country</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">recipient</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">company_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">the company which recipient belongs to</td>
+</tr>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient given_name</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient family_name</td>
+</tr>
+<tr>
+<td style="text-align: right">title</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient title</td>
+</tr>
+<tr>
+<td style="text-align: right">phone</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient phone</td>
+</tr>
+<tr>
+<td style="text-align: right">email</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient email</td>
+</tr>
+<tr>
+<td style="text-align: right">street</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient street</td>
+</tr>
+<tr>
+<td style="text-align: right">city</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient city</td>
+</tr>
+<tr>
+<td style="text-align: right">state</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient state</td>
+</tr>
+<tr>
+<td style="text-align: right">postal_code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient postal_code</td>
+</tr>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">recipient country</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">added_histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history status <ul><li>(empty)</li><li>Preparing</li><li>Prepared</li><li>On Route</li><li>Complete</li><li>Returned</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right">date</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history created date</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">added_packages</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">variant id of package</td>
+</tr>
+<tr>
+<td style="text-align: right">proforma_description</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">proforma description</td>
+</tr>
+<tr>
+<td style="text-align: right">invoice_show</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">show product number in the proforma invoice</td>
+</tr>
+<tr>
+<td style="text-align: right">unit_value</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">unit value of item</td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product number in the package</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">added_files</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file name</td>
+</tr>
+<tr>
+<td style="text-align: right">date</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">uploaded date</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">file comment</td>
+</tr>
+<tr>
+<td style="text-align: right">resource</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">uploaded data which is encrypted by base64, exclude mime type</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">edited_histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">history id</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+</tbody></table>
+
+<p>| edited_packages | Type | Description |
+| id | integer | package id |
+| proforma_description | string | proforma description |
+| invoice_show | boolean | show product number in the proforma invoice |
+| unit_value | double | unit value of item |
+| products | array | a set of product number in the package |</p>
 
 <blockquote>
 <p>Return Parameters</p>
@@ -29684,172 +29795,124 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the err_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>illegal form input:</strong> form format does not pass validation</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>validation</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">if the err_name is illegal form input&rsquo;, systyem should show the name of the wrong for each error input.</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>country</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">*<em>country not found: *</em></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>importer</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>importer not in country: ** <br /> **shipped_area_id is required</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_histories</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid status:</strong> invalid status</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid variant:</strong> variant not found</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid products:</strong> product not belongs to variant</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>added_files</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invlid date format:</strong> date not timestamp</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>edited_histories</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid histories:</strong> history id not found</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>edited_packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid format:</strong> required parameter not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid packages:</strong> package id not found</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid products:</strong> product not belongs to variant</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>conflict products:</strong> product has already been assigned</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>deleted_histories</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid packages:</strong> package id not found</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>deleted_packages</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid histories:</strong> history id not found</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sold products:</strong> product has already sold</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>deleted_files</em></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left"><strong>invalid files:</strong> file id not found</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>invalid products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
+<td style="text-align: right">invalid_products</td>
+<td style="text-align: left">array (option)</td>
 <td style="text-align: left">invalid products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>products</em></td>
+<td style="text-align: right">conflict_products</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">conflict products</td>
+</tr>
+<tr>
+<td style="text-align: right">sold_products</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">sold products</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>country not found: shipped_area_id is invalid</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">importer</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>shipped_area_id is required: </li><li>importer not in country: </li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invlid status: invalid status</li><li>invlid date format: date not timestamp</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_packages</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invalid variant: variant not found</li><li>invalid products product not belongs to variant</li><li>conflict products: product has already been assigned</li><li>sold products: product has already sold</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">added_files</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invlid date format: date not timestamp</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">edited_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invalid histories: history id not found</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">edited_packages</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid format: required parameter not exist</li><li>invalid packages: package id not found</li><li>invalid products: product not belongs to variant</li><li>conflict products: product has already been assigned</li><li>sold products: product has already sold</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">deleted_histories</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid histories: history id not found</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">deleted_packages</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid packages: package id not found</li><li>sold products: product has already sold</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">deleted_files</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>invalid files: file id not found</li></ul></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">products</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">products</td>
 <td style="text-align: left">array</td>
 <td style="text-align: left">a set of product number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>variant</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">variant</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">variant of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<th style="text-align: right">products.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">variant id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>conflict products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">conflict products</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>sold_products</strong></td>
-<td style="text-align: left"><strong>array (option)</strong></td>
-<td style="text-align: left">sold products</td>
 </tr>
 </tbody></table>
 
@@ -29901,12 +29964,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 <tr>
 <td style="text-align: right">shipment_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">shipment number.</td>
+<td style="text-align: left">shipment number</td>
 </tr>
 </tbody></table>
 
@@ -29945,24 +30008,9 @@ Failure
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>shipment not found:</strong> shipment not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>permission denied:</strong> not shipment owner</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sold products:</strong> products which assigned to shipment has be sold</td>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>permission denied: not shipment owner</li><li>sold products: products which assigned to shipment has be sold</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -30013,7 +30061,7 @@ Failure
 <tr>
 <td style="text-align: right">Authorization</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The key will be returned by Sign In API</td>
 </tr>
 </tbody></table>
 
@@ -30033,7 +30081,7 @@ Failure
 <tr>
 <td style="text-align: right">shipment_number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">shipment number.</td>
+<td style="text-align: left">shipment number</td>
 </tr>
 </tbody></table>
 
