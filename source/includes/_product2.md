@@ -866,6 +866,62 @@ Failure
 | error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul> |
 
 
+## Update Print Date
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/product2/print` |
+| Method | `post` |
+| Use | update print date to multiple products |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "product_number": ["1A01B021440012345", "1A01B021440012346"]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The key will be returned by Sign In API |
+| product_number | array | The set of product number |
+
+> Return Parameters
+
+### Return Parameters When Success
+
+<aside class="success">
+Success
+</aside>
+
+The return same to Get Product2 Detail API
+
+
+### Return Parameters When Failure
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "illegal_form_input"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: <ol><li>The product not exist</li><li>The item of product not exist</li><li>The product not belongs to current company</li></ol></li></ul> |
+
+
 ## Download Product File
 
 ### Description
