@@ -165,7 +165,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| product_number | array | product number (from scan QR-Code or user keyin |
+| product_number | string | product number (from scan QR-Code or user keyin) |
 | currency | string| product be paid by this currency|
 
 > Return Parameters
@@ -244,8 +244,8 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| **product_number** | **array** | product number (from scan QR-Code or user keyin) |
-| *discount_amount* | double | product discount amount |
+| product_number | string | product number (from scan QR-Code or user keyin) |
+| discount_amount | double | product discount amount |
 
 > Return Parameters
 
@@ -320,7 +320,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| products | string | a set of product’s number (from scan QR-Code or user keyin) |
+| products | array | a set of product’s number (from scan QR-Code or user keyin) |
 
 > Return Parameters
 
