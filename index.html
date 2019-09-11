@@ -14322,25 +14322,6 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">The set of id of spec value indicate the variants combine by those spec value<br />It&rsquo;s empty array mean no specify spec values</td>
 </tr>
-<tr>
-<td style="text-align: right">filter</td>
-<td style="text-align: left">object (option)</td>
-<td style="text-align: left">The setting of filter</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: right">filter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">sold</td>
-<td style="text-align: left">boolean (option)</td>
-<td style="text-align: left">The stock is affected by it. <ul><li>(option): The stock quantity contain sold and unsold products</li><li>true: The stock quantity just contain sold products </li><li>false: The stock quantity just contain unsold products </li></ul></td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -18949,9 +18930,9 @@ Failure
 <aside class="success">
 Success
 </aside>
-
-<p>The return same to Get Product2 Detail API</p>
-
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
 
 <aside class="warning">
@@ -19317,9 +19298,9 @@ Failure
 <aside class="success">
 Success
 </aside>
-
-<p>The return same to Get Product2 Detail API</p>
-
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
 
 <aside class="warning">
@@ -21236,8 +21217,8 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">product_number</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">product number (from scan QR-Code or user keyin</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number (from scan QR-Code or user keyin)</td>
 </tr>
 <tr>
 <td style="text-align: right">currency</td>
@@ -21426,12 +21407,12 @@ Failure
 <td style="text-align: left">cart’s id</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>product_number</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left">product number (from scan QR-Code or user keyin)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>discount_amount</em></td>
+<td style="text-align: right">discount_amount</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">product discount amount</td>
 </tr>
@@ -21607,7 +21588,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">products</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">array</td>
 <td style="text-align: left">a set of product’s number (from scan QR-Code or user keyin)</td>
 </tr>
 </tbody></table>
