@@ -156,7 +156,7 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "cart_id": 1,
-  "products": ["UX76K3NB9"],
+  "product_number": "UX76K3NB9",
   "currency": "EUR"
 }
 ```
