@@ -708,8 +708,10 @@ Failure
 Success
 </aside>
 
-The return same to Get Product2 Detail API
-
+```json
+{
+}
+```
 
 ### Return Parameters When Failure
 
@@ -902,7 +904,10 @@ Failure
 Success
 </aside>
 
-The return same to Get Product2 Detail API
+```json
+{
+}
+```
 
 
 ### Return Parameters When Failure
