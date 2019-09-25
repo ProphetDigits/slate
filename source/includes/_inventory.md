@@ -8,7 +8,7 @@
 | -------: | :---- |
 | URL | `user/company/item/product/search/distance` |
 | Method | `post` |
-| Use | to get user nearby company list which own products of variant |
+| Use | to get company list which own unsold products and distance in 10 km |
 | Notice |  |
 
 
@@ -28,11 +28,11 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| target_company_id | integer | company id of variant |
-| variant_id | integer | variant id |
-| latitude | number | latitude of gps exclude direction |
-| longitude | number | longitude of gps exclude direction |
+| api_key | string | System gives it after user sign in |
+| target_company_id | integer | The company id of variant |
+| variant_id | integer | The variant id |
+| latitude | number | The latitude of location |
+| longitude | number | The longitude of location |
 
 > Return Parameters
 
@@ -47,6 +47,7 @@ Success
   "companies": [{
     "id": 1,
     "name": "CC Bike",
+    "description": "...",
     "stock": 5,
     "street": "",
     "city": "",
@@ -62,13 +63,15 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **companies** | **array** |  |
-| id | integer |  company  id |
-| name | string |  company  name |
+| companies | array | The set of company which own stock and distance in 10 km |
+
+| company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name | string | company name |
 | description | string |  company description |
 | stock | integer | product number of variant |
-| company_id | integer | variant belongs to which company |
-| distance | number | the distance between current company and target company(km) |
+| distance | number | the distance between current location and target company(km) |
 | street | string | street of company |
 | city | string | city of company |
 | state | string | state of company |
@@ -83,18 +86,13 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name":"variant_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: The target company is not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
 
 
 ## Search Inventory
@@ -123,9 +121,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| item_name | string | number of purchase order |
-| company_id | integer | company id  |
+| api_key | string | System gives it after user sign in |
+| item_name | string | The item name |
+| company_id | integer | The company id |
 
 > Return Parameters
 
@@ -163,23 +161,32 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | variant’s id |
-| name | string | variant’s name |
-| stock | integer | stock quantity in the retailer |
-| **location** | **object** | location of stock of variant |
-| id | integer |  company  id |
-| name | string |  company  name |
-| street | string | street of company |
-| city | string | city of company |
-| state | string | state of company |
-| postal_code | string | postal_code of company |
-| country | string | country of company |
-| latitude | number | latitude of location |
-| longitude | number | longitude of location |
-| **item** | **object** | variant belongs to which item |
-| id | integer | item’s id |
-| number | string | item’s number |
-| name | string | item’s name |
+| inventories | array | The stock of variant and its location |
+
+| inventory | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The variant id |
+| name | string | The variant name |
+| stock | integer | The stock in the location |
+| location | object | The location of inventory |
+| item | object | The item of variant |
+
+| location | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company  id |
+| name | string | The company name |
+| street | string | The street of company |
+| city | string | The city of company |
+| state | string | The state of company |
+| postal_code | string | The postal_code of company |
+| country | string | The country of company |
+| latitude | number | The latitude of location |
+| longitude | number | The longitude of location |
+
+| item | Type | Description |
+| id | integer | The item id |
+| number | string | The item number |
+| name | string | The item name |
 
 
 <aside class="warning">
@@ -188,15 +195,10 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name":"not_select_company"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters |
-|||**does not signin:** user does not signin |
-|||**not select company yet:** user need change current company |
-|||**company not exist:** currenct company not exist |
-|||**not company member:** the user is not the company member |
+| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
