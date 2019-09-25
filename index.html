@@ -26551,7 +26551,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get user nearby company list which own products of variant</td>
+<td style="text-align: left">to get company list which own unsold products and distance in 10 km</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -26582,27 +26582,27 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">System gives it after user sign in</td>
 </tr>
 <tr>
 <td style="text-align: right">target_company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company id of variant</td>
+<td style="text-align: left">The company id of variant</td>
 </tr>
 <tr>
 <td style="text-align: right">variant_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">variant id</td>
+<td style="text-align: left">The variant id</td>
 </tr>
 <tr>
 <td style="text-align: right">latitude</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">latitude of gps exclude direction</td>
+<td style="text-align: left">The latitude of location</td>
 </tr>
 <tr>
 <td style="text-align: right">longitude</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">longitude of gps exclude direction</td>
+<td style="text-align: left">The longitude of location</td>
 </tr>
 </tbody></table>
 
@@ -26619,6 +26619,7 @@ Success
   </span><span class="nt">"companies"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC Bike"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
     </span><span class="nt">"stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -26639,19 +26640,28 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><strong>companies</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: right">companies</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The set of company which own stock and distance in 10 km</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company  id</td>
+<td style="text-align: left">company id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company  name</td>
+<td style="text-align: left">company name</td>
 </tr>
 <tr>
 <td style="text-align: right">description</td>
@@ -26664,14 +26674,9 @@ Success
 <td style="text-align: left">product number of variant</td>
 </tr>
 <tr>
-<td style="text-align: right">company_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">variant belongs to which company</td>
-</tr>
-<tr>
 <td style="text-align: right">distance</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">the distance between current company and target company(km)</td>
+<td style="text-align: left">the distance between current location and target company(km)</td>
 </tr>
 <tr>
 <td style="text-align: right">street</td>
@@ -26714,7 +26719,7 @@ Success
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"variant_not_exist"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -26726,33 +26731,8 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: The target company is not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -26805,17 +26785,17 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">System gives it after user sign in</td>
 </tr>
 <tr>
 <td style="text-align: right">item_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">number of purchase order</td>
+<td style="text-align: left">The item name</td>
 </tr>
 <tr>
 <td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
+<td style="text-align: left">The company id</td>
 </tr>
 </tbody></table>
 
@@ -26860,97 +26840,110 @@ Success
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: right">inventories</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The stock of variant and its location</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">inventory</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">variant’s id</td>
+<td style="text-align: left">The variant id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">variant’s name</td>
+<td style="text-align: left">The variant name</td>
 </tr>
 <tr>
 <td style="text-align: right">stock</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">stock quantity in the retailer</td>
+<td style="text-align: left">The stock in the location</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>location</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">location of stock of variant</td>
+<td style="text-align: right">location</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The location of inventory</td>
 </tr>
+<tr>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The item of variant</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">location</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">company  id</td>
+<td style="text-align: left">The company  id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">company  name</td>
+<td style="text-align: left">The company name</td>
 </tr>
 <tr>
 <td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">street of company</td>
+<td style="text-align: left">The street of company</td>
 </tr>
 <tr>
 <td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">city of company</td>
+<td style="text-align: left">The city of company</td>
 </tr>
 <tr>
 <td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">state of company</td>
+<td style="text-align: left">The state of company</td>
 </tr>
 <tr>
 <td style="text-align: right">postal_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">postal_code of company</td>
+<td style="text-align: left">The postal_code of company</td>
 </tr>
 <tr>
 <td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">country of company</td>
+<td style="text-align: left">The country of company</td>
 </tr>
 <tr>
 <td style="text-align: right">latitude</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">latitude of location</td>
+<td style="text-align: left">The latitude of location</td>
 </tr>
 <tr>
 <td style="text-align: right">longitude</td>
 <td style="text-align: left">number</td>
-<td style="text-align: left">longitude of location</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>item</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant belongs to which item</td>
-</tr>
-<tr>
-<td style="text-align: right">id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">item’s id</td>
-</tr>
-<tr>
-<td style="text-align: right">number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">item’s number</td>
-</tr>
-<tr>
-<td style="text-align: right">name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">item’s name</td>
+<td style="text-align: left">The longitude of location</td>
 </tr>
 </tbody></table>
+
+<p>| item | Type | Description |
+| id | integer | The item id |
+| number | string | The item number |
+| name | string | The item name |</p>
 
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"not_select_company"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -26962,33 +26955,8 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul></td>
 </tr>
 </tbody></table>
 
