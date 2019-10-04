@@ -424,7 +424,7 @@ Failure
 
 
 
-## Order   Detail
+## Order Detail
 
 ### Description
 
@@ -464,8 +464,6 @@ Success
 {
   "number": "AAAA160401000003OD",
   "currency": "JPY",
-  "subtotal": 25300,
-  "totalDiscount": 886,
   "total": 24414,
   "order_status": "Open",
   "payment_status": "Open",
@@ -494,15 +492,18 @@ Success
       "number": "Test-Item-1",
       "name": "Test Item 1"
     },
-    "variant": {
-      "id": 2,
-      "name": "Variant Test"
-    },
+    "variants": [{
+        "id": 1,
+        "name": "mutiply k1"
+    }, {
+        "id": 2,
+        "name": "mutiply k2"
+    }],
     "price": 100,
     "discount_price": 85,
     "product_status": "initial"
   },{
-    "product_num": "AAAA0000000005PD",
+    "number": "AAAA0000000005PD",
     "company": {
       "id": 1,
       "name": "Company Test"
@@ -512,10 +513,10 @@ Success
       "number": "Test-Item-1",
       "name": "Test Item 1"
     },
-    "variant": {
+    "variants": [{
       "id": 2,
       "name": "Variant Test"
-    },
+    }],
     "price": 100,
     "discount_price": 85,
     "product_status": "initial"
@@ -589,57 +590,103 @@ Success
 | transaction_id | string | transaction id |
 | create_at | timestamp | create time |
 | refund_at | timestamp | refund time |
-| **retailer** | **object** | |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| **agent** | **object** |  |
-| *id* | integer | user id |
-| *given_name* | string | sell agent’s given name |
-| *family_name* | string | sell agent’s family name |
-| **＊_address** | **object** | billing_address, shipping_address |
-| *given_name* | string | recipient’s given_name |
-| *family_name* | string | recipient’s family_name |
-| *phone* | string | recipient’s phone number |
-| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
-| *email* | string | recipient’s email |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
-| **products** | **array** |  |
-| *number* | string | product number |
-| **company** | **object** | company of product |
-| *id* | string | company id of product |
-| *name* | string | company name of product |
-| **item** | **object** | item of product |
-| *id* | integer | item id of products |
-| *number* | string | item number of product |
-| *name* | string | item name of product |
-| **variant** | **object** | variant of product |
-| *id* | string | variant id of product |
-| *name* | string | variant name of product |
-| *price* | double | product price |
-| *discount* | integer | product discount |
-| *discount_price* | double | product discount price |
-| *product_status* | string | the location of work flow of product |
-| **histories** | **array** |  |
-| *order_status* | *string* | order status |
-| *payment_status* | *string* | payment status |
-| *comment* | string |  record the exception message when order been changed |
-| *create_at* | timestamp | order status changed time |
-| **user** | **object** | who do this action |
-| *id* | integer | user id |
-| *given_name* | string | user’s given name |
-| *family_name* | string |  user’s family name |
-| **invoices** | **array** | invoices list|
-| *number* | string | invoice number|
-| *brand* | *object* | invoice creator |
-| *id* | integer | company id |
-| *name*| string | company name |
-| *create_at* | timestamp | creating time of invoice |
-| *comment* | *string* | order number |
-| *download* | *string* | downloading url of invoice, visit the url need to add header Authorization and value is api_key |
+| retailer | object | The reatiler of order |
+| agent | object | The creator of order |
+| billing_address | object | The billing address of order |
+| shipping_address | object | The shipping address of order |
+| products | array | The order products |
+| histories | array | The order histories |
+| invoices | array | The order invoices |
+
+| order.retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company  id |
+| name | string | company name |
+
+| order.agent | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | user id |
+| given_name | string | sell agent’s given name |
+| family_name | string | sell agent’s family name |
+
+| order.billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | The recipient’s given_name |
+| family_name | string | The recipient’s family_name |
+| phone | string | The recipient’s phone number |
+| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
+| email | string | The recipient’s email |
+| street | string | The recipient’s street |
+| city | string | The recipient’s city |
+| state | string | The recipient’s state |
+| code | string | The recipient’s code |
+| country | string | The recipient’s country |
+
+| order.shipping_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | The recipient’s given_name |
+| family_name | string | The recipient’s family_name |
+| phone | string | The recipient’s phone number |
+| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
+| email | string | The recipient’s email |
+| street | string | The recipient’s street |
+| city | string | The recipient’s city |
+| state | string | The recipient’s state |
+| code | string | The recipient’s code |
+| country | string | The recipient’s country |
+
+| order.product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | The product number |
+| company | object | The company of product |
+| item | object | The item of product |
+| variants | array | The variants of product |
+
+| order.product.company | Type | Description |
+| -------: | :---- | :--- |
+| id | string | company id of product |
+| name | string | company name of product |
+
+| order.product.item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | item id of products |
+| number | string | item number of product |
+| name | string | item name of product |
+
+| order.product.variant | Type | Description |
+| -------: | :---- | :--- |
+| id | string | variant id of product |
+| name | string | variant name of product |
+| price | double | product price |
+| discount_price | double | product discount price |
+| product_status | string | the location of work flow of product |
+
+| order.history | Type | Description |
+| -------: | :---- | :--- |
+| order_status | string | order status |
+| payment_status | string | payment status |
+| comment | string | The comment of action |
+| create_at | timestamp | order status changed time |
+| user | object | The operator of action |
+
+| order.history.user | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | user id |
+| given_name | string | user’s given name |
+| family_name | string |  user’s family name |
+
+| order.invoice | Type | Description |
+| -------: | :---- | :--- |
+| number | string | invoice number|
+| brand | object | invoice creator |
+| create_at | timestamp | creating time of invoice |
+| comment | string | order number |
+| download | string | The url of invoice for download, visit the url need to add header Authorization and value is api_key |
+
+| order.invoice.brand | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name| string | company name |
 
 <aside class="warning">
 Failure
@@ -768,36 +815,36 @@ Success
 
 ```json
 {
-	"date": 1459491797,
-	"status": "success",
-	"order": {
-		"number": "AAAA170329000001OD",
-		"payment_method": "PayPal",
-		"transaction": "123546876",
-		"currency": "EUR",
-		"total": 100,
-		"retailer": "TW Shop",
-		"payer": "a@gmail.com"
-	}
+    "date": 1459491797,
+    "status": "success",
+    "order": {
+        "number": "AAAA170329000001OD",
+        "payment_method": "PayPal",
+        "transaction": "123546876",
+        "currency": "EUR",
+        "total": 100,
+        "retailer": "TW Shop",
+        "payer": "a@gmail.com"
+    }
 }
 ```
 
 ```json
 {
-	"date": 1459491797,
-	"status": "fail",
-	"fail": {
-		"refused_by": "PayPal",
-		"code": "012",
-		"description": "card expired"
-	}
+    "date": 1459491797,
+    "status": "fail",
+    "fail": {
+        "refused_by": "PayPal",
+        "code": "012",
+        "description": "card expired"
+    }
 }
 ```
 
 ```json
 {
-	"date": 1459491797,
-	"status": "info"
+    "date": 1459491797,
+    "status": "info"
 }
 ```
 
