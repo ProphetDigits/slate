@@ -23153,7 +23153,7 @@ Failure
 </tr>
 </tbody></table>
 
-<h2 id="order-detail">Order   Detail</h2>
+<h2 id="order-detail">Order Detail</h2>
 
 <h3 id="description">Description</h3>
 
@@ -23222,8 +23222,6 @@ Success
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000003OD"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">25300</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">886</span><span class="p">,</span><span class="w">
   </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24414</span><span class="p">,</span><span class="w">
   </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
@@ -23252,15 +23250,18 @@ Success
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-Item-1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Item 1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Variant Test"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mutiply k1"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mutiply k2"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"discount_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
     </span><span class="nt">"product_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial"</span><span class="w">
   </span><span class="p">},{</span><span class="w">
-    </span><span class="nt">"product_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000005PD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA0000000005PD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Test"</span><span class="w">
@@ -23270,10 +23271,10 @@ Success
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-Item-1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Item 1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Variant Test"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"discount_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
     </span><span class="nt">"product_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial"</span><span class="w">
@@ -23388,259 +23389,417 @@ Success
 <td style="text-align: left">refund time</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>retailer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: right">retailer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The reatiler of order</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">agent</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The creator of order</td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The billing address of order</td>
+</tr>
+<tr>
+<td style="text-align: right">shipping_address</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The shipping address of order</td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The order products</td>
+</tr>
+<tr>
+<td style="text-align: right">histories</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The order histories</td>
+</tr>
+<tr>
+<td style="text-align: right">invoices</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The order invoices</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">order.retailer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company  id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>agent</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">order.agent</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">user id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">sell agent’s given name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">sell agent’s family name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>＊_address</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">billing_address, shipping_address</td>
+<th style="text-align: right">order.billing_address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s given_name</td>
+<td style="text-align: left">The recipient’s given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s family_name</td>
+<td style="text-align: left">The recipient’s family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s phone number</td>
+<td style="text-align: left">The recipient’s phone number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">recipient’s title (0=Mr. 1=Ms.)</td>
+<td style="text-align: left">The recipient’s title (0=Mr. 1=Ms.)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s email</td>
+<td style="text-align: left">The recipient’s email</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s address</td>
+<td style="text-align: left">The recipient’s street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s address</td>
+<td style="text-align: left">The recipient’s city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s address</td>
+<td style="text-align: left">The recipient’s state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>code</em></td>
+<td style="text-align: right">code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s address</td>
+<td style="text-align: left">The recipient’s code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">recipient’s address</td>
+<td style="text-align: left">The recipient’s country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>products</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">order.shipping_address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">product number</td>
+<td style="text-align: left">The recipient’s given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>company</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">company of product</td>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">phone</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s phone number</td>
+</tr>
+<tr>
+<td style="text-align: right">title</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The recipient’s title (0=Mr. 1=Ms.)</td>
+</tr>
+<tr>
+<td style="text-align: right">email</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s email</td>
+</tr>
+<tr>
+<td style="text-align: right">street</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s street</td>
+</tr>
+<tr>
+<td style="text-align: right">city</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s city</td>
+</tr>
+<tr>
+<td style="text-align: right">state</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s state</td>
+</tr>
+<tr>
+<td style="text-align: right">code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s code</td>
+</tr>
+<tr>
+<td style="text-align: right">country</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The recipient’s country</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">order.product</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The product number</td>
+</tr>
+<tr>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The company of product</td>
+</tr>
+<tr>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The item of product</td>
+</tr>
+<tr>
+<td style="text-align: right">variants</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">The variants of product</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">order.product.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company id of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>item</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">item of product</td>
+<th style="text-align: right">order.product.item</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">item id of products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">item number of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">item name of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>variant</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant of product</td>
+<th style="text-align: right">order.product.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant id of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>price</em></td>
+<td style="text-align: right">price</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">product price</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>discount</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">product discount</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>discount_price</em></td>
+<td style="text-align: right">discount_price</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">product discount price</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>product_status</em></td>
+<td style="text-align: right">product_status</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">the location of work flow of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>histories</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">order.history</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>order_status</em></td>
-<td style="text-align: left"><em>string</em></td>
+<td style="text-align: right">order_status</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left">order status</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>payment_status</em></td>
-<td style="text-align: left"><em>string</em></td>
+<td style="text-align: right">payment_status</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left">payment status</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
+<td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">record the exception message when order been changed</td>
+<td style="text-align: left">The comment of action</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>create_at</em></td>
+<td style="text-align: right">create_at</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">order status changed time</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>user</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">who do this action</td>
+<td style="text-align: right">user</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The operator of action</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<th style="text-align: right">order.history.user</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">user id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user’s given name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user’s family name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>invoices</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">invoices list</td>
+<th style="text-align: right">order.invoice</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">invoice number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>brand</em></td>
-<td style="text-align: left"><em>object</em></td>
+<td style="text-align: right">brand</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">invoice creator</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>id</em></td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">company id</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>name</em></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">company name</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>create_at</em></td>
+<td style="text-align: right">create_at</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">creating time of invoice</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>comment</em></td>
-<td style="text-align: left"><em>string</em></td>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left">order number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>download</em></td>
-<td style="text-align: left"><em>string</em></td>
-<td style="text-align: left">downloading url of invoice, visit the url need to add header Authorization and value is api_key</td>
+<td style="text-align: right">download</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The url of invoice for download, visit the url need to add header Authorization and value is api_key</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">order.invoice.brand</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">company id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">company name</td>
 </tr>
 </tbody></table>
 
