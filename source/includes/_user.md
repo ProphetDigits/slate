@@ -1,16 +1,15 @@
-
 # User
 
 ## Sign in
 
 ### Description
 
-|Title | Description |
+| Title | Description |
 | -------: | :---- |
 | URL | `user/signin` |
 | Method | `post` |
 | Use | Let user sign in and get it api key |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -30,7 +29,7 @@
 | password | string | The user's password |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -47,8 +46,10 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | user_id | integer | The user id |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -62,9 +63,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-|||**does not match:** The account does not sign up yet or the password not match the account |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not match: the account has not exist or the password not match the account</li></ul> |
 
 
 
