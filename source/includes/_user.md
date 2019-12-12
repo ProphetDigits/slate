@@ -71,12 +71,12 @@ Failure
 
 ### Description
 
-|Title | Description |
+| Title | Description |
 | -------: | :---- |
 | URL | `user/signout` |
 | Method | `post` |
 | Use | Let user sign out system and deactivated the api key |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -91,10 +91,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :----: | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -102,30 +100,14 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | -- | -- |
+Nothing was returned
 
 <aside class="warning">
 Failure
 </aside>
 
-```
-{
-	"error_name":"lack of parameters"
-}
-```
+There is no failure
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
 
 
 ## Sign up with Email only
