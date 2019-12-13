@@ -1,7 +1,7 @@
 
 # System
 
-## System Currency List
+## Get System Currency List
 
 ### Description
 
@@ -25,10 +25,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -50,10 +50,14 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **currencies** | **array** | All currencies in the system. Order by name from A-Z |
-| *id* | number | The currency id |
-| *name* | string | The currency name |
+| currencies | array | Collection of currency. Order by name from A-Z |
 
+| currency | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The currency id |
+| name | string | The currency name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -67,9 +71,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
+
 
 
 ## System Country List
