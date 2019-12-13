@@ -75,7 +75,7 @@ Failure
 
 
 
-## System Country List
+## Get System Country List
 
 ### Description
 
@@ -83,7 +83,7 @@ Failure
 | -------: | :---- |
 | URL | `system/country/list` |
 | Method | `post` |
-| Use | to get all countries in the system |
+| Use | To get all countries in the system |
 | Notice |  |
 
 
@@ -99,10 +99,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -124,10 +124,14 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | **array** | All countries in the system |
-| *id* | number | The country id |
-| *name* | string | The country name |
+| countries | array | Collection of country |
 
+| country | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The country id |
+| name | string | The country name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -141,9 +145,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
+
 
 
 ## System Country List Without Sign In
