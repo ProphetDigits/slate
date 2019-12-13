@@ -211,8 +211,8 @@ There is no failure
 | -------: | :---- |
 | URL | `user/upload/image` |
 | Method | `post` |
-| Use | To upload image for company and item |
-| Notice ||
+| Use | To upload image |
+| Notice | |
 
 
 > Input Parameters
@@ -228,11 +228,11 @@ There is no failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| image | string | base64 encode image string. Image format require as jpg, jpeg, png, gif |
+| api_key | string | The identity token of user |
+| image | string | The base64 encode image and Mime type. Image format require as jpg, jpeg, png, gif |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -248,14 +248,15 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| file_name | string | The filename which just uploaded  |
+| file_name | string | The temporary filename |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -263,11 +264,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **not image:** The MIME-type is not image |
-||| **invalid image format:** The subtype of MIME-type is not jpg, jpeg, png and gif |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not image: the type of MIME type is not image</li><li>invalid image format: the subtype of MIME type is not jpg, jpeg, png and gif</li></ul> |
+
 
 
 ## Delete Image
