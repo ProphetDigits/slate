@@ -341,7 +341,7 @@ Failure
 | URL | `user/profile` |
 | Method | `post` |
 | Use | To get my profile |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -356,10 +356,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -370,21 +370,22 @@ Success
 ```json
 {
 	"id": 1,
-	"email": "cc.lee@prophetdigits.com",
-	"given_name": "CC",
-	"family_name": "Lee",
+	"email": "tester@prophetdigits.com",
+	"given_name": "Tester",
+	"family_name": "Prophet",
 	"picture": ""
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The user id |
-| email | string | The user email |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
-| picture | string | The user image path |
+| id | integer | The user's id |
+| email | string | The user's email |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+| picture | string | The user's image path |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -398,9 +399,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
 
 
 
