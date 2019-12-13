@@ -199,10 +199,10 @@ Failure
 
 ```json
 {
-	"given_name": "CC",
-	"family_name": "Lee",
+	"given_name": "Tester",
+	"family_name": "Prophetdigit",
 	"title": 1,
-	"email": "cc.lee@prophetdigits.com",
+	"email": "tester@prophetdigits.com",
 	"password": "12345678"
 }
 ```
@@ -211,12 +211,10 @@ Failure
 | -------: | :---- | :--- |
 | given_name | string | The user given name |
 | family_name | string | The user family name |
-| title | integer | The user gender - 0: Mr. 1: Mrs. |
+| title | integer | The user gender <ul><li>0: Mr.</li><li>1: Mrs.</li></ul> |
 | email | string | The user email |
 | password | string | The user password |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -224,15 +222,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -250,19 +242,16 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-|||**illegal form input:** The data validation failed |
-| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
-| *given_name* | array | **required:** The data cannot be empty or null |
-| *family_name* | array | **required:** The data cannot be empty or null |
-| *title* | array | **required:** The data cannot be empty or null |
-|||**invalid title:** The data only can be 0 or 1 |
-| *email* | array | **required:** The data cannot be empty or null |
-|||**invalid email:** The data need accord with email format |
-|||**dulicate:** The data has already been used |
-| *password* | array | **required:** The data cannot be empty or null |
-|||**word count:** The data need more than 7 words and less than 21 words |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal_form_input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| given_name | array (option) | required: <ol><li>The given_name cannot be empty or null</li></ol> |
+| family_name | array (option) | required: <ol><li>The family_name cannot be empty or null</li></ol> |
+| title | array (option) | required: <ol><li>The title cannot be empty or null</li></ol> invalid title: <ol><li>The title only can be 0 or 1</li></ol> |
+| email | array (option) | required: <ol><li>The email cannot be empty or null</li></ol> invalid email: <ol><li>The data need accord with email format</li></ol> duplicate: <ol><li>The email has already been used</li></ol> |
+| password | array (option) | required: <ol><li>The family_name cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
 
 
 
