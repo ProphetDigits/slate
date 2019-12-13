@@ -8,8 +8,8 @@
 | -------: | :---- |
 | URL | `user/company/search` |
 | Method | `post` |
-| Use | To get relative companies by company name |
-| Notice |  |
+| Use | To get companies by name |
+| Notice | It's prefix search and return 10 companies most similar |
 
 
 > Input Parameters
@@ -19,17 +19,17 @@
 ```json
 {
 	"api_key": "e4cbcdc2faff41a7e311",
-	"search_text": "CC"
+	"search_text": "Test"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| search_text | string | A keyword about the company name |
+| api_key | string | The identity token of user |
+| search_text | string | The company name |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -40,29 +40,33 @@ Success
 ```json
 [{
 	"id": 1,
-	"name": "CC Shop",
+	"name": "Test Shop",
 	"cover_image": {
-		"240p": "http://abc/xxx_240p.jpg",
-		"480p": "http://abc/xxx_480p.jpg",
-		"720p": "http://abc/xxx_720p.jpg",
-		"1080p": "http://abc/xxx_1080p.jpg"
+		"name": "xxx",
+		"cover": true,
+		"resource": {
+			"240p": "http://abc/xxx_240p.jpg",
+			"480p": "http://abc/xxx_480p.jpg",
+			"720p": "http://abc/xxx_720p.jpg",
+			"1080p": "http://abc/xxx_1080p.jpg"
+		}
 	},
 	"owner": {
 		"id": 1,
-		"given_name": "Wang",
-		"family_name": "Jianhua",
-		"email": "a@gmail.com"
+		"given_name": "Tester",
+		"family_name": "Prophet",
+		"email": "tester@prophetdigits.com"
 	}
 }, {
 	"id": 2,
-	"name": "CC Bike",
+	"name": "Test Bike",
 	"cover_image": {},
 	"owner": {
 		"id": 1,
-		"given_name": "Wang",
-		"family_name": "Jianhua",
-		"email": "a@gmail.com"
-}
+		"given_name": "Tester",
+		"family_name": "Prophet",
+		"email": "tester@prophetdigits.com"
+	}
 }]
 ```
 
@@ -70,23 +74,36 @@ Success
 | -------: | :---- | :--- |
 | id | number | The company id |
 | name | string | The company name |
-| **cover_image** | **object** | The company’s cover image <br /> If no set cover image, return empty |
-| *240p* | string | picture url of 240 resolution (426x240) |
-| *480p* | string | picture url of 480 resolution (854x480) |
-| *720p* | string | picture url of 720 resolution (1280x720) |
-| *1080p* | string | picture url of 1080 resolution (1920x1080) |
-| **owner** | **object** | The founder information of company |
-| *id* | integer | The user id of founder |
-| *given_name* | string | The given name of founder |
-| *family_name* | string | The family name of founder |
-| *email* | string | The email of founder |
+| cover_image | object | The company’s cover image. If no set cover image, return empty |
+| owner | object | The founder information of company |
 
+| cover_image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename without extension |
+| cover | boolean | The flag of cover image |
+| resource | ojbect | The urls of each resolution |
+
+| cover_image.resource | Type | Description |
+| -------: | :---- | :--- |
+| 240p | string | The picture url of 240 resolution (426x240) |
+| 480p | string | The picture url of 480 resolution (854x480) |
+| 720p | string | The picture url of 720 resolution (1280x720) |
+| 1080p | string | The picture url of 1080 resolution (1920x1080) |
+
+| owner | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name |
+| family_name | string | The family name |
+| email | string | The email |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -94,9 +111,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>empty text: the search text cannot be empty</li></ul> |
 
 
 
