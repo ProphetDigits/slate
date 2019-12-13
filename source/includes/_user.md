@@ -118,7 +118,7 @@ There is no failure
 | -------: | :---- |
 | URL | `user/signupwithemailonly` |
 | Method | `post` |
-| Use | Let user sign up an account with email only in payment |
+| Use | Let user sign up with email only |
 | Notice ||
 
 
@@ -128,7 +128,7 @@ There is no failure
 
 ```json
 {
-	"email": "cc.lee@prophetdigits.com"
+	"email": "tester@prophetdigits.com"
 }
 ```
 
@@ -137,7 +137,7 @@ There is no failure
 | email | string | The user email |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -153,8 +153,9 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -171,10 +172,12 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-| *email* | array | **required:** The data cannot be empty or null |
-|||**invalid email:** The data need accord with email format |
-|||**dulicate:** The data has already been used |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal_form_input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| email | array (option) | required: <ol><li>The email cannot be empty or null</li></ol> invalid email: <ol><li>The data need accord with email format</li></ol> duplicate: <ol><li>The email has already been used</li></ol> |
 
 
 
