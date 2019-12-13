@@ -575,17 +575,17 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "company_id": "1"
+    "company_id": 1
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | company_id | integer | The company id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -595,36 +595,37 @@ Success
 
 ```json
 {
+    "id": 1,
     "short_number": "AAAA",
-    "name": "CC Bike",
+    "name": "Test Bike",
     "website": "",
     "description": "",
     "street": "",
     "city": "",
-    "province": "",
+    "state": "",
     "postal_code": "",
     "country": {
         "id": 228,
         "name": "taiwan"
     },
-    "contact_given_name": "XX",
-    "contact_family_name": "X",
-    "contact_job_title": "xxx",
+    "contact_given_name": "Tester",
+    "contact_family_name": "Prophet",
+    "contact_job_title": "coder",
     "contact_phone": "0987654321",
-    "contact_email": "abc@gmail.com",
+    "contact_email": "tester@prophetdigits.com",
     "owner": {
         "id": 1,
-        "given_name": "Wang",
-        "family_name": "Jianhua",
-        "email": "a@gmail.com"
+        "given_name": "Tester",
+        "family_name": "Prophet",
+        "email": "tester@prophetdigits.com"
     },
     "members": [{
         "id": 1,
-        "given_name": "QQ",
-        "family_name": "Wang",
-        "email": "a@gmail.com",
-        "administrator": 1,
-        "manager": 1
+        "given_name": "Tester",
+        "family_name": "Prophet",
+        "email": "tester@prophetdigits.com",
+        "administrator": true,
+        "manager": true
     }],
     "images":[{
         "name": "xxx.jpg",
@@ -648,8 +649,8 @@ Success
     "currencies": [{
         "id": 1,
         "name": "EUR",
-        "default": 1,
-        "exchange_rate": 0,
+        "default": true,
+        "exchange_rate": 1,
         "display_precision_point": 2
     }]
 }
@@ -657,49 +658,69 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | company id|
-| short_number | string | The company short number |
+| id | integer | The company id|
+| short_number | string | The short number of company, four letters and uppercase |
 | name | string | The company name |
 | website | string | The company website link |
 | description | string | The company description |
-| street | string | The street address of company |
+| street | string | The street of company |
 | city | string | The city of company |
 | state | string | The state of company |
 | postal_code | string | The postal code of company |
-| **country** | **object** | The country of company |
-| *id* | integer | country id |
-| *name* | string | country name |
-| contact_given_name | string | The given name of contactor |
-| contact_family_name | string | The family name of contactor |
-| contact_job_title | string | The job title of contactor |
-| contact_phone | string | The phone number of contactor |
-| contact_email | string | The email of contactor |
-| **images** | **array** | The company images |
-| *name* | string | The image name |
-| *cover* | boolean | Is cover image <br /> false: normal image <br /> true: cover image |
-| **resource** | **object** | The resolution of picture |
-| *240p* | string | picture url of 240 resolution (426x240) |
-| *480p* | string | picture url of 480 resolution (854x480) |
-| *720p* | string | picture url of 720 resolution (1280x720) |
-| *1080p* | string | picture url of 1080 resolution (1920x1080) |
-| **owner** | **object** | The information of company owner |
-| *id* | integer | The user id |
-| *given_name* | string | The user given name |
-| *family_name* | string | The owner family name |
-| *email* | string | The user email |
-| **members** | **array** | The members of company |
-| *id* | integer | The user id |
-| *given_name* | string | The user given name |
-| *family_name* | string | The user family name |
-| *email* | string | The user email |
-| *administrator* | boolean | The administrator identify in the company |
-| *manager* | boolean | The highest manager in the company |
-| **currencies** | **array** | currencies which company own |
-| *id* | number | The currency id of system|
-| *name* | string | The currency name |
-| *default* | boolean | The default currency of company |
-| *exchange_rate* | number | The exchange rate of currency in the company|
-| *display_precision_point* | integer | The precision point of currency. Display_precision_point > 0 indicate the digits of presicion <br /> ex: If the display_precision_point is 2, than the price should round to 9.12 from 9.119 |
+| country | object | The country of company |
+| contact_given_name | string | The given name of contacts |
+| contact_family_name | string | The family name of contacts |
+| contact_job_title | string | The job title of contacts |
+| contact_phone | string | The phone number of contacts |
+| contact_email | string | The email of contacts |
+| images | array | Collection of company image |
+| owner | object | The information of company owner |
+| members | array | Collection of company member |
+| currencies | array | Collection of company currency |
+
+| country | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The country id |
+| name | string | The country name |
+
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
+
+| image.resource | Type | Description |
+| -------: | :---- | :--- |
+| 240p | string | The picture url of 240 resolution (426x240) |
+| 480p | string | The picture url of 480 resolution (854x480) |
+| 720p | string | The picture url of 720 resolution (1280x720) |
+| 1080p | string | The picture url of 1080 resolution (1920x1080) |
+
+| owner | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name |
+| family_name | string | The family name |
+| email | string | The email |
+
+| member | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name |
+| family_name | string | The family name |
+| email | string | The email |
+| administrator | boolean | The tag that is it company administrator |
+| manager | boolean | The tag that is it company owner |
+
+| currency | Type | Description |
+| -------: | :---- | :--- |
+| id | number | The currency id of system|
+| name | string | The currency name |
+| default | boolean | The tag that is it default currency for company |
+| exchange_rate | number | The exchange rate of currency in the company |
+| display_precision_point | integer | The minimize denominations of currency. <br /> ex.: If the value is 2, than the price should not show third decimal place |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -707,16 +728,14 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name": "lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **company not exist:** The company not exist |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
+
 
 
 ## Edit Company Profile
