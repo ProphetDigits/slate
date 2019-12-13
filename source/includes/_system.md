@@ -277,7 +277,7 @@ Failure
 | URL | `user/delete/image` |
 | Method | `post` |
 | Use | To delete image |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -293,11 +293,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| file_name | string | The filename which given by system after upload image |
+| api_key | string | The identity token of user |
+| file_name | string | The temporary filename after upload image |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -305,15 +303,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -327,6 +319,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
