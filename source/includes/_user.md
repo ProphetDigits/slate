@@ -263,8 +263,8 @@ Failure
 | -------: | :---- |
 | URL | `user/search` |
 | Method | `post` |
-| Use | To search other users |
-| Notice | The search data change to full user email from part user email or user name |
+| Use | To search user |
+| Notice | Searching user should input full email |
 
 
 > Input Parameters
@@ -274,17 +274,17 @@ Failure
 ```json
 {
 	"api_key": "e4cbcdc2faff41a7e311",
-	"search_text":"test@test.com"
+	"search_text":"tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| search_text | string | The data need input a full user email |
+| api_key | string | The identity token of user |
+| search_text | string | The user email |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -296,26 +296,25 @@ Success
 {
 	"users": [{
 		"id": 1,
-		"email": "a@gmail.com",
-		"given_name": "Jianhua",
-		"family_name": "Wang"
-	}, {
-		"id": 2,
-		"email": "b@gmail.com",
-		"given_name": "Jianhua",
-		"family_name": "Wang"
+		"email": "tester@prophetdigits.com",
+		"given_name": "Tester",
+		"family_name": "Prophet"
 	}]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **users** | array | users related to search text |
-| id | integer | The user id |
-| email | string | The user email |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
+| users | array | Collection of user |
 
+| user | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user's id |
+| email | string | The user's email |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -329,10 +328,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **empty text:** The search text cannot be empty |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: The user does not signin</li><li>empty text: The search text cannot be empty</li></ul> |
 
 
 
