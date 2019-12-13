@@ -55,7 +55,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -161,7 +161,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name": "illegal form input",
 	"validation": {
@@ -230,7 +230,7 @@ Nothing was returned
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name": "illegal form input",
 	"validation": {
@@ -320,7 +320,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -391,7 +391,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }

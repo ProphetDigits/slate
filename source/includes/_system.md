@@ -63,7 +63,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -137,7 +137,7 @@ Success
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
