@@ -434,7 +434,7 @@ Failure
 
 
 
-## Get Company Detail Without Login
+## Get Company Detail Without Signin
 
 ### Description
 
@@ -446,9 +446,9 @@ Failure
 | Notice |  |
 
 
-> Input Parameters
+> Url Parameters
 
-### Input Parameters
+### Url Parameters
 
 ```json
 {
@@ -461,7 +461,7 @@ Failure
 | company_id | integer | The company id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -472,34 +472,24 @@ Success
 ```json
 {
     "id": 1,
-    "name": "CC Bike",
+    "name": "Test Bike",
     "default_currency": "USD",
-    "currencies": [
-        {
-            "id": 1,
-            "name": "EUR",
-            "default": false,
-            "exchange_rate": 1,
-            "display_precision_point": 2
-        },
-        {
-            "id": 3,
-            "name": "USD",
-            "default": true,
-            "exchange_rate": 1.137,
-            "display_precision_point": 2
-        },
-        {
-            "id": 4,
-            "name": "TWD",
-            "default": false,
-            "exchange_rate": 36,
-            "display_precision_point": 0
-        }
-    ],
+    "currencies": [{
+        "id": 3,
+        "name": "USD",
+        "default": true,
+        "exchange_rate": 1.137,
+        "display_precision_point": 2
+    }, {
+        "id": 4,
+        "name": "TWD",
+        "default": false,
+        "exchange_rate": 36,
+        "display_precision_point": 0
+    }],
     "images":[{
         "name": "xxx.jpg",
-        "cover": 1,
+        "cover": true,
         "resource": {
             "px240": "http://abc/xxx_240p.jpg",
             "px480": "http://abc/xxx_480p.jpg",
@@ -508,7 +498,7 @@ Success
         }
     }, {
         "name": "yyy.jpg",
-        "cover": 0,
+        "cover": false,
         "resource": {
             "px240": "http://abc/yyy_240p.jpg",
             "px480": "http://abc/yyy_480p.jpg",
@@ -521,23 +511,34 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | company id|
+| id | integer | The company id|
 | name | string | The company name |
-| default_currency | string | default currency of company |
-| **currencies** | **array** | currencies which company own |
-| *id* | number | The currency id of system|
-| *name* | string | The currency name |
-| *default* | boolean | The default currency of company |
-| *exchange_rate* | number | The exchange rate of currency in the company|
-| *display_precision_point* | integer | The precision point of currency. Display_precision_point > 0 indicate the digits of presicion <br /> ex: If the display_precision_point is 2, than the price should round to 9.12 from 9.119 |
-| **images** | **array** | The company images |
-| *name* | string | The image name |
-| *cover* | boolean | Is cover image <br /> false: normal image <br /> true: cover image |
-| **resource** | **object** | The resolution of picture |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| default_currency | string | The default currency name |
+| currencies | array | Collection of company currency |
+| images | array | Collection of company image |
+
+| currency | Type | Description |
+| -------: | :---- | :--- |
+| id | number | The currency id of system|
+| name | string | The currency name |
+| default | boolean | The tag that is it default currency for company |
+| exchange_rate | number | The exchange rate of currency in the company |
+| display_precision_point | integer | The minimize denominations of currency. <br /> ex.: If the value is 2, than the price should not show third decimal place |
+
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The flag of cover image |
+| resource | ojbect | The urls of each resolution |
+
+| company.cover_image.resource | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240) |
+| px480 | string | The picture url of 480 resolution (854x480) |
+| px720 | string | The picture url of 720 resolution (1280x720) |
+| px1080 | string | The picture url of 1080 resolution (1920x1080) |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -545,14 +546,14 @@ Failure
 
 ```json
 {
-    "error_name":"company not exist"
+    "error_name": "company not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **company not exist:** The company not exist |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>company not exist: the company not exist</li></ul> |
+
 
 
 ## Get Company Detail
