@@ -412,7 +412,7 @@ Failure
 | URL | `user/password/forget` |
 | Method | `post` |
 | Use | To send validation code to user by email |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -421,15 +421,14 @@ Failure
 
 ```json
 {
-	"email": "cc@b-labs.org"
+	"email": "tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | the user account |
+| email | string | The user's email |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -437,15 +436,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -453,13 +446,13 @@ Failure
 
 ```json
 {
+	"error_name": "email not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **email not exist:** The email is not signed up yet |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>email not exist: the email is not signed up yet</li></ul> |
 
 
 
