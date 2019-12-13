@@ -456,7 +456,7 @@ Failure
 
 
 
-## Resett Password
+## Reset Password
 
 ### Description
 
@@ -465,7 +465,7 @@ Failure
 | URL | `user/password/cover` |
 | Method | `post` |
 | Use | To reset user password |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -474,19 +474,18 @@ Failure
 
 ```json
 {
-	"email": "cc@b-labs.org",
-	"passward": "123456",
+	"email": "tester@prophetdigits.com",
+	"password": "123456",
 	"validation_code": "123456"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | The user account |
-| password | string | The user new passward |
-| validation_code | string | The validation code which gets from email |
+| email | string | The user's account |
+| password | string | The user's new password |
+| validation_code | string | The validation code which takes from email |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -494,15 +493,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -510,16 +503,19 @@ Failure
 
 ```json
 {
+	"error_name": "illegal form input",
+	"validation": {
+		"password": ["required"]
+	}
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**illegal form input:** The data validation failed |
-|||**email not exist:** The email is not signed up yet |
-|||**validation code not match:** The validation code is invalid |
-|||**timeout:** The validation code has been expired |
-| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
-| *password* | array | **required:** The data cannot be empty or null |
-|||**word count:** The data need more than 7 words and less than 21 words |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>email not exist: the email is not signed up yet</li><li>validation code not match: the validation_code is invalid</li><li>timeout: the validation code has been expired</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| password | array (option) | required: <ol><li>The password cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
+| validation_code | array (option) | required: <ol><li>The validation_code cannot be empty or null</li></ol> |
