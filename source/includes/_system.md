@@ -149,7 +149,7 @@ Failure
 
 
 
-## System Country List Without Sign In
+## Get System Country List Without Signin
 
 ### Description
 
@@ -157,24 +157,16 @@ Failure
 | -------: | :---- |
 | URL | `system/country/list` |
 | Method | `get` |
-| Use | to get all countries in the system |
+| Use | To get all countries in the system |
 | Notice |  |
 
 
-> Input Parameters
-
 ### Input Parameters
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+There is no parameters
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -196,23 +188,19 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | **array** | All countries in the system |
-| *id* | number | The country id |
-| *name* | string | The country name |
+| countries | array | Collection of country |
 
+| country | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The country id |
+| name | string | The country name |
 
 <aside class="warning">
 Failure
 </aside>
 
-```
-{
-}
-```
+There is no failure
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
 
 
 ## Upload Image
