@@ -18,7 +18,7 @@
 
 ```json
 {
-	"email": "cc@prophetdigit.com",
+	"email": "tester@prophetdigit.com",
 	"password": "12345678"
 }
 ```
@@ -134,7 +134,7 @@ There is no failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | The user email |
+| email | string | The user's email |
 
 
 > Return Success Parameters
@@ -172,8 +172,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal_form_input: the input does not pass validation</li></ul> |
-| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -209,11 +209,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
-| title | integer | The user gender <ul><li>0: Mr.</li><li>1: Mrs.</li></ul> |
-| email | string | The user email |
-| password | string | The user password |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+| title | integer | The user's gender <ul><li>0: Mr.</li><li>1: Mrs.</li></ul> |
+| email | string | The user's email |
+| password | string | The user's password |
 
 
 ### Return Parameters
@@ -242,8 +242,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal_form_input: the input does not pass validation</li></ul> |
-| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -251,7 +251,7 @@ Failure
 | family_name | array (option) | required: <ol><li>The family_name cannot be empty or null</li></ol> |
 | title | array (option) | required: <ol><li>The title cannot be empty or null</li></ol> invalid title: <ol><li>The title only can be 0 or 1</li></ol> |
 | email | array (option) | required: <ol><li>The email cannot be empty or null</li></ol> invalid email: <ol><li>The data need accord with email format</li></ol> duplicate: <ol><li>The email has already been used</li></ol> |
-| password | array (option) | required: <ol><li>The family_name cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
+| password | array (option) | required: <ol><li>The password cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
 
 
 
@@ -281,7 +281,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | api_key | string | The identity token of user |
-| search_text | string | The user email |
+| search_text | string | The user's email |
 
 
 > Return Success Parameters
@@ -328,7 +328,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: The user does not signin</li><li>empty text: The search text cannot be empty</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>empty text: the search text cannot be empty</li></ul> |
 
 
 
@@ -464,7 +464,7 @@ Failure
 | -------: | :---- |
 | URL | `user/password/cover` |
 | Method | `post` |
-| Use | To reset user password |
+| Use | To reset user's password |
 | Notice | |
 
 
@@ -513,7 +513,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>email not exist: the email is not signed up yet</li><li>validation code not match: the validation_code is invalid</li><li>timeout: the validation code has been expired</li><li>illegal form input: the input does not pass validation</li></ul> |
-| validation | object (option) | If the err_name is 'illegal_form_input', system will show reasons for each error input |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
