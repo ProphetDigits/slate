@@ -18,8 +18,8 @@
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"search_text": "Test"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "search_text": "Test"
 }
 ```
 
@@ -39,34 +39,34 @@ Success
 
 ```json
 [{
-	"id": 1,
-	"name": "Test Shop",
-	"cover_image": {
-		"name": "xxx",
-		"cover": true,
-		"resource": {
-			"240p": "http://abc/xxx_240p.jpg",
-			"480p": "http://abc/xxx_480p.jpg",
-			"720p": "http://abc/xxx_720p.jpg",
-			"1080p": "http://abc/xxx_1080p.jpg"
-		}
-	},
-	"owner": {
-		"id": 1,
-		"given_name": "Tester",
-		"family_name": "Prophet",
-		"email": "tester@prophetdigits.com"
-	}
+    "id": 1,
+    "name": "Test Shop",
+    "cover_image": {
+        "name": "xxx",
+        "cover": true,
+        "resource": {
+            "240p": "http://abc/xxx_240p.jpg",
+            "480p": "http://abc/xxx_480p.jpg",
+            "720p": "http://abc/xxx_720p.jpg",
+            "1080p": "http://abc/xxx_1080p.jpg"
+        }
+    },
+    "owner": {
+        "id": 1,
+        "given_name": "Tester",
+        "family_name": "Prophet",
+        "email": "tester@prophetdigits.com"
+    }
 }, {
-	"id": 2,
-	"name": "Test Bike",
-	"cover_image": {},
-	"owner": {
-		"id": 1,
-		"given_name": "Tester",
-		"family_name": "Prophet",
-		"email": "tester@prophetdigits.com"
-	}
+    "id": 2,
+    "name": "Test Bike",
+    "cover_image": {},
+    "owner": {
+        "id": 1,
+        "given_name": "Tester",
+        "family_name": "Prophet",
+        "email": "tester@prophetdigits.com"
+    }
 }]
 ```
 
@@ -105,7 +105,7 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
@@ -115,7 +115,7 @@ Failure
 
 
 
-## Company List
+## Get Company List
 
 ### Description
 
@@ -123,24 +123,16 @@ Failure
 | -------: | :---- |
 | URL | `company/list` |
 | Method | `get` |
-| Use | to get all companies list |
+| Use | To get all companies |
 | Notice |  |
 
 
-> Input Parameters
-
 ### Input Parameters
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+There is no parameters
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -150,41 +142,30 @@ Success
 
 ```json
 {
-    "companies":[
-        {
-          "id": 1,
-          "name": "CC Bike",
-        },
-        {
-          "id": 2,
-          "name": "BB Bike"
-        }
-    ]
+    "companies":[{
+        "id": 1,
+        "name": "Test Shop"
+    }, {
+        "id": 2,
+        "name": "Test Bike"
+    }]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **companies** | **array** | all companies in the system. Order by company name from A-Z |
-| id | number | company’s id |
-| name | string | company name |
+| companies | array | Collection of company. Order by company name from A-Z |
 
-
-
+| company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
 
 <aside class="warning">
 Failure
 </aside>
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-
+There is no failure
 
 
 
@@ -196,7 +177,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/list` |
 | Method | `post` |
-| Use | to get all companies of user |
+| Use | To get all companies of user |
 | Notice |  |
 
 
@@ -206,7 +187,7 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311"
+    "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -224,55 +205,55 @@ Success
 
 ```json
 {
-	"companies":[{
-		"id": 2,
-		"name": "CC Bike",
-		"cover_img": {},
-		"owner": {
-			"id": 1,
-			"given_name": "Wang",
-			"family_name": "Jianhua",
-			"email": "a@gmail.com"
-		},
-		"selected": false,
-		"currency": "EUR"
-	}],
-	"companies_with_option":[{
-		"id": 3,
-		"name": "CC Bike",
-		"cover_img": {
-			"240p": "http://abc/xxx_240p.jpg",
-			"480p": "http://abc/xxx_480p.jpg",
-			"720p": "http://abc/xxx_720p.jpg",
-			"1080p": "http://abc/xxx_1080p.jpg"
-		},
-		"owner": {
-			"id": 1,
-			"given_name": "Wang",
-			"family_name": "Jianhua",
-			"email": "a@gmail.com"
-		},
-		"selected": true,
-		"currency": "CHF"
-	}],
-	"current_company":{
-		"id": 2,
-		"name": "CC Bike",
-		"cover_img": {
-			"240p": "http://abc/xxx_240p.jpg",
-			"480p": "http://abc/xxx_480p.jpg",
-			"720p": "http://abc/xxx_720p.jpg",
-			"1080p": "http://abc/xxx_1080p.jpg"
-		},
-		"owner": {
-			"id": 1,
-			"given_name": "Wang",
-			"family_name": "Jianhua",
-			"email": "a@gmail.com"
-		},
-		"selected": true,
-		"currency": "CHF"
-	}
+    "companies":[{
+        "id": 2,
+        "name": "CC Bike",
+        "cover_img": {},
+        "owner": {
+            "id": 1,
+            "given_name": "Wang",
+            "family_name": "Jianhua",
+            "email": "a@gmail.com"
+        },
+        "selected": false,
+        "currency": "EUR"
+    }],
+    "companies_with_option":[{
+        "id": 3,
+        "name": "CC Bike",
+        "cover_img": {
+            "240p": "http://abc/xxx_240p.jpg",
+            "480p": "http://abc/xxx_480p.jpg",
+            "720p": "http://abc/xxx_720p.jpg",
+            "1080p": "http://abc/xxx_1080p.jpg"
+        },
+        "owner": {
+            "id": 1,
+            "given_name": "Wang",
+            "family_name": "Jianhua",
+            "email": "a@gmail.com"
+        },
+        "selected": true,
+        "currency": "CHF"
+    }],
+    "current_company":{
+        "id": 2,
+        "name": "CC Bike",
+        "cover_img": {
+            "240p": "http://abc/xxx_240p.jpg",
+            "480p": "http://abc/xxx_480p.jpg",
+            "720p": "http://abc/xxx_720p.jpg",
+            "1080p": "http://abc/xxx_1080p.jpg"
+        },
+        "owner": {
+            "id": 1,
+            "given_name": "Wang",
+            "family_name": "Jianhua",
+            "email": "a@gmail.com"
+        },
+        "selected": true,
+        "currency": "CHF"
+    }
 }
 ```
 
@@ -304,7 +285,7 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
@@ -334,28 +315,28 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"short_number": "AAAA",
-	"name": "CC Bike",
-	"website": "",
-	"description": "",
-	"street": "",
-	"city": "",
-	"state": "",
-	"postal_code": "",
-	"system_country_id": 228,
-	"contact_given_name":  "Jianhua",
-	"contact_family_name":  "Wang",
-	"contact_job_title":  "coder",
-	"contact_phone":  "0987654321",
-	"contact_email":  "abc@gmail.com",
-	"images":[{
-		"name": "xxx.jpg",
-		"cover": 1
-	}, {
-		"name": "xxx.jpg",
-		"cover": 0
-	}]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "short_number": "AAAA",
+    "name": "CC Bike",
+    "website": "",
+    "description": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "postal_code": "",
+    "system_country_id": 228,
+    "contact_given_name":  "Jianhua",
+    "contact_family_name":  "Wang",
+    "contact_job_title":  "coder",
+    "contact_phone":  "0987654321",
+    "contact_email":  "abc@gmail.com",
+    "images":[{
+        "name": "xxx.jpg",
+        "cover": 1
+    }, {
+        "name": "xxx.jpg",
+        "cover": 0
+    }]
 }
 ```
 
@@ -391,7 +372,7 @@ Success
 
 ```json
 {
-	"id": 1
+    "id": 1
 }
 ```
 
@@ -406,11 +387,11 @@ Failure
 
 ```json
 {
-	"error_name": "illegal form input",
-	"validation": {
-		"name": ["dulicate"],
-		"country": ["required"]
-	}
+    "error_name": "illegal form input",
+    "validation": {
+        "name": ["dulicate"],
+        "country": ["required"]
+    }
 }
 ```
 
@@ -456,7 +437,7 @@ Failure
 
 ```json
 {
-	"company_id": "1"
+    "company_id": "1"
 }
 ```
 
@@ -549,7 +530,7 @@ Failure
 
 ```json
 {
-	"error_name":"company not exist"
+    "error_name":"company not exist"
 }
 ```
 
@@ -577,8 +558,8 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": "1"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": "1"
 }
 ```
 
@@ -598,63 +579,63 @@ Success
 
 ```json
 {
-	"short_number": "AAAA",
-	"name": "CC Bike",
-	"website": "",
-	"description": "",
-	"street": "",
-	"city": "",
-	"province": "",
-	"postal_code": "",
-	"country": {
+    "short_number": "AAAA",
+    "name": "CC Bike",
+    "website": "",
+    "description": "",
+    "street": "",
+    "city": "",
+    "province": "",
+    "postal_code": "",
+    "country": {
         "id": 228,
         "name": "taiwan"
     },
-	"contact_given_name": "XX",
-	"contact_family_name": "X",
-	"contact_job_title": "xxx",
-	"contact_phone": "0987654321",
-	"contact_email": "abc@gmail.com",
-	"owner": {
-		"id": 1,
-		"given_name": "Wang",
-		"family_name": "Jianhua",
-		"email": "a@gmail.com"
-	},
-	"members": [{
-		"id": 1,
-		"given_name": "QQ",
-		"family_name": "Wang",
-		"email": "a@gmail.com",
-		"administrator": 1,
-		"manager": 1
-	}],
-	"images":[{
-		"name": "xxx.jpg",
-		"cover": true,
-		"resource": {
-			"240p": "http://abc/xxx_240p.jpg",
-			"480p": "http://abc/xxx_480p.jpg",
-			"720p": "http://abc/xxx_720p.jpg",
-			"1080p": "http://abc/xxx_1080p.jpg"
-		}
-	}, {
-		"name": "yyy.jpg",
-		"cover": false,
-		"resource": {
-			"240p": "http://abc/yyy_240p.jpg",
-			"480p": "http://abc/yyy_480p.jpg",
-			"720p": "http://abc/yyy_720p.jpg",
-			"1080p": "http://abc/yyy_1080p.jpg"
-		}
-	}],
-	"currencies": [{
-		"id": 1,
-		"name": "EUR",
-		"default": 1,
-		"exchange_rate": 0,
-		"display_precision_point": 2
-	}]
+    "contact_given_name": "XX",
+    "contact_family_name": "X",
+    "contact_job_title": "xxx",
+    "contact_phone": "0987654321",
+    "contact_email": "abc@gmail.com",
+    "owner": {
+        "id": 1,
+        "given_name": "Wang",
+        "family_name": "Jianhua",
+        "email": "a@gmail.com"
+    },
+    "members": [{
+        "id": 1,
+        "given_name": "QQ",
+        "family_name": "Wang",
+        "email": "a@gmail.com",
+        "administrator": 1,
+        "manager": 1
+    }],
+    "images":[{
+        "name": "xxx.jpg",
+        "cover": true,
+        "resource": {
+            "240p": "http://abc/xxx_240p.jpg",
+            "480p": "http://abc/xxx_480p.jpg",
+            "720p": "http://abc/xxx_720p.jpg",
+            "1080p": "http://abc/xxx_1080p.jpg"
+        }
+    }, {
+        "name": "yyy.jpg",
+        "cover": false,
+        "resource": {
+            "240p": "http://abc/yyy_240p.jpg",
+            "480p": "http://abc/yyy_480p.jpg",
+            "720p": "http://abc/yyy_720p.jpg",
+            "1080p": "http://abc/yyy_1080p.jpg"
+        }
+    }],
+    "currencies": [{
+        "id": 1,
+        "name": "EUR",
+        "default": 1,
+        "exchange_rate": 0,
+        "display_precision_point": 2
+    }]
 }
 ```
 
@@ -710,7 +691,7 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
@@ -740,21 +721,21 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"name": "CC Bike",
-	"website": "",
-	"description": "",
-	"street": "",
-	"city": "",
-	"state": "",
-	"postal_code": "",
-	"system_country_id": 228,
-	"contact_given_name":  "Jianhua",
-	"contact_family_name":  "Wang",
-	"contact_job_title":  "coder",
-	"contact_phone":  "0987654321",
-	"contact_email":  "abc@gmail.com"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "name": "CC Bike",
+    "website": "",
+    "description": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "postal_code": "",
+    "system_country_id": 228,
+    "contact_given_name":  "Jianhua",
+    "contact_family_name":  "Wang",
+    "contact_job_title":  "coder",
+    "contact_phone":  "0987654321",
+    "contact_email":  "abc@gmail.com"
 }
 ```
 
@@ -802,11 +783,11 @@ Failure
 
 ```json
 {
-	"error_name": "illegal form input",
-	"validation": {
-		"name": ["dulicate"],
-		"country": ["required"]
-	}
+    "error_name": "illegal form input",
+    "validation": {
+        "name": ["dulicate"],
+        "country": ["required"]
+    }
 }
 ```
 
@@ -853,15 +834,15 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"images":[{
-			"name": "xxx.jpg",
-			"cover": true
-		}, {
-			"name": "xxx.jpg",
-			"cover": false
-	}]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "images":[{
+            "name": "xxx.jpg",
+            "cover": true
+        }, {
+            "name": "xxx.jpg",
+            "cover": false
+    }]
 }
 ```
 
@@ -898,7 +879,7 @@ Failure
 
 ```json
 {
-	"error_name": "company not exist"
+    "error_name": "company not exist"
 }
 ```
 
@@ -931,9 +912,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"email": "cc.lee@prophetdigits.com"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "email": "cc.lee@prophetdigits.com"
 }
 ```
 
@@ -968,7 +949,7 @@ Failure
 
 ```json
 {
-	"error_name": "duplicate join"
+    "error_name": "duplicate join"
 }
 ```
 
@@ -1003,10 +984,10 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"email": "cc.lee@prophetdigits.com",
-	"adminstrator": false
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "email": "cc.lee@prophetdigits.com",
+    "adminstrator": false
 }
 ```
 
@@ -1042,7 +1023,7 @@ Failure
 
 ```json
 {
-	"error_name": "not join"
+    "error_name": "not join"
 }
 ```
 
@@ -1077,9 +1058,9 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"email": "cc.lee@prophetdigits.com"
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "email": "cc.lee@prophetdigits.com"
 }
 ```
 
@@ -1113,7 +1094,7 @@ Failure
 
 ```json
 {
-	"error_name": "not join"
+    "error_name": "not join"
 }
 ```
 
@@ -1148,13 +1129,13 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1,
-	"currencies": [{
-		"currency_id": 1,
-		"exchange_rate": 0.3,
-		"default": true
-	}]
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1,
+    "currencies": [{
+        "currency_id": 1,
+        "exchange_rate": 0.3,
+        "default": true
+    }]
 }
 ```
 
@@ -1192,7 +1173,7 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
@@ -1226,8 +1207,8 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311",
-	"company_id": 1
+    "api_key": "e4cbcdc2faff41a7e311",
+    "company_id": 1
 }
 ```
 
@@ -1261,7 +1242,7 @@ Failure
 
 ```json
 {
-	"error_name":"lack of parameters"
+    "error_name":"lack of parameters"
 }
 ```
 
@@ -1292,7 +1273,7 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311"
+    "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -1310,7 +1291,7 @@ Success
 
 ```json
 {
-	"short_number": "AAAA"
+    "short_number": "AAAA"
 }
 ```
 
@@ -1324,7 +1305,7 @@ Failure
 
 ```json
 {
-	"error_name": "illegal form input"
+    "error_name": "illegal form input"
 }
 ```
 
