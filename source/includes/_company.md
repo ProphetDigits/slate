@@ -1086,7 +1086,7 @@ Failure
 | URL | `user/company/edit/currency` |
 | Method | `post` |
 | Use | To edit company currencies |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -1109,13 +1109,14 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | An unique token after user sign in, then user can use it to request data from API |
 | company_id | integer | The company id |
-| **currencies** | **array** | The company currencies |
-| *currency_id* | integer | The currency id |
-| *exchange_rate* | number | The default currency to specific currency exchange rate |
-| *default* | boolean | Is default currency |
+| currencies | array | Collection of company currencies |
 
+| currency | Type | Description |
+| -------: | :---- | :--- |
+| currency_id | integer | The currency id |
+| exchange_rate | number | The exchange rate compared to default currency |
+| default | boolean | The tag that is it default currency for company |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -1123,15 +1124,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1145,13 +1140,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **company not exist:** The company not exist |
-||| **not company member:** The user are not member in this company or no option with this company |
-||| **duplicate default currency:** Two currencies is setted as the default currency |
-||| **no default currency:** No currencies is setted as the default currency |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>duplicate default currency: two currencies is setted as the default currency</li><li>no default currency: no currency is setted as the default currency</li></ul> |
 
 
 
