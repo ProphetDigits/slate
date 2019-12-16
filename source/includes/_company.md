@@ -1152,7 +1152,7 @@ Failure
 | -------: | :---- |
 | URL | `user/select/company` |
 | Method | `post` |
-| Use | change app’s global company to operate app functions |
+| Use | To change current comapny of user |
 | Notice |  |
 
 
@@ -1169,11 +1169,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | company_id | integer | The company id |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -1181,15 +1179,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1203,11 +1195,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not company member:** doesn’t join to this company|
-|||**company not exist:** the company is not exist|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li></ul> |
+
 
 
 ## Generate Company Short Number
