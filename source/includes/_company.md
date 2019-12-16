@@ -1262,7 +1262,7 @@ Failure
 
 
 
-## Get Company Country List
+## Get Vat Country List
 
 ### Description
 
@@ -1270,7 +1270,7 @@ Failure
 | -------: | :---- |
 | URL | user/company/country/list |
 | Method | `post` |
-| Use | to get countries of company |
+| Use | To get vat countries of company |
 | Notice |  |
 
 
@@ -1286,9 +1286,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 
-> Return Parameters
+
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1309,11 +1310,16 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | **array** | countries of company |
-| *company_country_id* | integer | company country id |
-| *id* | integer | country id |
-| *name* | string | country name |
-| *importers* | integer | importer number in the country |
+| countries | array | Collection of company country |
+
+| country | Type | Description |
+| -------: | :---- | :--- |
+| company_country_id | integer | The country id of company |
+| id | integer | The country id of system |
+| name | string | The country name |
+| importers | integer | The importer quantity |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1327,9 +1333,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  the name of the wrong type.|
-||| **lack of parameters:**  the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li></ul> |
+
 
 
 ## Get Company Country Detail
