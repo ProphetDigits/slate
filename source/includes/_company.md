@@ -846,7 +846,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/edit/image` |
 | Method | `post` |
-| Use | to edit company image |
+| Use | To edit company image |
 | Notice |  |
 
 
@@ -859,25 +859,26 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "company_id": 1,
     "images":[{
-            "name": "xxx.jpg",
-            "cover": true
-        }, {
-            "name": "xxx.jpg",
-            "cover": false
+        "name": "xxx.jpg",
+        "cover": true
+    }, {
+        "name": "xxx.jpg",
+        "cover": false
     }]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | company_id | integer | The company id |
-| **images** | **array** | The company images |
-| *name* | string | The file name which get from API after uploded image |
-| *cover* | boolean | The tag decide image is covered or not <br /> false: normal image <br /> true: cover image|
+| images | array | Collection of company image |
 
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The temporary filename which takes from uploded image api |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -885,15 +886,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -907,12 +902,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **company not exist:** The company not exist |
-||| **not company member:** The user are not member in this company or no option with this company |
-||| **no permission:** The permission deny |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>no permission: the permission deny</li></ul> |
 
 
 
