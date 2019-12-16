@@ -1337,7 +1337,7 @@ Failure
 
 
 
-## Get Company Country Detail
+## Get Vat Country Detail
 
 ### Description
 
@@ -1345,7 +1345,7 @@ Failure
 | -------: | :---- |
 | URL | user/company/country/detail |
 | Method | `post` |
-| Use | to get detail of countries of company |
+| Use | To get vat country detail of company |
 | Notice |  |
 
 
@@ -1362,10 +1362,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| company_country_id | integer | company country id |
+| api_key | string | The identity token of user |
+| company_country_id | integer | The country id of company |
 
-> Return Parameters
+
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1379,26 +1380,21 @@ Success
     "country_id": 228,
     "fixed_vat": 10,
     "adjusted_vats": [{
-        "id": 1,
         "name": "fruit",
         "rate": 5,
         "comment": "",
         "items": []
-      }, {
-        "id": 2,
+    }, {
         "name": "3C",
         "rate": 15,
         "comment": "",
-        "items": [
-          2,
-          3
-        ]
+        "items": [2, 3]
     }],
     "importers": [{
         "id": 2,
         "name": "Company B",
         "comment": "test2"
-      }, {
+    }, {
         "id": 3,
         "name": "Company D",
         "comment": ""
@@ -1408,18 +1404,26 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | company country id |
-| country_id | integer | country id |
-| fixed_vat | integer | fixed vat |
-| **adjusted_vats** | **array** | adjusted vats |
-| *name* | *string* | name of adjusted vat |
-| *rate* | *integer* | rate of adjusted vat |
-| *comment* | *string* | comment of adjusted vat |
-| **items** | **array** | a set of item id which has been assigned to this vat |
-| **importers** | **array** | importers in country |
-| *id* | *integer* | company id |
-| *name* | *string* | company name |
-| *comment* | *string* | comment for importer |
+| id | integer | The country id of company |
+| country_id | integer | The country id of system |
+| fixed_vat | integer | The fixed vat |
+| adjusted_vats | array | Collection of adjusted vat |
+| importers | array | Collection of importer |
+
+| adjusted_vat | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The name of adjusted vat |
+| rate | integer | The rate of adjusted vat |
+| comment | string | The comment of adjusted vat |
+| items | array | Collection of item id |
+
+| importer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
+| comment | string | The comment for importer |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1433,9 +1437,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  the name of the wrong type.|
-||| **lack of parameters:**  the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>country not found: the country not exist</li></ul> |
+
 
 
 ## Create Country
