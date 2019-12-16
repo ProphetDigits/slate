@@ -1617,7 +1617,7 @@ Failure
 
 
 
-## Delete Country
+## Delete Vat Country
 
 ### Description
 
@@ -1625,7 +1625,7 @@ Failure
 | -------: | :---- |
 | URL | user/company/delete/country |
 | Method | `post` |
-| Use | to edit vat of company |
+| Use | To delete vat country of company |
 | Notice |  |
 
 
@@ -1636,16 +1636,15 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "company_country_id": 1,
+    "company_country_id": 1
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| company_country_id | integer | country id of company |
+| api_key | string | The identity token of user |
+| company_country_id | integer | The country id of company |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -1653,13 +1652,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+> Return Parameters
 
 <aside class="warning">
 Failure
@@ -1673,6 +1668,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  the name of the wrong type.|
-||| **lack of parameters:**  the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li></ul> |
