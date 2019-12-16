@@ -72,7 +72,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | number | The company id |
+| id | integer | The company id |
 | name | string | The company name |
 | cover_image | object | The company’s cover image. If no set cover image, return empty |
 | owner | object | The founder information of company |
@@ -80,7 +80,7 @@ Success
 | cover_image | Type | Description |
 | -------: | :---- | :--- |
 | name | string | The filename without extension |
-| cover | boolean | The flag of cover image |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 | resource | ojbect | The urls of each resolution |
 
 | cover_image.resource | Type | Description |
@@ -269,13 +269,13 @@ Success
 | name | string | The company name |
 | cover_image | object | The company’s cover image. If no set cover image, return empty |
 | owner | object | The founder information of company |
-| selected | boolean | The flag of current company |
+| selected | boolean | The tag of current company <ul><li>true: current company</li><li>false: not current company</li></ul> |
 | currency | string | The default currency name |
 
 | company.cover_image | Type | Description |
 | -------: | :---- | :--- |
 | name | string | The filename without extension |
-| cover | boolean | The flag of cover image |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 | resource | ojbect | The urls of each resolution |
 
 | company.cover_image.resource | Type | Description |
@@ -415,7 +415,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>illegal_form_input: the input does not pass validation</li></ul> |
-| validation | object (option) | If the err_name is 'illegal form input', system will show reasons for each error input |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -528,7 +528,7 @@ Success
 | image | Type | Description |
 | -------: | :---- | :--- |
 | name | string | The filename |
-| cover | boolean | The flag of cover image |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 | resource | ojbect | The urls of each resolution |
 
 | company.cover_image.resource | Type | Description |
