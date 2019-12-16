@@ -1441,7 +1441,7 @@ Failure
 
 
 
-## Create Country
+## Create Vat Country
 
 ### Description
 
@@ -1449,7 +1449,7 @@ Failure
 | -------: | :---- |
 | URL | user/company/create/country |
 | Method | `post` |
-| Use | to create vat and importers to country of company |
+| Use | To create vat country of company |
 | Notice |  |
 
 
@@ -1461,12 +1461,12 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "country_id": 1,
-    "fixed_vat": 0,
+    "fixed_vat": 10,
     "adjusted_vats": [{
-        "name": "",
-        "rate": 0,
+        "name": "VIP goods",
+        "rate": 5,
         "comment": "",
-        "items": []
+        "items": [1, 2]
     }],
     "importers": [{
         "id": 1,
@@ -1477,19 +1477,24 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| country_id | integer | country id |
-| fixed_vat | integer | fixed vat rate |
-| **adjusted_vats** | **array** | adjusted vats |
-| *name* | *string* | name of adjusted vat |
-| *rate* | *integer* | rate of adjusted vat |
-| *comment* | *string* | comment of adjusted vat |
-| **items** | **array** | a set of item id which has been assigned to this vat |
-| **importers** | **array** | importers in country |
-| *id* | *integer* | company id |
-| *comment* | *string* | comment for importer |
+| api_key | string | The identity token of user |
+| country_id | integer | The country id of system |
+| fixed_vat | integer | The fixed vat |
+| adjusted_vats | array | Collection of adjusted vat |
+| importers | array | Collection of importer |
 
-> Return Parameters
+| adjusted_vat | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The name of adjusted vat |
+| rate | integer | The rate of adjusted vat |
+| comment | string | The comment of adjusted vat |
+| items | array | Collection of item id |
+
+| importer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| comment | string | The comment for importer |
+
 
 ### Return Parameters
 
@@ -1497,13 +1502,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1517,11 +1518,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string |  the name of the wrong type.|
-||| **lack of parameters:**  the request does not include the necessary parameters |
-||| **does not signin:** user does not signin |
-||| **country not exist:** select invalid country in system |
-||| **country has been exist:** duplicate vat of country |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>country not exist: the country not exist in system</li><li>country has been exist: duplicate vat country</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| fixed_vat | array (option) | invalid vat: <ol><li>The fixed_vat should more than 0 and less than 100</li></ol> |
+| adjusted_vat | array (option) | invalid vat: <ol><li>The fixed_vat should more than 0 and less than 100</li></ol> |
+
 
 
 ## Edit Country
