@@ -970,7 +970,7 @@ Failure
 | URL | `user/company/edit/member` |
 | Method | `post` |
 | Use | To edit authority of company member |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -981,20 +981,18 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "company_id": 1,
-    "email": "cc.lee@prophetdigits.com",
+    "email": "tester@prophetdigits.com",
     "adminstrator": false
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | company_id | integer | The company id |
-| email | string | The user email |
-| administrator | boolean | Is company administrator |
+| email | string | The email |
+| administrator | boolean | The authority of administrator |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -1002,15 +1000,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1024,14 +1016,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **company not exist:** The company not exist |
-||| **not company member:** The user are not member in this company or no option with this company |
-||| **no permission:**  Not company administrator |
-||| **not join:** The user email not join to this company |
-||| **user not exist:** email is incorrent |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>no permission: the permission deny</li><li>user not exist: the email has not been registered</li><li>not join: The user not join to this company</li></ul> |
 
 
 
