@@ -747,7 +747,7 @@ Failure
 | URL | `user/company/edit/profile` |
 | Method | `post` |
 | Use | To edit company profile |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -758,7 +758,7 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "company_id": 1,
-    "name": "CC Bike",
+    "name": "Test Bike",
     "website": "",
     "description": "",
     "street": "",
@@ -766,35 +766,32 @@ Failure
     "state": "",
     "postal_code": "",
     "system_country_id": 228,
-    "contact_given_name":  "Jianhua",
-    "contact_family_name":  "Wang",
+    "contact_given_name":  "Tester",
+    "contact_family_name":  "Prophet",
     "contact_job_title":  "coder",
     "contact_phone":  "0987654321",
-    "contact_email":  "abc@gmail.com"
+    "contact_email":  "tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | company_id | integer | The company id |
 | name | string | The company name |
-| website | string (option) | The company website link |
-| description | string (option) | The company description |
+| website | string | The company website link |
+| description | string | The company description |
 | street | string | The street of company |
 | city | string | The city of company |
-| state | string (option) | The state of company |
+| state | string | The state of company |
 | postal_code | string | The postal code of company |
 | system_country_id | integer | The system country id |
-| contact_given_name | string | The given name of contactor |
-| contact_family_name | string | The family name of contactor |
-| contact_job_title | string | The job title of contactor |
-| contact_phone | string | The phone number of contactor |
-| contact_email | string | The email of contactor |
+| contact_given_name | string | The given name of contacts |
+| contact_family_name | string | The family name of contacts |
+| contact_job_title | string | The job title of contacts |
+| contact_phone | string | The phone number of contacts |
+| contact_email | string | The email of contacts |
 
-
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -802,15 +799,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -820,7 +811,7 @@ Failure
 {
     "error_name": "illegal form input",
     "validation": {
-        "name": ["dulicate"],
+        "name": ["duplicate"],
         "country": ["required"]
     }
 }
@@ -828,26 +819,22 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **not company member:** The user are not member in this company or no option with this company |
-||| **company not exist:** The company not exist |
-||| **no permission:** The permission deny |
-|| |**illegal form input:** The data validation failed |
-| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
-| *name* | array | **required:** The data cannot be empty or null |
-|||**dulicate:** The name has already been taken |
-| *street* | array | **required:** The data cannot be empty or null |
-| *city* | array | **required:** The data cannot be empty or null |
-| *state* | array | **required:** The data cannot be empty or null |
-| *postal_code* | array | **required:** The data cannot be empty or null |
-| *country* | array | **invalid country:** The country not exist |
-| *contact_given_name* | array | **required:** The data cannot be empty or null |
-| *contact_family_name* | array | **required:** The data cannot be empty or null |
-| *contact_job_title* | array | **required:** The data cannot be empty or null |
-| *contact_phone* | array | **required:** The data cannot be empty or null |
-| *contact_email* | array | **required:** The data cannot be empty or null |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the company not exist</li><li>not company member: user is not member in this company</li><li>no permission: the permission deny</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| name | array (option) | required: <ol><li>The name cannot be empty or null</li></ol> duplicate: <ol><li>The name has already been taken</li></ol> |
+| description | array (optoin) | required: <ol><li>The name cannot be empty or null</li></ol> |
+| street | array (optoin) | required: <ol><li>The street cannot be empty or null</li></ol> |
+| city | array (optoin) | required: <ol><li>The city cannot be empty or null</li></ol> |
+| postal_code | array (optoin) | required: <ol><li>The postal_code cannot be empty or null</li></ol> |
+| country | array (optoin) | invalid country: <ol><li>The country has not been exist</li></ol> |
+| contact_given_name | array (optoin) | required: <ol><li>The contact_given_name cannot be empty or null</li></ol> |
+| contact_family_name | array (optoin) | required: <ol><li>The contact_family_name cannot be empty or null</li></ol> |
+| contact_job_title | array (optoin) | required: <ol><li>The contact_job_title cannot be empty or null</li></ol> |
+| contact_phone | array (optoin) | required: <ol><li>The contact_phone cannot be empty or null</li></ol> |
+| contact_email | array (optoin) | required: <ol><li>The contact_email cannot be empty or null</li></ol> |
 
 
 
