@@ -1,6 +1,6 @@
 # Category
 
-## Category List Without Login
+## Get Category List Without Signin
 
 ### Description
 
@@ -8,13 +8,13 @@
 | -------: | :---- |
 | URL | `company/{company_id}/category/list` |
 | Method | `get` |
-| Use | to get company category |
+| Use | To get category of company without signin |
 | Notice |  |
 
 
-> Input Parameters
+> Url Parameters
 
-### Input Parameters
+### Url Parameters
 
 ```json
 {
@@ -24,10 +24,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| company_id | integer | company id which user want get category list |
+| company_id | integer | The company id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -49,9 +49,11 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | category id |
-| name | string | category name |
-| subCategories | object | property same as above |
+| id | integer | The category id |
+| name | string | The category name |
+| subCategories | array | Collection of category |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -65,9 +67,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**company not exist:** current company not exist|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>company not exist: the company not exist</li></ul> |
+
 
 
 ## Category List
