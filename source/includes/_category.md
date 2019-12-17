@@ -71,7 +71,7 @@ Failure
 
 
 
-## Category List
+## Get Category List
 
 ### Description
 
@@ -79,7 +79,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/category/list` |
 | Method | `post` |
-| Use | to get company category |
+| Use | to get category of company |
 | Notice |  |
 
 
@@ -96,11 +96,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| target_company_id | integer | The company id of category |
+| api_key | string | The identity token of user |
+| target_company_id | integer | The company id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -112,9 +112,11 @@ Success
 {
     "id": 1,
     "name": "Root",
+    "image": "",
     "subCategory": [{
         "id": 2,
         "name": "Category Test",
+    	"image": "",
         "subCategory": [],
         "items": [],
         "spec2s": [{
@@ -125,14 +127,25 @@ Success
     }],
     "items": [{
         "id": 1,
-        "number": "item number",
+        "number": "item number1",
         "name": "item name",
+        "company_id": 1,
         "cover_img": {
-            "240p": "asdsad_240p.jpeg",
-            "480p": "asdsad_480p.jpeg",
-            "720p": "asdsad_720p.jpeg",
-            "1080p": "asdsad_1080p.jpeg"
+            "name": "xxx.jpg",
+	        "cover": true,
+	        "resource": {
+	            "240p": "http://abc/xxx_240p.jpg",
+	            "480p": "http://abc/xxx_480p.jpg",
+	            "720p": "http://abc/xxx_720p.jpg",
+	            "1080p": "http://abc/xxx_1080p.jpg"
+	        }
         }
+    }, {
+        "id": 2,
+        "number": "item number2",
+        "name": "item name",
+        "company_id": 1,
+        "cover_img": {}
     }],
     "spec2s": [{
         "id": 1,
@@ -146,31 +159,39 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The category id |
 | name | string | The category name |
-| spec2s | array | The spec2s of category include self and ancestors |
-| subCategory | array | The subCategories of current category <br />The content same as category |
-| items | array | The items belong to current category |
+| image | string | The url of image |
+| subCategory | array | Collection of category |
+| items | array | Collection of item |
+| spec2s | array | Collection of spec2 |
 
-| category_spec2s | | |
-| -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| part | boolean | The spec is part or not |
-
-| category_item | | |
+| item | | |
 | -------: | :---- | :--- |
 | id | integer | The id of item |
 | number | string | The number of item |
 | name | string | The name of item |
-| cover_img | object | The cover image of item <br />It will be empty if no set cover image |
+| cover_img | object | The cover image of item |
 
-| category_item_cover_img | | |
+| item.cover_img | Type | Description |
 | -------: | :---- | :--- |
-| 240p | string | The url of picture for 240 resolution  (426x240) |
-| 480p | string | The url of picture for 480 resolution (854x480) |
-| 720p | string | The url of picture for 720 resolution (1280x720) |
-| 1080p | string | The url of picture for 1080 resolution (1920x1080) |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
 
-> Return Parameters When Failure
+| image.resource | Type | Description |
+| -------: | :---- | :--- |
+| 240p | string | The picture url of 240 resolution (426x240) |
+| 480p | string | The picture url of 480 resolution (854x480) |
+| 720p | string | The picture url of 720 resolution (1280x720) |
+| 1080p | string | The picture url of 1080 resolution (1920x1080) |
+
+| spec2 | | |
+| -------: | :---- | :--- |
+| id | integer | The spec id |
+| name | string | The spec name |
+| part | boolean | The tag that is it part or not |
+
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -184,7 +205,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: current company not exist</li><li>not company member: the user is not the company member</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the target company not exist</li><li>not select company yet: current company not select</li><li>not company member: user is not member in target company</li></ul> |
+
 
 
 ## Category Detail
