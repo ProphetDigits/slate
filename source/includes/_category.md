@@ -209,7 +209,7 @@ Failure
 
 
 
-## Category Detail
+## Get Category Detail
 
 ### Description
 
@@ -217,7 +217,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/category/detail` |
 | Method | `post` |
-| Use | to show category detail, items belongs to current category and all items belongs to sub-category |
+| Use | To show category detail, items belongs to current category and all items belongs to sub-category |
 | Notice | |
 
 
@@ -235,14 +235,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
+| api_key | string | The identity token of user |
 | target_company_id | integer | The company id of category |
-| category_id | integer | The id of category |
+| category_id | integer | The category id |
 
 
 > Return Parameters
 
-### Return Parameters
+### Return Success Parameters
 
 <aside class="success">
 Success
@@ -250,37 +250,35 @@ Success
 
 ```json
 {
-    "id": 1,
+    "id": 2,
     "name": "Category Name",
     "description": "",
     "parent": {
-        "id": "",
-        "name": "",
+        "id": 1,
+        "name": "Root",
         "specs": [],
-        "customizations": [],
-        "spec2s": []
+        "customizations": []
     },
     "specs": [{
         "id": 1,
         "name": "Spec Name"
+    }],
+    "customizations": [{
+        "id": 1,
+        "name": "Customization  Name"
     }],
     "spec2s": [{
         "id": 1,
         "name": "Spec Name",
         "part": true
     }],
-    "customizations": [{
-        "id": 1,
-        "name": "Customization  Name"
-    }],
     "subCategory":[{
-        "id":"1",
+        "id": 1,
         "name":"Mountain Bike"
     },{
-        "id":"2",
+        "id": 2,
         "name":"Road Bike"
     }],
-    "all_items": [],
     "items":[{
         "id": 1,
         "number": "item-1",
@@ -298,78 +296,79 @@ Success
         "name": "Cargo",
         "company_id": 1,
         "cover_img": {}
-    }]
+    }],
+    "all_items": []
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of category |
-| name | string | The name of category |
+| id | integer | The category id |
+| name | string | The category name |
 | description | string | The description of category |
 | parent | object | The parent of category |
-| specs | array | The specs connect with category |
-| spec2s | array | The new specs connect with category |
-| customizations | array | The customizations connect with category |
+| specs | array | Collection of spec |
+| customizations | array | Collection of customization |
+| spec2s | array | Collection of spec2 |
+| subCategory | array | Collection of subCategory |
+| items | array | Collection of item. Items just include this category |
+| all_items | array | Collection of item. All items include this category and subCategories |
 
-| category_parent | | |
+| parent | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of parent category |
 | name | string | The name of parent category |
-| specs | array | The parent own specs include parent’s parent… <br />content same to category_spec |
-| spec2s | array | The parent own new specs include parent’s parent… <br />content same to category_spec |
-| customizations | array | The parent own customizations include parent’s parent… <br />content same to category_customization |
-| subCategory | array | The sub categories of current category |
-| items | array | The items belongs to current category |
-| all_items | array | The items belongs to current category and subcategory and subsubcategory… <br />content same to category_item |
+| specs | array | Collection of spec |
+| customizations | array | Collection of customization |
 
-| category_spec | | |
+| spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
+| id | integer | The spec id |
+| name | string | The spec name |
 | display_name | string | The display name of spec |
-| values | array | The values of spec |
+| values | array | Collection of spec value |
 
-| category_spec_value | | |
+| spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value |
-| name | string | The name of value |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
 
- category_spec2 | | |
+| customization | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| part | boolean | The part of spec |
-
-| category_customization | | |
-| -------: | :---- | :--- |
-| id | integer | The id of customization |
-| name | string | The name of customization |
+| id | integer | The customization id |
+| name | string | The customization name |
 | display_name | string | The display name of customization |
 
-| category_subCategory | | |
+| spec2 | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of category |
-| name | string | The name of category |
+| id | integer | The spec id |
+| name | string | The spec name |
+| part | boolean | The tag that is it part or not |
 
-| category_item | | |
+| subCategory | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of item |
-| name | string | The name of item |
-| number | string | The number of item |
-| price | number | The price of item |
-| currency | string | The default currency of company |
-| company_id | integer | The id of company of item |
-| cover_img | object | The cover image of item. It will be empty if no set cover image |
+| id | integer | The category id |
+| name | string | The category name |
 
-| category_item_cover_img | | |
+| item | Type | Description |
 | -------: | :---- | :--- |
-| 240p | string | The url of picture for 240 resolution  (426x240) |
-| 480p | string | The url of picture for 480 resolution (854x480) |
-| 720p | string | The url of picture for 720 resolution (1280x720) |
-| 1080p | string | The url of picture for 1080 resolution (1920x1080) |
+| id | integer | The item id |
+| name | string | The item name |
+| number | string | The item numbee |
+| cover_image | object | The cover image of item |
+| currency | string | The default currency of item |
+| price | number | The item price |
+| company_id | integer | The company id of item |
 
-> Return Parameters When Failure
+| item.cover_image | Type | Description |
+| -------: | :---- | :--- |
+| 240p | string | The picture url of 240 resolution (426x240) |
+| 480p | string | The picture url of 480 resolution (854x480) |
+| 720p | string | The picture url of 720 resolution (1280x720) |
+| 1080p | string | The picture url of 1080 resolution (1920x1080) |
+
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -383,14 +382,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** current company not exist|
-|||**not company member:** the user is not the company member|
-|||**category not exist:** category id is incorrect|
-|||**illegal form input':** form format does not pass validation|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the target company not exist</li><li>not select company yet: current company not select</li><li>not company member: user is not member in target company</li><li>category not exist: category not exist or category not belongs to target company</li></ul> |
+
 
 
 ## Create Category
