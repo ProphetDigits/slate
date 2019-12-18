@@ -550,8 +550,8 @@ Failure
 | -------: | :---- |
 | URL | `user/company/category/create` |
 | Method | `post` |
-| Use | to create category |
-| Notice |  |
+| Use | To create category |
+| Notice | |
 
 
 > Input Parameters
@@ -572,16 +572,16 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| name | string | The name of category |
+| api_key | string | The identity token of user |
+| name | string | The category name |
 | description | string | The comment of category |
 | parent_id | integer | The parent id of current category |
-| specs | array | The id set of spec |
-| spec2s | array | The id set of new spec |
-| customizations | array | The id set of customization |
+| specs | array | Collection of spec id |
+| customizations | array | Collection of customization id |
+| spec2s | array | Collection of spec2 id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -609,24 +609,27 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
+| category | object | The category information |
+
+| category | Type | Description |
+| -------: | :---- | :--- |
 | id | integer | The id of category |
 | name | string | The name of category |
 | description | string | The comment of category |
 | parent | object | The parent of category |
-| specs | array | The specs connect with category |
+| specs | array | Collection of category spec |
 
-| category_parent | | |
+| category.parent | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of parent category |
 | name | string | The name of parent category |
 
-| category_spec | | |
+| category.spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
 
-
-> Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -634,24 +637,27 @@ Failure
 
 ```json
 {
+    "error_name": "illegal_form_input",
     "validation": {
         "name": ["dulicate"],
         "parent_id": ["required"]
-    },
-    "error_name": "illegal form input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| **validation** | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
-| name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| description | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not string</li></ol> |
-| parent_id | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
-| specs | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
-| customizations | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
-| spec2s | array (option) | required: <ol><li>The field is required</li></ol><br />invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol>invalid: <ol><li>The data is not string</li></ol> |
+| description | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not string</li></ol> |
+| parent_id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
+| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| customizations | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
+| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
 
 
 
@@ -663,8 +669,8 @@ Failure
 | -------: | :---- |
 | URL | `user/company/category/edit` |
 | Method | `post` |
-| Use | to edit category |
-| Notice |  |
+| Use | To edit category |
+| Notice | |
 
 
 > Input Parameters
