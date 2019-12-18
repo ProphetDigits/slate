@@ -284,7 +284,7 @@ Success
         "number": "item-1",
         "name": "Edison Evo",
         "company_id": 1,
-        "cover_img": {
+        "cover_image": {
             "240p": "http://abc/xxx_240p.jpg",
             "480p": "http://abc/xxx_480p.jpg",
             "720p": "http://abc/xxx_720p.jpg",
@@ -295,7 +295,7 @@ Success
         "number": "item-2",
         "name": "Cargo",
         "company_id": 1,
-        "cover_img": {}
+        "cover_image": {}
     }],
     "all_items": []
 }
@@ -639,7 +639,7 @@ Failure
 {
     "error_name": "illegal_form_input",
     "validation": {
-        "name": ["dulicate"],
+        "name": ["invalid"],
         "parent_id": ["required"]
     }
 }
@@ -647,17 +647,17 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol>invalid: <ol><li>The data is not string</li></ol> |
 | description | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not string</li></ol> |
-| parent_id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
-| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
-| customizations | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
-| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| parent_id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The spec is not exist</li><li>The spec is not belongs to the current company </li></ol> |
+| customizations | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The customization is not exist</li><li>The customization is not belongs to the current company </li></ol> |
+| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The spec2 is not exist</li><li>The spec is not belongs to the current company </li></ol> |
 
 
 
@@ -760,7 +760,7 @@ Failure
 {
     "error_name": "illegal_form_input",
     "validation": {
-        "name": ["dulicate"],
+        "name": ["invalid"],
         "parent_id": ["required"]
     }
 }
@@ -768,17 +768,17 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>category not exist: the category id is incorrect</li><li>root category: No modification allowed</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>category not exist: the category id is incorrect</li><li>root category: no modification allowed</li><li>illegal_form_input: the form format does not pass validation</li></ul> |
 | validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data is empty</li></ol>invalid: <ol><li>The data is not string</li></ol> |
 | description | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not string</li></ol> |
-| parent_id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol>
-| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
-| customizations | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of customization is not exist</li><li>The customization is not belongs to the current company </li></ol>
-| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id of spec is not exist</li><li>The spec is not belongs to the current company </li></ol>
+| parent_id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The spec is not exist</li><li>The spec is not belongs to the current company </li></ol> |
+| customizations | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The customization is not exist</li><li>The customization is not belongs to the current company </li></ol> |
+| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The spec2 is not exist</li><li>The spec2 is not belongs to the current company </li></ol> |
 
 
 
