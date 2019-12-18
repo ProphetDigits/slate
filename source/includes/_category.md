@@ -71,6 +71,162 @@ Failure
 
 
 
+## Get Category Detail Without Signin
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `category/{category_id}/detail` |
+| Method | `get` |
+| Use | To show category detail without signin |
+| Notice | |
+
+
+> Url Parameters
+
+### Url Parameters
+
+```json
+{
+    "category_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| category_id | integer | The category id |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "page": 1,
+    "perpage": 2
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| page | integer (option) | The current page, page < 0 will show first page, page > last page will show last page, default: 1 |
+| perpage | integer (option) | The number of items per page, default: 60 |
+
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "id": 1,
+    "name": "Category Name",
+    "items":[{
+        "id": 1,
+        "name": "Edison Evo",
+        "cover_image": {
+            "px240": "http://abc/xxx_240p.jpg",
+            "px480": "http://abc/xxx_480p.jpg",
+            "px720": "http://abc/xxx_720p.jpg",
+            "px1080": "http://abc/xxx_1080p.jpg"
+        },
+        "images": [{
+            "name": "xxx.jpg",
+            "cover": false,
+            "resource": {
+                "px240": "http://abc/xxx_240p.jpg",
+                "px480": "http://abc/xxx_480p.jpg",
+                "px720": "http://abc/xxx_720p.jpg",
+                "px1080": "http://abc/xxx_1080p.jpg"
+            }
+        },{
+            "name": "yyy.jpg",
+            "cover": true,
+            "resource": {
+                "px240": "http://abc/yyy_240p.jpg",
+                "px480": "http://abc/yyy_480p.jpg",
+                "px720": "http://abc/yyy_720p.jpg",
+                "px1080": "http://abc/yyy_1080p.jpg"
+            }
+        }],
+        "currency": "EUR",
+        "price": 10
+    }],
+    "pager": {
+        "total": 31,
+        "per_page": 2,
+        "current_page": 1,
+        "last_page": 16
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The category id |
+| name | string | The category name |
+| items | array | Collection of item |
+| pager | object | The pagination information of item |
+
+| item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The item id |
+| name | string | The item name |
+| cover_image | object | The cover image. It will be empty if no set cover image |
+| images | array | Collection of item image |
+| currency | string | The default currency of item |
+| price | number | The item price |
+
+| item.cover_image | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240) |
+| px480 | string | The picture url of 480 resolution (854x480) |
+| px720 | string | The picture url of 720 resolution (1280x720) |
+| px1080 | string | The picture url of 1080 resolution (1920x1080) |
+
+| item.image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
+
+| item.image.resource | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240) |
+| px480 | string | The picture url of 480 resolution (854x480) |
+| px720 | string | The picture url of 720 resolution (1280x720) |
+| px1080 | string | The picture url of 1080 resolution (1920x1080) |
+
+| pager | Type | Description |
+| -------: | :---- | :--- |
+| total | integer | Total number of item |
+| per_page | integer | Items per page for input |
+| current_page | integer | Current page number |
+| last_page | integer | Last page number |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>category not exist: the category id is incorrect</li></ul> |
+
+
+
 ## Get Category List
 
 ### Description
@@ -383,162 +539,6 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>company not exist: the target company not exist</li><li>not select company yet: current company not select</li><li>not company member: user is not member in target company</li><li>category not exist: category not exist or category not belongs to target company</li></ul> |
-
-
-
-## Get Category Detail Without Signin
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `category/{category_id}/detail` |
-| Method | `get` |
-| Use | To show category detail without signin |
-| Notice | |
-
-
-> Url Parameters
-
-### Url Parameters
-
-```json
-{
-    "category_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| category_id | integer | The category id |
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-    "page": 1,
-    "perpage": 2
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| page | integer (option) | The current page, page < 0 will show first page, page > last page will show last page, default: 1 |
-| perpage | integer (option) | The number of items per page, default: 60 |
-
-
-> Return Success Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-    "id": 1,
-    "name": "Category Name",
-    "items":[{
-        "id": 1,
-        "name": "Edison Evo",
-        "cover_image": {
-            "px240": "http://abc/xxx_240p.jpg",
-            "px480": "http://abc/xxx_480p.jpg",
-            "px720": "http://abc/xxx_720p.jpg",
-            "px1080": "http://abc/xxx_1080p.jpg"
-        },
-        "images": [{
-            "name": "xxx.jpg",
-            "cover": false,
-            "resource": {
-                "px240": "http://abc/xxx_240p.jpg",
-                "px480": "http://abc/xxx_480p.jpg",
-                "px720": "http://abc/xxx_720p.jpg",
-                "px1080": "http://abc/xxx_1080p.jpg"
-            }
-        },{
-            "name": "yyy.jpg",
-            "cover": true,
-            "resource": {
-                "px240": "http://abc/yyy_240p.jpg",
-                "px480": "http://abc/yyy_480p.jpg",
-                "px720": "http://abc/yyy_720p.jpg",
-                "px1080": "http://abc/yyy_1080p.jpg"
-            }
-        }],
-        "currency": "EUR",
-        "price": 10
-    }],
-    "pager": {
-        "total": 31,
-        "per_page": 2,
-        "current_page": 1,
-        "last_page": 16
-    }
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The category id |
-| name | string | The category name |
-| items | array | Collection of item |
-| pager | object | The pagination information of item |
-
-| item | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The item id |
-| name | string | The item name |
-| cover_image | object | The cover image. It will be empty if no set cover image |
-| images | array | Collection of item image |
-| currency | string | The default currency of item |
-| price | number | The item price |
-
-| item.cover_image | Type | Description |
-| -------: | :---- | :--- |
-| px240 | string | The picture url of 240 resolution (426x240) |
-| px480 | string | The picture url of 480 resolution (854x480) |
-| px720 | string | The picture url of 720 resolution (1280x720) |
-| px1080 | string | The picture url of 1080 resolution (1920x1080) |
-
-| item.image | Type | Description |
-| -------: | :---- | :--- |
-| name | string | The filename |
-| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
-| resource | ojbect | The urls of each resolution |
-
-| item.image.resource | Type | Description |
-| -------: | :---- | :--- |
-| px240 | string | The picture url of 240 resolution (426x240) |
-| px480 | string | The picture url of 480 resolution (854x480) |
-| px720 | string | The picture url of 720 resolution (1280x720) |
-| px1080 | string | The picture url of 1080 resolution (1920x1080) |
-
-| pager | Type | Description |
-| -------: | :---- | :--- |
-| total | integer | Total number of item |
-| per_page | integer | Items per page for input |
-| current_page | integer | Current page number |
-| last_page | integer | Last page number |
-
-> Return Failure Parameters
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-    "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>category not exist: the category id is incorrect</li></ul> |
 
 
 
