@@ -790,7 +790,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/category/delete` |
 | Method | `post` |
-| Use | to delete category |
+| Use | To delete category |
 | Notice |  |
 
 
@@ -807,11 +807,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| category_id | integer | category id |
+| api_key | string | The identity token of user |
+| category_id | integer | The category id |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -819,16 +817,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-> Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -836,17 +827,11 @@ Failure
 
 ```json
 {
-    "error_name": "lack of parameters"
+    "error_name": "not_sign_in"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** current company not exist|
-|||**not company member:** the user is not the company member|
-|||**category not exist:** category id is incorrect|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>root category: no deletion allowed</li></ul> |
 
