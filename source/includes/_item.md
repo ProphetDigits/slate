@@ -8,8 +8,8 @@
 | -------: | :---- |
 | URL | `user/company/item/create` |
 | Method | `post` |
-| Use | to create item |
-| Notice |  |
+| Use | To create item |
+| Notice | |
 
 
 > Input Parameters
@@ -23,7 +23,8 @@
     "number": "item number",
     "categories": [1, 2, 3],
     "price": 123.456,
-    "dscount": 30,
+    "discount": 30,
+    "deposit_ratio": 50,
     "ean": "",
     "unit": "",
     "contain": "",
@@ -68,7 +69,7 @@
 | api_key | string | The key will be returned by Sign In API |
 | name | string | The name of item |
 | number | string | The number of item |
-| categories | array | The set of category id |
+| categories | array | Collection of category id |
 | price | number | The price of item |
 | discount | integer | The max discount precent of item |
 | deposit_ratio | integer | The deposit ratio of item |
@@ -77,46 +78,44 @@
 | contain | string | The amount contained in this item |
 | weblink | string | The outside website of item |
 | description | string | The description of item |
-| images | array | The images of item |
-| videos | array | The videos of item |
-| specs | array | The spec configurations of item |
-| spec2s | array | The configurable values of spec2 of item |
+| images | array | Collection of item image |
+| videos | array | Collection of item video |
+| specs | array | Collection of spec |
+| spec2s | array | Collection of spec2 |
 | warranty | object | The warranty configuration of item |
 
-| item_image | Type | Description |
+| image | Type | Description |
 | -------: | :---- | :--- |
 | name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
-| item_video | Type | Description |
+| video | Type | Description |
 | -------: | :---- | :--- |
 | weblink | string | The url of vedio |
 | description | string | The description of vedio |
 
-| item_spec | Type | Description |
+| spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | value | integer | The id of spec value |
 
-| item_spec2 | Type | Description |
+| spec2 | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 |
-| configurable_values | array | The configurable values of spec2 |
+| configurable_values | array | Collection of configurable_value |
 
-| item_spec2_configurable_value | Type | Description |
+| spec2.configurable_value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 value |
 
-| item_warranty | Type | Description |
+| warranty | Type | Description |
 | -------: | :---- | :--- |
 | type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
 
-> Return Parameters
-
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
@@ -124,8 +123,7 @@ Success
 
 The return same to Item Detail API
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -133,18 +131,18 @@ Failure
 
 ```json
 {
+    "error_name": "illegal_form_input",
     "validation": {
-        "name": ["dulicate"],
+        "name": ["required"],
         "number": ["required"]
-    },
-    "error_name": "illegal_form_input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | | |
 | -------: | :---- | :--- |
@@ -172,6 +170,7 @@ Failure
 | warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
 | warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
+
 
 
 ## Item Detail Without Login
@@ -486,9 +485,9 @@ Success
             "description": "description",
             "comment": "comment....",
             "price": {
-        		"currency": "EUR",
-        		"value": 9.2
-        	}
+                "currency": "EUR",
+                "value": 9.2
+            }
         }]
     }],
     "warranty": {
