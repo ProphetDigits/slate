@@ -1,7 +1,7 @@
 
 # System
 
-## Get System Currency List
+## System Currency List
 
 ### Description
 
@@ -75,7 +75,7 @@ Failure
 
 
 
-## Get System Country List
+## System Country List
 
 ### Description
 
@@ -149,7 +149,7 @@ Failure
 
 
 
-## Get System Country List Without Signin
+## System Country List Without Signin
 
 ### Description
 

@@ -1,6 +1,6 @@
 # Category
 
-## Get Category List Without Signin
+## Category List Without Signin
 
 ### Description
 
@@ -71,7 +71,7 @@ Failure
 
 
 
-## Get Category Detail Without Signin
+## Category Detail Without Signin
 
 ### Description
 
@@ -227,7 +227,7 @@ Failure
 
 
 
-## Get Category List
+## Category List
 
 ### Description
 
@@ -365,7 +365,7 @@ Failure
 
 
 
-## Get Category Detail
+## Category Detail
 
 ### Description
 

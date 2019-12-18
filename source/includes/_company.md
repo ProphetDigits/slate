@@ -115,7 +115,7 @@ Failure
 
 
 
-## Get Company List
+## Company List
 
 ### Description
 
@@ -169,7 +169,7 @@ There is no failure
 
 
 
-## Get Company List Of User
+## Company List Of User
 
 ### Description
 
@@ -434,7 +434,7 @@ Failure
 
 
 
-## Get Company Detail Without Signin
+## Company Detail Without Signin
 
 ### Description
 
@@ -556,7 +556,7 @@ Failure
 
 
 
-## Get Company Detail
+## Company Detail
 
 ### Description
 
