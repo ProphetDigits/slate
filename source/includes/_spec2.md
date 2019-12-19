@@ -1,6 +1,6 @@
 # Spec2
 
-## Get Spec2 List
+## Spec2 List
 
 ### Description
 
@@ -8,8 +8,8 @@
 | -------: | :---- |
 | URL | `user/company/spec2/list` |
 | Method | `post` |
-| Use | to get spec list |
-| Notice |  |
+| Use | To get spec2 list |
+| Notice | |
 
 
 > Input Parameters
@@ -24,10 +24,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters When Success
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -58,22 +58,22 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| specs | array | The spec list |
+| specs | array | Collection of spec |
 
-| specs | | |
+| spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
-| part | boolean | The spec is part or not |
-| values | array | The set of value of spec |
+| part | boolean | The tag that is it part or not |
+| values | array | Collection of spec value |
 
-| spec_value | | |
+| spec.value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of value |
 | name | string | The name is for brand to identify spec value |
 
-> Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -87,7 +87,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li></ul> |
 
 
 
