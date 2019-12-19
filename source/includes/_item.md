@@ -820,8 +820,8 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/delete` |
 | Method | `post` |
-| Use | to delete item |
-| Notice |  |
+| Use | To delete item |
+| Notice | |
 
 
 > Input Parameters
@@ -837,11 +837,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| item_id | integer |  item id |
+| api_key | string | The identity token of user |
+| item_id | integer | The item id |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -849,15 +847,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -871,12 +863,6 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**item not exist:** item number is incorrect|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: current company not exist</li><li>not company member: user is not member in current company</li></ul> |
 
 
