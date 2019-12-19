@@ -12,15 +12,7 @@
 | Notice |  |
 
 
-> Url Parameters
-
 ### Url Parameters
-
-```json
-{
-    "company_id": 1
-}
-```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
@@ -83,15 +75,7 @@ Failure
 | Notice | |
 
 
-> Url Parameters
-
 ### Url Parameters
-
-```json
-{
-    "category_id": 1
-}
-```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |

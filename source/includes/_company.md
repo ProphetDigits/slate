@@ -446,15 +446,7 @@ Failure
 | Notice |  |
 
 
-> Url Parameters
-
 ### Url Parameters
-
-```json
-{
-    "company_id": "1"
-}
-```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
