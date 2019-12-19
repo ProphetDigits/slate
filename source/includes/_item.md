@@ -1,5 +1,160 @@
 # Item
 
+## Item Detail Without signin
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `item/{item_id}/detail` |
+| Method | `get` |
+| Use | To get item detail without signin |
+| Notice | |
+
+
+### Url Parameters
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| item_id | integer | The item id |
+
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "id": 1,
+    "name":"Edison Evo",
+    "description":"Mit dem edison EVO .....",
+    "prices": {
+        "EUR": {
+            "min": 50,
+            "basic": 100,
+            "max": 150
+        },
+        "TWD": {
+            "min": 50,
+            "basic": 100,
+            "max": 150
+        }
+    },
+    "images":[{
+        "name": "xxx.jpg",
+        "cover": true,
+        "resource": {
+            "px240": "http://abc/xxx_240p.jpg",
+            "px480": "http://abc/xxx_480p.jpg",
+            "px720": "http://abc/xxx_720p.jpg",
+            "px1080": "http://abc/xxx_1080p.jpg"
+        }
+    }, {
+        "name": "yyy.jpg",
+        "cover": false,
+        "resource": {
+            "px240": "http://abc/yyy_240p.jpg",
+            "px480": "http://abc/yyy_480p.jpg",
+            "px720": "http://abc/yyy_720p.jpg",
+            "px1080": "http://abc/yyy_1080p.jpg"
+        }
+    }],
+    "specs": [
+        {
+            "id": 1,
+            "name": "son EVO ist ",
+            "display_name": "son EVO ist",
+            "value": {
+                "id": 206,
+                "name": "EVO"
+            }
+        },{
+            "id": 87,
+            "name": "son EVO 2st ",
+            "display_name": "son EVO ist",
+            "value": {
+                "id": 210,
+                "name": "SON"
+            }
+        }
+    ],
+    "warranty": {
+        "type": "Limited",
+        "value": 0,
+        "unit": "Years"
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The item id |
+| name | string | The item name |
+| description | string | The description of item |
+| prices | object | The prices for each currency |
+| images | array | Collection of item image |
+| specs | array | The configurations of specs |
+| warranty | object | The warranty of item |
+
+| price | Type | Description |
+| -------: | :---- | :--- |
+| min | number | The min price in all variants. value is null if item doesn’t own variant |
+| basic | number | The price of item |
+| max | number | The max price in all variants. value is null if item doesn’t own variant |
+
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
+
+| image.resource | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240) |
+| px480 | string | The picture url of 480 resolution (854x480) |
+| px720 | string | The picture url of 720 resolution (1280x720) |
+| px1080 | string | The picture url of 1080 resolution (1920x1080) |
+
+| spec | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| value | object | Collection of spec value |
+
+| spec.value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
+
+| warranty | Type | Description |
+| -------: | :---- | :--- |
+| type | string | The warranty type |
+| value | integer | The duration of warranty |
+| unit | string | The unit of duration |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "item not exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>item not exist: the item id is incorrect</li></ul> |
+
+
+
 ## Create Item
 
 ### Description
@@ -171,150 +326,6 @@ Failure
 | warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 
-
-
-## Item Detail Without Login
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `item/{item_id}/detail` |
-| Method | `get` |
-| Use | to create item |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-    "item_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| item_id | integer | item's id |
-
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-    "id": 1,
-    "name":"Edison Evo",
-    "description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
-    "prices": {
-        "EUR": {
-            "min": 50,
-            "basic": 100,
-            "max": 150
-        },
-        "TWD": {
-            "min": 50,
-            "basic": 100,
-            "max": 150
-        }
-    },
-    "images":[{
-        "name": "xxx.jpg",
-        "cover": true,
-        "resource": {
-            "px240": "http://abc/xxx_240p.jpg",
-            "px480": "http://abc/xxx_480p.jpg",
-            "px720": "http://abc/xxx_720p.jpg",
-            "px1080": "http://abc/xxx_1080p.jpg"
-        }
-    }, {
-        "name": "yyy.jpg",
-        "cover": false,
-        "resource": {
-            "px240": "http://abc/yyy_240p.jpg",
-            "px480": "http://abc/yyy_480p.jpg",
-            "px720": "http://abc/yyy_720p.jpg",
-            "px1080": "http://abc/yyy_1080p.jpg"
-        }
-    }],
-    "specs": [
-        {
-            "id": 1,
-            "name": "son EVO ist ",
-            "display_name": "son EVO ist ",
-            "value": {
-                "id": 206,
-                "name": "EVO"
-            }
-        },{
-            "id": 87,
-            "name": "son EVO 2st ",
-            "display_name": "son EVO ist ",
-            "value": {
-                "id": 210,
-                "name": "SON"
-            }
-        }
-    ],
-    "warranty": {
-        "type": "Limited",
-        "value": 0,
-        "unit": "Years"
-    }
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| id | integer |  item id |
-| name | string |  item name |
-| **prices** | **object** |  item prices of currency |
-| *min* | number | min price in all variants of item. value is null if item doesn’t own variant |
-| *basic* | number | basic price which be set by user in the item |
-| *max* | number | max price in all variants of item. value is null if item doesn’t own variant |
-| description | string | item description |
-| **images** | **array** | item images |
-| *name* | string | file name which get from back end after specific image has been updated |
-| *cover* | boolean | cover image tag |
-| *resource* | **object** | cover image tag |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| **specs** | **array** | The spec list |
-| *id* | integer | spec id |
-| *name* | string | spec name |
-| *display_name* | string | spec display name |
-| *value* | **object** | value id of spec |
-| *id* | integer | spec value id |
-| *name* | string | spec value display name |
-| **warranty** | **object** | warranty setting of item |
-| *type* | string | warranty type |
-| *value* | integer | warranty value |
-| *unit* | string | value unit |
-
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-    "error_name": "illegal form input"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**item not exist:** item number is incorrect|
 
 
 ## Item Detail
