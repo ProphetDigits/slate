@@ -91,7 +91,7 @@ Failure
 
 
 
-## Get Spec2 Detail
+## Spec2 Detail
 
 ### Description
 
@@ -99,7 +99,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/spec2/detail` |
 | Method | `post` |
-| Use | to get spec detail |
+| Use | To get spec2 detail |
 | Notice |  |
 
 
@@ -116,11 +116,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| id | integer | The id of spec |
+| api_key | string | The identity token of user |
+| id | integer | The spec2 id |
 
 
-> Return Parameters When Success
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -175,58 +175,57 @@ Success
 | -------: | :---- | :--- |
 | spec | object | The spec detail |
 
-| spec | | |
+| spec | Type | Description |
 | -------: | :---- | :--- |
-| Parameter | Type | Description |
 | id | integer | The id of spec |
 | name | string | The name of spec |
-| display_name | string | The display name is to displayed for consumer |
+| display_name | string | The display name of spec |
 | comment | string | The comment of spec |
 | part | boolean | The spec is part or not |
-| categories | array | The set of category |
-| compositions | array | The compositions of spec |
-| values | array | The set of value of spec |
+| categories | array | Collection of category |
+| compositions | array | Collection of spec2 |
+| values | array | Collection of spec2 value |
 
-| spec_category | | |
+| spec.category | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of category |
 | name | string | The name of category |
 
-| spec_composition | | |
+| spec.composition | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name is to displayed for consumer |
-| part | boolean | The spec is part or not |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
+| display_name | string | The display name of spec2 |
+| part | boolean | The tag that is it part or not |
 
-| spec_value | | |
+| spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value |
-| name | string | The name is for brand to identify spec value |
-| display_name | string | The display name is to displayed for consumer |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
+| display_name | string | The display name of spec2 value |
 | price | number | The price of value, the currency is default by company |
-| part_number | string | The part number of value |
-| supplier_number | string | The supplier number of value |
-| description | string | The description is to displayed for consumer |
-| comment | string | The comment is a note for brand |
-| sofe_delete | boolean | The tag for deleted value |
-| compositions | array | The set of compositions |
+| part_number | string | The part number of spec2 value |
+| supplier_number | string | The supplier number of spec2 value |
+| description | string | The description of spec2 value |
+| comment | string | The comment of spec2 value |
+| sofe_delete | boolean | The tag that is it deleted |
+| compositions | array | Collection of value composition of spec2 |
 
-| spec_value_composition | | |
+| spec.value.composition | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name is to displayed for consumer |
-| value | object | The setting of value of composition |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
+| display_name | string | The display name of spec2 |
+| value | object | The setting of composition value |
 
-| spec_value_composition_value | | |
+| spec.value.composition.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value of spec |
-| name | string | The name of value of spec |
-| display_name | string | The display name is to displayed for consumer |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
+| display_name | string | The display name of spec2 value |
 
 
-> Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -240,7 +239,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>spec_not_exist: The spec is not exist</li><li>no_option: The current company of user does not have option with company of spec</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>spec_not_exist: the spec is not exist</li><li>no_option: the current company of user does not have option with company of spec</li></ul> |
 
 
 
