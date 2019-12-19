@@ -63,25 +63,23 @@ Success
             "px1080": "http://abc/yyy_1080p.jpg"
         }
     }],
-    "specs": [
-        {
-            "id": 1,
-            "name": "son EVO ist ",
-            "display_name": "son EVO ist",
-            "value": {
-                "id": 206,
-                "name": "EVO"
-            }
-        },{
-            "id": 87,
-            "name": "son EVO 2st ",
-            "display_name": "son EVO ist",
-            "value": {
-                "id": 210,
-                "name": "SON"
-            }
+    "specs": [{
+        "id": 1,
+        "name": "son EVO ist ",
+        "display_name": "son EVO ist",
+        "value": {
+            "id": 206,
+            "name": "EVO"
         }
-    ],
+    }, {
+        "id": 87,
+        "name": "son EVO 2st ",
+        "display_name": "son EVO ist",
+        "value": {
+            "id": 210,
+            "name": "SON"
+        }
+    }],
     "warranty": {
         "type": "Limited",
         "value": 0,
@@ -248,66 +246,53 @@ Success
         "description": "youtube",
         "weblink": "https://youtu.be/G2reQQUQ-Dc"
     }],
-    "categories": [
-        {
-            "id": 1,
-            "name": "xxx"
-        },
-        {
-            "id": 2,
-            "name": "yyy"
+    "categories": [{
+        "id": 1,
+        "name": "xxx"
+    }, {
+        "id": 2,
+        "name": "yyy"
+    }],
+    "specs": [{
+        "id": 1,
+        "name": "FIX1",
+        "display_name": "FIX1",
+        "value": {
+            "id": 3,
+            "name": "OPTION1"
         }
-    ],
-    "specs": [
-        {
-            "id": 1,
-            "name": "FIX1",
-            "display_name": "FIX1",
-            "value": {
-                "id": 3,
-                "name": "OPTION1"
-            }
-        },
-        {
-            "id": 2,
-            "name": "FIX2",
-            "display_name": "FIX2",
-            "value": {
-                "id": 4,
-                "name": "OPTION2"
-            }
+    }, {
+        "id": 2,
+        "name": "FIX2",
+        "display_name": "FIX2",
+        "value": {
+            "id": 4,
+            "name": "OPTION2"
         }
-    ],
-    "customizations": [
-        {
-            "id": 5,
-            "name": "CUST1",
-            "display_name": "CUST1",
-            "values": [
-                {
-                    "id": 6,
-                    "name": "WHITE",
-                    "price": 5
-                },
-                {
-                    "id": 7,
-                    "name": "BLACK",
-                    "price": 10
-                },
-                {
-                    "id": 8,
-                    "name": "GEMBLUE",
-                    "price": 15
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "name": "SIZE",
-            "display_name": "SIZE",
-            "values": []
-        }
-    ],
+    }],
+    "customizations": [{
+        "id": 5,
+        "name": "CUST1",
+        "display_name": "CUST1",
+        "values": [{
+            "id": 6,
+            "name": "WHITE",
+            "price": 5
+        }, {
+            "id": 7,
+            "name": "BLACK",
+            "price": 10
+        }, {
+            "id": 8,
+            "name": "GEMBLUE",
+            "price": 15
+        }]
+    }, {
+        "id": 9,
+        "name": "SIZE",
+        "display_name": "SIZE",
+        "values": []
+    }],
     "spec2s": [{
         "id": 1,
         "name": "Movement",
@@ -662,7 +647,7 @@ Failure
     "number": "item number",
     "categories": [1, 2, 3],
     "price": 123.456,
-    "dscount": 30,
+    "discount": 30,
     "ean": "",
     "unit": "",
     "contain": "",
@@ -770,7 +755,7 @@ Failure
 
 ```json
 {
-    "error_name": "illegal form input",
+    "error_name": "illegal_form_input",
     "validation": {
         "name": ["required"],
         "number": ["required"]
