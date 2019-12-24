@@ -1,6 +1,6 @@
 # Variant2
 
-## Get Variant2 List
+## Variant2 List
 
 ### Description
 
@@ -8,7 +8,7 @@
 | -------: | :---- |
 | URL | `company/item/variant2/list` |
 | Method | `post` |
-| Use | to get variant list |
+| Use | To get variant2 list |
 | Notice | |
 
 
@@ -27,15 +27,15 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
+| api_key | string | The identity token of user |
 | target_company_id | integer | The company id of item |
-| item_id | integer | The id of item |
-| spec_values | array (option) | The set of id of spec value indicate the variants combine by those spec value<br />It's empty array mean no specify spec values |
+| item_id | integer | The item id |
+| spec_values | array (option) | Collection of id of spec value. It's to filter variants combine by those spec value |
 
 
-> Return Parameters
+> Return Success Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
@@ -67,7 +67,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| variants | array | The variants data |
+| variants | array | Collection of variant |
 
 | variant | Type | Description |
 | -------: | :---- | :--- |
@@ -79,8 +79,8 @@ Success
 | price | numeric | The price of variant for default currency |
 | deposit | numeric | The deposit of price for default currency |
 | cover_image | object | The url of each resolution for cover image |
-| duplicate_combination | boolean | The combination of variant is duplicate with others |
-| company | object | The company which variant belongs to |
+| duplicate_combination | boolean | The combination is duplicate with other variant2 |
+| company | object | The company of variant |
 
 | variant.cover_image | Type | Description |
 | -------: | :---- | :--- |
@@ -91,9 +91,9 @@ Success
 
 | variant.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company of variant |
+| id | integer | The company id |
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -107,7 +107,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul> |
+
 
 
 ## Get Variant2 Detail
