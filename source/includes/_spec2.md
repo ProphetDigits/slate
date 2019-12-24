@@ -62,16 +62,16 @@ Success
 
 | spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name of spec |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
+| display_name | string | The display name of spec2 |
 | part | boolean | The tag that is it part or not |
 | values | array | Collection of spec value |
 
 | spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value |
-| name | string | The name is for brand to identify spec value |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
 
 > Return Failure Parameters
 
@@ -173,18 +173,18 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| spec | object | The spec detail |
+| spec | object | The spec2 detail |
 
 | spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name of spec |
-| comment | string | The comment of spec |
-| part | boolean | The spec is part or not |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
+| display_name | string | The display name of spec2 |
+| comment | string | The comment of spec2 |
+| part | boolean | The spec2 is part or not |
 | categories | array | Collection of category |
-| compositions | array | Collection of spec2 |
-| values | array | Collection of spec2 value |
+| compositions | array | Collection of spec |
+| values | array | Collection of spec value |
 
 | spec.category | Type | Description |
 | -------: | :---- | :--- |
@@ -209,7 +209,7 @@ Success
 | description | string | The description of spec2 value |
 | comment | string | The comment of spec2 value |
 | sofe_delete | boolean | The tag that is it deleted |
-| compositions | array | Collection of value composition of spec2 |
+| compositions | array | Collection of value composition |
 
 | spec.value.composition | Type | Description |
 | -------: | :---- | :--- |
@@ -290,10 +290,10 @@ Failure
 | name | string | The name of spec2 |
 | display_name | string | The display name of spec2 |
 | comment | string | The comment of spec2 |
-| part | boolean | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
+| part | boolean | The spec2 is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array | Collection of category id |
 | compositions | array | Collection of spec2 id |
-| values | array | Collection of spec2 value |
+| values | array | Collection of value |
 
 | value | Type | Description |
 | -------: | :---- | :--- |
@@ -309,7 +309,7 @@ Failure
 | value.composition | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The spec2 id |
-| value | integer | The value id for current spec2 |
+| value | integer | The id of spec2 value for current composition <br />It's not set if value is 0 |
 
 
 ### Return Parameters
@@ -359,7 +359,7 @@ Failure
 | values.(index).comment | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not string</li></ol> |
 | values.(index).compositions | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li><li>The number of data is differ to compositions of spec</li></ol> |
 | values.(index).compositions.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id not in compositions of spec2 </li></ol> |
-| values.(index).compositions.(index).value | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The value id of spec2 is not exist</li><li>The spec2 value is not belongs to the spec </li></ol> |
+| values.(index).compositions.(index).value | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The value id of spec2 is not exist</li><li>The spec2 value is not belongs to the spec2 </li></ol> |
 
 
 
@@ -427,11 +427,11 @@ Failure
 | part | boolean (option) | The spec is part or not<br />Accepted input are true, false, 1, 0, "1", and "0" |
 | categories | array (option) | Collection of category id |
 | compositions | array (option) | Collection of spec2 id |
-| values | array (option) | Collection of spec2 value |
+| values | array (option) | Collection of value |
 
 | value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The value id <br />It indicate adding value if id is 0 |
+| id | integer | The id of spec2 value<br />If id is 0, it's new value |
 | name | string | The name of spec2 value |
 | display_name | string | The display name of spec2 value |
 | price | number | The price of value, the currency is default by company |
@@ -444,7 +444,7 @@ Failure
 | value.composition | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The spec2 id |
-| value | integer | The value id for current spec2 <br />It indicate empty if value is 0 |
+| value | integer | The id of spec2 value for current cpomosition <br />If value is 0, it's not set |
 
 ### Return Parameters
 
