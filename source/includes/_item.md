@@ -1,180 +1,6 @@
 # Item
 
-## Create Item
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/item/create` |
-| Method | `post` |
-| Use | to create item |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-    "api_key": "e4cbcdc2faff41a7e311",
-    "name": "item name",
-    "number": "item number",
-    "categories": [1, 2, 3],
-    "price": 123.456,
-    "dscount": 30,
-    "ean": "",
-    "unit": "",
-    "contain": "",
-    "weblink": "",
-    "description": "",
-    "images": [{
-        "name": "asdasdasd.jpg",
-        "cover": true
-    }, {
-        "name": "qweqweq.jpg",
-        "cover": false
-    }],
-    "videos": [{
-        "weblink": "http://asdas.youtube.com",
-        "description": ""
-    }, {
-        "weblink": "http://asda.youtube.com",
-        "description": ""
-    }],
-    "specs": [{
-        "id": 1,
-        "value": 2
-    }],
-    "spec2s": [{
-        "id": 1,
-        "configurable_values": [{
-            "id": 1
-        }, {
-            "id": 2
-        }]
-    }],
-    "warranty": {
-        "type": "Limited",
-        "value": 2,
-        "unit": "Years"
-    }
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| name | string | The name of item |
-| number | string | The number of item |
-| categories | array | The set of category id |
-| price | number | The price of item |
-| discount | integer | The max discount precent of item |
-| deposit_ratio | integer | The deposit ratio of item |
-| ean | string | The European Article Number |
-| unit | string | The unit of amount |
-| contain | string | The amount contained in this item |
-| weblink | string | The outside website of item |
-| description | string | The description of item |
-| images | array | The images of item |
-| videos | array | The videos of item |
-| specs | array | The spec configurations of item |
-| spec2s | array | The configurable values of spec2 of item |
-| warranty | object | The warranty configuration of item |
-
-| item_image | Type | Description |
-| -------: | :---- | :--- |
-| name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
-
-| item_video | Type | Description |
-| -------: | :---- | :--- |
-| weblink | string | The url of vedio |
-| description | string | The description of vedio |
-
-| item_spec | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of spec value |
-
-| item_spec2 | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The id of spec2 |
-| configurable_values | array | The configurable values of spec2 |
-
-| item_spec2_configurable_value | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | The id of spec2 value |
-
-| item_warranty | Type | Description |
-| -------: | :---- | :--- |
-| type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
-| value | positive integer (option) | The duration of warranty |
-| unit | string (option) | The unit of duration - Years or Months |
-
-
-> Return Parameters
-
-### Return Parameters When Success
-
-<aside class="success">
-Success
-</aside>
-
-The return same to Item Detail API
-
-
-### Return Parameters When Failure
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-    "validation": {
-        "name": ["dulicate"],
-        "number": ["required"]
-    },
-    "error_name": "illegal_form_input"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
-
-| validation | | |
-| -------: | :---- | :--- |
-| name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
-| number | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
-| categories | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
-| price | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not number</li></ol> |
-| discount | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
-| deposit_ratio | array (option) | invalid value: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
-| ean | array (option) | required: <ol><li>The field is required</li></ol> |
-| unit | array (option) | required: <ol><li>The field is required</li></ol> |
-| contain | array (option) | required: <ol><li>The field is required</li></ol> |
-| weblink | array (option) | required: <ol><li>The field is required</li></ol> |
-| description | array (option) | required: <ol><li>The field is required</li></ol> |
-| images | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| videos | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| videos.(index).weblink | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
-| videos.(index).description | array (option) | required: <ol><li>The field is required</li></ol> |
-| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol> |
-| spec2s.(index).id.configurable_values | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
-| spec2s.(index).id.configurable_values.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to the spec </li></ol> |
-| warranty | array (option) | required: <ol><li>The field is required</li></ol> |
-| warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
-| warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
-| warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
-
-
-## Item Detail Without Login
+## Item Detail Without signin
 
 ### Description
 
@@ -182,26 +8,18 @@ Failure
 | -------: | :---- |
 | URL | `item/{item_id}/detail` |
 | Method | `get` |
-| Use | to create item |
-| Notice |  |
+| Use | To get item detail without signin |
+| Notice | |
 
 
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-    "item_id": 1
-}
-```
+### Url Parameters
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| item_id | integer | item's id |
+| item_id | integer | The item id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -213,7 +31,7 @@ Success
 {
     "id": 1,
     "name":"Edison Evo",
-    "description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
+    "description":"Mit dem edison EVO .....",
     "prices": {
         "EUR": {
             "min": 50,
@@ -245,25 +63,23 @@ Success
             "px1080": "http://abc/yyy_1080p.jpg"
         }
     }],
-    "specs": [
-        {
-            "id": 1,
-            "name": "son EVO ist ",
-            "display_name": "son EVO ist ",
-            "value": {
-                "id": 206,
-                "name": "EVO"
-            }
-        },{
-            "id": 87,
-            "name": "son EVO 2st ",
-            "display_name": "son EVO ist ",
-            "value": {
-                "id": 210,
-                "name": "SON"
-            }
+    "specs": [{
+        "id": 1,
+        "name": "son EVO ist ",
+        "display_name": "son EVO ist",
+        "value": {
+            "id": 206,
+            "name": "EVO"
         }
-    ],
+    }, {
+        "id": 87,
+        "name": "son EVO 2st ",
+        "display_name": "son EVO ist",
+        "value": {
+            "id": 210,
+            "name": "SON"
+        }
+    }],
     "warranty": {
         "type": "Limited",
         "value": 0,
@@ -274,33 +90,52 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer |  item id |
-| name | string |  item name |
-| **prices** | **object** |  item prices of currency |
-| *min* | number | min price in all variants of item. value is null if item doesn’t own variant |
-| *basic* | number | basic price which be set by user in the item |
-| *max* | number | max price in all variants of item. value is null if item doesn’t own variant |
-| description | string | item description |
-| **images** | **array** | item images |
-| *name* | string | file name which get from back end after specific image has been updated |
-| *cover* | boolean | cover image tag |
-| *resource* | **object** | cover image tag |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| **specs** | **array** | The spec list |
-| *id* | integer | spec id |
-| *name* | string | spec name |
-| *display_name* | string | spec display name |
-| *value* | **object** | value id of spec |
-| *id* | integer | spec value id |
-| *name* | string | spec value display name |
-| **warranty** | **object** | warranty setting of item |
-| *type* | string | warranty type |
-| *value* | integer | warranty value |
-| *unit* | string | value unit |
+| id | integer | The item id |
+| name | string | The item name |
+| description | string | The description of item |
+| prices | object | The prices for each currency |
+| images | array | Collection of item image |
+| specs | array | The configurations of specs |
+| warranty | object | The warranty of item |
 
+| price | Type | Description |
+| -------: | :---- | :--- |
+| min | number | The min price in all variants. value is null if item doesn’t own variant |
+| basic | number | The price of item |
+| max | number | The max price in all variants. value is null if item doesn’t own variant |
+
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
+
+| image.resource | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240) |
+| px480 | string | The picture url of 480 resolution (854x480) |
+| px720 | string | The picture url of 720 resolution (1280x720) |
+| px1080 | string | The picture url of 1080 resolution (1920x1080) |
+
+| spec | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| name | string | The name of spec |
+| display_name | string | The display name of spec |
+| value | object | Collection of spec value |
+
+| spec.value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec value |
+| name | string | The name of spec value |
+
+| warranty | Type | Description |
+| -------: | :---- | :--- |
+| type | string | The warranty type |
+| value | integer | The duration of warranty |
+| unit | string | The unit of duration |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -308,14 +143,14 @@ Failure
 
 ```json
 {
-    "error_name": "illegal form input"
+    "error_name": "item not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**item not exist:** item number is incorrect|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>item not exist: the item id is incorrect</li></ul> |
+
 
 
 ## Item Detail
@@ -326,7 +161,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/detail` |
 | Method | `post` |
-| Use | to create item |
+| Use | To get item detail |
 | Notice |  |
 
 
@@ -346,10 +181,10 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The key will be returned by Sign In API |
 | target_company_id | integer | The company id of item |
-| item_id | integer | The id of item |
+| item_id | integer | The item id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters When Success
 
@@ -411,66 +246,53 @@ Success
         "description": "youtube",
         "weblink": "https://youtu.be/G2reQQUQ-Dc"
     }],
-    "categories": [
-        {
-            "id": 1,
-            "name": "xxx"
-        },
-        {
-            "id": 2,
-            "name": "yyy"
+    "categories": [{
+        "id": 1,
+        "name": "xxx"
+    }, {
+        "id": 2,
+        "name": "yyy"
+    }],
+    "specs": [{
+        "id": 1,
+        "name": "FIX1",
+        "display_name": "FIX1",
+        "value": {
+            "id": 3,
+            "name": "OPTION1"
         }
-    ],
-    "specs": [
-        {
-            "id": 1,
-            "name": "FIX1",
-            "display_name": "FIX1",
-            "value": {
-                "id": 3,
-                "name": "OPTION1"
-            }
-        },
-        {
-            "id": 2,
-            "name": "FIX2",
-            "display_name": "FIX2",
-            "value": {
-                "id": 4,
-                "name": "OPTION2"
-            }
+    }, {
+        "id": 2,
+        "name": "FIX2",
+        "display_name": "FIX2",
+        "value": {
+            "id": 4,
+            "name": "OPTION2"
         }
-    ],
-    "customizations": [
-        {
-            "id": 5,
-            "name": "CUST1",
-            "display_name": "CUST1",
-            "values": [
-                {
-                    "id": 6,
-                    "name": "WHITE",
-                    "price": 5
-                },
-                {
-                    "id": 7,
-                    "name": "BLACK",
-                    "price": 10
-                },
-                {
-                    "id": 8,
-                    "name": "GEMBLUE",
-                    "price": 15
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "name": "SIZE",
-            "display_name": "SIZE",
-            "values": []
-        }
-    ],
+    }],
+    "customizations": [{
+        "id": 5,
+        "name": "CUST1",
+        "display_name": "CUST1",
+        "values": [{
+            "id": 6,
+            "name": "WHITE",
+            "price": 5
+        }, {
+            "id": 7,
+            "name": "BLACK",
+            "price": 10
+        }, {
+            "id": 8,
+            "name": "GEMBLUE",
+            "price": 15
+        }]
+    }, {
+        "id": 9,
+        "name": "SIZE",
+        "display_name": "SIZE",
+        "values": []
+    }],
     "spec2s": [{
         "id": 1,
         "name": "Movement",
@@ -486,9 +308,9 @@ Success
             "description": "description",
             "comment": "comment....",
             "price": {
-        		"currency": "EUR",
-        		"value": 9.2
-        	}
+                "currency": "EUR",
+                "value": 9.2
+            }
         }]
     }],
     "warranty": {
@@ -504,87 +326,91 @@ Success
 | id | integer | The id of item |
 | name | string | The name of item |
 | number | string | The number of item |
-| categories | array | The set of category of item |
-| prices | array | The prices of item |
-| discount | integer | The max discount percent of item |
-| deposit_ratio | integer | The deposit ratio of item |
+| description | string | The item description |
+| weblink | string | The website uri of item |
 | ean | string | The European Article Number |
 | unit | string | The unit of amount |
 | contain | string | The amount contained in this item |
-| weblink | string | item’s website URL |
-| description | string | item description |
-| images | array | item images |
-| videos | array | item videos |
-| specs | array | The configurations of specs |
-| customizations | array | The customizable specs of item |
-| spec2s | array | The configurations of spec2s |
-| company | object | the item belong to which company |
+| prices | array | The prices of item |
+| discount | integer | The max discount percent of item |
+| deposit_ratio | integer | The deposit ratio of item |
+| company | object | The company of item |
+| categories | array | Collection of category |
+| images | array | Collection of item image |
+| videos | array | Collection of item video |
+| specs | array | Collection of spec |
+| spec2s | array | Collection of spec2 |
 | warranty | object | warranty setting of item |
 
-| item_category | Type | Description |
+| price | Type | Description |
 | -------: | :---- | :--- |
-| id | integer |  category id |
-| name | string |  category name |
+| min | number or null | The min price in all variants<br/>The value is null indicate no variant of item |
+| basic | number | The price of item |
+| max | number or null | The max price in all variants<br/>The value is null indicate no variant of item |
 
-| item_price | Type | Description |
+| company | Type | Description |
 | -------: | :---- | :--- |
-| min | number<br/>null | The min price in all variants of item<br/>The value is null indicate no variant of item |
-| basic | number | The basic price which be set in the item<br/>The value is null indicate it not default currency for company |
-| max | number<br/>null | The max price in all variants of item<br/>The value is null indicate no variant of item |
+| id | integer | The company id |
+| name | string | The company name |
 
-| item_image | Type | Description |
+| category | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The file name |
-| cover | boolean | The tag of cover image |
-| resource | object | The url of each image resolution |
+| id | integer | The category id |
+| name | string | The category name |
 
-| item_image_resource | Type | Description |
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+| resource | ojbect | The urls of each resolution |
+
+| image.resource | Type | Description |
 | -------: | :---- | :--- |
 | 240p | string | The picture url of 240 resolution (426x240) |
 | 480p | string | The picture url of 480 resolution (854x480) |
 | 720p | string | The picture url of 720 resolution (1280x720) |
 | 1080p | string | The picture url of 1080 resolution (1920x1080) |
 
-| item_video | Type | Description |
+| video | Type | Description |
 | -------: | :---- | :--- |
-| weblink | The url of video |
-| description | The description of video |
+| weblink |string | The url of video |
+| description |string | The description of video |
 
-| item_spec | Type | Description |
+| spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
 | display_name | string | The display name of spec |
-| value | object | The value of spec |
+| value | object | Collection of spec value |
 
-| item_spec_value | Type | Description |
+| spec.value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec value |
 | name | string | The name of spec value |
 
-| item_customization | Type | Description |
+| customization | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of customization |
 | name | string | The name of customization |
 | display_name | string | The display name of customization |
-| values | array | The values of customization |
+| values | array | Collection of customization value |
 
-| item_customization_value | Type | Description |
+| customization.value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of customization value |
 | name | string | The name of customization value |
 | price | number | The extra price of customization value |
 
-| item_spec2 | Type | Description |
+| spec2 | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 |
 | name | string | The name of spec2 |
 | display_name | string | The display name of spec2 |
 | comment | string | The comment of spec2 |
 | part | boolean | The part of spec2 |
-| configurable_values | array | The configurable values of spec2 |
+| configurable_values | array | Collection of configurable value |
 
-| item_spec2_configurable_value | Type | Description |
+| spec2.configurable_value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 value |
 | name | string | The name of spec2 value |
@@ -595,14 +421,10 @@ Success
 | comment | string | The comment of spec2 value |
 | price | object | The price information of spec2 value |
 
-| item_spec2_configurable_value.price | Type | Description |
-| currency | string | The currency of value of spec |
-| value | numeric | The price of value of spec<br /> It's zero if spec of variant not setting |
-
-| item_company | Type | Description |
+| spec2.configurable_value.price | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| currency | string | The default currency of company |
+| value | numeric | The price of spec value |
 
 | item_warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -610,8 +432,7 @@ Success
 | value | integer | The duration of warranty |
 | unit | string | The unit of duration |
 
-
-### Return Parameters When Failure
+### Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -619,30 +440,26 @@ Failure
 
 ```json
 {
-    "validation": {
-        "name": ["dulicate"],
-        "number": ["required"]
-    },
-    "error_name": "does not signin"
+    "error_name": "lack of parameters"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: some input parameters missing, not in the request</li><li>does not signin: The api_key is invalid</li><li>not select company yet: The user has not select current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>item not exist: The item is not exist</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: some input parameters missing, not in the request</li><li>does not signin: The api_key is invalid</li><li>company not exist: target company not exist</li><li>not select company yet: user has not select current company</li><li>not company member: the user is not the company member</li><li>item not exist: item id is incorrect or item not belongs to target company</li></ul> |
 
 
 
-## Edit Item
+## Create Item
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | `user/company/item/edit` |
+| URL | `user/company/item/create` |
 | Method | `post` |
-| Use | to edit item |
-| Notice |  |
+| Use | To create item |
+| Notice | |
 
 
 > Input Parameters
@@ -652,12 +469,12 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
-    "item_id": 1,
     "name": "item name",
     "number": "item number",
     "categories": [1, 2, 3],
     "price": 123.456,
-    "dscount": 30,
+    "discount": 30,
+    "deposit_ratio": 50,
     "ean": "",
     "unit": "",
     "contain": "",
@@ -700,10 +517,183 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | api_key | string | The key will be returned by Sign In API |
-| item_id | integer | The id id item |
+| name | string | The name of item |
+| number | string | The number of item |
+| categories | array | Collection of category id |
+| price | number | The price of item |
+| discount | integer | The max discount precent of item |
+| deposit_ratio | integer | The deposit ratio of item |
+| ean | string | The European Article Number |
+| unit | string | The unit of amount |
+| contain | string | The amount contained in this item |
+| weblink | string | The outside website of item |
+| description | string | The description of item |
+| images | array | Collection of item image |
+| videos | array | Collection of item video |
+| specs | array | Collection of spec |
+| spec2s | array | Collection of spec2 |
+| warranty | object | The warranty configuration of item |
+
+| image | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The name will be returned by Upload Image API |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
+
+| video | Type | Description |
+| -------: | :---- | :--- |
+| weblink | string | The url of vedio |
+| description | string | The description of vedio |
+
+| spec | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec |
+| value | integer | The id of spec value |
+
+| spec2 | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec2 |
+| configurable_values | array | Collection of configurable_value |
+
+| spec2.configurable_value | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of spec2 value |
+
+| warranty | Type | Description |
+| -------: | :---- | :--- |
+| type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
+| value | positive integer (option) | The duration of warranty |
+| unit | string (option) | The unit of duration - Years or Months |
+
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+The return same to Item Detail API
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "illegal_form_input",
+    "validation": {
+        "name": ["required"],
+        "number": ["required"]
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | | |
+| -------: | :---- | :--- |
+| name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| number | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| categories | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li><li>The id of category is not exist</li><li>The category is not belongs to the current company </li></ol> |
+| price | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not number</li></ol> |
+| discount | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
+| deposit_ratio | array (option) | invalid value: <ol><li>The data is not integer</li><li>The data need between 0 to 100</li></ol> |
+| ean | array (option) | required: <ol><li>The field is required</li></ol> |
+| unit | array (option) | required: <ol><li>The field is required</li></ol> |
+| contain | array (option) | required: <ol><li>The field is required</li></ol> |
+| weblink | array (option) | required: <ol><li>The field is required</li></ol> |
+| description | array (option) | required: <ol><li>The field is required</li></ol> |
+| images | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| videos.(index).weblink | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
+| videos.(index).description | array (option) | required: <ol><li>The field is required</li></ol> |
+| specs | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| spec2s | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| spec2s.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to categories </li></ol> |
+| spec2s.(index).id.configurable_values | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not array</li></ol> |
+| spec2s.(index).id.configurable_values.(index).id | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>The data is not integer</li><li>The id is not belongs to the spec </li></ol> |
+| warranty | array (option) | required: <ol><li>The field is required</li></ol> |
+| warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
+| warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
+| warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
+
+
+
+## Edit Item
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/item/edit` |
+| Method | `post` |
+| Use | To edit item |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "item_id": 1,
+    "name": "item name",
+    "number": "item number",
+    "categories": [1, 2, 3],
+    "price": 123.456,
+    "discount": 30,
+    "ean": "",
+    "unit": "",
+    "contain": "",
+    "weblink": "",
+    "description": "",
+    "images": [{
+        "name": "asdasdasd.jpg",
+        "cover": true
+    }, {
+        "name": "qweqweq.jpg",
+        "cover": false
+    }],
+    "videos": [{
+        "weblink": "http://asdas.youtube.com",
+        "description": ""
+    }, {
+        "weblink": "http://asda.youtube.com",
+        "description": ""
+    }],
+    "specs": [{
+        "id": 1,
+        "value": 2
+    }],
+    "spec2s": [{
+        "id": 1,
+        "configurable_values": [{
+            "id": 1
+        }, {
+            "id": 2
+        }]
+    }],
+    "warranty": {
+        "type": "Limited",
+        "value": 2,
+        "unit": "Years"
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| item_id | integer | The item id |
 | name | string (option) | The name of item |
 | number | string (option) | The number of item |
-| categories | array (option) | The set of category id |
+| categories | array (option) | Collection of category id |
 | price | number (option) | The price of item |
 | discount | integer (option) | The max discount precent of item |
 | deposit_ratio | integer (option) | The deposit ratio of item |
@@ -712,62 +702,52 @@ Failure
 | contain | string (option) | The amount contained in this item |
 | weblink | string (option) | The outside website of item |
 | description | string (option) | The description of item |
-| images | array (option) | The images of item |
-| videos | array (option) | The videos of item |
-| specs | array (option) | The spec configurations of item |
-| spec2s | array (option) | The configurable values of spec2 of item |
+| images | array (option) | Collection of item image |
+| videos | array (option) | Collection of item video |
+| specs | array (option) | Collection of spec |
+| spec2s | array (option) | Collection of spec2 |
 | warranty | object (option) | The warranty configuration of item |
 
-| item_image | Type | Description |
+| image | Type | Description |
 | -------: | :---- | :--- |
 | name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
-| item_video | Type | Description |
+| video | Type | Description |
 | -------: | :---- | :--- |
 | weblink | string | The url of vedio |
 | description | string | The description of vedio |
 
-| item_spec | Type | Description |
+| spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | value | integer | The id of spec value |
 
-| item_spec2 | Type | Description |
+| spec2 | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 |
-| configurable_values | array | The configurable values of spec2 |
+| configurable_values | array | Collection of configurable_value |
 
-| item_spec2_configurable_value | Type | Description |
+| spec2.configurable_value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec2 value |
 
-| item_warranty | Type | Description |
+| warranty | Type | Description |
 | -------: | :---- | :--- |
 | type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
 
-> Return Parameters
-
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -775,20 +755,20 @@ Failure
 
 ```json
 {
+    "error_name": "illegal_form_input",
     "validation": {
-        "name": ["dulicate"],
+        "name": ["required"],
         "number": ["required"]
-    },
-    "error_name": "illegal form input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: the api_key is invalid</li><li>not_select_company: the user has not select current company</li><li>item not exist: item id is incorrect</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
-| validation | | |
+| validation | Type | Description |
 | -------: | :---- | :--- |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
 | number | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> |
@@ -825,8 +805,8 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/delete` |
 | Method | `post` |
-| Use | to delete item |
-| Notice |  |
+| Use | To delete item |
+| Notice | |
 
 
 > Input Parameters
@@ -842,11 +822,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| item_id | integer |  item id |
+| api_key | string | The identity token of user |
+| item_id | integer | The item id |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -854,15 +832,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -876,12 +848,6 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**item not exist:** item number is incorrect|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: current company not select</li><li>company not exist: current company not exist</li><li>not company member: user is not member in current company</li></ul> |
 
 

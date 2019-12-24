@@ -10,26 +10,26 @@ toc_footers:
 
 includes:
   - introduction
-  - user
   - system
+  - user
   - company
   - category
   - item
   - specification
   - customization
-  - spec2
   - variant
-  - variant2
   - product
+  - spec2
+  - variant2
   - product2
+  - inventory
   - option
+  - invitation
   - cart
   - order
   - purchaseOrder
-  - inventory
-  - balance
-  - invitation
   - shipment
+  - balance
   - bag
 
 search: true

@@ -1,16 +1,15 @@
-
 # User
 
 ## Sign in
 
 ### Description
 
-|Title | Description |
+| Title | Description |
 | -------: | :---- |
 | URL | `user/signin` |
 | Method | `post` |
 | Use | Let user sign in and get it api key |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -19,7 +18,7 @@
 
 ```json
 {
-	"email": "cc@prophetdigit.com",
+	"email": "tester@prophetdigit.com",
 	"password": "12345678"
 }
 ```
@@ -30,7 +29,7 @@
 | password | string | The user's password |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -47,14 +46,16 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 | user_id | integer | The user id |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -62,9 +63,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-|||**does not match:** The account does not sign up yet or the password not match the account |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not match: the account has not exist or the password not match the account</li></ul> |
 
 
 
@@ -72,12 +71,12 @@ Failure
 
 ### Description
 
-|Title | Description |
+| Title | Description |
 | -------: | :---- |
 | URL | `user/signout` |
 | Method | `post` |
 | Use | Let user sign out system and deactivated the api key |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -92,10 +91,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :----: | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -103,30 +100,14 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | -- | -- |
+Nothing was returned
 
 <aside class="warning">
 Failure
 </aside>
 
-```
-{
-	"error_name":"lack of parameters"
-}
-```
+There is no failure
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
 
 
 ## Sign up with Email only
@@ -137,7 +118,7 @@ Failure
 | -------: | :---- |
 | URL | `user/signupwithemailonly` |
 | Method | `post` |
-| Use | Let user sign up an account with email only in payment |
+| Use | Let user sign up with email only |
 | Notice ||
 
 
@@ -147,16 +128,16 @@ Failure
 
 ```json
 {
-	"email": "cc.lee@prophetdigits.com"
+	"email": "tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | The user email |
+| email | string | The user's email |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -172,14 +153,15 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name": "illegal form input",
 	"validation": {
@@ -190,10 +172,12 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-| *email* | array | **required:** The data cannot be empty or null |
-|||**invalid email:** The data need accord with email format |
-|||**dulicate:** The data has already been used |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| email | array (option) | required: <ol><li>The email cannot be empty or null</li></ol> invalid email: <ol><li>The data need accord with email format</li></ol> duplicate: <ol><li>The email has already been used</li></ol> |
 
 
 
@@ -215,24 +199,22 @@ Failure
 
 ```json
 {
-	"given_name": "CC",
-	"family_name": "Lee",
+	"given_name": "Tester",
+	"family_name": "Prophetdigit",
 	"title": 1,
-	"email": "cc.lee@prophetdigits.com",
+	"email": "tester@prophetdigits.com",
 	"password": "12345678"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
-| title | integer | The user gender - 0: Mr. 1: Mrs. |
-| email | string | The user email |
-| password | string | The user password |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+| title | integer | The user's gender <ul><li>0: Mr.</li><li>1: Mrs.</li></ul> |
+| email | string | The user's email |
+| password | string | The user's password |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -240,21 +222,15 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name": "illegal form input",
 	"validation": {
@@ -266,19 +242,16 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** Some required parameters missing in the request |
-|||**illegal form input:** The data validation failed |
-| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
-| *given_name* | array | **required:** The data cannot be empty or null |
-| *family_name* | array | **required:** The data cannot be empty or null |
-| *title* | array | **required:** The data cannot be empty or null |
-|||**invalid title:** The data only can be 0 or 1 |
-| *email* | array | **required:** The data cannot be empty or null |
-|||**invalid email:** The data need accord with email format |
-|||**dulicate:** The data has already been used |
-| *password* | array | **required:** The data cannot be empty or null |
-|||**word count:** The data need more than 7 words and less than 21 words |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| given_name | array (option) | required: <ol><li>The given_name cannot be empty or null</li></ol> |
+| family_name | array (option) | required: <ol><li>The family_name cannot be empty or null</li></ol> |
+| title | array (option) | required: <ol><li>The title cannot be empty or null</li></ol> invalid title: <ol><li>The title only can be 0 or 1</li></ol> |
+| email | array (option) | required: <ol><li>The email cannot be empty or null</li></ol> invalid email: <ol><li>The data need accord with email format</li></ol> duplicate: <ol><li>The email has already been used</li></ol> |
+| password | array (option) | required: <ol><li>The password cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
 
 
 
@@ -290,8 +263,8 @@ Failure
 | -------: | :---- |
 | URL | `user/search` |
 | Method | `post` |
-| Use | To search other users |
-| Notice | The search data change to full user email from part user email or user name |
+| Use | To search user |
+| Notice | Searching user should input full email |
 
 
 > Input Parameters
@@ -301,17 +274,17 @@ Failure
 ```json
 {
 	"api_key": "e4cbcdc2faff41a7e311",
-	"search_text":"test@test.com"
+	"search_text":"tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| search_text | string | The data need input a full user email |
+| api_key | string | The identity token of user |
+| search_text | string | The user's email |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -323,32 +296,31 @@ Success
 {
 	"users": [{
 		"id": 1,
-		"email": "a@gmail.com",
-		"given_name": "Jianhua",
-		"family_name": "Wang"
-	}, {
-		"id": 2,
-		"email": "b@gmail.com",
-		"given_name": "Jianhua",
-		"family_name": "Wang"
+		"email": "tester@prophetdigits.com",
+		"given_name": "Tester",
+		"family_name": "Prophet"
 	}]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **users** | array | users related to search text |
-| id | integer | The user id |
-| email | string | The user email |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
+| users | array | Collection of user |
 
+| user | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user's id |
+| email | string | The user's email |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -356,10 +328,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **empty text:** The search text cannot be empty |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>empty text: the search text cannot be empty</li></ul> |
 
 
 
@@ -372,7 +341,7 @@ Failure
 | URL | `user/profile` |
 | Method | `post` |
 | Use | To get my profile |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -387,10 +356,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -401,27 +370,28 @@ Success
 ```json
 {
 	"id": 1,
-	"email": "cc.lee@prophetdigits.com",
-	"given_name": "CC",
-	"family_name": "Lee",
+	"email": "tester@prophetdigits.com",
+	"given_name": "Tester",
+	"family_name": "Prophet",
 	"picture": ""
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The user id |
-| email | string | The user email |
-| given_name | string | The user given name |
-| family_name | string | The user family name |
-| picture | string | The user image path |
+| id | integer | The user's id |
+| email | string | The user's email |
+| given_name | string | The user's given name |
+| family_name | string | The user's family name |
+| picture | string | The user's image path |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -429,9 +399,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
 
 
 
@@ -444,7 +412,7 @@ Failure
 | URL | `user/password/forget` |
 | Method | `post` |
 | Use | To send validation code to user by email |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -453,15 +421,14 @@ Failure
 
 ```json
 {
-	"email": "cc@b-labs.org"
+	"email": "tester@prophetdigits.com"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | the user account |
+| email | string | The user's email |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -469,15 +436,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -485,17 +446,17 @@ Failure
 
 ```json
 {
+	"error_name": "email not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **email not exist:** The email is not signed up yet |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>email not exist: the email is not signed up yet</li></ul> |
 
 
 
-## Resett Password
+## Reset Password
 
 ### Description
 
@@ -503,8 +464,8 @@ Failure
 | -------: | :---- |
 | URL | `user/password/cover` |
 | Method | `post` |
-| Use | To reset user password |
-| Notice ||
+| Use | To reset user's password |
+| Notice | |
 
 
 > Input Parameters
@@ -513,19 +474,18 @@ Failure
 
 ```json
 {
-	"email": "cc@b-labs.org",
-	"passward": "123456",
+	"email": "tester@prophetdigits.com",
+	"password": "123456",
 	"validation_code": "123456"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| email | string | The user account |
-| password | string | The user new passward |
-| validation_code | string | The validation code which gets from email |
+| email | string | The user's account |
+| password | string | The user's new password |
+| validation_code | string | The validation code which takes from email |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -533,15 +493,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -549,16 +503,19 @@ Failure
 
 ```json
 {
+	"error_name": "illegal form input",
+	"validation": {
+		"password": ["required"]
+	}
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**illegal form input:** The data validation failed |
-|||**email not exist:** The email is not signed up yet |
-|||**validation code not match:** The validation code is invalid |
-|||**timeout:** The validation code has been expired |
-| **validation** | **object** | The validation parameter will appear if the error_name is illegal form input |
-| *password* | array | **required:** The data cannot be empty or null |
-|||**word count:** The data need more than 7 words and less than 21 words |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>email not exist: the email is not signed up yet</li><li>validation code not match: the validation_code is invalid</li><li>timeout: the validation code has been expired</li><li>illegal form input: the input does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal form input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| password | array (option) | required: <ol><li>The password cannot be empty or null</li></ol> word count: <ol><li>The password need more than 7 words and less than 21 words</li></ol> |
+| validation_code | array (option) | required: <ol><li>The validation_code cannot be empty or null</li></ol> |

@@ -25,10 +25,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -50,16 +50,20 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **currencies** | **array** | All currencies in the system. Order by name from A-Z |
-| *id* | number | The currency id |
-| *name* | string | The currency name |
+| currencies | array | Collection of currency. Order by name from A-Z |
 
+| currency | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The currency id |
+| name | string | The currency name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -67,9 +71,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
+
 
 
 ## System Country List
@@ -80,7 +83,7 @@ Failure
 | -------: | :---- |
 | URL | `system/country/list` |
 | Method | `post` |
-| Use | to get all countries in the system |
+| Use | To get all countries in the system |
 | Notice |  |
 
 
@@ -96,10 +99,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
+| api_key | string | The identity token of user |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -121,16 +124,20 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | **array** | All countries in the system |
-| *id* | number | The country id |
-| *name* | string | The country name |
+| countries | array | Collection of country |
 
+| country | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The country id |
+| name | string | The country name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -138,12 +145,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
 
 
-## System Country List Without Sign In
+
+## System Country List Without Signin
 
 ### Description
 
@@ -151,24 +157,16 @@ Failure
 | -------: | :---- |
 | URL | `system/country/list` |
 | Method | `get` |
-| Use | to get all countries in the system |
+| Use | To get all countries in the system |
 | Notice |  |
 
 
-> Input Parameters
-
 ### Input Parameters
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+There is no parameters
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -190,23 +188,19 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **countries** | **array** | All countries in the system |
-| *id* | number | The country id |
-| *name* | string | The country name |
+| countries | array | Collection of country |
 
+| country | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The country id |
+| name | string | The country name |
 
 <aside class="warning">
 Failure
 </aside>
 
-```
-{
-}
-```
+There is no failure
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
 
 
 ## Upload Image
@@ -217,8 +211,8 @@ Failure
 | -------: | :---- |
 | URL | `user/upload/image` |
 | Method | `post` |
-| Use | To upload image for company and item |
-| Notice ||
+| Use | To upload image |
+| Notice | |
 
 
 > Input Parameters
@@ -234,11 +228,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| image | string | base64 encode image string. Image format require as jpg, jpeg, png, gif |
+| api_key | string | The identity token of user |
+| image | string | The base64 encode image and Mime type. Image format require as jpg, jpeg, png, gif |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -254,14 +248,15 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| file_name | string | The filename which just uploaded  |
+| file_name | string | The temporary filename |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
 </aside>
 
-```
+```json
 {
 	"error_name":"lack of parameters"
 }
@@ -269,11 +264,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
-||| **not image:** The MIME-type is not image |
-||| **invalid image format:** The subtype of MIME-type is not jpg, jpeg, png and gif |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not image: the type of MIME type is not image</li><li>invalid image format: the subtype of MIME type is not jpg, jpeg, png and gif</li></ul> |
+
 
 
 ## Delete Image
@@ -285,7 +277,7 @@ Failure
 | URL | `user/delete/image` |
 | Method | `post` |
 | Use | To delete image |
-| Notice ||
+| Notice | |
 
 
 > Input Parameters
@@ -301,11 +293,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | An unique token after user sign in, then user can use it to request data from API |
-| file_name | string | The filename which given by system after upload image |
+| api_key | string | The identity token of user |
+| file_name | string | The temporary filename after upload image |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -313,15 +303,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -335,6 +319,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-||| **lack of parameters:** Some required parameters missing in the request |
-||| **does not signin:** The user does not signin |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li></ul> |
