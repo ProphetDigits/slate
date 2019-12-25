@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # TEST Order
+=======
+# Test Order
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order List
 
@@ -345,6 +349,358 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
+<<<<<<< HEAD
+=======
+## Edit Order
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/edit` |
+| Method | `post` |
+| Use | to edit the order's billing address with current user |
+| Notice |  |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "order_number": "AAAA160401000001OD",
+    "billing_address": {
+      "given_name":"Lee",
+      "family_name":"CC",
+      "title": 0,    
+      "phone":"0912345678",
+      "street":"ABC st.",
+      "street2":"ABC st.",
+      "city":"Taichung",
+      "state":"Taiwan",
+      "code":"30123",
+      "country":"R.O.C."
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
+| billing_address | object | order's billing address |
+| *given_name* | string | recipient’s given_name |
+| *family_name* | string | recipient’s family_name |
+| *phone* | string | recipient’s phone number |
+| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
+| *street* | string | recipient’s address |
+| *street2* | string | recipient’s address |
+| *city* | string | recipient’s address |
+| *state* | string | recipient’s address |
+| *code* | string | recipient’s address |
+| *country* | string | recipient’s address |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"illegal_form_input",
+  "validation": {
+      "given_name": ["required"],
+      "family_name": ["required"],
+      "title": ["invalid"]
+  }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The name of wrong type|
+| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
+| | | <ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul>|
+| | | <ul><li>order_not_exist: The order is not exist</li></ul>|
+| | | <ul><li>order_is_timeout: The order is expired(order timeout 15 minutes)</li></ul>|
+| | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
+| validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
+| given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| family_name | array (option) | required: <ol><li>The data is empty</li></ol> |
+| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not a number</li></ol> |
+
+
+
+## Create Order
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/create` |
+| Method | `post` |
+| Use | to create order. App uploads cart data to backend, backend create order and send order id to app |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "cart_id":"C00001",
+  "type": "credir_card"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| cart_id | integer | cart  id |
+| type | string | "credit_card" or “cash" or "PayPal" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app" |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "order_number":"AAAA160509000001OD",
+  "payment_method": "PayPal",
+  "qrcode": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| order_number | string | order number |
+| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app"  |
+| qrcode | string | payment link for PayPal or Order Number QR-Code  , others is null |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "products": [
+    "AAAA0000000001",
+    "AAAB0000000001"
+  ],
+  "err_name":"product invalid"
+}
+```
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
+|||**lack of parameters:** the request does not include the necessary parameters|
+|||**does not signin:** user does not signin|
+|||**not select company yet:** user need change current company|
+|||**company not exist:** currenct company not exist|
+|||**not company member:** the user is not the company member|
+|||**no permission:** cannot sell in the company|
+|||**repeat:**  the order already been created. |
+|||**no products:** can’t order if no product in the cart |
+|||**product invalid:** some products which had be deleted, but its still in the cart. Server will return these product number to data. |
+
+
+
+## Send PayPal Payment Link
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/paypal/send` |
+| Method | `post` |
+| Use | to send PayPal Payment link to consumer. |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "email": "a@gmail.com",
+    "order_number": "AAAA0000000789OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| email | string | consumer email |
+| order_number | string | order number which consumer want to pay by PayPal buy no scanner |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type |
+||| **does not signin:** user does not signin |
+||| **order not exist:** invalid order number |
+||| **invalid email:** invalid email |
+||| **invalid payment:** only PayPal can use this api |
+||| **paid:** order has been paid |
+||| **confirming:**  order is confirming |
+||| **closed :** order has been closed |
+||| **refunded:** order has been refunded |
+
+
+
+## Transaction Result
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `transaction/{token}/result` |
+| Method | `get` |
+| Use | to get the information for PayPal payment. |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "token": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| token | string | a temporary token for payment. |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "date": 1459491797,
+    "status": "success",
+    "order": {
+        "number": "AAAA170329000001OD",
+        "payment_method": "PayPal",
+        "transaction": "123546876",
+        "currency": "EUR",
+        "total": 100,
+        "retailer": "TW Shop",
+        "payer": "a@gmail.com"
+    }
+}
+```
+
+```json
+{
+    "date": 1459491797,
+    "status": "fail",
+    "fail": {
+        "refused_by": "PayPal",
+        "code": "012",
+        "description": "card expired"
+    }
+}
+```
+
+```json
+{
+    "date": 1459491797,
+    "status": "info"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| date | timestamp | payment date |
+| status | string | payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
+| **odrer** | **object (option)** | order information |
+| *number* | string | order number |
+| *payment_method* | string | payment method of order |
+| *transaction* | string | transaction id of order |
+| *currency* | string | payment currency |
+| *total* | number | total price of payment |
+| *retailer* | string | seller's company name |
+| *payer* | string | payer email |
+| **fail** | **object (option)** | fail information |
+| *refused_by* | string | By whom was this action refused, Server or PayPal |
+| *code* | string | fail code of PayPal |
+| *description* | string | fail description |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"log expired"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type |
+||| **result not exist:** order number invalid |
+
+
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order Detail
 
@@ -833,3 +1189,164 @@ Failure
 
 
 
+<<<<<<< HEAD
+=======
+## Query Refund Requirement Of Order
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/refund/query` |
+| Method | `post` |
+| Use | To check the order meets refund requirement |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "order_number": "C00001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | Order number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| (Nothing return) | - | - |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 |
+|||**lack of parameters:** the request does not include the necessary parameters|
+|||**does not signin:** user does not signin|
+|||**not select company yet:** user need change current company|
+|||**company not exist:** currenct company not exist|
+|||**not company member:** the user is not the company member|
+|||**order not exist:**  order is not exist|
+|||**refund expired:** after the order has been created over 30 days, it can't refund|
+|||**confirming:**  order is confirming|
+|||**closed :** order has been closed|
+|||**refunded:** order has been refunded|
+|||**open:**  initial order status|
+
+
+
+## Confirm Purchase
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `order/confirmpurchase` |
+| Method | `post` |
+| Use | to bind the order with current user |
+| Notice |  |
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "order_number": "AAAA160401000001OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "profile" : {
+        "given_name": "CC",
+        "family_name": "Lee",
+        "title": 1,
+        "phone": "0912345678"
+    },
+    "default_address" : {
+        "street":"ABC st.",
+        "city":"Taichung",
+        "state":"Taiwan",
+        "code":"30123",
+        "country":"R.O.C."
+    }
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| **profile** | **object** | |
+| *given_name* | string | given_name |
+| *family_name* | string | family_name |
+| *title* | integer | title (0=Mr. 1=Ms.) |
+| *phone* | string | phone number |
+| **default_address** | **object** | |
+| *street* | string | recipient’s address |
+| *city* | string | recipient’s address |
+| *state* | string | recipient’s address |
+| *code* | string | recipient’s address |
+| *country* | string | recipient’s address |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | String | The name of wrong type |
+| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
+| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
+| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+
+
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
