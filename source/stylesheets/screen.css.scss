@@ -334,7 +334,7 @@ html, body {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>details {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -624,4 +624,28 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+details {
+  margin: 2em;
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  border-radius: 4px;
+  max-width: 57%;
+}
+
+summary {
+  padding: $details-padding;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.summary-content {
+  border-top: 1px solid #e2e8f0;
+  cursor: default;
+  padding: $details-padding;
 }

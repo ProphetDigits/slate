@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# TEST Order
-=======
 # Test Order
->>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order List
 
@@ -198,6 +194,35 @@ Failure
 |||**request timeout:** the api request too late|
 
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.12.26 / Balder**
+
+  * Modify Input Parameter
+    * number
+  * Remove Success Parameter
+    * retailer.given_name
+    * retailer.family_name
+  * Add Success Parameter
+    * agent
+  * Modify URL
+
+  **2019.12.20 / CC**
+
+  * Add Failure Parameter
+    * error_name: lack of parameters
+    * error_name: no permission
+  * Remove Failure Parameter
+    * valudation.number
+  
+  **2019.11.08 / Jonas**
+
+  * Add API
+</details>
+
+
 
 ## Cancel Order
 
@@ -349,8 +374,6 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
-<<<<<<< HEAD
-=======
 ## Edit Order
 
 ### Description
@@ -700,7 +723,6 @@ Failure
 ||| **result not exist:** order number invalid |
 
 
->>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order Detail
 
@@ -1189,8 +1211,6 @@ Failure
 
 
 
-<<<<<<< HEAD
-=======
 ## Query Refund Requirement Of Order
 
 ### Description
@@ -1349,4 +1369,3 @@ Failure
 | | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
 
 
->>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
