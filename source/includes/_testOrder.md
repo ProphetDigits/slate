@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# TEST Order
+=======
 # Test Order
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order List
 
@@ -345,6 +349,8 @@ Failure
 |||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
 
 
+<<<<<<< HEAD
+=======
 ## Edit Order
 
 ### Description
@@ -694,6 +700,7 @@ Failure
 ||| **result not exist:** order number invalid |
 
 
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
 
 ## Order Detail
 
@@ -1182,6 +1189,8 @@ Failure
 
 
 
+<<<<<<< HEAD
+=======
 ## Query Refund Requirement Of Order
 
 ### Description
@@ -1340,4 +1349,4 @@ Failure
 | | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
 
 
-test line
+>>>>>>> 30a0acbf93ca1cceb017032b4fbf15abc851bb39
