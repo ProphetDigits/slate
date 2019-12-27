@@ -2,6 +2,34 @@
 
 ## Api Name
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.12.26 / Balder**
+
+  * Modify Input Parameter
+    * number
+  * Remove Success Parameter
+    * retailer.given_name
+    * retailer.family_name
+  * Add Success Parameter
+    * agent
+  * Modify URL
+
+  **2019.12.20 / CC**
+
+  * Add Failure Parameter
+    * error_name: lack of parameters
+    * error_name: no permission
+  * Remove Failure Parameter
+    * valudation.number
+  
+  **2019.11.08 / Jonas**
+
+  * Add API
+</details>
+
 ### Description
 
 | Title | Description |
