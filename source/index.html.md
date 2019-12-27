@@ -9,7 +9,7 @@ toc_footers:
   - <a href='http://www.brand-cloud.com/'>Brand-Cloud</a>
 
 includes:
-  - introduction
+  - example
   - system
   - user
   - company
@@ -31,7 +31,6 @@ includes:
   - shipment
   - balance
   - bag
-  - testOrder
 
 search: true
 ---
