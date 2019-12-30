@@ -1,6 +1,6 @@
 # Product2
 
-## Generate Product
+## Generate Product2
 
 ### Description
 
@@ -8,8 +8,8 @@
 | -------: | :---- |
 | URL | `user/company/item/product2/create` |
 | Method | `post` |
-| Use | generate products |
-| Notice ||
+| Use | Generate product2 with variant2 setting |
+| Notice | |
 
 
 > Input Parameters
@@ -26,12 +26,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| variant_id | integer | The id of variant |
-| quantity | integer | The generated quantity for product |
+| api_key | string | The identity token of user |
+| variant_id | integer | The variant2 id |
+| quantity | integer | The generated quantity |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -39,14 +37,9 @@
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -54,13 +47,14 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name":"variant_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to current company</li></ul> |
+
 
 
 ## Product2 List
