@@ -329,7 +329,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/variant2/create` |
 | Method | `post` |
-| Use | to create variant |
+| Use | To create variant2 |
 | Notice | |
 
 
@@ -373,31 +373,31 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| item_id | integer | The id of item |
-| name | string | The name of variant |
-| number | string | The number of variant |
-| weblink | string | The website URL of variant |
-| taric_code | string | The taric code of variant |
-| specs | array | The spec configuration of variant |
-| prices | array | The prices for each currency of variant |
-| images | array | The images of variant |
-| warranty | object | The warranty configuration of variant |
+| api_key | string | The identity token of user |
+| item_id | integer | The item id |
+| name | string | The variant2 name |
+| number | string | The variant2 number |
+| weblink | string | The website URL of variant2 |
+| taric_code | string | The taric code of variant2 |
+| specs | array | Collection of spec2 configuration |
+| prices | array | Collection of each currency price |
+| images | array | Collection of image |
+| warranty | object | The warranty configuration of variant2 |
 
 | price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of price |
-| value | number | The price of currency of variant |
+| currency | string | The currency name |
+| value | numeric | The currency's price |
 
 | spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of value of spec<br />It's zero indicate no setting |
+| id | integer | The spec2 id |
+| value | integer | The id of spec2 value<br />It's zero indicate no setting |
 
 | image | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
+| name | string | The temporary filename which takes from uploded image api |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
 | warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -405,18 +405,16 @@ Failure
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-The return same to Get Variant2 Detail API
+The return same to Variant2 Detail API
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -424,20 +422,20 @@ Failure
 
 ```json
 {
+    "error_name": "illegal_form_input",
     "validation": {
         "name": ["invalid"],
         "number": ["required"]
-    },
-    "error_name": "illegal_form_input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
-| validation | | |
+| validation | Type | Description |
 | -------: | :---- | :--- |
 | item_id | array (option) | required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be integer</li></ol> |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol> |
@@ -457,6 +455,7 @@ Failure
 | warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
 | warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
+
 
 
 ## Edit Variant2
