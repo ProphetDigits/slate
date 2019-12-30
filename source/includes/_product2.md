@@ -65,7 +65,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/list` |
 | Method | `post` |
-| Use | show product list |
+| Use | Show product2 list |
 | Notice |  |
 
 
@@ -91,12 +91,12 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| target_company_id | integer | The company id of variant |
-| item_id | integer | The id of item which variant belongs to |
-| variant_id | integer | The id of variant<br />It's 0 will return all products of item |
-| pagination | object (option) | The setting of pagination <br /> It get all data without pagination if this parameter not appear |
-| filter | object (option) | The setting of filter |
+| api_key | string | The identity token of user |
+| target_company_id | integer | The company id of variant2 |
+| item_id | integer | The item id of variant2 |
+| variant_id | integer | The variant2 id<br />It's 0 will return all product2 of item |
+| pagination | object (option) | The pagination setting <br /> It get all data if without pagination parameters |
+| filter | object (option) | The filter setting |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
@@ -105,13 +105,13 @@ Failure
 
 | filter | Type | Description |
 | -------: | :---- | :--- |
-| sold | boolean (option) | <ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
-| deposit_owner | integer (option) | The id of company <br />It's 0 will get the products which deposit owner is not current company |
-| holder | integer (option) | The id of user <br />It's 0 will get the products which last holder is not current user |
-| location | integer (option) | The id of company <br />It's 0 will get the products which location is not current company |
+| sold | boolean (option) | <ol><li>(unuse): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
+| deposit_owner | integer (option) | The company id <br />It's 0 will get the products which deposit owner is not current company |
+| holder | integer (option) | The user id <br />It's 0 will get the products which last holder is not current user |
+| location | integer (option) | The company id <br />It's 0 will get the products which location is not current company |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -125,7 +125,9 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "qrcode": ".....",
         "sold": false,
+        "printed_at": 1577635200,
         "variants": [],
         "last_holder": {
             "id": 1,
@@ -151,13 +153,17 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "qrcode": ".....",
         "sold": true,
+        "printed_at": 1577635200,
         "variants": [{
             "id": 1,
-            "name": "mutiply k1"
+            "name": "mutiply k1",
+            "number": "mk1"
         }, {
             "id": 2,
-            "name": "mutiply k2"
+            "name": "mutiply k2",
+            "number": "mk2"
         }],
         "last_holder": {
             "id": 0,
@@ -191,52 +197,54 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| products | array | The products which spec same to variant combination |
-| pagination | object (option) | The page information <br /> The parameter will appear if you get data with pagination |
+| products | array | Collection of product2 |
+| pagination | object (option) | The page information <br /> The parameter will appear if you use pagination |
 
 | product | Type | Description |
 | -------: | :---- | :--- |
-| number | string | The number of product |
-| short_number | string | The short number of product |
-| serial_number | string | The serial number of product |
-| sold | boolean | The status of product<ol><li>true: sold</li><li>false: unsold</li></ol> |
-| printed_at | timestamp | The last printed time of product, the product is not printed will show null |
-| last_holder | object | The last holder of product<br />It's null when product not checkin, checkout or sold |
-| deposit_owner | object | The company which pay deposit for product |
-| purchase_order_number | string | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
-| shipment_number | string | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
+| number | string | The product2 number |
+| short_number | string | The short number of product2 |
+| serial_number | string | The serial number of product2 |
+| qrcode | string | The product2 qrcode encoded by base64 |
+| sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+| printed_at | timestamp / null | The last printed time, the product is not printed will show null |
+| last_holder | object / null | The last holder of product<br />It's null when product not checkin, checkout or sold |
+| deposit_owner | object | The company of paying deposit |
+| purchase_order_number | string / null | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
+| shipment_number | string / null | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
 
 | product.last_holder | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user<br />It will be 0 if product is check out or sold |
+| id | integer | The user id<br />It's 0 if product is check out or sold |
 | given_name | string | The given name of user<br />It will be empty if product is check out or sold |
 | family_name | string | The family name of user<br />It will be empty if product is check out or sold |
-| operator | object | The operator for check in or check out or sell |
+| operator | object | The operator of check in or check out or sell |
 
 | product.last_holder.operator | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
+| id | integer | The user id |
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
-| company | object | The current company when user check in or check out product or sell it |
+| company | object | The company when user check in or check out product or sell it |
 
 | product.last_holder.operator.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | product.deposit_owner | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
-| total | integer | The total quantity of product of current variant |
+| total | integer | The total quantity of product2 |
 | per_page | integer | The quantity of per page |
 | current_page | integer | The current page |
 | last_page | integer | The last page |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -250,7 +258,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist or not belongs to target company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li><li>no_option: The current company does not have option with target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist or not belongs to target company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li><li>target_company_not_exist: target company is not exist</li><li>no_option: The current company does not have option with target company</li></ul> |
+
 
 
 ## Product2 Detail
