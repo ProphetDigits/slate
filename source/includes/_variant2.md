@@ -1,6 +1,6 @@
 # Variant2
 
-## Get Variant2 List
+## Variant2 List
 
 ### Description
 
@@ -8,7 +8,7 @@
 | -------: | :---- |
 | URL | `company/item/variant2/list` |
 | Method | `post` |
-| Use | to get variant list |
+| Use | To get variant2 list |
 | Notice | |
 
 
@@ -27,15 +27,15 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
+| api_key | string | The identity token of user |
 | target_company_id | integer | The company id of item |
-| item_id | integer | The id of item |
-| spec_values | array (option) | The set of id of spec value indicate the variants combine by those spec value<br />It's empty array mean no specify spec values |
+| item_id | integer | The item id |
+| spec_values | array (option) | Collection of id of spec value. It's to filter variants combine by those spec value |
 
 
-> Return Parameters
+> Return Success Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
@@ -67,7 +67,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| variants | array | The variants data |
+| variants | array | Collection of variant |
 
 | variant | Type | Description |
 | -------: | :---- | :--- |
@@ -79,8 +79,8 @@ Success
 | price | numeric | The price of variant for default currency |
 | deposit | numeric | The deposit of price for default currency |
 | cover_image | object | The url of each resolution for cover image |
-| duplicate_combination | boolean | The combination of variant is duplicate with others |
-| company | object | The company which variant belongs to |
+| duplicate_combination | boolean | The combination is duplicate with other variant2 |
+| company | object | The company of variant |
 
 | variant.cover_image | Type | Description |
 | -------: | :---- | :--- |
@@ -91,9 +91,9 @@ Success
 
 | variant.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company of variant |
+| id | integer | The company id |
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -107,10 +107,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul> |
 
 
-## Get Variant2 Detail
+
+## Variant2 Detail
 
 ### Description
 
@@ -118,7 +119,7 @@ Failure
 | -------: | :---- |
 | URL | `company/item/variant2/detail` |
 | Method | `post` |
-| Use | to show variant detail |
+| Use | To show variant2 detail |
 | Notice | |
 
 
@@ -136,13 +137,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| target_company_id | integer | The company id of variant |
-| id | integer | The id of variant |
+| api_key | string | The identity token of user |
+| target_company_id | integer | The company id of variant2 |
+| id | integer | The variant2 id |
 
-> Return Parameters
 
-### Return Parameters When Success
+> Return Success Parameters
+
+### Return Parameters
 
 <aside class="success">
 Success
@@ -155,10 +157,11 @@ Success
 		"name": "Multiply bl",
 		"number": "mbl",
         "taric_code": "1234567",
-        "website": "",
+        "weblink": "",
         "item": {
         	"id": 1,
-        	"name": "Multiply K1"
+        	"name": "Multiply K1",
+        	"number": "Mk1"
         },
         "prices": [{
         	"currency": "EUR",
@@ -169,6 +172,10 @@ Success
         	"defualt_currency": false,
         	"value": 123
         }],
+        "deposit": {
+        	"currency": "EUR",
+        	"value": 12.35
+        },
         "specs": [{
         	"id": 1,
         	"name": "Movement",
@@ -222,53 +229,54 @@ Success
 
 | variant | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of variant |
-| name | string | The name of variant |
-| number | string | The number of variant |
-| weblink | string | The website URL of variant |
-| taric_code | string | The taric code of variant |
-| item | object | The item belongs to variant |
-| specs | array | The spec configuration of variant |
-| prices | array | The prices for each currency of variant |
-| deposit | object | The deposit information of variant |
-| images | array | The images of variant |
-| warranty | object | The warranty configuration of variant |
-| variants_of_same_combinations | array | The variants of same combinations |
+| id | integer | The variant2 id |
+| name | string | The variant2 name |
+| number | string | The variant2 number |
+| weblink | string | The website URL of variant2 |
+| taric_code | string | The taric code of variant2 |
+| item | object | The item of variant2 |
+| specs | array | Collection of spec configuration |
+| prices | array | Collection of each currency price |
+| deposit | object | The deposit of variant2 |
+| images | array | Collection of image |
+| warranty | object | The warranty configuration of variant2 |
+| variants_of_same_combinations | array | Collection of variant2 with same combinations |
 
 | variant.item | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of item |
 | name | string | The name of item |
+| number | string | The number of item |
 
 | variant.price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of price |
-| defualt_currency | boolean | The default currency of company |
-| value | number | The price of currency |
+| currency | string | The currency name |
+| defualt_currency | boolean | The tag that is default currency of company |
+| value | numeric | The currency's price |
 
 | variant.deposit | Type | Description |
 | -------: | :---- | :--- |
 | currency | string | The currency of deposit |
-| value | number | The deposit of variant |
+| value | numeric | The deposit of variant |
 
 | variant.spec | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
-| display_name | string | The display name of spec for consumer |
+| display_name | string | The display name of spec |
 | part | boolean | The spec is part or not |
-| value | object | The value of spec of variant |
+| value | object | The spec configuration |
 
 | variant.spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of value of spec<br />It's zero if spec of variant not setting |
-| name | string | The name of value of spec<br />It's empty string if spec of variant not setting |
-| display_name | string | The display name of spec for consumer<br />It's empty string if spec of variant not setting |
-| price | object | The price information of value of spec |
+| id | integer | The value id of spec<br />It's zero if variant not setting spec |
+| name | string | The value name of spec<br />It's empty string if variant not setting spec |
+| display_name | string | The display name of spec value<br />It's empty string if variant not setting spec |
+| price | object | The price of spec value |
 
 | variant.spec.value.price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of value of spec |
+| currency | string | The currency of price |
 | value | numeric | The price of value of spec<br /> It's zero if spec of variant not setting |
 
 | variant.image | Type | Description |
@@ -295,7 +303,7 @@ Success
 | id | integer | The id of variant |
 | name | string | The name of variant |
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -309,7 +317,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li></ul> |
+
 
 
 ## Create Variant2
@@ -320,7 +329,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/variant2/create` |
 | Method | `post` |
-| Use | to create variant |
+| Use | To create variant2 |
 | Notice | |
 
 
@@ -364,31 +373,31 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | System gives it after user sign in |
-| item_id | integer | The id of item |
-| name | string | The name of variant |
-| number | string | The number of variant |
-| weblink | string | The website URL of variant |
-| taric_code | string | The taric code of variant |
-| specs | array | The spec configuration of variant |
-| prices | array | The prices for each currency of variant |
-| images | array | The images of variant |
-| warranty | object | The warranty configuration of variant |
+| api_key | string | The identity token of user |
+| item_id | integer | The item id |
+| name | string | The variant2 name |
+| number | string | The variant2 number |
+| weblink | string | The website URL of variant2 |
+| taric_code | string | The taric code of variant2 |
+| specs | array | Collection of spec2 configuration |
+| prices | array | Collection of each currency price |
+| images | array | Collection of image |
+| warranty | object | The warranty configuration of variant2 |
 
 | price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of price |
-| value | number | The price of currency of variant |
+| currency | string | The currency name |
+| value | numeric | The currency's price |
 
 | spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of value of spec<br />It's zero indicate no setting |
+| id | integer | The spec2 id |
+| value | integer | The id of spec2 value<br />It's zero indicate no setting |
 
 | image | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
+| name | string | The temporary filename which takes from uploded image api |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
 | warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -396,18 +405,16 @@ Failure
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-The return same to Get Variant2 Detail API
+The return same to Variant2 Detail API
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -415,20 +422,20 @@ Failure
 
 ```json
 {
+    "error_name": "illegal_form_input",
     "validation": {
         "name": ["invalid"],
         "number": ["required"]
-    },
-    "error_name": "illegal_form_input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
-| validation | | |
+| validation | Type | Description |
 | -------: | :---- | :--- |
 | item_id | array (option) | required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be integer</li></ol> |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol> |
@@ -450,6 +457,7 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 
 
+
 ## Edit Variant2
 
 ### Description
@@ -458,7 +466,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/variant2/edit` |
 | Method | `post` |
-| Use | to edit variant |
+| Use | To edit variant2 |
 | Notice | |
 
 
@@ -502,30 +510,31 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of variant |
-| name | string (option) | The name of variant |
-| number | string (option) | The number of variant |
-| weblink | string (option) | The website URL of variant |
-| taric_code | string (option) | The taric code of variant |
-| specs | array (option) | The spec configuration of variant |
-| prices | array (option) | The prices for each currency of variant |
-| images | array (option) | The images of variant |
-| warranty | object (option) | The warranty configuration of variant |
+| api_key | string | The identity token of user |
+| id | integer | The variant2 id |
+| name | string (option) | The variant2 name |
+| number | string (option) | The variant2 number |
+| weblink | string (option) | The website URL of variant2 |
+| taric_code | string (option) | The taric code of variant2 |
+| specs | array (option) | Collection of spec2 configuration |
+| prices | array (option) | Collection of each currency price |
+| images | array (option) | Collection of image |
+| warranty | object (option) | The warranty configuration of variant2 |
 
 | price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of price |
-| value | number | The price of currency of variant |
+| currency | string | The currency name |
+| value | numeric | The currency's price |
 
 | spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of value of spec<br />It's zero indicate no setting |
+| id | integer | The spec2 id |
+| value | integer | The id of spec2 value<br />It's zero indicate no setting |
 
 | image | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The name will be returned by Upload Image API |
-| cover | boolean | The tag of cover image |
+| name | string | The temporary filename which takes from uploded image api |
+| cover | boolean | The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul> |
 
 | warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -533,18 +542,17 @@ Failure
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
-> Return Parameters
 
-### Return Parameters When Success
+
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-The return same to Get Variant2 Detail API
+The return same to Variant2 Detail API
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -552,20 +560,20 @@ Failure
 
 ```json
 {
+	"error_name": "illegal_form_input",
     "validation": {
         "name": ["invalid"],
         "number": ["required"]
-    },
-    "error_name": "illegal_form_input"
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
-| validation | | |
+| validation | Type | Description |
 | -------: | :---- | :--- |
 | name | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data should be string</li></ol> |
 | number | array (option) | required: <ol><li>The field is required</li></ol> invalid: <ol><li>The data should be string</li></ol> |
