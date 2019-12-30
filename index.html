@@ -15271,7 +15271,7 @@ Failure
 
           <h1 id="variant2">Variant2</h1>
 
-<h2 id="get-variant2-list">Get Variant2 List</h2>
+<h2 id="variant2-list">Variant2 List</h2>
 
 <h3 id="description">Description</h3>
 
@@ -15291,7 +15291,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get variant list</td>
+<td style="text-align: left">To get variant2 list</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -15321,7 +15321,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">System gives it after user sign in</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">target_company_id</td>
@@ -15331,20 +15331,20 @@ Failure
 <tr>
 <td style="text-align: right">item_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of item</td>
+<td style="text-align: left">The item id</td>
 </tr>
 <tr>
 <td style="text-align: right">spec_values</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">The set of id of spec value indicate the variants combine by those spec value<br />It&rsquo;s empty array mean no specify spec values</td>
+<td style="text-align: left">Collection of id of spec value. It&rsquo;s to filter variants combine by those spec value</td>
 </tr>
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
-<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+<h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
@@ -15381,7 +15381,7 @@ Success
 <tr>
 <td style="text-align: right">variants</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The variants data</td>
+<td style="text-align: left">Collection of variant</td>
 </tr>
 </tbody></table>
 
@@ -15435,12 +15435,12 @@ Success
 <tr>
 <td style="text-align: right">duplicate_combination</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">The combination of variant is duplicate with others</td>
+<td style="text-align: left">The combination is duplicate with other variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">company</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The company which variant belongs to</td>
+<td style="text-align: left">The company of variant</td>
 </tr>
 </tbody></table>
 
@@ -15483,11 +15483,13 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of company of variant</td>
+<td style="text-align: left">The company id</td>
 </tr>
 </tbody></table>
 
-<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -15506,11 +15508,11 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
-<h2 id="get-variant2-detail">Get Variant2 Detail</h2>
+<h2 id="variant2-detail">Variant2 Detail</h2>
 
 <h3 id="description">Description</h3>
 
@@ -15530,7 +15532,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to show variant detail</td>
+<td style="text-align: left">To show variant2 detail</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -15559,25 +15561,25 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">System gives it after user sign in</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">target_company_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The company id of variant</td>
+<td style="text-align: left">The company id of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of variant</td>
+<td style="text-align: left">The variant2 id</td>
 </tr>
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
-<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+<h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
@@ -15588,10 +15590,11 @@ Success
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply bl"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mbl"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"taric_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply K1"</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiply K1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mk1"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
@@ -15602,6 +15605,10 @@ Success
             </span><span class="nt">"defualt_currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
         </span><span class="p">}],</span><span class="w">
+        </span><span class="nt">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.35</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Movement"</span><span class="p">,</span><span class="w">
@@ -15672,62 +15679,62 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of variant</td>
+<td style="text-align: left">The variant2 id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of variant</td>
+<td style="text-align: left">The variant2 name</td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The number of variant</td>
+<td style="text-align: left">The variant2 number</td>
 </tr>
 <tr>
 <td style="text-align: right">weblink</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The website URL of variant</td>
+<td style="text-align: left">The website URL of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">taric_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The taric code of variant</td>
+<td style="text-align: left">The taric code of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">item</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The item belongs to variant</td>
+<td style="text-align: left">The item of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The spec configuration of variant</td>
+<td style="text-align: left">Collection of spec configuration</td>
 </tr>
 <tr>
 <td style="text-align: right">prices</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The prices for each currency of variant</td>
+<td style="text-align: left">Collection of each currency price</td>
 </tr>
 <tr>
 <td style="text-align: right">deposit</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The deposit information of variant</td>
+<td style="text-align: left">The deposit of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">images</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The images of variant</td>
+<td style="text-align: left">Collection of image</td>
 </tr>
 <tr>
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The warranty configuration of variant</td>
+<td style="text-align: left">The warranty configuration of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">variants_of_same_combinations</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The variants of same combinations</td>
+<td style="text-align: left">Collection of variant2 with same combinations</td>
 </tr>
 </tbody></table>
 
@@ -15748,6 +15755,11 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">The name of item</td>
 </tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The number of item</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -15760,17 +15772,17 @@ Success
 <tr>
 <td style="text-align: right">currency</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The currency of price</td>
+<td style="text-align: left">The currency name</td>
 </tr>
 <tr>
 <td style="text-align: right">defualt_currency</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">The default currency of company</td>
+<td style="text-align: left">The tag that is default currency of company</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
-<td style="text-align: left">number</td>
-<td style="text-align: left">The price of currency</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The currency&rsquo;s price</td>
 </tr>
 </tbody></table>
 
@@ -15788,7 +15800,7 @@ Success
 </tr>
 <tr>
 <td style="text-align: right">value</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">The deposit of variant</td>
 </tr>
 </tbody></table>
@@ -15813,7 +15825,7 @@ Success
 <tr>
 <td style="text-align: right">display_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The display name of spec for consumer</td>
+<td style="text-align: left">The display name of spec</td>
 </tr>
 <tr>
 <td style="text-align: right">part</td>
@@ -15823,7 +15835,7 @@ Success
 <tr>
 <td style="text-align: right">value</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The value of spec of variant</td>
+<td style="text-align: left">The spec configuration</td>
 </tr>
 </tbody></table>
 
@@ -15837,22 +15849,22 @@ Success
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero if spec of variant not setting</td>
+<td style="text-align: left">The value id of spec<br />It&rsquo;s zero if variant not setting spec</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of value of spec<br />It&rsquo;s empty string if spec of variant not setting</td>
+<td style="text-align: left">The value name of spec<br />It&rsquo;s empty string if variant not setting spec</td>
 </tr>
 <tr>
 <td style="text-align: right">display_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The display name of spec for consumer<br />It&rsquo;s empty string if spec of variant not setting</td>
+<td style="text-align: left">The display name of spec value<br />It&rsquo;s empty string if variant not setting spec</td>
 </tr>
 <tr>
 <td style="text-align: right">price</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The price information of value of spec</td>
+<td style="text-align: left">The price of spec value</td>
 </tr>
 </tbody></table>
 
@@ -15866,7 +15878,7 @@ Success
 <tr>
 <td style="text-align: right">currency</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The currency of value of spec</td>
+<td style="text-align: left">The currency of price</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
@@ -15971,7 +15983,9 @@ Success
 </tr>
 </tbody></table>
 
-<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -15990,7 +16004,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -16014,7 +16028,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to create variant</td>
+<td style="text-align: left">To create variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -16069,52 +16083,52 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">System gives it after user sign in</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">item_id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of item</td>
+<td style="text-align: left">The item id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of variant</td>
+<td style="text-align: left">The variant2 name</td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The number of variant</td>
+<td style="text-align: left">The variant2 number</td>
 </tr>
 <tr>
 <td style="text-align: right">weblink</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The website URL of variant</td>
+<td style="text-align: left">The website URL of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">taric_code</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The taric code of variant</td>
+<td style="text-align: left">The taric code of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The spec configuration of variant</td>
+<td style="text-align: left">Collection of spec2 configuration</td>
 </tr>
 <tr>
 <td style="text-align: right">prices</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The prices for each currency of variant</td>
+<td style="text-align: left">Collection of each currency price</td>
 </tr>
 <tr>
 <td style="text-align: right">images</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">The images of variant</td>
+<td style="text-align: left">Collection of image</td>
 </tr>
 <tr>
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The warranty configuration of variant</td>
+<td style="text-align: left">The warranty configuration of variant2</td>
 </tr>
 </tbody></table>
 
@@ -16128,12 +16142,12 @@ Failure
 <tr>
 <td style="text-align: right">currency</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The currency of price</td>
+<td style="text-align: left">The currency name</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
-<td style="text-align: left">number</td>
-<td style="text-align: left">The price of currency of variant</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The currency&rsquo;s price</td>
 </tr>
 </tbody></table>
 
@@ -16147,12 +16161,12 @@ Failure
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of spec</td>
+<td style="text-align: left">The spec2 id</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero indicate no setting</td>
+<td style="text-align: left">The id of spec2 value<br />It&rsquo;s zero indicate no setting</td>
 </tr>
 </tbody></table>
 
@@ -16166,12 +16180,12 @@ Failure
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name will be returned by Upload Image API</td>
+<td style="text-align: left">The temporary filename which takes from uploded image api</td>
 </tr>
 <tr>
 <td style="text-align: right">cover</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">The tag of cover image</td>
+<td style="text-align: left">The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul></td>
 </tr>
 </tbody></table>
 
@@ -16199,29 +16213,27 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+<h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
 </aside>
 
-<p>The return same to Get Variant2 Detail API</p>
+<p>The return same to Variant2 Detail API</p>
 
-<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"invalid"</span><span class="p">],</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -16234,20 +16246,20 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
 <td style="text-align: left">object (option)</td>
-<td style="text-align: left">if the err_name is &lsquo;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+<td style="text-align: left">If the error_name is &lsquo;illegal_form_input&rsquo;, system will show reasons for each error input</td>
 </tr>
 </tbody></table>
 
 <table><thead>
 <tr>
 <th style="text-align: right">validation</th>
-<th style="text-align: left"></th>
-<th style="text-align: left"></th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -16362,7 +16374,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to edit variant</td>
+<td style="text-align: left">To edit variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -16415,49 +16427,54 @@ Failure
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of variant</td>
+<td style="text-align: left">The variant2 id</td>
 </tr>
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string (option)</td>
-<td style="text-align: left">The name of variant</td>
+<td style="text-align: left">The variant2 name</td>
 </tr>
 <tr>
 <td style="text-align: right">number</td>
 <td style="text-align: left">string (option)</td>
-<td style="text-align: left">The number of variant</td>
+<td style="text-align: left">The variant2 number</td>
 </tr>
 <tr>
 <td style="text-align: right">weblink</td>
 <td style="text-align: left">string (option)</td>
-<td style="text-align: left">The website URL of variant</td>
+<td style="text-align: left">The website URL of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">taric_code</td>
 <td style="text-align: left">string (option)</td>
-<td style="text-align: left">The taric code of variant</td>
+<td style="text-align: left">The taric code of variant2</td>
 </tr>
 <tr>
 <td style="text-align: right">specs</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">The spec configuration of variant</td>
+<td style="text-align: left">Collection of spec2 configuration</td>
 </tr>
 <tr>
 <td style="text-align: right">prices</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">The prices for each currency of variant</td>
+<td style="text-align: left">Collection of each currency price</td>
 </tr>
 <tr>
 <td style="text-align: right">images</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">The images of variant</td>
+<td style="text-align: left">Collection of image</td>
 </tr>
 <tr>
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">object (option)</td>
-<td style="text-align: left">The warranty configuration of variant</td>
+<td style="text-align: left">The warranty configuration of variant2</td>
 </tr>
 </tbody></table>
 
@@ -16471,12 +16488,12 @@ Failure
 <tr>
 <td style="text-align: right">currency</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The currency of price</td>
+<td style="text-align: left">The currency name</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
-<td style="text-align: left">number</td>
-<td style="text-align: left">The price of currency of variant</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The currency&rsquo;s price</td>
 </tr>
 </tbody></table>
 
@@ -16490,12 +16507,12 @@ Failure
 <tr>
 <td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of spec</td>
+<td style="text-align: left">The spec2 id</td>
 </tr>
 <tr>
 <td style="text-align: right">value</td>
 <td style="text-align: left">integer</td>
-<td style="text-align: left">The id of value of spec<br />It&rsquo;s zero indicate no setting</td>
+<td style="text-align: left">The id of spec2 value<br />It&rsquo;s zero indicate no setting</td>
 </tr>
 </tbody></table>
 
@@ -16509,12 +16526,12 @@ Failure
 <tr>
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name will be returned by Upload Image API</td>
+<td style="text-align: left">The temporary filename which takes from uploded image api</td>
 </tr>
 <tr>
 <td style="text-align: right">cover</td>
 <td style="text-align: left">boolean</td>
-<td style="text-align: left">The tag of cover image</td>
+<td style="text-align: left">The tag that decide image is cover or not <ul><li>true: cover image</li><li>false: normal image </li></ul></td>
 </tr>
 </tbody></table>
 
@@ -16542,29 +16559,27 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters-when-success">Return Parameters When Success</h3>
+<h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
 </aside>
 
-<p>The return same to Get Variant2 Detail API</p>
+<p>The return same to Variant2 Detail API</p>
 
-<h3 id="return-parameters-when-failure">Return Parameters When Failure</h3>
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"invalid"</span><span class="p">],</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -16577,20 +16592,20 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
 <td style="text-align: left">object (option)</td>
-<td style="text-align: left">if the err_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+<td style="text-align: left">If the error_name is &#39;illegal_form_input&rsquo;, system will show reasons for each error input</td>
 </tr>
 </tbody></table>
 
 <table><thead>
 <tr>
 <th style="text-align: right">validation</th>
-<th style="text-align: left"></th>
-<th style="text-align: left"></th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
