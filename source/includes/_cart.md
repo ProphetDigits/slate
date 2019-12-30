@@ -11,6 +11,7 @@
   * Modify Success Parameter:
     * Apply new structure
     * currency: modify description
+    * cart.id: modify example
 
 </details>
 
@@ -49,10 +50,10 @@ Success
 ```json
 {
   "carts": [{
-    "id": "1",
+    "id": 1,
     "currency": "EUR"
     }, {
-    "id": "2",
+    "id": 2,
     "currency": "TWD"
   }]
 }
@@ -60,7 +61,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| carts | array | Ｃollection of cart |
+| carts | array | Collection of cart |
 
 | cart | Type | Description |
 | -------: | :---- | :--- |
