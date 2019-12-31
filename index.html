@@ -20737,6 +20737,26 @@ Failure
 
 <h2 id="get-retailer-invitation-detail">Get Retailer Invitation Detail</h2>
 
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.12.31 / Joey Huang</strong></p>
+
+<ul>
+<li>Modify Success Parameters:
+
+<ul>
+<li>Break user object to a sub-table</li>
+</ul></li>
+<li>Modify Fail Parameters:
+
+<ul>
+<li>Apply new structure
+</details></li>
+</ul></li>
+</ul>
+
 <h3 id="description">Description</h3>
 
 <table><thead>
@@ -20786,11 +20806,11 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
+
+<blockquote>
+<p>Return Success Parameters</p>
+</blockquote>
 
 <aside class="success">
 Success
@@ -20840,21 +20860,34 @@ Success
 <td style="text-align: left">registered step (signup, create company, finished)</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>user</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">user</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">registered user</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<th style="text-align: right">user</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">registered user id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">registered user email</td>
 </tr>
 </tbody></table>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -20873,16 +20906,31 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invitation not exist:</strong> invitation not exist</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>invitation not exist: the hash_id of invitation not exist</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="set-retailer-invitation">Set Retailer Invitation</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.12.31 / Joey Huang</strong></p>
+
+<ul>
+<li>Modify Success Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+<li>Modify Fail Parameters:
+
+<ul>
+<li>Apply new structure
+</details></li>
+</ul></li>
+</ul>
 
 <h3 id="description">Description</h3>
 
@@ -20945,31 +20993,21 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
+
+<blockquote>
+<p>Return Success Parameters</p>
+</blockquote>
 
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -20988,32 +21026,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invitation not exist:</strong> invitation not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>account not exist:</strong> account not register yet</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> company not create yet</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid account:</strong> login account not register account</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>finished:</strong> invitation has been finished</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>invitation not exist: the hash_id of invitation not exist</li><li>account not exist: the api_key of account not register yet</li><li>company not exist: the company_id of company not create yet</li><li>invalid account: login account not register account</li><li>finished: invitation has been finished</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -22716,6 +22729,11 @@ Success
 <td style="text-align: left">payment status</td>
 </tr>
 <tr>
+<td style="text-align: right">payment_method</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment method</td>
+</tr>
+<tr>
 <td style="text-align: right">transaction_id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">transaction id</td>
@@ -22731,10 +22749,24 @@ Success
 <td style="text-align: left">refund time (s)</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>retailer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">retailer</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left"></td>
 </tr>
+<tr>
+<td style="text-align: right">agent</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">retailer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
@@ -22745,11 +22777,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>agent</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">agent</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
@@ -24485,10 +24521,24 @@ Success
 <td style="text-align: left">payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>odrer</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">order information</td>
+<td style="text-align: right">odrer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left"></td>
 </tr>
+<tr>
+<td style="text-align: right">fail</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">odrer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>number</em></td>
 <td style="text-align: left">string</td>
@@ -24524,11 +24574,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">payer email</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>fail</strong></td>
-<td style="text-align: left"><strong>object (option)</strong></td>
-<td style="text-align: left">fail information</td>
+<th style="text-align: right">fail</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>refused_by</em></td>
 <td style="text-align: left">string</td>
@@ -24939,10 +24993,34 @@ Success
 <td style="text-align: left">payment method</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>retailer</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">retailer</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left"></td>
 </tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><em>discount_price</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product discount price</td>
+</tr>
+<tr>
+<td style="text-align: right"><em>selling_price</em></td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product selling price</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">retailer</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
@@ -24955,14 +25033,37 @@ Success
 </tr>
 <tr>
 <td style="text-align: right"><em>cover_img</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
 <tr>
+<td style="text-align: right"><em>address</em></td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">retailer&rsquo;s address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">retailer.cover_img</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
 <td style="text-align: right"><em>resource</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">retailer.cover_img.resource</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>px240</em></td>
 <td style="text-align: left">string</td>
@@ -24983,11 +25084,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>address</em></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">retailer&rsquo;s address</td>
+<th style="text-align: right">address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>street</em></td>
 <td style="text-align: left">string</td>
@@ -25013,21 +25118,44 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s country</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>products</strong></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">product</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>number</em></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">product number</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>company</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">company of product</td>
 </tr>
+<tr>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">item of product</td>
+</tr>
+<tr>
+<td style="text-align: right">variant</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">variant of product</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">string</td>
@@ -25038,11 +25166,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>item</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">item of product</td>
+<th style="text-align: right">product.item</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">integer</td>
@@ -25058,11 +25190,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">item name of product</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>variant</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left">variant of product</td>
+<th style="text-align: right">product.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>id</em></td>
 <td style="text-align: left">string</td>
@@ -25075,14 +25211,32 @@ Success
 </tr>
 <tr>
 <td style="text-align: right"><em>cover_img</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.variant.cover_img</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>resource</em></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.variant.cover_img.resource</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>px240</em></td>
 <td style="text-align: left">string</td>
@@ -25107,16 +25261,6 @@ Success
 <td style="text-align: right"><em>price</em></td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">product price</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>discount_price</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">product discount price</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>selling_price</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">product selling price</td>
 </tr>
 </tbody></table>
 
@@ -25261,10 +25405,24 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><strong>profile</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
+<td style="text-align: right">profile</td>
+<td style="text-align: left">object</td>
 <td style="text-align: left"></td>
 </tr>
+<tr>
+<td style="text-align: right">default_address</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">profile</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>given_name</em></td>
 <td style="text-align: left">string</td>
@@ -25285,11 +25443,15 @@ Success
 <td style="text-align: left">string</td>
 <td style="text-align: left">phone number</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><strong>default_address</strong></td>
-<td style="text-align: left"><strong>object</strong></td>
-<td style="text-align: left"></td>
+<th style="text-align: right">default_address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td style="text-align: right"><em>street</em></td>
 <td style="text-align: left">string</td>
