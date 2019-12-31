@@ -84,13 +84,20 @@ Success
 | total | double | order total price |
 | order_status | string | order status |
 | payment_status | string | payment status |
+| payment_method | string | payment method |
 | transaction_id | string | transaction id  |
 | create_at | timestamp | create time (s) |
 | refund_at | timestamp | refund time (s) |
-| **retailer** | **object** |  |
+| retailer | object |  |
+| agent | object |  |
+
+| retailer | Type | Description |
+| -------: | :---- | :--- |
 | *id* | integer | company id |
 | *name* | string | company name |
-| **agent** | **object** |  |
+
+| agent | Type | Description |
+| -------: | :---- | :--- |
 | *id* | integer | user id |
 | *given_name* | string | user given name |
 | *family_name* | string | user family name |
@@ -852,7 +859,11 @@ Success
 | -------: | :---- | :--- |
 | date | timestamp | payment date |
 | status | string | payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
-| **odrer** | **object (option)** | order information |
+| odrer | object |  |
+| fail | object |  |
+
+| odrer | Type | Description |
+| -------: | :---- | :--- |
 | *number* | string | order number |
 | *payment_method* | string | payment method of order |
 | *transaction* | string | transaction id of order |
@@ -860,10 +871,13 @@ Success
 | *total* | number | total price of payment |
 | *retailer* | string | seller's company name |
 | *payer* | string | payer email |
-| **fail** | **object (option)** | fail information |
+
+| fail | Type | Description |
+| -------: | :---- | :--- |
 | *refused_by* | string | By whom was this action refused, Server or PayPal |
 | *code* | string | fail code of PayPal |
 | *description* | string | fail description |
+
 
 <aside class="warning">
 Failure
@@ -1094,42 +1108,73 @@ Success
 | order_status | string | order status |
 | payment_status | string | payment status |
 | payment_method | string | payment method |
-| **retailer** | **object** | |
+| retailer | object |  |
+| products | array |  |
+| *discount_price* | double | product discount price |
+| *selling_price* | double | product selling price |
+
+
+| retailer | Type | Description |
+| -------: | :---- | :--- |
 | *id* | integer | company  id |
 | *name* | string | company name |
-| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
-| *resource* | **object** | item cover image. It will be empty if no set cover image |
+| *cover_img* | object | item cover image. It will be empty if no set cover image |
+| *address* | object | retailer's address |
+
+| retailer.cover_img | Type | Description |
+| -------: | :---- | :--- |
+| *resource* | object | item cover image. It will be empty if no set cover image |
+
+| retailer.cover_img.resource | Type | Description |
+| -------: | :---- | :--- |
 | *px240* | string | picture url of 240 resolution (426x240) |
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| *address* | **object** | retailer's address |
+
+| address | Type | Description |
+| -------: | :---- | :--- |
 | *street* | string | retailer's street  |
 | *city* | string |  retailer's city  |
 | *state* | string |  retailer's state  |
 | *post_code* | string |  retailer's post code  |
 | *country* | string |  retailer's country  |
-| **products** | **array** |  |
+
+| product | Type | Description |
+| -------: | :---- | :--- |
 | *number* | string | product number |
-| **company** | **object** | company of product |
+| company | object | company of product |
+| item | object | item of product |
+| variant | object | variant of product |
+
+| product.company | Type | Description |
+| -------: | :---- | :--- |
 | *id* | string | company id of product |
 | *name* | string | company name of product |
-| **item** | **object** | item of product |
+
+| product.item | Type | Description |
+| -------: | :---- | :--- |
 | *id* | integer | item id of products |
 | *number* | string | item number of product |
 | *name* | string | item name of product |
-| **variant** | **object** | variant of product |
+
+| product.variant | Type | Description |
+| -------: | :---- | :--- |
 | *id* | string | variant id of product |
 | *name* | string | variant name of product |
-| *cover_img* | **object** | item cover image. It will be empty if no set cover image |
-| *resource* | **object** | item cover image. It will be empty if no set cover image |
+| *cover_img* | object | item cover image. It will be empty if no set cover image |
+
+| product.variant.cover_img | Type | Description |
+| -------: | :---- | :--- |
+| *resource* | object | item cover image. It will be empty if no set cover image |
+
+| product.variant.cover_img.resource | Type | Description |
+| -------: | :---- | :--- |
 | *px240* | string | picture url of 240 resolution (426x240) |
 | *px480* | string | picture url of 480 resolution (854x480) |
 | *px720* | string | picture url of 720 resolution (1280x720) |
 | *px1080* | string | picture url of 1080 resolution (1920x1080) |
 | *price* | double | product price |
-| *discount_price* | double | product discount price |
-| *selling_price* | double | product selling price |
 
 <aside class="warning">
 Failure
@@ -1207,18 +1252,24 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **profile** | **object** | |
+| profile | object | |
+| default_address | object | |
+
+
+| profile | Type | Description |
+| -------: | :---- | :--- |
 | *given_name* | string | given_name |
 | *family_name* | string | family_name |
 | *title* | integer | title (0=Mr. 1=Ms.) |
 | *phone* | string | phone number |
-| **default_address** | **object** | |
+
+| default_address | Type | Description |
+| -------: | :---- | :--- |
 | *street* | string | recipient’s address |
 | *city* | string | recipient’s address |
 | *state* | string | recipient’s address |
 | *code* | string | recipient’s address |
 | *country* | string | recipient’s address |
-
 
 <aside class="warning">
 Failure
