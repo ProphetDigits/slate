@@ -2,6 +2,18 @@
 
 ## Get Retailer Invitation Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.12.31 / Joey Huang**
+
+  * Modify Success Parameters:
+    * Break user object to a sub-table
+  * Modify Fail Parameters:
+    * Apply new structure
+</details>
+
 ### Description
 
 | Title | Description |
@@ -26,9 +38,9 @@
 | -------: | :---- | :--- |
 | hash_id | string | hash value |
 
-> Return Parameters
-
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -55,10 +67,14 @@ Success
 | family_name | string | pre-input family name |
 | email | string | receiver email |
 | registered_step | string | registered step (signup, create company, finished) |
-| **user** | **object** | registered user |
-| *id* | integer | registered user id |
-| *email* | string | registered user email |
+| user | object | registered user |
 
+| user | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | registered user id |
+| email | string | registered user email |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -72,9 +88,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **invitation not exist:** invitation not exist |
-
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>invitation not exist: the hash_id of  invitation not exist</li></ul>|
 
 ## Set Retailer Invitation
 
