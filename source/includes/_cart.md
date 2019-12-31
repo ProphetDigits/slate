@@ -5,7 +5,14 @@
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2019.12.31 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Failure Parameters:
+    * Apply new structure
+
   **2019.12.30 / CC**
 
   * Modify Success Parameter:
@@ -37,7 +44,7 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 
 ### Return Parameters
 
@@ -82,12 +89,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
+
 
 
 ## Create a Cart
@@ -108,7 +111,7 @@ Failure
 
 ```json
 {
-	"api_key": "e4cbcdc2faff41a7e311"
+    "api_key": "e4cbcdc2faff41a7e311"
 }
 ```
 
@@ -162,7 +165,7 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -247,7 +250,7 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -332,7 +335,7 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -409,7 +412,7 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
   **2019.12.30 / CC**
 
   * Modify Use Decription
@@ -591,7 +594,7 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
