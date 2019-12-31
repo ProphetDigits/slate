@@ -2,13 +2,26 @@
 
 ## Cart List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+    * currency: modify description
+    * cart.id: modify example
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/cart/list` |
 | Method | `post` |
-| Use | Get all user’s shopping carts |
+| Use | Get user’s all shopping carts |
 | Notice |  |
 
 
@@ -26,9 +39,9 @@
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 
-> Return Parameters
-
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -37,10 +50,10 @@ Success
 ```json
 {
   "carts": [{
-    "id": "1",
+    "id": 1,
     "currency": "EUR"
     }, {
-    "id": "2",
+    "id": 2,
     "currency": "TWD"
   }]
 }
@@ -48,9 +61,14 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **carts** | array |  |
+| carts | array | Collection of cart |
+
+| cart | Type | Description |
+| -------: | :---- | :--- |
 | id | integer |  cart’s  id |
-| currency | string | the cart use this currency to pay |
+| currency | string | User will pay for products in cart by this currency |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -98,9 +116,10 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -115,6 +134,8 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | cart_id | integer | cart’s id |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -137,6 +158,19 @@ Failure
 
 
 ## Add Product To Cart
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * Modify "currency" description
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -166,9 +200,7 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
 | product_number | string | product number (from scan QR-Code or user keyin) |
-| currency | string| product be paid by this currency|
-
-> Return Parameters
+| currency | string| Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart |
 
 ### Return Parameters
 
@@ -176,14 +208,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | |  |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -217,6 +244,20 @@ Failure
 
 ## Give Discount
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * product_number: modify description
+    * product_number: modify example value
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -234,7 +275,7 @@ Failure
 ```json
 {
   "api_key": "e4cbcdc2faff41a7e311",
-  "product_number": "BION000001",
+  "product_number": "HORA001PD",
   "discount_amount": 1.01,
   "cart_id": 1
 }
@@ -244,10 +285,9 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| product_number | string | product number (from scan QR-Code or user keyin) |
+| product_number | string | The product number in cart |
 | discount_amount | double | product discount amount |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -255,14 +295,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | | |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -294,6 +329,20 @@ Failure
 
 ## Delete Products From Cart
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * products: modify description
+    * products: modify example value
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -312,7 +361,7 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "cart_id": 1,
-  "products": ["UX76K3NB9"]
+  "products": ["HORA001PD", "HORA002PD"]
 }
 ```
 
@@ -320,9 +369,8 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| products | array | a set of product’s number (from scan QR-Code or user keyin) |
+| products | array | a set of product’s number |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -330,14 +378,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | | |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -363,13 +406,34 @@ Failure
 
 ## Cart Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Use Decription
+  * Modify Success Parameter:
+    * Apply new structure
+    * billing_address: modify example value
+    * shipping_address: modify example value
+    * products: modify example value
+    * products: modify description
+    * product.company_id: modify description
+    * product.number: modify parameter name
+    * price: add description
+    * price.subtotal: modify description
+    * price.shipping: modify description
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/cart/detail` |
 | Method | `post` |
-| Use | to show product list in cart |
+| Use | to show product list, billing/shipping address in cart |
 | Notice |  |
 
 
@@ -389,9 +453,10 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -399,34 +464,34 @@ Success
 
 ```json
 {
-  "id":"C000001",
+  "id": 1,
   "company": {
     "id": 1,
     "name": "Company Test"
   },
   "billing_address": {
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "title": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "title": 0,
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
   },
   "shipping_address": {
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "title": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "title": 0,
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
   },
   "price": {
     "subtotal": 200,
@@ -435,10 +500,10 @@ Success
     "total": 140
   },
   "products":[{
-    "number":"A00001",
-    "discount_amount": 0
+    "number": "HORA001PD",
+    "discount_amount": 10
     }, {
-    "number":"A00002",
+    "number": "HORA002PD",
     "discount_amount": 0
   }]
 }
@@ -447,31 +512,58 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | id | number | cart id |
-| **company** | **object** | cart belongs to which company |
-| *id* | integer | company id |
-| *name* | string | company name |
-| **products** | **array** | products in the cart |
-| *product_number* | string | product number |
-| *discount_amount* | integer | product discount amount |
-| company_id | integer | compay id |
-| **price** | **object** | |
-| *subtotal* | number | total product original price |
-| *total_discount* | number | sum of all product discount in the cart |
-| *shipping* | number | cart shipping price |
-| *total* | number | cart total price (orignal total price - discount + shipping) |
-| **billing_address** | **object** | billing address information |
-| *given_name* | string | recipient’s given_name |
-| *family_name* | string | recipient’s family_name |
-| *phone* | string | recipient’s phone number |
-| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
-| *email* | string | recipient’s email |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
-| **shipping_address** | *object* | shipping address information |
-| **same to billing_address** ||
+| company | object | cart belongs to which company |
+| products | array | Collection of product |
+| price | object | Cart's price detail |
+| billing_address | object | billing address information |
+| shipping_address | object | shipping address information |
+
+| company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name | string | company name |
+
+| product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | product number |
+| discount_amount | integer | product discount amount |
+| company_id | integer | brand's compay id |
+
+| price | Type | Description |
+| -------: | :---- | :--- |
+| subtotal | number | sum of all products' original price |
+| total_discount | number | sum of all discount amount in the cart |
+| shipping | number | cart shipping fee |
+| total | number | cart total price (orignal total price - discount + shipping) |
+
+| billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| email | string | recipient’s email |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
+| shipping_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| email | string | recipient’s email |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -496,6 +588,22 @@ Failure
 
 ## Edit Cart Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * Apply new structure
+    * cart_id: modify example
+    * billing_address: modify example
+    * shipping_address: modify example
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -513,30 +621,30 @@ Failure
 ```json
 {
   "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id":"C00001",
+  "cart_id": 1,
   "billing_address": {
-  "given_name":"Lee",
-  "family_name":"CC",
-  "phone":"0912345678",
-  "title":"Ms.",
-  "email":"cc@abc.com",
-  "street":"ABC st.",
-  "city":"Taichung",
-  "state":"Taiwan",
-  "code":"30123",
-  "country":"R.O.C."
+    "given_name": "Lee",
+    "family_name": "CC",
+    "phone": "+886 912345678",
+    "title": 1,
+    "email": "cc@abc.com",
+    "street": "ABC st.",
+    "city": "Taichung",
+    "state": "",
+    "code": "30123",
+    "country": "Taiwan"
   },
   "shipping_address": {
-  "given_name":"Lee",
-  "family_name":"CC",
-  "phone":"0912345678",
-  "title":"Ms.",
-  "email":"cc@abc.com",
-  "street":"ABC st.",
-  "city":"Taichung",
-  "state":"Taiwan",
-  "code":"30123",
-  "country":"R.O.C."
+    "given_name": "Lee",
+    "family_name": "CC",
+    "phone": "+886 912345678",
+    "title": 1,
+    "email": "cc@abc.com",
+    "street": "ABC st.",
+    "city": "Taichung",
+    "state": "",
+    "code": "30123",
+    "country": "Taiwan"
   }
 }
 ```
@@ -545,21 +653,35 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | cart_id | integer | cart’s id |
-| **billing_address** | **object** | billing address information |
-| *given_name* | string | recipient’s given_name |
-| *family_name* | string | recipient’s family_name |
-| *phone* | string | recipient’s phone number |
-| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
-| *email* | string | recipient’s email |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
-| **shipping_address** | *object* | shipping address information |
-| **same to billing_address** ||
+| billing_address | object | billing address information |
+| shipping_address | object | shipping address information |
 
-> Return Parameters
+| billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| email | string | recipient’s email |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
+| shipping_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| email | string | recipient’s email |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
 
 ### Return Parameters
 
@@ -567,14 +689,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | | |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
