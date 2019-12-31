@@ -621,7 +621,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/edit` |
 | Method | `post` |
-| Use | edit product information |
+| Use | Edit product2 |
 | Notice |  |
 
 
@@ -664,31 +664,31 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| serial_number | string (option) | The serial number of product |
-| prices | array (option) | The prices of each currency |
-| specs | array (option) | The specs of prodcut |
-| added_files | array (option) | The uploading files for product |
-| deleted_files | array (option) | A set of file id |
-| warranty | object (option) | The warranty configuration of product |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| serial_number | string (option) | The serial number of product2<br/>Only company member can edit |
+| prices | array (option) | Each currency's price<br/>Only company member can edit |
+| specs | array (option) | Collection of spec2<br/>Only company member can edit |
+| added_files | array (option) | Collection of uploading files |
+| deleted_files | array (option) | Collection of file id |
+| warranty | object (option) | The warranty configuration of product<br/>Only company member can edit |
 
 | prices | Type | Description |
 | -------: | :---- | :--- |
-| currency | integer | The name of currency |
-| value | integer | The price of product for corresponding currency |
+| currency | integer | The currency name |
+| value | integer | The currency's price |
 
 | specs | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of spec value |
+| id | integer | The spec2 id |
+| value | integer | The id of spec2 value |
 
 | added_files | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The name of file |
-| date | timestamp | The uploading date of file |
-| comment | string | The comment of file |
-| resource | string | The file data which is encrypted by base64, but exclude mime type |
+| name | string | The filename |
+| date | timestamp | The uploading date |
+| comment | string | The comment |
+| resource | string | The file encrypted by base64, but exclude mime type |
 
 | warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -698,20 +698,16 @@ Failure
 | start_date | timestamp (option) | The start date of limited warranty for sold product |
 | end_date | timestamp (option) | The end date of limited warranty for sold product |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -719,18 +715,18 @@ Failure
 
 ```json
 {
+    "error_name": "not_sign_in",
     "validation": {
-        "name": ["invalid"],
-        "number": ["required"]
-    },
-    "error_name": "not_sign_in"
+        "serial_number": ["invalid"],
+        "prices.0.currency": ["required"]
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -748,6 +744,7 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product not sold</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 | warranty.start_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
+
 
 
 ## Check in Product
