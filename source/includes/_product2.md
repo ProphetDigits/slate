@@ -747,7 +747,7 @@ Failure
 
 
 
-## Check in Product
+## Checkin Product
 
 ### Description
 
@@ -755,7 +755,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/checkin` |
 | Method | `post` |
-| Use | checkin product |
+| Use | Checkin product2 |
 | Notice |  |
 
 
@@ -773,22 +773,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| comment | string | The comment for check in |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| comment | string | The comment for checkin |
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -802,10 +799,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: Same user check in same product twice</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: The product has been checkin by user of this company</li></ul> |
 
 
-## Check out Product
+
+## Checkout Product
 
 ### Description
 
@@ -813,7 +811,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/checkout` |
 | Method | `post` |
-| Use | checkout product |
+| Use | Checkout product2 |
 | Notice |  |
 
 
@@ -831,22 +829,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| comment | string | The comment for check in |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| comment | string | The comment for checkout |
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -860,7 +855,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product is not checkin</li><li>duplicate_action: This product is checkout</li><li>not_your_product: The checkin company is not current company</li></ul> |
+
 
 
 ## Update Print Date
