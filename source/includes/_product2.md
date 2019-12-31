@@ -613,7 +613,7 @@ Failure
 
 
 
-## Edit Product
+## Edit Product2
 
 ### Description
 
@@ -747,7 +747,7 @@ Failure
 
 
 
-## Checkin Product
+## Checkin Product2
 
 ### Description
 
@@ -803,7 +803,7 @@ Failure
 
 
 
-## Checkout Product
+## Checkout Product2
 
 ### Description
 
@@ -867,7 +867,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/print` |
 | Method | `post` |
-| Use | update print date to multiple products |
+| Use | Update print date to multiple product2 |
 | Notice |  |
 
 
@@ -884,24 +884,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | array | The set of product number |
+| api_key | string | The identity token of user |
+| product_number | array | Collection of product2 number |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -909,48 +904,44 @@ Failure
 
 ```json
 {
-    "error_name": "illegal_form_input"
+    "error_name": "product_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: <ol><li>The product not exist</li><li>The item of product not exist</li><li>The product not belongs to current company</li></ol></li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: <ol><li>The product not exist</li><li>The item of product not exist</li><li>The product not belongs to current company</li></ol></li></ul> |
 
 
-## Download Product File
+
+## Download Product2 File
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | it's given by system |
+| URL | it takes from Product2 Detail api |
 | Method | `get` |
-| Use | download product file |
+| Use | Download product2 file |
 | Notice | |
 
-> Input Headers
 
-### Input Headers
-
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
+### Headers Parameters
 
 | Headers | Type | Description |
 | -------: | :---- | :--- |
-| Authorization | string | The key will be returned by Sign In API |
+| Authorization | string | The identity token of user |
 
 <aside class="success">
 Success
 </aside>
 
-The Content-Disposition is inline if file is pdf, others is attachment
+| Headers | Type | Description |
+| -------: | :---- | :--- |
+| Content-Type | string | The Mime type of file |
+| Content-Disposition | string | <ul><li>inline: file is pdf</li><li>attachment: type not pdf</li></ul> |
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -964,4 +955,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
