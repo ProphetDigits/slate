@@ -2,6 +2,20 @@
 
 ## Purchase Order List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.31 / CC**
+
+  * Add Success Example:
+    * submit_at
+    * currency
+    * total_deposit
+    * deposit_status
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -26,9 +40,10 @@
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -38,9 +53,10 @@ Success
 {
     "purchase_orders_of_brand": [{
         "number": "AAAB160606000001PO",
-        "order_status": "Open",
+        "order_status": "Order Confirmed",
         "create_at": 16549832131,
         "delivery_at": 16949832131,
+        "submit_at": 1505380536,
         "brand": {
             "id": 1,
             "name": "Company A"
@@ -48,13 +64,17 @@ Success
         "retailer": {
             "id": 2,
             "name": "Company B"
-        }
+        },
+        "currency": "CHF",
+        "total_deposit": 10,
+        "deposit_status": "Paid"
     }],
     "purchase_orders_of_distributor": [{
         "number": "AAAB160606000002PO",
         "order_status": "Open",
         "create_at": 16549832131,
         "delivery_at": 16949832131,
+        "submit_at": 1505380536,
         "brand": {
             "id": 1,
             "name": "Company C"
@@ -62,13 +82,17 @@ Success
         "retailer": {
             "id": 1,
             "name": "Company B"
-        }
+        },
+        "currency": "CHF",
+        "total_deposit": 10,
+        "deposit_status": "Paid"
     }],
     "purchase_orders_of_retailer": [{
         "number": "AAAA160606000001PO",
         "order_status": "padding",
         "create_at": 16549832131,
         "delivery_at": 16949832131,
+        "submit_at": 1505380536,
         "brand": {
             "id": 4,
             "name": "Company D"
@@ -76,13 +100,17 @@ Success
         "retailer": {
             "id": 1,
             "name": "Company A"
-        }
+        },
+        "currency": "CHF",
+        "total_deposit": 0,
+        "deposit_status": null
     }],
     "purchase_orders_of_not_submmit": [{
         "number": "AAAA160606000002PO",
-        "order_status": "padding",
+        "order_status": "Open",
         "create_at": 16549832131,
-        "delivery_at": 16949832131,
+        "delivery_at": null,
+        "submit_at": null,
         "brand": {
             "id": 4,
             "name": "Company D"
@@ -90,7 +118,10 @@ Success
         "retailer": {
             "id": 1,
             "name": "Company A"
-        }
+        },
+        "currency": "CHF",
+        "total_deposit": 0,
+        "deposit_status": null
     }]
 }
 ```
@@ -126,6 +157,8 @@ Success
 | name | string | company name |
 
 
+> Return Failure Parameters
+
 <aside class="warning">
 Failure
 </aside>
@@ -142,6 +175,22 @@ Failure
 
 
 ## Purchase Order Detail
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.31 / CC**
+
+  * Add Success Parameter:
+    * deposit_sharing
+  * Add Success Example:
+    * deposit_sharing
+    * currency
+  * Modify Success Parameter:
+    * items.item.cover_image
+
+</details>
 
 ### Description
 
@@ -169,9 +218,10 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -188,15 +238,9 @@ Success
     "delivery_at": 1651321561,
     "submit_at": null,
     "pay_deposit": 1,
-    "total_deposit": 50,
-    "brand": {
-        "id": 1,
-        "name": ""
-    },
-    "retailer": {
-        "id": 2,
-        "name": ""
-    },
+    "deposit_sharing": 10,
+    "currency": "CHF",
+    "total_deposit": 50,    
     "items": [{
         "id": 1,
         "name": "Basic",
@@ -225,19 +269,7 @@ Success
                 "1080p": "http://example/file_1080p.png"
             }
         }
-    }],
-    "address": {
-        "given_name": "",
-        "family_name": "",
-        "title": 0,
-        "phone": "0321654987",
-        "email": "",
-        "street": "",
-        "city": "",
-        "state": "",
-        "postal_code": "",
-        "country": ""
-    },
+    }],        
     "histories": [{
         "status": "",
         "comment": "",
@@ -255,7 +287,39 @@ Success
         "status": "",
         "comment": "Partly Paid",
         "create_at": 1466640111
-    }]
+    }],
+    "address": {
+        "given_name": "",
+        "family_name": "",
+        "title": 0,
+        "phone": "0321654987",
+        "email": "",
+        "street": "",
+        "city": "",
+        "state": "",
+        "postal_code": "",
+        "country": ""
+    },
+    "brand": {
+        "id": 1,
+        "name": ""
+    },
+    "retailer": {
+        "id": 2,
+        "name": ""
+    },
+    "purchaser": {
+        "id": 78,
+        "given_name": "Hannah",
+        "family_name": "Tang",
+        "email": "ikea.taichung@gmail.com"
+    },
+    "importers": [
+        {
+            "id": 95,
+            "name": "IKEA Taiwan"
+        }
+    ]
 }
 ```
 
@@ -270,13 +334,14 @@ Success
 | delivery_at | timestamp | expected delivery date (s) |
 | submit_at | timestamp | submit date (s) |
 | pay_deposit | boolean | the retailer want to pay deposit or not |
+| deposit_sharing | boolean | deposit sharing percentage for the retailer |
 | currency | string | currency name |
 | total_deposit | numberic | the amount of deposit of items |
 | brand | object | The brand company |
 | retailer | object | The purchase company |
 | purchaser | object | The purchaser in the purchase order |
 | items | array | a set of items |
-| address | object | |
+| address | object | recipient address |
 | histories | array | a set of histories of purchase order |
 | deposit_histories | array | a set of histories of purchase order |
 
@@ -326,9 +391,9 @@ Success
 | id | integer | item id  |
 | name | string | item name |
 | number | string | item number |
-| cover_img | object | item cover image it will be empty if no set sover image |
+| cover_image | object | item cover image it will be empty if no set sover image |
 
-| items.item.cover_img | Type | Description |
+| items.item.cover_image | Type | Description |
 | -------: | :---- | :--- |
 | 240p | string | picture url of 240 resolution (426x240) |
 | 480p | string | picture url of 240 resolution (854x480) |
@@ -359,6 +424,8 @@ Success
 | status | string | deposit status of purchase order <ul><li>Empty</li><li>Confirmed</li><li>Paid</li><li>Partly Paid</li><li>Delayed</li><li>Unpaid</li><li>Ignored</li></ul> |
 | comment | string | status comment |
 | create_at | timestamp | |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -403,9 +470,10 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | company_id | integer | company id of brand |
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -420,6 +488,8 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | order_number | string | number of purchase order |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -437,6 +507,17 @@ Failure
 
 
 ## Submit Purchase Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.31 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -464,7 +545,6 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -472,14 +552,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -497,6 +572,17 @@ Failure
 
 
 ## Delete Purchase Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.31 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -525,23 +611,15 @@ Failure
 | order_number | string | number of purchase order |
 
 
-> Return Parameters
-
 ### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -559,6 +637,36 @@ Failure
 
 
 ## Edit Purchase Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2019.12.31 / CC**
+
+  * Modify Input Example:
+    * add_items
+    * edit_items
+    * address
+    * histories
+    * deposit_histories
+    * assign_products
+    * cancel_products
+    * reassign_products
+  * Modify Input Parameter:
+    * edit_items: modify description
+    * address: modify description
+    * assign_products: modify description
+    * cancel_products: modify description
+    * reassign_products: modify description
+    * add_items.variant_id: modify description
+    * edit_items.quantity: modify description
+    * address.given_name: modify description
+    * address.family_name: modify description
+  * Modify Success Parameter:
+    * Add link
+    * Modify description
+</details>
 
 ### Description
 
@@ -578,35 +686,41 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "order_number": "AAAA160601000003",
-    "delivery_at": 1466640000,
+    "delivery_at": 1577862094,
     "pay_deposit": 1,
-    "add_items": [],
-    "edit_items": [],
+    "add_items": [{
+      "variant_id": 1266,
+  	  "quantity": 1
+    }],
+    "edit_items": [{
+      "variant_id": 1265,
+  	  "quantity": 2
+    }],
     "address": {
-        "given_name": "",
-        "family_name": "",
-        "phone": "",
-        "title": "",
-        "email": "",
-        "street": "",
-        "city": "",
-        "state": "",
-        "postal_code": "",
-        "country": ""
+      "given_name": "CC",
+      "family_name": "Lee",
+      "phone": "0912345678",
+      "title": 1,
+      "email": "cc@abc.cc",
+      "street": "xxx",
+      "city": "Taichung",
+      "state": "",
+      "postal_code": "123",
+      "country": "Taiwan"
     },
     "histories": [{
-      "status": "",
-      "comment": "",
-      "create_at": 1466640000
+      "status": "Order Confirmed",
+      "comment": "test",
+      "create_at": 1577775408
     }],
     "deposit_histories": [{
-      "status": "",
+      "status": "Confirmed",
       "comment": "",
-      "create_at": 1466640000
+      "create_at": 1577775408
     }],
-    "assign_products": [],
-    "cancel_products": [],
-    "reassign_products": []
+    "assign_products": ["IKEA0000000345PD", "IKEA0000000277PD"],
+    "cancel_products": ["IKEA0000000277PD"],
+    "reassign_products": ["IKEA0000000276PD"]
 }
 ```
 
@@ -614,31 +728,31 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
-| delivery_at | timestamp (option) | the day which goods was delivered |
+| delivery_at | timestamp (option) | expected delivery date. |
 | pay_deposit | boolean (option) | the result that whether retailer want to pay deposit or not |
 | add_items | array (option) | to add variant to purchase order as item when order not submitted yet |
-| edit_items | array (option) | to edit item of purchase order when order not submitted yet |
-| address | object (option) | to edit address of purchase order when order not submitted yet |
+| edit_items | array (option) | to edit requirement quantity of item when order not submitted yet |
+| address | object (option) | to edit address of recipient when order not submitted yet |
 | histories | array (option) | a set of histories of purchase order |
 | deposit_histories | array (option) | a set of deposit histories of purchase order |
-| assign_products | array (option) | a set of product number which assigned to purchase order |
-| cancel_products | array (option) | a set of product number which remove-assigned from purchase order |
-| reassign_products | array (option) | a set of product number which reassigned to purchase order from other purchase order |
+| assign_products | array (option) | a set of product number which should be assigned to purchase order |
+| cancel_products | array (option) | a set of product number which should be removed from purchase order |
+| reassign_products | array (option) | a set of product number which should be reassigned to purchase order from other purchase order |
 
 | add_items | Type | Description |
 | -------: | :---- | :--- |
-| variant_id | integer | variant id<br />system will add quantity if to add exist variant as item |
+| variant_id | integer | variant id<br />If the item has been in the purchase order, the quantity will be added to the existing item |
 | quantity | integer | purchase quantity |
 
 | edit_items | Type | Description |
 | -------: | :---- | :--- |
 | variant_id | integer | variant id |
-| quantity | integer | purchase quantity<br />It will delete item from purchase order if quantity is 0 |
+| quantity | integer | purchase quantity<br />If quantity is 0, the item will be removed from purchase order  |
 
 | address | Type | Description |
 | -------: | :---- | :--- |
-| given_name | string (option) | given name of receiver |
-| family_name | string (option) | family name of receiver |
+| given_name | string (option) | given name of recipient |
+| family_name | string (option) | family name of recipient |
 | phone | string (option) | recipient’s phone number |
 | title | integer (option) | recipient’s title (0=Mr. 1=Ms.) |
 | email | string (option) | recipient’s email |
@@ -661,16 +775,15 @@ Failure
 | create_at | timestamp | |
 
 
-> Return Parameters
-
 ### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-The return same to Get Purchase Order Detail API
+The result is the same as [Get Purchase Order Detail](#purchase-order-detail)
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
