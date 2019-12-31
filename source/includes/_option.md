@@ -52,15 +52,21 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| **options** | array |  |
+| options | array |  |
+
+| option | Type | Description |
+| -------: | :---- | :--- |
 | id | integer |  option id |
 | name | string |  option name |
-| **company** | **object** |  |
-| *id* | integer | company id |
-| *name* | string | company name |
+| company | object |  |
 | start_time | timestamp | timestamp/second |
 | end_time | timestamp | timestamp/second |
 | status | boolean | is option executable |
+
+| company | Type | Description |
+| -------: | :---- | :--- |
+| *id* | integer | company id |
+| *name* | string | company name |
 
 <aside class="warning">
 Failure
@@ -125,8 +131,11 @@ Failure
 | deposit_sharing | integer | deposit sharing |
 | brand_sharing | integer | brand sharing |
 | retailer_sharing | integer | retailer sharing |
-| **retailers** | **array** | company id set |
-| **distributors** | **array** | |
+| retailers | array | company id set |
+| distributors | array | |
+
+| distributor | Type | Description |
+| -------: | :---- | :--- |
 | company_id | integer | company  id |
 | sharing | integer | distributor sharing |
 | role | string | customization role name |
@@ -259,7 +268,18 @@ Success
 | start_time | timestamp | timestamp/second |
 | end_time | timestamp | timestamp/second |
 | status | boolean | is option  executable |
-| **status_message** | **object** | the reasons why status is false |
+| status_message | object | the reasons why status is false |
+| deposit | boolean | the result that brand want retailer to pay deposit |
+| deposit_sharing | integer | deposit sharing |
+| brand_sharing | integer | brand sharing |
+| retailer_sharing | integer | retailer sharing |
+| company | object | |
+| retailers | array | |
+| distributors | array | |
+| invitations | array | invitation list of option |
+
+| status_message | Type | Description ||
+| -------: | :---- | :--- |:--|
 | *start_time* | **array** | error reasons |
 | *required* | string | it’s necessary to option |
 | *end_time* | **array** | error reasons |
@@ -268,22 +288,26 @@ Success
 | *no* | string | option is close |
 | *sharing* | **array** | error reasons |
 | *invalid value* | string | total sharing is not equal to 100 |
-| deposit | boolean | the result that brand want retailer to pay deposit |
-| deposit_sharing | integer | deposit sharing |
-| brand_sharing | integer | brand sharing |
-| retailer_sharing | integer | retailer sharing |
-| **retailers** | **array** | |
+
+| company | Type | Description ||
+| -------: | :---- | :--- |:--|
 | *id* | integer | company id |
 | *name* | string | company name |
-| **distributors** | **array** | |
+
+| retailer | Type | Description ||
+| -------: | :---- | :--- |:--|
+| *id* | integer | company id |
+| *name* | string | company name |
+
+| distributor | Type | Description ||
+| -------: | :---- | :--- |:--|
 | *id* | integer | company id |
 | *name* | string | company name |
 | *sharing* | integer | distributor sharing |
 | *role* | string | customization role name |
-| **distributors** | **object** | |
-| *id* | integer | company id |
-| *name* | string | company name |
-| **invitations** | **array** | invitation list of option |
+
+| invitation | Type | Description ||
+| -------: | :---- | :--- |:--|
 | *id* | integer | invitation id |
 | *company_name* | string | pre-input company name |
 | *given_name* | string | pre-input given name |
@@ -292,6 +316,7 @@ Success
 | *status* | string | invited status |
 | *last_invited_time* | timestamp | last invited time |
 | *invited_counter* | integer | invited counter |
+
 
 <aside class="warning">
 Failure
@@ -358,8 +383,11 @@ Failure
 | end_time | timestamp | timestamp/second |
 | brand_sharing | integer | brand sharing |
 | retailer_sharing | integer | retailer sharing |
-| **retailers** | **array** | company id set |
-| **distributors** | **array** | |
+| retailers | array | company id set |
+| distributors | array | |
+
+| distributor | Type | Description |
+| -------: | :---- | :--- |
 | *company_id* | integer | company id |
 | *sharing* | integer | distributor sharing |
 | *role* | string | customization role name |
