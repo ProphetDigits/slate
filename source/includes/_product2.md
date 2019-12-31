@@ -1,6 +1,6 @@
 # Product2
 
-## Generate Product
+## Generate Product2
 
 ### Description
 
@@ -8,8 +8,8 @@
 | -------: | :---- |
 | URL | `user/company/item/product2/create` |
 | Method | `post` |
-| Use | generate products |
-| Notice ||
+| Use | Generate product2 with variant2 setting |
+| Notice | |
 
 
 > Input Parameters
@@ -26,12 +26,10 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| variant_id | integer | The id of variant |
-| quantity | integer | The generated quantity for product |
+| api_key | string | The identity token of user |
+| variant_id | integer | The variant2 id |
+| quantity | integer | The generated quantity |
 
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -39,14 +37,9 @@
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -54,13 +47,14 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name":"variant_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant is not exist or not belongs to current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to current company</li></ul> |
+
 
 
 ## Product2 List
@@ -71,7 +65,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/list` |
 | Method | `post` |
-| Use | show product list |
+| Use | Show product2 list |
 | Notice |  |
 
 
@@ -97,12 +91,12 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| target_company_id | integer | The company id of variant |
-| item_id | integer | The id of item which variant belongs to |
-| variant_id | integer | The id of variant<br />It's 0 will return all products of item |
-| pagination | object (option) | The setting of pagination <br /> It get all data without pagination if this parameter not appear |
-| filter | object (option) | The setting of filter |
+| api_key | string | The identity token of user |
+| target_company_id | integer | The company id of variant2 |
+| item_id | integer | The item id of variant2 |
+| variant_id | integer | The variant2 id<br />It's 0 will return all product2 of item |
+| pagination | object (option) | The pagination setting <br /> It get all data if without pagination parameters |
+| filter | object (option) | The filter setting |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
@@ -111,13 +105,13 @@ Failure
 
 | filter | Type | Description |
 | -------: | :---- | :--- |
-| sold | boolean (option) | <ol><li>(option): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
-| deposit_owner | integer (option) | The id of company <br />It's 0 will get the products which deposit owner is not current company |
-| holder | integer (option) | The id of user <br />It's 0 will get the products which last holder is not current user |
-| location | integer (option) | The id of company <br />It's 0 will get the products which location is not current company |
+| sold | boolean (option) | <ol><li>(unuse): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
+| deposit_owner | integer (option) | The company id <br />It's 0 will get the products which deposit owner is not current company |
+| holder | integer (option) | The user id <br />It's 0 will get the products which last holder is not current user |
+| location | integer (option) | The company id <br />It's 0 will get the products which location is not current company |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -131,7 +125,9 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "qrcode": ".....",
         "sold": false,
+        "printed_at": 1577635200,
         "variants": [],
         "last_holder": {
             "id": 1,
@@ -157,13 +153,17 @@ Success
         "number": "1A01B021440012345",
         "short_number": "",
         "serial_number":"",
+        "qrcode": ".....",
         "sold": true,
+        "printed_at": 1577635200,
         "variants": [{
             "id": 1,
-            "name": "mutiply k1"
+            "name": "mutiply k1",
+            "number": "mk1"
         }, {
             "id": 2,
-            "name": "mutiply k2"
+            "name": "mutiply k2",
+            "number": "mk2"
         }],
         "last_holder": {
             "id": 0,
@@ -197,52 +197,54 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| products | array | The products which spec same to variant combination |
-| pagination | object (option) | The page information <br /> The parameter will appear if you get data with pagination |
+| products | array | Collection of product2 |
+| pagination | object (option) | The page information <br /> The parameter will appear if you use pagination |
 
 | product | Type | Description |
 | -------: | :---- | :--- |
-| number | string | The number of product |
-| short_number | string | The short number of product |
-| serial_number | string | The serial number of product |
-| sold | boolean | The status of product<ol><li>true: sold</li><li>false: unsold</li></ol> |
-| printed_at | timestamp | The last printed time of product, the product is not printed will show null |
-| last_holder | object | The last holder of product<br />It's null when product not checkin, checkout or sold |
-| deposit_owner | object | The company which pay deposit for product |
-| purchase_order_number | string | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
-| shipment_number | string | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
+| number | string | The product2 number |
+| short_number | string | The short number of product2 |
+| serial_number | string | The serial number of product2 |
+| qrcode | string | The product2 qrcode encoded by base64 |
+| sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+| printed_at | timestamp / null | The last printed time, the product is not printed will show null |
+| last_holder | object / null | The last holder of product<br />It's null when product not checkin, checkout or sold |
+| deposit_owner | object | The company of paying deposit |
+| purchase_order_number | string / null | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
+| shipment_number | string / null | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
 
 | product.last_holder | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user<br />It will be 0 if product is check out or sold |
+| id | integer | The user id<br />It's 0 if product is check out or sold |
 | given_name | string | The given name of user<br />It will be empty if product is check out or sold |
 | family_name | string | The family name of user<br />It will be empty if product is check out or sold |
-| operator | object | The operator for check in or check out or sell |
+| operator | object | The operator of check in or check out or sell |
 
 | product.last_holder.operator | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
+| id | integer | The user id |
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
-| company | object | The current company when user check in or check out product or sell it |
+| company | object | The company when user check in or check out product or sell it |
 
 | product.last_holder.operator.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | product.deposit_owner | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
-| total | integer | The total quantity of product of current variant |
+| total | integer | The total quantity of product2 |
 | per_page | integer | The quantity of per page |
 | current_page | integer | The current page |
 | last_page | integer | The last page |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -256,7 +258,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist or not belongs to target company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li><li>no_option: The current company does not have option with target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>item_not_exist: The item not exist or not belongs to target company</li><li>variant_not_exist: The variant not exist or not belongs to target company</li><li>target_company_not_exist: target company is not exist</li><li>no_option: The current company does not have option with target company</li></ul> |
+
 
 
 ## Product2 Detail
@@ -267,7 +270,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/detail` |
 | Method | `post` |
-| Use | show product detail information |
+| Use | Show product2 detail |
 | Notice ||
 
 
@@ -284,11 +287,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -298,7 +301,6 @@ Success
 
 ```json
 {
-    "id": 1836,
     "number": "AAAA01PD",
     "short_number": "00001",
     "serial_number": "",
@@ -315,8 +317,7 @@ Success
     },
     "variants": [{
         "id": 169,
-        "name": "White",
-        "number": "NX.GK6AA.001"
+        "name": "White"
     }],
     "prices": [{
         "currency": "EUR",
@@ -382,11 +383,9 @@ Success
         },
         "created_at": 1519713617,
         "spec": {
-            "spec": {
-                "id": 1,
-                "name": "Movement",
-                "display_name": "Movement"
-            },
+            "id": 1,
+            "name": "Movement",
+            "display_name": "Movement",
             "old_value": {
                 "id": 1,
                 "name": "Movement",
@@ -445,160 +444,158 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of product |
-| number | string | The number of product |
-| short_number | string | The short number of product |
-| serial_number | string | The serial number of product |
-| qrcode | string | The qrcode of product encoded by base64 |
-| sold | boolean | The status of product. <ol><li>true: sold</li><li>false: unsold</li></ol> |
-| printed_at | timestamp | The last printed time of product, the product is not printed will show null |
-| company | object | The company which product belongs to |
-| item | object | The item which product belongs to |
-| variants | array | The variants which the spec same as product |
-| prices | array | The prices of product in each currencies |
-| specs | array | The specs of product |
-| last_holder | object | The current holder of product |
-| histories | array | The histories of product |
+| number | string | The product2 number |
+| short_number | string | The short number of product2 |
+| serial_number | string | The serial number of product2 |
+| qrcode | string | The product2 qrcode encoded by base64 |
+| sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+| printed_at | timestamp / null | The last printed time, the product is not printed will show null |
+| company | object | The company of product2 |
+| item | object | The item of product2 |
+| variants | array | Collection of variant2 with same spec2 |
+| prices | array | Each currency's price |
+| specs | array | Collection of spec2 |
+| last_holder | object / null | The current holder<br/>It's null when product2 is new and no one uses |
+| histories | array | The history logs of product2 |
 | deposit_owner | object | The company of paying deposit |
-| files | array | The upload files of product |
-| warranty | object | The warranty configuration of product |
+| files | array | Collection of file |
+| warranty | object | The warranty configuration of product2 |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | product.item | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of item |
-| number | string | The number of item |
-| name | string | The name of item |
+| id | integer | The item id |
+| name | string | The item name |
 
-| product.variants | Type | Description |
+| product.variant | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of variant |
-| name | string | The name of variant |
-| number | string | The number of variant |
+| id | integer | The variant2 id |
+| name | string | The variant2 name |
 
-| product.prices | Type | Description |
+| product.price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency |
-| value | numeric | The price of product in corresponding currency |
+| currency | string | The currency name |
+| value | numeric | The currency's price |
 
-| product.specs | Type | Description |
+| product.spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name of spec |
-| part | boolean | The spec is part or not<ol><li>true: It is part</li><li>false: It is not part</li></ol> |
-| value | object | The setting of spec in the product |
+| id | integer | The id of spec2 |
+| name | string | The name of spec2 |
+| display_name | string | The display name of spec2 |
+| part | boolean | The spec2 is part or not<ol><li>true: It is part</li><li>false: It is not part</li></ol> |
+| value | object | The spec2 setting of product2 |
 
-| product.specs.value | Type | Description |
+| product.spec.value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec value |
-| name | string | The name of spec value |
-| display_name | string | The display name of spec value |
-| price | object | The price information of spec value |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
+| display_name | string | The display name of spec2 value |
+| price | object | The price of spec2 value |
 
-| product.specs.value.price | Type | Description |
+| product.spec.value.price | Type | Description |
 | -------: | :---- | :--- |
-| currency | string | The currency of price |
-| value | numeric | The price of spec value<br /> It's zero if spec of variant not setting |
+| currency | string | The currency name |
+| value | numeric | The currency's price of spec value<br /> It's zero if spec2 of product2 not setting |
 
 | product.last_holder | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user<br />It will be 0 if product is check out or sold |
-| given_name | string | The given name of user<br />It will be empty if product is check out or sold |
-| family_name | string | The family name of user<br />It will be empty if product is check out or sold |
+| id | integer | The user id<br />It's 0 if product is check out or sold |
+| given_name | string | The given name of user<br />It's' empty if product is check out or sold |
+| family_name | string | The family name of user<br />It's' empty if product is check out or sold |
 | operator | object | The operator for check in or check out or sell |
 
 | product.last_holder.operator | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
+| id | integer | The user id |
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
-| company | object | The current company when user check in or check out product or sell it |
+| company | object | The company when user check in or check out product or sell it |
 
 | product.last_holder.operator.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
-| product.histories | Type | Description |
+| product.history | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of history |
-| type | string | The type of history <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
-| operator | object | The operator of current action |
-| created_at | timestamp | The create time of history |
-| comment | string (option) | The comment of history<br />It's appear when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
-| spec | object (option) | It's appear when type is add_spec, change_spec and delete_spec |
+| id | integer | The history id |
+| type | string | The history type <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
+| operator | object | The operator |
+| created_at | timestamp | The created time |
+| comment | string (option) | The history comment<br />It's exist when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
+| spec | object (option) | It's exist when type is add_spec, change_spec and delete_spec |
 
-| product.histories.operator | Type | Description |
+| product.history.operator | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
+| id | integer | The user id |
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
 | company | object | The company of operator |
 
-| product.histories.operator.company | Type | Description |
+| product.history.operator.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
-| product.histories.spec | Type | Description |
+| product.history.spec | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| name | string | The name of spec |
-| display_name | string | The display name of spec |
-| old_value | object | The old setting of spec in the product |
-| new_value | object | The current setting of spec in the product |
+| id | integer | The spec2 id |
+| name | string | The spec2 name |
+| display_name | string | The display name of spec2 |
+| old_value | object | The old spec2 setting |
+| new_value | object | The current spec2 setting |
 
-| product.histories.spec.old_value | Type | Description |
+| product.history.spec.old_value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec value |
-| name | string | The name of spec value |
-| display_name | string | The display name of spec value |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
+| display_name | string | The display name of spec2 value |
 
-| product.histories.spec.new_value | Type | Description |
+| product.history.spec.new_value | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec value |
-| name | string | The name of spec value |
-| display_name | string | The display name of spec value |
+| id | integer | The id of spec2 value |
+| name | string | The name of spec2 value |
+| display_name | string | The display name of spec2 value |
 
 | product.deposit_owner | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
-| product.files | Type | Description |
+| product.file | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of file |
-| name | string | The name of file |
+| id | integer | The file id |
+| name | string | The file name |
 | date | timestamp | The uploaded date |
-| comment | string | The comment of file |
-| uploader | object | The use who uploading file |
+| comment | string | The uploaded comment |
+| uploader | object | The user who uploading file |
 | link | string | The download link of file, and it need add api_key to Authorization header in the request |
 
-| product.files.uploader | Type | Description |
+| product.file.uploader | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of user |
+| id | integer | The user id |
 | given_name | string | The given name of user |
 | family_name | string | The family name of user |
 | company | object | The company of uploader |
 
-| product.files.uploader.company | Type | Description |
+| product.file.uploader.company | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of company |
-| name | string | The name of company |
+| id | integer | The company id |
+| name | string | The company name |
 
 | product.warranty | Type | Description |
 | -------: | :---- | :--- |
 | type | string | The warranty type - Limited or Lifetime |
 | value | positive integer | The duration of warranty |
 | unit | string | The unit of duration - Years or Months |
-| start_date | timestamp or null | The start date of warranty. The product not sold yet will be null |
-| end_date | timestamp or null | The end date of warranty. The product not sold yet will be null |
+| start_date | timestamp / null | The start date of warranty<br/>It's null when product unsold |
+| end_date | timestamp / null | The end date of warranty<br/>It's null when product unsold |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -606,16 +603,17 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name":"product_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li></ul> |
 
 
-## Edit Product
+
+## Edit Product2
 
 ### Description
 
@@ -623,7 +621,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/edit` |
 | Method | `post` |
-| Use | edit product information |
+| Use | Edit product2 |
 | Notice |  |
 
 
@@ -666,31 +664,31 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| serial_number | string (option) | The serial number of product |
-| prices | array (option) | The prices of each currency |
-| specs | array (option) | The specs of prodcut |
-| added_files | array (option) | The uploading files for product |
-| deleted_files | array (option) | A set of file id |
-| warranty | object (option) | The warranty configuration of product |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| serial_number | string (option) | The serial number of product2<br/>Only company member can edit |
+| prices | array (option) | Each currency's price<br/>Only company member can edit |
+| specs | array (option) | Collection of spec2<br/>Only company member can edit |
+| added_files | array (option) | Collection of uploading files |
+| deleted_files | array (option) | Collection of file id |
+| warranty | object (option) | The warranty configuration of product<br/>Only company member can edit |
 
 | prices | Type | Description |
 | -------: | :---- | :--- |
-| currency | integer | The name of currency |
-| value | integer | The price of product for corresponding currency |
+| currency | integer | The currency name |
+| value | integer | The currency's price |
 
 | specs | Type | Description |
 | -------: | :---- | :--- |
-| id | integer | The id of spec |
-| value | integer | The id of spec value |
+| id | integer | The spec2 id |
+| value | integer | The id of spec2 value |
 
 | added_files | Type | Description |
 | -------: | :---- | :--- |
-| name | string | The name of file |
-| date | timestamp | The uploading date of file |
-| comment | string | The comment of file |
-| resource | string | The file data which is encrypted by base64, but exclude mime type |
+| name | string | The filename |
+| date | timestamp | The uploading date |
+| comment | string | The comment |
+| resource | string | The file encrypted by base64, but exclude mime type |
 
 | warranty | Type | Description |
 | -------: | :---- | :--- |
@@ -700,20 +698,16 @@ Failure
 | start_date | timestamp (option) | The start date of limited warranty for sold product |
 | end_date | timestamp (option) | The end date of limited warranty for sold product |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -721,18 +715,18 @@ Failure
 
 ```json
 {
+    "error_name": "not_sign_in",
     "validation": {
-        "name": ["invalid"],
-        "number": ["required"]
-    },
-    "error_name": "not_sign_in"
+        "serial_number": ["invalid"],
+        "prices.0.currency": ["required"]
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -752,7 +746,8 @@ Failure
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 
 
-## Check in Product
+
+## Checkin Product2
 
 ### Description
 
@@ -760,7 +755,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/checkin` |
 | Method | `post` |
-| Use | checkin product |
+| Use | Checkin product2 |
 | Notice |  |
 
 
@@ -778,22 +773,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| comment | string | The comment for check in |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| comment | string | The comment for checkin |
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -807,10 +799,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: Same user check in same product twice</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>duplicate_action: The product has been checkin by user of this company</li></ul> |
 
 
-## Check out Product
+
+## Checkout Product2
 
 ### Description
 
@@ -818,7 +811,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/checkout` |
 | Method | `post` |
-| Use | checkout product |
+| Use | Checkout product2 |
 | Notice |  |
 
 
@@ -836,22 +829,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | string | The number of product |
-| comment | string | The comment for check in |
+| api_key | string | The identity token of user |
+| product_number | string | The product2 number |
+| comment | string | The comment for checkout |
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -865,7 +855,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product status is not checkin</li><li>duplicate_action: This product status is not checkout</li><li>not_your_product: The checkin company not equals to current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>not_checkin_yet: This product is not checkin</li><li>duplicate_action: This product is checkout</li><li>not_your_product: The checkin company is not current company</li></ul> |
+
 
 
 ## Update Print Date
@@ -876,7 +867,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/item/product2/print` |
 | Method | `post` |
-| Use | update print date to multiple products |
+| Use | Update print date to multiple product2 |
 | Notice |  |
 
 
@@ -893,24 +884,19 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | The key will be returned by Sign In API |
-| product_number | array | The set of product number |
+| api_key | string | The identity token of user |
+| product_number | array | Collection of product2 number |
 
-> Return Parameters
 
-### Return Parameters When Success
+### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -918,48 +904,44 @@ Failure
 
 ```json
 {
-    "error_name": "illegal_form_input"
+    "error_name": "product_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: <ol><li>The product not exist</li><li>The item of product not exist</li><li>The product not belongs to current company</li></ol></li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: <ol><li>The product not exist</li><li>The item of product not exist</li><li>The product not belongs to current company</li></ol></li></ul> |
 
 
-## Download Product File
+
+## Download Product2 File
 
 ### Description
 
 | Title | Description |
 | -------: | :---- |
-| URL | it's given by system |
+| URL | it takes from Product2 Detail api |
 | Method | `get` |
-| Use | download product file |
+| Use | Download product2 file |
 | Notice | |
 
-> Input Headers
 
-### Input Headers
-
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
+### Headers Parameters
 
 | Headers | Type | Description |
 | -------: | :---- | :--- |
-| Authorization | string | The key will be returned by Sign In API |
+| Authorization | string | The identity token of user |
 
 <aside class="success">
 Success
 </aside>
 
-The Content-Disposition is inline if file is pdf, others is attachment
+| Headers | Type | Description |
+| -------: | :---- | :--- |
+| Content-Type | string | The Mime type of file |
+| Content-Disposition | string | <ul><li>inline: file is pdf</li><li>attachment: type not pdf</li></ul> |
 
-
-### Return Parameters When Failure
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -973,4 +955,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
