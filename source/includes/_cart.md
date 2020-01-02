@@ -255,6 +255,23 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Add error_name:
+      * "product currency not exist"
+      * "invalid discount"
+    * Remove error_name:
+      * "currency error"
+      * "product in cart"
+      * "product sold"
+      * "no product permission"
+      * "currency not exist"
+      * "cart_is_lock"
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -290,7 +307,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | cart_id | integer | cart’s id |
 | product_number | string | The product number in cart |
 | discount_amount | double | product discount amount |
@@ -318,20 +335,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**currency error:** currency not same to cart |
-|||**product in cart:** product in cart now |
-|||**product not exist:** product number error |
-|||**product sold:** product has been sold |
-|||**no product permission:** not product owner company or no option with product company |
-|||**currency not exist:** product cannot |
-|||**cart_is_lock:** cart is lock |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product currency not exist: product company delete the currency</li><li>invalid discount: discount amount should more than 0 and less than max discount which setting by product company</li></ul> |
+
 
 
 ## Delete Products From Cart
