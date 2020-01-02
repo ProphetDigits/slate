@@ -425,6 +425,19 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Success Parameter:
+    * id: modify type
+    * subtotal: modify type
+    * total_discount: modify type
+    * shipping: modify type
+    * total: modify type
+  * Modify Failure Parameter:
+    * Apply new structure
+
   **2019.12.30 / CC**
 
   * Modify Use Decription
@@ -465,7 +478,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | cart_id | integer | cart’s id |
 
 
@@ -526,7 +539,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | number | cart id |
+| id | integer | cart id |
 | company | object | cart belongs to which company |
 | products | array | Collection of product |
 | price | object | Cart's price detail |
@@ -546,10 +559,10 @@ Success
 
 | price | Type | Description |
 | -------: | :---- | :--- |
-| subtotal | number | sum of all products' original price |
-| total_discount | number | sum of all discount amount in the cart |
-| shipping | number | cart shipping fee |
-| total | number | cart total price (orignal total price - discount + shipping) |
+| subtotal | numeric | sum of all products' original price |
+| total_discount | numeric | sum of all discount amount in the cart |
+| shipping | numeric | cart shipping fee |
+| total | numeric | cart total price (orignal total price - discount + shipping) |
 
 | billing_address | Type | Description |
 | -------: | :---- | :--- |
@@ -592,13 +605,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul> |
+
 
 
 ## Edit Cart Detail
