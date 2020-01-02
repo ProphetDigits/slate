@@ -392,6 +392,20 @@ Failure
 
 ## Edit Option
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.01.02 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * Modify the json of input parameters
+  * Modify Fail Parameters:
+    * Apply new structure
+    * Modify descriptions of error messages
+</details>
+
 ### Description
 
 | Title | Description |
@@ -409,6 +423,7 @@ Failure
 ```json
 {
     "api_key": "e4cbcdc2faff41a7e311",
+    "option_id": 5566,
     "name": "Option with XXX",
     "start_time": "123548765",
     "end_time": "123654987",
@@ -443,23 +458,17 @@ Failure
 | *sharing* | integer | distributor sharing |
 | *role* | string | customization role name |
 
-> Return Parameters
-
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters (illegal form input)
 
 <aside class="warning">
 Failure
@@ -467,30 +476,59 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name": "illegal form input",
+    "validation": {
+        "name": [
+            "required"
+        ],
+        "deposit": [
+            "invalid format"
+        ],
+        "deposit_sharing": [
+            "invalid format"
+        ],
+        "brand_sharing": [
+            "invalid format"
+        ],
+        "retailer_sharing": [
+            "invalid format"
+        ]
+    }
+}
+```
+
+> Return Failure Parameters (duplicate retailer relation)
+
+```json
+{
+    "error_name": "duplicate retailer relation",
+    "retailers": [
+        {
+            "id": 235,
+            "name": "7-11"
+        }
+    ]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** some input parameters missing, not in the request |
-||| **does not signin:** user does not signin |
-||| **not select company yet:**   user need change current company |
-||| **company not exist:** currenct company not exist |
-||| **not company member:** the user is not the company member |
-||| **duplicate retailer relation:** reatiler has be joined to your other option |
-||| **illegal form input:**  form format does not pass validation option not exist |
-| **validation** | **object** | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input. |
-| name | array | **required:** it’s necessary column for this api |
-| deposit | array | **required:**  deposit not boolean |
-| deposit_sharing | array | **invalid format:**  deposit sharing not numeric |
-| brand_sharing | array | **invalid format:**  brand  sharing not numeric |
-| retailer_sharing | array | **invalid format:**  retailer  sharing not numeric |
-| **retailers** | **array** | duplicate retailer list |
-| *id* | integer | company id |
-| *name* | string | company name |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or option_id parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company not exist</li><li>not company member: the api_key of the user is not the company member</li><li>duplicate retailer relation: reatiler has be joined to your other option</li><li>illegal form input: form format does not pass validation</li></ul> |
+| validation | object | if the err_name is illegal form input', web backend should assign the name of the wrong type for each error input.|
+| retailers | array | duplicate retailer list |
 
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| name | array | <ul><li>required: it’s necessary column for this api</li></ul> |
+| deposit | array | <ul><li>invalid format: deposit not boolean</li></ul> |
+| deposit_sharing | array | <ul><li>invalid format: deposit  sharing not numeric</li></ul> |
+| brand_sharing | array | <ul><li>invalid format: brand sharing not numeric</li></ul> |
+| retailer_sharing | array | <ul><li>invalid format: retailer  sharing not numeric</li></ul> |
+
+| retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name | string | company name |
 
 ## Create Option Invitation
 
