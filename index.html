@@ -21144,6 +21144,21 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2019.12.31 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
 <p><strong>2019.12.30 / CC</strong></p>
 
 <ul>
@@ -21203,7 +21218,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 </tbody></table>
 
@@ -21279,701 +21294,8 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-</tbody></table>
-
-<h2 id="create-a-cart">Create a Cart</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/cart/create</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">Create a new cart</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">cart_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cart’s id</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Failure Parameters</p>
-</blockquote>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-</tbody></table>
-
-<h2 id="add-product-to-cart">Add Product To Cart</h2>
-
-<p><details>
-  <summary>Change Log</summary>
-  <div class="summary-content"></p>
-
-<p><strong>2019.12.30 / CC</strong></p>
-
-<ul>
-<li>Modify Input Parameter:
-
-<ul>
-<li>Modify &ldquo;currency&rdquo; description</li>
-</ul></li>
-<li>Modify Success Parameter:
-
-<ul>
-<li>Apply new structure</li>
-</ul></li>
-</ul>
-
-<p></details></p>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/cart/product/add</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">Add products to cart</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX76K3NB9"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">cart_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cart’s id</td>
-</tr>
-<tr>
-<td style="text-align: right">product_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">product number (from scan QR-Code or user keyin)</td>
-</tr>
-<tr>
-<td style="text-align: right">currency</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-
-<p>Nothing was returned</p>
-
-<blockquote>
-<p>Return Failure Parameters</p>
-</blockquote>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart not exist:</strong> cart id error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>currency error:</strong> currency not same to cart</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product in cart:</strong> product in cart now</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product not exist:</strong> product number error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product sold:</strong> product has been sold</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no product permission:</strong> not product owner company or no option with product company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>currency not exist:</strong> product cannot</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>sale region not found:</strong> VAT region not set</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>importer region error:</strong> importer not in VAT region</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart_is_lock:</strong> cart is lock</td>
-</tr>
-</tbody></table>
-
-<h2 id="give-discount">Give Discount</h2>
-
-<p><details>
-  <summary>Change Log</summary>
-  <div class="summary-content"></p>
-
-<p><strong>2019.12.30 / CC</strong></p>
-
-<ul>
-<li>Modify Input Parameter:
-
-<ul>
-<li>product_number: modify description</li>
-<li>product_number: modify example value</li>
-</ul></li>
-<li>Modify Success Parameter:
-
-<ul>
-<li>Apply new structure</li>
-</ul></li>
-</ul>
-
-<p></details></p>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/cart/product/discount/edit</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">give product discount amount</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">cart_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cart’s id</td>
-</tr>
-<tr>
-<td style="text-align: right">product_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">The product number in cart</td>
-</tr>
-<tr>
-<td style="text-align: right">discount_amount</td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">product discount amount</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-
-<p>Nothing was returned</p>
-
-<blockquote>
-<p>Return Failure Parameters</p>
-</blockquote>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart not exist:</strong> cart id error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>currency error:</strong> currency not same to cart</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product in cart:</strong> product in cart now</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product not exist:</strong> product number error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product sold:</strong> product has been sold</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no product permission:</strong> not product owner company or no option with product company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>currency not exist:</strong> product cannot</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart_is_lock:</strong> cart is lock</td>
-</tr>
-</tbody></table>
-
-<h2 id="delete-products-from-cart">Delete Products From Cart</h2>
-
-<p><details>
-  <summary>Change Log</summary>
-  <div class="summary-content"></p>
-
-<p><strong>2019.12.30 / CC</strong></p>
-
-<ul>
-<li>Modify Input Parameter:
-
-<ul>
-<li>products: modify description</li>
-<li>products: modify example value</li>
-</ul></li>
-<li>Modify Success Parameter:
-
-<ul>
-<li>Apply new structure</li>
-</ul></li>
-</ul>
-
-<p></details></p>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/cart/product/delete</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">remove products from cart</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HORA002PD"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">cart_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cart’s id</td>
-</tr>
-<tr>
-<td style="text-align: right">products</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">a set of product’s number</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-
-<p>Nothing was returned</p>
-
-<blockquote>
-<p>Return Failure Parameters</p>
-</blockquote>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart not exist:</strong> cart id error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart_is_lock:</strong> cart is lock</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -21982,6 +21304,30 @@ Failure
 <p><details>
   <summary>Change Log</summary>
   <div class="summary-content"></p>
+
+<p><strong>2019.1.2 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;api_key&rdquo; description</li>
+</ul></li>
+<li>Modify Success Parameter:
+
+<ul>
+<li>id: modify type</li>
+<li>subtotal: modify type</li>
+<li>total_discount: modify type</li>
+<li>shipping: modify type</li>
+<li>total: modify type</li>
+</ul></li>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
 
 <p><strong>2019.12.30 / CC</strong></p>
 
@@ -22051,7 +21397,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">cart_id</td>
@@ -22123,7 +21469,7 @@ Success
 </thead><tbody>
 <tr>
 <td style="text-align: right">id</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">integer</td>
 <td style="text-align: left">cart id</td>
 </tr>
 <tr>
@@ -22205,22 +21551,22 @@ Success
 </thead><tbody>
 <tr>
 <td style="text-align: right">subtotal</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">sum of all products&rsquo; original price</td>
 </tr>
 <tr>
 <td style="text-align: right">total_discount</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">sum of all discount amount in the cart</td>
 </tr>
 <tr>
 <td style="text-align: right">shipping</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">cart shipping fee</td>
 </tr>
 <tr>
 <td style="text-align: right">total</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">cart total price (orignal total price - discount + shipping)</td>
 </tr>
 </tbody></table>
@@ -22363,46 +21709,594 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart not exist:</strong> cart id error</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul></td>
 </tr>
 </tbody></table>
 
-<h2 id="edit-cart-detail">Edit Cart Detail</h2>
+<h2 id="create-a-cart">Create a Cart</h2>
 
 <p><details>
   <summary>Change Log</summary>
   <div class="summary-content"></p>
+
+<p><strong>2019.12.31 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/cart/create</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">Create a new cart</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<blockquote>
+<p>Return Success Parameters</p>
+</blockquote>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">cart_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">cart’s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="add-product-to-cart">Add Product To Cart</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.1.2 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;api_key&rdquo; description</li>
+<li>Modify &ldquo;product_number&rdquo; description</li>
+</ul></li>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;cart_is_lock&rdquo; in error_name</li>
+</ul></li>
+</ul>
+
+<p><strong>2019.12.30 / CC</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;currency&rdquo; description</li>
+</ul></li>
+<li>Modify Success Parameter:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/cart/product/add</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">Add products to cart</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX76K3NB9"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">cart_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">cart’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product2 number</td>
+</tr>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>currency error: currency not same to cart&rsquo;s currency</li><li>product in cart: product is added to cart</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product sold: product is sold</li><li>sale region not found: VAT is not setted in company of product</li><li>importer region error: sales company is not importer in VAT country</li><li>no product permission: sales company has not option with product company</li><li>currency not exist: product company delete the currency</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="give-discount">Give Discount</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.1.2 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;api_key&rdquo; description</li>
+</ul></li>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+<li>Add error_name:
+
+<ul>
+<li>&ldquo;product currency not exist&rdquo;</li>
+<li>&ldquo;invalid discount&rdquo;</li>
+</ul></li>
+<li>Remove error_name:
+
+<ul>
+<li>&ldquo;currency error&rdquo;</li>
+<li>&ldquo;product in cart&rdquo;</li>
+<li>&ldquo;product sold&rdquo;</li>
+<li>&ldquo;no product permission&rdquo;</li>
+<li>&ldquo;currency not exist&rdquo;</li>
+<li>&ldquo;cart_is_lock&rdquo;</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p><strong>2019.12.30 / CC</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>product_number: modify description</li>
+<li>product_number: modify example value</li>
+</ul></li>
+<li>Modify Success Parameter:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/cart/product/discount/edit</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">give product discount amount</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">cart_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">cart’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">product_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The product number in cart</td>
+</tr>
+<tr>
+<td style="text-align: right">discount_amount</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product discount amount</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product currency not exist: product company delete the currency</li><li>invalid discount: discount amount should more than 0 and less than max discount which setting by product company</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-products-from-cart">Delete Products From Cart</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.1.2 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;api_key&rdquo; description</li>
+</ul></li>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove error_name:
+
+<ul>
+<li>&ldquo;cart_is_lock&rdquo;</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p><strong>2019.12.30 / CC</strong></p>
+
+<ul>
+<li>Modify Input Parameter:
+
+<ul>
+<li>products: modify description</li>
+<li>products: modify example value</li>
+</ul></li>
+<li>Modify Success Parameter:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/cart/product/delete</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">remove products from cart</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HORA002PD"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">cart_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">cart’s id</td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">a set of product’s number</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="edit-cart">Edit Cart</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.1.2 / Jianhua</strong></p>
+
+<ul>
+<li>Rename api</li>
+<li>Modify Input Parameter:
+
+<ul>
+<li>Modify &ldquo;api_key&rdquo; description</li>
+</ul></li>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove error_name:
+
+<ul>
+<li>&ldquo;cart_is_lock&rdquo;</li>
+</ul></li>
+</ul></li>
+</ul>
 
 <p><strong>2019.12.30 / CC</strong></p>
 
@@ -22494,7 +22388,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">cart_id</td>
@@ -22659,43 +22553,8 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart not exist:</strong> cart id error</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>cart_is_lock:</strong> cart is lock</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul></td>
 </tr>
 </tbody></table>
 
