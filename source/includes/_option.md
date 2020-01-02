@@ -680,6 +680,19 @@ Failure
 
 ## Delete Option Invitation
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.01.02 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+  * Modify Fail Parameters:
+    * Apply new structure
+    * Modify descriptions of error messages
+</details>
+
 ### Description
 
 | Title | Description |
@@ -708,23 +721,17 @@ Failure
 | option_id | integer |  option id |
 | id | integer | invitation id |
 
-> Return Parameters
-
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -735,10 +742,6 @@ Failure
     "error_name":"lack of parameters"
 }
 ```
-
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type. |
-||| **lack of parameters:** some input parameters missing, not in the request |
-||| **does not signin:** user does not signin |
-||| **option not exist:** option not exist |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include one or more parameters</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company not exist</li><li>not company member: the api_key of the user is not the company member</li><li>option not exist: the option_id of option not exist</li><li>invitation has been finished: invitation has been finished</li></ul> |
