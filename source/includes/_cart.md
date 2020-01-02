@@ -175,6 +175,15 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+    * Modify "product_number" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Remove "cart_is_lock" in error_name
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -209,10 +218,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | cart_id | integer | cart’s id |
-| product_number | string | product number (from scan QR-Code or user keyin) |
-| currency | string| Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart |
+| product_number | string | product2 number |
+| currency | string | Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart |
 
 ### Return Parameters
 
@@ -236,22 +245,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**currency error:** currency not same to cart |
-|||**product in cart:** product in cart now |
-|||**product not exist:** product number error |
-|||**product sold:** product has been sold |
-|||**no product permission:** not product owner company or no option with product company |
-|||**currency not exist:** product cannot |
-|||**sale region not found:** VAT region not set |
-|||**importer region error:** importer not in VAT region |
-|||**cart_is_lock:** cart is lock |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>currency error: currency not same to cart's currency</li><li>product in cart: product is added to cart</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product sold: product is sold</li><li>sale region not found: VAT is not setted in company of product</li><li>importer region error: sales company is not importer in VAT country</li><li>no product permission: sales company has not option with product company</li><li>currency not exist: product company delete the currency</li></ul> |
+
 
 
 ## Give Discount
