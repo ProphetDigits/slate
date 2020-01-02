@@ -5,7 +5,14 @@
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2019.12.31 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Failure Parameters:
+    * Apply new structure
+
   **2019.12.30 / CC**
 
   * Modify Success Parameter:
@@ -37,7 +44,7 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 
 ### Return Parameters
 
@@ -82,326 +89,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
 
-
-## Create a Cart
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/cart/create` |
-| Method | `post` |
-| Use | Create a new cart |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-	"api_key": "e4cbcdc2faff41a7e311"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-
-
-### Return Parameters
-
-> Return Success Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-  "cart_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| cart_id | integer | cart’s id |
-
-> Return Failure Parameters
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-
-
-## Add Product To Cart
-
-<details>
-  <summary>Change Log</summary>
-  <div class="summary-content">
-  
-  **2019.12.30 / CC**
-
-  * Modify Input Parameter:
-    * Modify "currency" description
-  * Modify Success Parameter:
-    * Apply new structure
-
-</details>
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/cart/product/add` |
-| Method | `post` |
-| Use | Add products to cart |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id": 1,
-  "product_number": "UX76K3NB9",
-  "currency": "EUR"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| cart_id | integer | cart’s id |
-| product_number | string | product number (from scan QR-Code or user keyin) |
-| currency | string| Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart |
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-Nothing was returned
-
-> Return Failure Parameters
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**currency error:** currency not same to cart |
-|||**product in cart:** product in cart now |
-|||**product not exist:** product number error |
-|||**product sold:** product has been sold |
-|||**no product permission:** not product owner company or no option with product company |
-|||**currency not exist:** product cannot |
-|||**sale region not found:** VAT region not set |
-|||**importer region error:** importer not in VAT region |
-|||**cart_is_lock:** cart is lock |
-
-
-## Give Discount
-
-<details>
-  <summary>Change Log</summary>
-  <div class="summary-content">
-  
-  **2019.12.30 / CC**
-
-  * Modify Input Parameter:
-    * product_number: modify description
-    * product_number: modify example value
-  * Modify Success Parameter:
-    * Apply new structure
-
-</details>
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/cart/product/discount/edit` |
-| Method | `post` |
-| Use | give product discount amount |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "product_number": "HORA001PD",
-  "discount_amount": 1.01,
-  "cart_id": 1
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| cart_id | integer | cart’s id |
-| product_number | string | The product number in cart |
-| discount_amount | double | product discount amount |
-
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-Nothing was returned
-
-> Return Failure Parameters
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**currency error:** currency not same to cart |
-|||**product in cart:** product in cart now |
-|||**product not exist:** product number error |
-|||**product sold:** product has been sold |
-|||**no product permission:** not product owner company or no option with product company |
-|||**currency not exist:** product cannot |
-|||**cart_is_lock:** cart is lock |
-
-
-## Delete Products From Cart
-
-<details>
-  <summary>Change Log</summary>
-  <div class="summary-content">
-  
-  **2019.12.30 / CC**
-
-  * Modify Input Parameter:
-    * products: modify description
-    * products: modify example value
-  * Modify Success Parameter:
-    * Apply new structure
-
-</details>
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/cart/product/delete` |
-| Method | `post` |
-| Use | remove products from cart |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id": 1,
-  "products": ["HORA001PD", "HORA002PD"]
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| cart_id | integer | cart’s id |
-| products | array | a set of product’s number |
-
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-Nothing was returned
-
-> Return Failure Parameters
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**cart_is_lock:** cart is lock |
 
 
 ## Cart Detail
@@ -409,7 +98,20 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Success Parameter:
+    * id: modify type
+    * subtotal: modify type
+    * total_discount: modify type
+    * shipping: modify type
+    * total: modify type
+  * Modify Failure Parameter:
+    * Apply new structure
+
   **2019.12.30 / CC**
 
   * Modify Use Decription
@@ -450,7 +152,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | cart_id | integer | cart’s id |
 
 
@@ -511,7 +213,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| id | number | cart id |
+| id | integer | cart id |
 | company | object | cart belongs to which company |
 | products | array | Collection of product |
 | price | object | Cart's price detail |
@@ -531,10 +233,10 @@ Success
 
 | price | Type | Description |
 | -------: | :---- | :--- |
-| subtotal | number | sum of all products' original price |
-| total_discount | number | sum of all discount amount in the cart |
-| shipping | number | cart shipping fee |
-| total | number | cart total price (orignal total price - discount + shipping) |
+| subtotal | numeric | sum of all products' original price |
+| total_discount | numeric | sum of all discount amount in the cart |
+| shipping | numeric | cart shipping fee |
+| total | numeric | cart total price (orignal total price - discount + shipping) |
 
 | billing_address | Type | Description |
 | -------: | :---- | :--- |
@@ -577,21 +279,352 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul> |
 
 
-## Edit Cart Detail
+
+## Create a Cart
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2019.12.31 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/cart/create` |
+| Method | `post` |
+| Use | Create a new cart |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+
+
+### Return Parameters
+
+> Return Success Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "cart_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| cart_id | integer | cart’s id |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
+
+
+
+## Add Product To Cart
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+    * Modify "product_number" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Remove "cart_is_lock" in error_name
+
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * Modify "currency" description
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/cart/product/add` |
+| Method | `post` |
+| Use | Add products to cart |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "cart_id": 1,
+  "product_number": "UX76K3NB9",
+  "currency": "EUR"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| cart_id | integer | cart’s id |
+| product_number | string | product2 number |
+| currency | string | Products will be paid by this currency. If the cart has never set currecy yet, you can assign currency to this cart. If the cart has set currency, you should always use this currency type to add products to this cart |
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>currency error: currency not same to cart's currency</li><li>product in cart: product is added to cart</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product sold: product is sold</li><li>sale region not found: VAT is not setted in company of product</li><li>importer region error: sales company is not importer in VAT country</li><li>no product permission: sales company has not option with product company</li><li>currency not exist: product company delete the currency</li></ul> |
+
+
+
+## Give Discount
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Add error_name:
+      * "product currency not exist"
+      * "invalid discount"
+    * Remove error_name:
+      * "currency error"
+      * "product in cart"
+      * "product sold"
+      * "no product permission"
+      * "currency not exist"
+      * "cart_is_lock"
+
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * product_number: modify description
+    * product_number: modify example value
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/cart/product/discount/edit` |
+| Method | `post` |
+| Use | give product discount amount |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "product_number": "HORA001PD",
+  "discount_amount": 1.01,
+  "cart_id": 1
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| cart_id | integer | cart’s id |
+| product_number | string | The product number in cart |
+| discount_amount | double | product discount amount |
+
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li><li>product not exist: <ol><li>product is not exist</li><li>item of product is deleted</li></ol></li><li>product currency not exist: product company delete the currency</li><li>invalid discount: discount amount should more than 0 and less than max discount which setting by product company</li></ul> |
+
+
+
+## Delete Products From Cart
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.1.2 / Jianhua**
+
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Remove error_name:
+      * "cart_is_lock"
+
+  **2019.12.30 / CC**
+
+  * Modify Input Parameter:
+    * products: modify description
+    * products: modify example value
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/cart/product/delete` |
+| Method | `post` |
+| Use | remove products from cart |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "cart_id": 1,
+  "products": ["HORA001PD", "HORA002PD"]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| cart_id | integer | cart’s id |
+| products | array | a set of product’s number |
+
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul> |
+
+
+
+## Edit Cart
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.1.2 / Jianhua**
+
+  * Rename api
+  * Modify Input Parameter:
+    * Modify "api_key" description
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Remove error_name:
+      * "cart_is_lock"
+
   **2019.12.30 / CC**
 
   * Modify Input Parameter:
@@ -651,7 +684,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | cart_id | integer | cart’s id |
 | billing_address | object | billing address information |
 | shipping_address | object | shipping address information |
@@ -705,11 +738,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**cart not exist:** cart id error |
-|||**cart_is_lock:** cart is lock |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: cart id is invalid</li></ul> |
