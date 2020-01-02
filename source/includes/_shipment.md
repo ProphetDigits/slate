@@ -2,6 +2,18 @@
 
 ## Shipment List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+    * Modify Description: shipments_of_brand, shipments_of_importer
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -27,9 +39,9 @@
 | api_key | string | The key will be returned by Sign In API |
 
 
-> Return Parameters
-
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -41,7 +53,7 @@ Success
         "number": "AAAA0000000001SH",
         "status": "Preparing",
         "shipped_at": 1498730137,
-        "comment": "",
+        "comment": null,
         "shipped_area": {
             "id": 1,
             "name": "Aruba"
@@ -66,12 +78,12 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| shipments_of_brand | array | the shipment is created by self |
-| shipments_of_importer | array | the shipment is assigned to self |
+| shipments_of_brand | array | the shipment is created by me |
+| shipments_of_importer | array | the shipment is assigned to me |
 
 | shipment | Type | Description |
 | -------: | :---- | :--- |
-| number | string | shipment latest status |
+| number | string | shipment number |
 | status | string | shipment latest status |
 | shipped_at | timestamp | shipped date |
 | comment | string | shipment comment |
@@ -100,6 +112,8 @@ Success
 | company_name | string | the company which recipient belongs to |
 | given_name | string | recipient given name |
 | family_name | string | recipient family name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -868,17 +882,19 @@ Failure
   <div class="summary-content">
   
   **2020.01.02 / CC**
-  
+
   * Modify Notice Description
   * Modify Input Parameter:
     * Apply new structure
   * Modify Success Parameter:
     * Apply new structure
-    * Add Content-Type
-    * Add Content-Disposition
+  * Add Success Parameter:
+    * Content-Type
+    * Content-Disposition
   * Modify Failure Parameter:
     * Apply new structure
-    * Add error_name
+  * Add Failure Parameter:
+    * error_name
 
 </details>
 
