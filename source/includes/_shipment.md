@@ -799,6 +799,17 @@ Failure
 
 ## Delete Shipment
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -826,22 +837,15 @@ Failure
 | shipment_number | string | shipment number |
 
 
-> Return Parameters
-
 ### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -859,6 +863,25 @@ Failure
 
 ## Get Profoma Invoice PDF
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+  
+  * Modify Notice Description
+  * Modify Input Parameter:
+    * Apply new structure
+  * Modify Success Parameter:
+    * Apply new structure
+    * Add Content-Type
+    * Add Content-Disposition
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Add error_name
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -866,34 +889,14 @@ Failure
 | URL | `shipment/{shipment_number}/invoice/download` |
 | Method | `get` |
 | Use | get Profoma Invoice pdf |
-| Notice |  |
+| Notice |  Base URL should remove `api/` |
 
 
-> Header Parameters
+### Headers Parameters
 
-### Header Parameters
-
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
-
-| Parameter | Type | Description |
+| Headers | Type | Description |
 | -------: | :---- | :--- |
-| Authorization | string | The key will be returned by Sign In API |
-
-
-> Input Parameters
-
-### Input Parameters
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| shipment_number | string | shipment number |
-
-
-> Return Parameters
+| Authorization | string | The identity token of user (api key) |
 
 ### Return Parameters
 
@@ -901,14 +904,12 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
+| Headers | Type | Description |
 | -------: | :---- | :--- |
+| Content-Type | string | `application/pdf` |
+| Content-Disposition | string | inline; filename="`{shipment_number}.pdf`"; |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -921,3 +922,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
+| error_name | string | The name of wrong type <br/><ul><li>shipment not found: the shipment number doesn't exist</li></ul> |
