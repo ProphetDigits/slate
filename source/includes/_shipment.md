@@ -417,6 +417,20 @@ Failure
 
 ## Create Shipment
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+
+  * Modify Input Parameter:
+    * tracking_number: modify type to `option`
+  * Modify Success Parameter:
+    * Add link
+    * Modify description
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -496,7 +510,7 @@ Failure
 | proforma_invoice_number | string (option) | proforma_invoice_number of shipment |
 | comment | string (option) | shipment comment |
 | shipped_at | object (option) | shipped date |
-| tracking_number | string | tracking number of logistics company |
+| tracking_number | string (option) | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
 | importer | object (option) | importer information |
@@ -560,17 +574,15 @@ Failure
 | resource | string | uploaded data which is encrypted by base64, exclude mime type |
 
 
-> Return Parameters
-
 ### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
+The result is the same as [Get Shipment Detail](#shipment-detail)
 
-The return same to Get Purchase Order Detail API
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -610,6 +622,21 @@ Failure
 
 
 ## Edit Shipment
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+
+  * Modify Input Parameter:
+    * tracking_number: modify type to `option`
+    * edited_packages: modify table format
+  * Modify Success Parameter:
+    * Add link
+    * Modify description
+
+</details>
 
 ### Description
 
@@ -691,7 +718,7 @@ Failure
 | proforma_invoice_number | string (option) | proforma_invoice_number of shipment |
 | comment | string (option) | shipment comment |
 | shipped_at | object (option) | shipped date |
-| tracking_number | string | tracking number of logistics company |
+| tracking_number | string (option) | tracking number of logistics company |
 | pieces | integer (option) | total unit of shipment |
 | shipped_area_id | integer (option) | country id of shipped area <br/> the shipped_area_id is required if the importer exist |
 | importer | object (option) | importer information |
@@ -765,6 +792,7 @@ Failure
 | comment | string | history comment |
 
 | edited_packages | Type | Description |
+| -------: | :---- | :--- |
 | id | integer | package id |
 | proforma_description | string | proforma description |
 | invoice_show | boolean | show product number in the proforma invoice |
@@ -772,17 +800,15 @@ Failure
 | products | array | a set of product number in the package |
 
 
-> Return Parameters
-
 ### Return Parameters
 
 <aside class="success">
 Success
 </aside>
 
+The result is the same as [Get Shipment Detail](#shipment-detail)
 
-The return same to Get Purchase Order Detail API
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
