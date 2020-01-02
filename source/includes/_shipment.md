@@ -132,6 +132,18 @@ Failure
 
 ## Shipment Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.01.02 / CC**
+
+  * Modify Success Parameter:
+    * Apply new structure
+    * Modify Description: abnormal, packages.products.abnormal
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -159,9 +171,10 @@ Failure
 | shipment_number | string | shipment number |
 
 
-> Return Parameters
 
 ### Return Parameters
+
+> Return Success Parameters
 
 <aside class="success">
 Success
@@ -281,7 +294,7 @@ Success
 | importer | object | the importer company |
 | recipient | object | recipient information |
 | histories | array | shipment status |
-| abnormal | boolean | it's true mean shipment include below problem <ol><li>There are duplicate spec combination of variant as package</li><li>The spec combination of product is not match package</li></ol> |
+| abnormal | boolean | `true` means shipment may include below problem <ol><li>There are duplicate spec combination of package</li><li>The spec combination of product doesn't match with package</li></ol> |
 | packages | array | shipment packages |
 | files | array | relative files of shipment |
 | status_message | object | the hint to tell user this shipment is not complete |
@@ -361,7 +374,7 @@ Success
 | serial_number | string | The serial number of product |
 | sold | boolean | The status of product<ol><li>true: sold</li><li>false: unsold</li></ol> |
 | purchase_order_number | string | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
-| abnormal | boolean | it's true mean the spec combination of product is not match package |
+| abnormal | boolean | `true` means the spec combination of product doesn't match with package |
 
 
 | files | Type | Description |
@@ -384,6 +397,8 @@ Success
 | -------: | :---- | :--- |
 | id | integer | company id |
 | name | string | company name |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
