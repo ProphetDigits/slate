@@ -184,6 +184,7 @@ Success
 | longitude | number | The longitude of location |
 
 | item | Type | Description |
+| -------: | :---- | :--- |
 | id | integer | The item id |
 | number | string | The item number |
 | name | string | The item name |
