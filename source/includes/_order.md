@@ -254,6 +254,7 @@ Failure
   * Modify Input Parameters:
     * api_key: modify description
   * Modify Success Parameters:
+  * Remove Success Example:
   * Modify Failure Parameters:
     * Apply new structure
     * Remove "no permission" from error_name field
@@ -319,13 +320,30 @@ Failure
 
 ## Cancel Order
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/order/cancel` |
 | Method | `post` |
-| Use | to cancel order which not payment yet or some error happened in payment. |
+| Use | to cancel order which not pay yet or error |
 | Notice |  |
 
 
@@ -342,10 +360,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
-
-> Return Parameters
 
 ### Return Parameters
 
@@ -353,14 +369,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -374,18 +385,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**order not exist:**  order is not exist|
-|||**paid:** order has been paid |
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul> |
+
 
 
 ## Refund
