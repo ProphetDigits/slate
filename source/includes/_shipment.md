@@ -141,6 +141,12 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
+**2020.01.07 / Joey Huang**
+
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Modify the description of the failure response
+
   **2020.01.02 / CC**
 
   * Modify Success Parameter:
@@ -417,8 +423,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>permission denied: Just the company of creating shipment or importer can get detail</li></ul> |
-
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company not exist</li><li>not company member: the api_key of the user is not the company member</li><li>shipment not found: the shipment_number of shipment is not exist</li><li>permission denied: the api_key of company is not the company which creates the shipment and not the company which is the importer of the shipment</li></ul> |
 
 ## Create Shipment
 
