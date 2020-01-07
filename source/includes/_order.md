@@ -143,6 +143,306 @@ Failure
 
 
 
+## Order Detail
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+    * modify create_at description
+    * modify refund_at description
+    * add null type to refund_at field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/detail` |
+| Method | `post` |
+| Use | to get the order detail |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "order_number": "AAAA160401000001OD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| order_number | string | order number |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "number": "AAAA160401000003OD",
+  "currency": "JPY",
+  "total": 24414,
+  "order_status": "Open",
+  "payment_status": "Open",
+  "payment_method": "cash",
+  "transaction_id": null,
+  "create_at": 1459491885,
+  "refund_at": null,
+  "retailer": {
+    "id": 1,
+    "name": "Company A"
+  },
+  "agent": {
+    "id": 1,
+    "given_name": "QQ",
+    "family_name": "Wang",
+    "email": "a@gmail.com"
+  },
+  "products": [{
+    "number": "AAAA0000000004PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variants": [{
+        "id": 1,
+        "name": "mutiply k1"
+    }, {
+        "id": 2,
+        "name": "mutiply k2"
+    }],
+    "price": 100,
+    "discount_price": 85,
+    "product_status": "initial"
+  },{
+    "number": "AAAA0000000005PD",
+    "company": {
+      "id": 1,
+      "name": "Company Test"
+    },
+    "item": {
+      "id": 1,
+      "number": "Test-Item-1",
+      "name": "Test Item 1"
+    },
+    "variants": [{
+      "id": 2,
+      "name": "Variant Test"
+    }],
+    "price": 100,
+    "discount_price": 85,
+    "product_status": "initial"
+  }],
+  "histories": [{
+    "order_status": "Open",
+    "payment_status": "Open",
+    "comment": "",
+    "create_at": 1461312001,
+    "user": {
+      "id": 1,
+      "given_name": "QQ",
+      "family_name": "Wang"
+    }
+  },{
+    "order_status": "Error",
+    "payment_status": "Closed",
+    "comment": "request timeout",
+    "create_at": 1461312055,
+    "user": {
+      "id": 1,
+      "given_name": "QQ",
+      "family_name": "Wang"
+    }
+  }],
+  "shipping_address": {
+    "title": 0,
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
+  },
+  "billing_address": {
+    "title": 0,
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
+  },
+  "invoices": [{
+    "number": "AAAA170329000006IN",
+    "brand": {
+      "id": 1,
+      "name": "Company A"
+    },
+    "create_at": 1490776038,
+    "comment": "AAAA170329000001OD",
+    "download": "http://..../order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
+  }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| number | string | order number |
+| currency | string | payment currency |
+| total | double | order total price |
+| order_status | string | order status |
+| payment_status | string | payment status |
+| payment_method | string | payment method |
+| transaction_id | string | transaction id |
+| create_at | timestamp | created time in the number of seconds |
+| refund_at | timestamp / null | refunded time in the number of seconds |
+| retailer | object | The reatiler of order |
+| agent | object | The creator of order |
+| billing_address | object | The billing address of order |
+| shipping_address | object | The shipping address of order |
+| products | array | The order products |
+| histories | array | The order histories |
+| invoices | array | The order invoices |
+
+| order.retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company  id |
+| name | string | company name |
+
+| order.agent | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | user id |
+| given_name | string | sell agent’s given name |
+| family_name | string | sell agent’s family name |
+
+| order.billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | The recipient’s given_name |
+| family_name | string | The recipient’s family_name |
+| phone | string | The recipient’s phone number |
+| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
+| email | string | The recipient’s email |
+| street | string | The recipient’s street |
+| city | string | The recipient’s city |
+| state | string | The recipient’s state |
+| code | string | The recipient’s code |
+| country | string | The recipient’s country |
+
+| order.shipping_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | The recipient’s given_name |
+| family_name | string | The recipient’s family_name |
+| phone | string | The recipient’s phone number |
+| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
+| email | string | The recipient’s email |
+| street | string | The recipient’s street |
+| city | string | The recipient’s city |
+| state | string | The recipient’s state |
+| code | string | The recipient’s code |
+| country | string | The recipient’s country |
+
+| order.product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | The product number |
+| company | object | The company of product |
+| item | object | The item of product |
+| variants | array | The variants of product |
+
+| order.product.company | Type | Description |
+| -------: | :---- | :--- |
+| id | string | company id of product |
+| name | string | company name of product |
+
+| order.product.item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | item id of products |
+| number | string | item number of product |
+| name | string | item name of product |
+
+| order.product.variant | Type | Description |
+| -------: | :---- | :--- |
+| id | string | variant id of product |
+| name | string | variant name of product |
+| price | double | product price |
+| discount_price | double | product discount price |
+| product_status | string | the location of work flow of product |
+
+| order.history | Type | Description |
+| -------: | :---- | :--- |
+| order_status | string | order status |
+| payment_status | string | payment status |
+| comment | string | The comment of action |
+| create_at | timestamp | order status changed time |
+| user | object | The operator of action |
+
+| order.history.user | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | user id |
+| given_name | string | user’s given name |
+| family_name | string |  user’s family name |
+
+| order.invoice | Type | Description |
+| -------: | :---- | :--- |
+| number | string | invoice number|
+| brand | object | invoice creator |
+| create_at | timestamp | creating time of invoice |
+| comment | string | order number |
+| download | string | The url of invoice for download, visit the url need to add header Authorization and value is api_key |
+
+| order.invoice.brand | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | company id |
+| name| string | company name |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company is not salesperson's company</li></ol></li></ul> |
+
+
+
 ## Create Order
 
 <details>
@@ -463,292 +763,6 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>not reatiler order: only order of salesperson's company can refund </li><li>open: order just open state</li><li>confirming: order is confirming</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li><li>refund expired: payment has been exceeded 30 days</li><li>repeated: refunded transaction id is exist</li><li>transaction not found: refund transaction id is invalid</li><li>invalid transaction id: refund transaction id does not match order</li></ul> |
 
-
-
-## Order Detail
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/order/detail` |
-| Method | `post` |
-| Use | to get the order detail |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "order_number": "AAAA160401000001OD"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| order_number | string | order number |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-  "number": "AAAA160401000003OD",
-  "currency": "JPY",
-  "total": 24414,
-  "order_status": "Open",
-  "payment_status": "Open",
-  "payment_method": null,
-  "transaction_id": null,
-  "create_at": 1459491885,
-  "refund_at": 1459491885,
-  "retailer": {
-    "id": 1,
-    "name": "Company A"
-  },
-  "agent": {
-    "id": 1,
-    "given_name": "QQ",
-    "family_name": "Wang",
-    "email": "a@gmail.com"
-  },
-  "products": [{
-    "number": "AAAA0000000004PD",
-    "company": {
-      "id": 1,
-      "name": "Company Test"
-    },
-    "item": {
-      "id": 1,
-      "number": "Test-Item-1",
-      "name": "Test Item 1"
-    },
-    "variants": [{
-        "id": 1,
-        "name": "mutiply k1"
-    }, {
-        "id": 2,
-        "name": "mutiply k2"
-    }],
-    "price": 100,
-    "discount_price": 85,
-    "product_status": "initial"
-  },{
-    "number": "AAAA0000000005PD",
-    "company": {
-      "id": 1,
-      "name": "Company Test"
-    },
-    "item": {
-      "id": 1,
-      "number": "Test-Item-1",
-      "name": "Test Item 1"
-    },
-    "variants": [{
-      "id": 2,
-      "name": "Variant Test"
-    }],
-    "price": 100,
-    "discount_price": 85,
-    "product_status": "initial"
-  }],
-  "histories": [{
-    "order_status": "Open",
-    "payment_status": "Open",
-    "comment": "",
-    "create_at": 1461312001,
-    "user": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang"
-    }
-  },{
-    "order_status": "Error",
-    "payment_status": "Closed",
-    "comment": "request timeout",
-    "create_at": 1461312055,
-    "user": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang"
-    }
-  }],
-  "shipping_address": {
-    "title": null,
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
-  },
-  "billing_address": {
-    "title": null,
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
-  },
-  "invoices": [{
-    "number": "AAAA170329000006IN",
-    "brand": {
-      "id": 1,
-      "name": "Company A"
-    },
-    "create_at": 1490776038,
-    "comment": "AAAA170329000001OD",
-    "download": "http://192.168.1.116/BrandCloud/order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
-  }]
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| number | string | order number |
-| currency | string | payment currency |
-| total | double | order total price |
-| order_status | string | order status |
-| payment_status | string | payment status |
-| payment_method | string | payment method |
-| transaction_id | string | transaction id |
-| create_at | timestamp | create time |
-| refund_at | timestamp | refund time |
-| retailer | object | The reatiler of order |
-| agent | object | The creator of order |
-| billing_address | object | The billing address of order |
-| shipping_address | object | The shipping address of order |
-| products | array | The order products |
-| histories | array | The order histories |
-| invoices | array | The order invoices |
-
-| order.retailer | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | company  id |
-| name | string | company name |
-
-| order.agent | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | user id |
-| given_name | string | sell agent’s given name |
-| family_name | string | sell agent’s family name |
-
-| order.billing_address | Type | Description |
-| -------: | :---- | :--- |
-| given_name | string | The recipient’s given_name |
-| family_name | string | The recipient’s family_name |
-| phone | string | The recipient’s phone number |
-| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
-| email | string | The recipient’s email |
-| street | string | The recipient’s street |
-| city | string | The recipient’s city |
-| state | string | The recipient’s state |
-| code | string | The recipient’s code |
-| country | string | The recipient’s country |
-
-| order.shipping_address | Type | Description |
-| -------: | :---- | :--- |
-| given_name | string | The recipient’s given_name |
-| family_name | string | The recipient’s family_name |
-| phone | string | The recipient’s phone number |
-| title | integer | The recipient’s title (0=Mr. 1=Ms.) |
-| email | string | The recipient’s email |
-| street | string | The recipient’s street |
-| city | string | The recipient’s city |
-| state | string | The recipient’s state |
-| code | string | The recipient’s code |
-| country | string | The recipient’s country |
-
-| order.product | Type | Description |
-| -------: | :---- | :--- |
-| number | string | The product number |
-| company | object | The company of product |
-| item | object | The item of product |
-| variants | array | The variants of product |
-
-| order.product.company | Type | Description |
-| -------: | :---- | :--- |
-| id | string | company id of product |
-| name | string | company name of product |
-
-| order.product.item | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | item id of products |
-| number | string | item number of product |
-| name | string | item name of product |
-
-| order.product.variant | Type | Description |
-| -------: | :---- | :--- |
-| id | string | variant id of product |
-| name | string | variant name of product |
-| price | double | product price |
-| discount_price | double | product discount price |
-| product_status | string | the location of work flow of product |
-
-| order.history | Type | Description |
-| -------: | :---- | :--- |
-| order_status | string | order status |
-| payment_status | string | payment status |
-| comment | string | The comment of action |
-| create_at | timestamp | order status changed time |
-| user | object | The operator of action |
-
-| order.history.user | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | user id |
-| given_name | string | user’s given name |
-| family_name | string |  user’s family name |
-
-| order.invoice | Type | Description |
-| -------: | :---- | :--- |
-| number | string | invoice number|
-| brand | object | invoice creator |
-| create_at | timestamp | creating time of invoice |
-| comment | string | order number |
-| download | string | The url of invoice for download, visit the url need to add header Authorization and value is api_key |
-
-| order.invoice.brand | Type | Description |
-| -------: | :---- | :--- |
-| id | integer | company id |
-| name| string | company name |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:** cannot sell in the company|
-|||**order not exist:** order number is incorrect|
 
 
 ## Send PayPal Payment Link
