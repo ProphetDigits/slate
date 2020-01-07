@@ -2,13 +2,35 @@
 
 ## Order List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters
+    * remove italic style
+    * modify create_at description
+    * modify refund_at description
+    * modify retailer description
+    * modify agent description
+    * add null type to refund_at field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" in error_name
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/order/list` |
 | Method | `post` |
-| Use | to get the order list in the company. |
+| Use | To get the order list of company |
 | Notice |  |
 
 
@@ -24,9 +46,9 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -37,42 +59,42 @@ Success
 ```json
 {
     "orders": [{
-    "number": "AAAA160401000002OD",
-    "currency": "JPY",
-    "total": 24288,
-    "order_status": "Cancelled",
-    "payment_status": "Closed",
-    "transaction_id": "",
-    "create_at": 1459491797,
-    "refund_at": 1459491797,
-    "retailer": {
-      "id": 1,
-      "name": "Company A"
-    },
-    "agent": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang",
-      "email": "a@gamil.com"
-    }
-  },{
-    "number": "AAAA160401000001OD",
-    "currency": "CHF",
-    "total": 284.04,
-    "order_status": "Open",
-    "payment_status": "Open",
-    "create_at": 1459491797,
-    "refund_at": 1459491797,
-    "retailer": {
-      "id": 1,
-      "name": "Company A"
-    },
-    "agent": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang",
-      "email": "a@gamil.com"
-    }
+        "number": "AAAA160401000002OD",
+        "currency": "JPY",
+        "total": 24288,
+        "order_status": "Cancelled",
+        "payment_status": "Closed",
+        "transaction_id": "",
+        "create_at": 1459491797,
+        "refund_at": 1459491797,
+        "retailer": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang",
+            "email": "a@gamil.com"
+        }
+    },{
+        "number": "AAAA160401000001OD",
+        "currency": "CHF",
+        "total": 284.04,
+        "order_status": "Open",
+        "payment_status": "Open",
+        "create_at": 1459491797,
+        "refund_at": 1459491797,
+        "retailer": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang",
+            "email": "a@gamil.com"
+        }
     }]
 }
 ```
@@ -86,22 +108,24 @@ Success
 | payment_status | string | payment status |
 | payment_method | string | payment method |
 | transaction_id | string | transaction id  |
-| create_at | timestamp | create time (s) |
-| refund_at | timestamp | refund time (s) |
-| retailer | object |  |
-| agent | object |  |
+| create_at | timestamp | created time in the number of seconds |
+| refund_at | timestamp / null | refunded time in the number of seconds |
+| retailer | object | salesperson's company |
+| agent | object | salesperson |
 
 | retailer | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | company id |
-| *name* | string | company name |
+| id | integer | company id |
+| name | string | company name |
 
 | agent | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | user id |
-| *given_name* | string | user given name |
-| *family_name* | string | user family name |
-| *email* | string | user email |
+| id | integer | user id |
+| given_name | string | user given name |
+| family_name | string | user family name |
+| email | string | user email |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -115,13 +139,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
+
 
 
 ## Create Order
