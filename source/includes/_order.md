@@ -145,13 +145,33 @@ Failure
 
 ## Create Order
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+    * type: modify description
+  * Modify Success Parameters:
+    * Modify qrcode description
+    * Add null type to qrcode field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+    * Add products, order_number, payment_method and qrcode
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/order/create` |
 | Method | `post` |
-| Use | to create order. App uploads cart data to backend, backend create order and send order id to app |
+| Use | To create order |
 | Notice |  |
 
 
@@ -162,18 +182,19 @@ Failure
 ```json
 {
   "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id":"C00001",
-  "type": "credir_card"
+  "cart_id": "C00001",
+  "type": "credit_card"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| cart_id | integer | cart  id |
-| type | string | "credit_card" or “cash" or "PayPal" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app" |
+| api_key | string | The identity token of user |
+| cart_id | integer | cart id |
+| type | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
 
-> Return Parameters
+
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -192,8 +213,10 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | order_number | string | order number |
-| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app"  |
-| qrcode | string | payment link for PayPal or Order Number QR-Code  , others is null |
+| payment_method | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| qrcode | string / null | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -201,26 +224,22 @@ Failure
 
 ```json
 {
-  "products": [
-    "AAAA0000000001",
-    "AAAB0000000001"
-  ],
-  "err_name":"product invalid"
+    "error_name":"product invalid",
+    "products": [
+      "AAAA0000000001",
+      "AAAB0000000001"
+    ]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:** cannot sell in the company|
-|||**repeat:**  the order already been created. |
-|||**no products:** can’t order if no product in the cart |
-|||**product invalid:** some products which had be deleted, but its still in the cart. Server will return these product number to data. |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: the cart id is invalid</li><li>repeat: order has be created by this cart</li><li>no products: there are no products in the cart</li><li>product invalid: some products which no option or item has been deleted or currency price has been deleted, but those still in the cart</li></ul> |
+| products | array (option) | Collection of product number.<br/>It's show when error_name is product invalid |
+| order_number | string (option) | order number.<br/>It's show when error_name is repeat |
+| payment_method | string (option) | payment method.<br/>It's show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| qrcode | string / null (option) | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash.<br/>It's show when error_name is repeat |
+
 
 
 ## Order Payment
