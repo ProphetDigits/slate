@@ -767,6 +767,22 @@ Failure
 
 ## Send PayPal Payment Link
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -791,11 +807,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | email | string | consumer email |
 | order_number | string | order number which consumer want to pay by PayPal buy no scanner |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -803,13 +818,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+> Return Parameters
 
 <aside class="warning">
 Failure
@@ -823,15 +834,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type |
-||| **does not signin:** user does not signin |
-||| **order not exist:** invalid order number |
-||| **invalid email:** invalid email |
-||| **invalid payment:** only PayPal can use this api |
-||| **paid:** order has been paid |
-||| **confirming:**  order is confirming |
-||| **closed :** order has been closed |
-||| **refunded:** order has been refunded |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>invalid email: email format is invalid</li><li>invalid payment: only order pay by paypal can use </li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul> |
+
 
 
 ## Transaction Result
