@@ -391,13 +391,32 @@ Failure
 
 ## Refund
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+    * transaction_id: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+    * Remove "timeout" from error_name field
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/order/refund` |
 | Method | `post` |
-| Use | to refund order. App uploads transaction id to backend, so that backend can verify data with payworks |
+| Use | To refund order |
 | Notice |  |
 
 
@@ -415,11 +434,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| transaction_id | string | transaction id with payworks to refund order which using cash to pay, if transaction id is empty |
+| api_key | string | The identity token of user |
+| transaction_id | string | refund transaction id of payworks, other payment method is empty |
 | order_number | string | order number |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -427,14 +445,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -448,24 +461,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**order not exist:**  order is not exist|
-|||**refund expired:** after the order has been created over 30 days, it can't refund|
-|||**repeated:** transaction is exist|
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-|||**open:**  initial order status|
-|||**order not paid:**  order not paid yet|
-|||**timeout:** cannot connect to server of third-party-payment |
-|||**transaction not found:** the transaction not be found from third-party-payment |
-|||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>not reatiler order: only order of salesperson's company can refund </li><li>open: order just open state</li><li>confirming: order is confirming</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li><li>refund expired: payment has been exceeded 30 days</li><li>repeated: refunded transaction id is exist</li><li>transaction not found: refund transaction id is invalid</li><li>invalid transaction id: refund transaction id does not match order</li></ul> |
 
 
 
