@@ -1120,6 +1120,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
+  **2020.01.07 / Joey Huang**
+
+  * Add some an example which is json of the failure response
+  * Modify description of the failure response
+
   **2020.01.02 / CC**
 
   * Modify Notice Description
@@ -1146,7 +1151,6 @@ Failure
 | Use | get Profoma Invoice pdf |
 | Notice |  Base URL should remove `api/` |
 
-
 ### Headers Parameters
 
 | Headers | Type | Description |
@@ -1164,7 +1168,7 @@ Success
 | Content-Type | string | `application/pdf` |
 | Content-Disposition | string | inline; filename="`{shipment_number}.pdf`"; |
 
-> Return Failure Parameters
+> Return Failure Parameters (no Authorization)
 
 <aside class="warning">
 Failure
@@ -1172,9 +1176,10 @@ Failure
 
 ```json
 {
+    "error_name": "no Authorization"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>shipment not found: the shipment number doesn't exist</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no Authorization: the request does not include the Authorization parameter in header</li><li>shipment not found: the shipment_number of shipment is not exist</li></ul> |
