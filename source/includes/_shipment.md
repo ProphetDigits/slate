@@ -431,6 +431,13 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
+  **2020.01.07 / Joey Huang**
+
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Add some examples which are json of the failure response
+    * Modify description of the failure response
+
   **2020.01.02 / CC**
 
   * Modify Input Parameter:
@@ -583,6 +590,7 @@ Failure
 | comment | string | file comment |
 | resource | string | uploaded data which is encrypted by base64, exclude mime type |
 
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -592,7 +600,7 @@ Success
 
 The result is the same as [Get Shipment Detail](#shipment-detail)
 
-> Return Failure Parameters
+> Return Failure Parameters (lack of parameters)
 
 <aside class="warning">
 Failure
@@ -604,9 +612,94 @@ Failure
 }
 ```
 
+> Return Failure Parameters (illegal form input - country)
+
+```json
+{
+    "error_name": "illegal form input",
+    "validation": {
+        "country": [
+            "country not found"
+        ]
+    }
+}
+```
+
+> Return Failure Parameters (illegal form input - invalid_products)
+
+```json
+{
+    "error_name": "illegal form input",
+    "validation": {
+        "added_packages": [
+            "invalid products"
+        ]
+    },
+    "invalid_products": [
+        {
+            "variant": {
+                "id": 1380,
+                "name": "黑色，黑色"
+            },
+            "products": [
+                "AAOO0000000087PD"
+            ]
+        }
+    ]
+}
+```
+
+> Return Failure Parameters (illegal form input - conflict_products)
+
+```json
+{
+    "error_name": "illegal form input",
+    "validation": {
+        "added_packages": [
+            "conflict products"
+        ]
+    },
+    "conflict_products": [
+        {
+            "variant": {
+                "id": 1380,
+                "name": "黑色，黑色"
+            },
+            "products": [
+                "AAOO0000000106PD"
+            ]
+        }
+    ]
+}
+```
+
+> Return Failure Parameters (illegal form input - sold_products)
+
+```json
+{
+    "error_name": "illegal form input",
+    "validation": {
+        "added_packages": [
+            "sold products"
+        ]
+    },
+    "sold_products": [
+        {
+            "variant": {
+                "id": 1380,
+                "name": "黑色，黑色"
+            },
+            "products": [
+                "AAOO0000000070PD"
+            ]
+        }
+    ]
+}
+```
+
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>shipment not found: shipment not exist</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company not exist</li><li>not company member: the api_key of the user is not the company member</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 | invalid_products | array (option) | invalid products |
 | conflict_products | array (option) | conflict products |
@@ -615,17 +708,27 @@ Failure
 | validation | Type | Description |
 | -------: | :---- | :--- |
 | country | array (option) | <ul><li>country not found: shipped_area_id is invalid</li></ul> |
-| importer | array (option) | <ul><li>shipped_area_id is required: </li><li>importer not in country: </li></ul> |
-| added_histories | array (option) | <ul><li>invalid format: required parameter not exist</li><li>invlid status: invalid status</li><li>invlid date format: date not timestamp</li></ul> |
-| added_packages | array (option) | <ul><li>invalid format: required parameter not exist</li><li>invalid variant: variant not found</li><li>invalid products: product not belongs to variant</li><li>conflict products: product has already been assigned</li><li>sold products: product has already sold</li></ul> |
-| added_files | array (option) | <ul><li>invalid format: required parameter not exist</li><li>invlid date format: date not timestamp</li></ul> |
+| importer | array (option) | <ul><li>shipped_area_id is required: there is a importer parameter, but there is no shipped_area_id parameter.</li><li>importer not in country: the importer is not located in the country</li></ul> |
+| added_histories | array (option) | <ul><li>invalid format: required parameters(status, comment or date) not exist</li><li>invlid status: invalid status</li><li>invlid date format: date is not timestamp</li></ul> |
+| added_packages | array (option) | <ul><li>invalid format: required parameters(variant_id, proforma_description, invoice_show, products or unit_value) not exist</li><li>invalid variant: variant not found</li><li>invalid products: product not belongs to variant</li><li>conflict products: product has already been assigned</li><li>sold products: product has already sold</li></ul> |
+| added_files | array (option) | <ul><li>invalid format: required parameters(name, date, comment or resource) not exist</li><li>invlid date format: date not timestamp</li></ul> |
 
-| products | Type | Description |
+| invalid_product | Type | Description |
 | -------: | :---- | :--- |
-| products | array | a set of product number |
-| variant | object | variant of product |
+| variant | object | a variant infomation |
+| products | array | a set of products' number |
 
-| products.variant | Type | Description |
+| conflict_product | Type | Description |
+| -------: | :---- | :--- |
+| variant | object | a variant infomation |
+| products | array | a set of products' number |
+
+| sold_product | Type | Description |
+| -------: | :---- | :--- |
+| variant | object | a variant infomation |
+| products | array | a set of products' number |
+
+| variant | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | variant id |
 | name | string | variant name |
