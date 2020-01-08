@@ -108,8 +108,18 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: the target_company_id of a company does not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
 
-
 ## Search Inventory
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.01.08 / Joey Huang**
+
+  * Modify Failure Parameter:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -119,7 +129,6 @@ Failure
 | Method | `post` |
 | Use | to get inventory list. |
 | Notice |  |
-
 
 > Input Parameters
 
@@ -139,7 +148,7 @@ Failure
 | item_name | string | The item name |
 | company_id | integer | The company id |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -203,6 +212,7 @@ Success
 | number | string | The item number |
 | name | string | The item name |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -216,4 +226,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
