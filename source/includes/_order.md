@@ -773,7 +773,6 @@ Failure
 
   **2019.01.07 / Jianhua**
 
-  * Modify Use Description
   * Modify Input Parameters:
     * api_key: modify description
   * Modify Success Parameters:
@@ -820,7 +819,7 @@ Success
 
 Nothing was returned
 
-> Return Parameters
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -840,13 +839,30 @@ Failure
 
 ## Transaction Result
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Use Description
+  * Modify Success Parameters:
+    * remove italic style
+    * modify status description
+    * modify order description
+    * modify fail description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `transaction/{token}/result` |
 | Method | `get` |
-| Use | to get the information for PayPal payment. |
+| Use | to get the payment information of PayPal |
 | Notice |  |
 
 
@@ -864,7 +880,7 @@ Failure
 | -------: | :---- | :--- |
 | token | string | a temporary token for payment. |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -909,27 +925,28 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| date | timestamp | payment date |
-| status | string | payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
-| odrer | object |  |
-| fail | object |  |
+| date | timestamp | payment date in the number of seconds |
+| status | string | payment status <ul><li>success</li><li>fail</li><li>info</li></ul> |
+| odrer | object (option) | it exists if the status is success |
+| fail | object (option) | it exists if the status is fail |
 
 | odrer | Type | Description |
 | -------: | :---- | :--- |
-| *number* | string | order number |
-| *payment_method* | string | payment method of order |
-| *transaction* | string | transaction id of order |
-| *currency* | string | payment currency |
-| *total* | number | total price of payment |
-| *retailer* | string | seller's company name |
-| *payer* | string | payer email |
+| number | string | order number |
+| payment_method | string | payment method of order |
+| transaction | string | transaction id of order |
+| currency | string | payment currency |
+| total | numeric | total price of payment |
+| retailer | string | seller's company name |
+| payer | string | payer email |
 
 | fail | Type | Description |
 | -------: | :---- | :--- |
-| *refused_by* | string | By whom was this action refused, Server or PayPal |
-| *code* | string | fail code of PayPal |
-| *description* | string | fail description |
+| refused_by | string | By whom was this action refused, Server or PayPal |
+| code | string | fail code of PayPal |
+| description | string | fail description |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -937,14 +954,14 @@ Failure
 
 ```json
 {
-    "error_name":"log expired"
+    "error_name":"result not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type |
-||| **result not exist:** order number invalid |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>result not exist: <ul><li>token is invalid</li><li>result was deleted when time exceed 15 minutes after user finished payment</li></ul></li></ul> |
+
 
 
 ## Query Refund Requirement Of Order
