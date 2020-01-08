@@ -966,6 +966,25 @@ Failure
 
 ## Query Refund Requirement Of Order
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove confirming from error_name field
+    * Remove closed from error_name field
+    * Remove refunded from error_name field
+    * Remove open from error_name field
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -989,10 +1008,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | Order number |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -1000,14 +1018,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1021,18 +1034,8 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**order not exist:**  order is not exist|
-|||**refund expired:** after the order has been created over 30 days, it can't refund|
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-|||**open:**  initial order status|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company not salesperson's company</li></ol></li><li>not reatiler order: only order of salesperson's company can refund </li><li>refund expired: payment has been exceeded 30 days</li></ul> |
+
 
 
 ## Partial  Order  Detail
