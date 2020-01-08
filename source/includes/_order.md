@@ -1383,6 +1383,25 @@ Failure
 
 ## Edit Order
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Input Parameters
+    * Apply new structure
+    * modify api_key description
+    * remove italic style
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Add validation
+  * Modify Failure Example:
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -1417,21 +1436,23 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
 | billing_address | object | order's billing address |
-| *given_name* | string | recipient’s given_name |
-| *family_name* | string | recipient’s family_name |
-| *phone* | string | recipient’s phone number |
-| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
-| *street* | string | recipient’s address |
-| *street2* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
 
-> Return Parameters
+| billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| street | string | recipient’s address |
+| street2 | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
 
 ### Return Parameters
 
@@ -1439,14 +1460,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1456,24 +1472,29 @@ Failure
 {
   "error_name":"illegal_form_input",
   "validation": {
-      "given_name": ["required"],
-      "family_name": ["required"],
-      "title": ["invalid"]
+      "billing_address.given_name": ["required"],
+      "billing_address.family_name": ["required"],
+      "billing_address.title": ["invalid"]
   }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type|
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul>|
-| | | <ul><li>order_not_exist: The order is not exist</li></ul>|
-| | | <ul><li>order_is_timeout: The order is expired(order timeout 15 minutes)</li></ul>|
-| | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
-| validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
-| given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| family_name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not a number</li></ol> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| billing_address.given_name | array (option) | required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol> |
+| billing_address.family_name | array (option) | required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol> |
+| billing_address.title | array (option) | invalid: <ol><li>The data is not true, false, 1, 0, "1", and "0"</li></ol> |
+| billing_address.phone | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.street | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.street2 | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.city | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.state | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.code | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.country | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 
 
