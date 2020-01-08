@@ -970,7 +970,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2019.01.08 / Jianhua**
 
   * Modify Input Parameters:
     * api_key: modify description
@@ -1040,6 +1040,25 @@ Failure
 
 ## Partial  Order  Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Header Parameters
+    * modify Authorization description
+  * Add Url Parameters
+  * Remove Input Parameters:
+  * Modify Success Parameters:
+    * remove italic style
+    * modify retailer description
+    * modify products description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -1049,35 +1068,22 @@ Failure
 | Use | to get the partial order detail |
 | Notice |  |
 
-> Header Parameters
 
 ### Header Parameters
 
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | The identity token of user |
+
+
+### Url Parameters
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| Authorization | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
 
 
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
-
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1180,73 +1186,75 @@ Success
 | order_status | string | order status |
 | payment_status | string | payment status |
 | payment_method | string | payment method |
-| retailer | object |  |
-| products | array |  |
-| *discount_price* | double | product discount price |
-| *selling_price* | double | product selling price |
-
+| retailer | object | salesperson's company |
+| products | array | Collection of order product |
 
 | retailer | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| *cover_img* | object | item cover image. It will be empty if no set cover image |
-| *address* | object | retailer's address |
+| id | integer | company  id |
+| name | string | company name |
+| cover_img | object | item cover image. It will be empty if no set cover image |
+| address | object | retailer's address |
 
 | retailer.cover_img | Type | Description |
 | -------: | :---- | :--- |
-| *resource* | object | item cover image. It will be empty if no set cover image |
+| resource | object | item cover image. It will be empty if no set cover image |
 
 | retailer.cover_img.resource | Type | Description |
 | -------: | :---- | :--- |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| px240 | string | picture url of 240 resolution (426x240) |
+| px480 | string | picture url of 480 resolution (854x480) |
+| px720 | string | picture url of 720 resolution (1280x720) |
+| px1080 | string | picture url of 1080 resolution (1920x1080) |
 
-| address | Type | Description |
+| retailer.address | Type | Description |
 | -------: | :---- | :--- |
-| *street* | string | retailer's street  |
-| *city* | string |  retailer's city  |
-| *state* | string |  retailer's state  |
-| *post_code* | string |  retailer's post code  |
-| *country* | string |  retailer's country  |
+| street | string | retailer's street  |
+| city | string |  retailer's city  |
+| state | string |  retailer's state  |
+| post_code | string |  retailer's post code  |
+| country | string |  retailer's country  |
 
 | product | Type | Description |
 | -------: | :---- | :--- |
-| *number* | string | product number |
+| number | string | product number |
 | company | object | company of product |
 | item | object | item of product |
 | variant | object | variant of product |
+| price | double | product price |
+| discount_price | double | product discount price |
+| selling_price | double | product selling price |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
-| *id* | string | company id of product |
-| *name* | string | company name of product |
+| id | string | company id of product |
+| name | string | company name of product |
 
 | product.item | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | item id of products |
-| *number* | string | item number of product |
-| *name* | string | item name of product |
+| id | integer | item id of products |
+| number | string | item number of product |
+| name | string | item name of product |
 
 | product.variant | Type | Description |
 | -------: | :---- | :--- |
-| *id* | string | variant id of product |
-| *name* | string | variant name of product |
-| *cover_img* | object | item cover image. It will be empty if no set cover image |
+| id | string | variant id of product |
+| name | string | variant name of product |
+| cover_img | object | item cover image. It will be empty if no set cover image |
 
 | product.variant.cover_img | Type | Description |
 | -------: | :---- | :--- |
-| *resource* | object | item cover image. It will be empty if no set cover image |
+| resource | object | item cover image. It will be empty if no set cover image |
 
 | product.variant.cover_img.resource | Type | Description |
 | -------: | :---- | :--- |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| *price* | double | product price |
+| px240 | string | picture url of 240 resolution (426x240) |
+| px480 | string | picture url of 480 resolution (854x480) |
+| px720 | string | picture url of 720 resolution (1280x720) |
+| px1080 | string | picture url of 1080 resolution (1920x1080) |
+| price | double | product price |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1254,19 +1262,14 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name":"not_sign_in"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | The name of wrong type |
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
-| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
-| | | <ul><li>order_is_finished: order is finished</li></ul> |
-| | | <ul><li>order_is_aborted: order is aborted</li></ul> |
-| | | <ul><li>order_is_timeout: order is timeout</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
+
 
 
 ## Confirm Purchase
