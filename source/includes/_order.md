@@ -1262,7 +1262,7 @@ Failure
 
 ```json
 {
-  "error_name":"not_sign_in"
+  "error_name": "not_sign_in"
 }
 ```
 
@@ -1273,6 +1273,23 @@ Failure
 
 
 ## Confirm Purchase
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Input Parameters
+    * modify api_key description
+  * Modify Success Parameters:
+    * remove italic style
+    * modify profile description
+    * modify default_address description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -1296,10 +1313,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1309,13 +1326,13 @@ Success
 
 ```json
 {
-    "profile" : {
+    "profile": {
         "given_name": "CC",
         "family_name": "Lee",
         "title": 1,
         "phone": "0912345678"
     },
-    "default_address" : {
+    "default_address": {
         "street":"ABC st.",
         "city":"Taichung",
         "state":"Taiwan",
@@ -1327,24 +1344,26 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| profile | object | |
-| default_address | object | |
+| profile | object | user profile |
+| default_address | object | user address |
 
 
 | profile | Type | Description |
 | -------: | :---- | :--- |
-| *given_name* | string | given_name |
-| *family_name* | string | family_name |
-| *title* | integer | title (0=Mr. 1=Ms.) |
-| *phone* | string | phone number |
+| given_name | string | given_name |
+| family_name | string | family_name |
+| title | integer | title (0=Mr. 1=Ms.) |
+| phone | string | phone number |
 
 | default_address | Type | Description |
 | -------: | :---- | :--- |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1352,16 +1371,13 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name": "not_sign_in"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | The name of wrong type |
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
-| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
 
 
 
@@ -1387,7 +1403,7 @@ Failure
     "billing_address": {
       "given_name":"Lee",
       "family_name":"CC",
-      "title": 0,    
+      "title": 0,
       "phone":"0912345678",
       "street":"ABC st.",
       "street2":"ABC st.",
