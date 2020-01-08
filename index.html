@@ -22603,6 +22603,39 @@ Failure
 
 <h2 id="order-list">Order List</h2>
 
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters
+
+<ul>
+<li>remove italic style</li>
+<li>modify create_at description</li>
+<li>modify refund_at description</li>
+<li>modify retailer description</li>
+<li>modify agent description</li>
+<li>add null type to refund_at field</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; in error_name</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
 <h3 id="description">Description</h3>
 
 <table><thead>
@@ -22621,7 +22654,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get the order list in the company.</td>
+<td style="text-align: left">To get the order list of company</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -22648,12 +22681,12 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -22663,42 +22696,42 @@ Success
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000002OD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24288</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gamil.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},{</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000001OD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHF"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">284.04</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gamil.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000002OD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24288</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gamil.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA160401000001OD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHF"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">284.04</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@gamil.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -22747,22 +22780,22 @@ Success
 <tr>
 <td style="text-align: right">create_at</td>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">create time (s)</td>
+<td style="text-align: left">created time in the number of seconds</td>
 </tr>
 <tr>
 <td style="text-align: right">refund_at</td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">refund time (s)</td>
+<td style="text-align: left">timestamp / null</td>
+<td style="text-align: left">refunded time in the number of seconds</td>
 </tr>
 <tr>
 <td style="text-align: right">retailer</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">salesperson&rsquo;s company</td>
 </tr>
 <tr>
 <td style="text-align: right">agent</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">salesperson</td>
 </tr>
 </tbody></table>
 
@@ -22774,12 +22807,12 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
@@ -22793,338 +22826,30 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">user id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user given name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user family name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">user email</td>
 </tr>
 </tbody></table>
 
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong></td>
-</tr>
-</tbody></table>
-
-<h2 id="create-order">Create Order</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/order/create</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to create order. App uploads cart data to backend, backend create order and send order id to app</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
 <blockquote>
-<p>Input Parameters</p>
+<p>Return Failure Parameters</p>
 </blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="s2">"C00001"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credir_card"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">cart_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">cart  id</td>
-</tr>
-<tr>
-<td style="text-align: right">type</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">&ldquo;credit_card&rdquo; or “cash&quot; or &ldquo;PayPal&rdquo; or &ldquo;PayPal&rdquo; or &ldquo;cash_consumer_app&rdquo; or &ldquo;credit_card_consumer_app&rdquo;</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="s2">"AAAA160509000001OD"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayPal"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"qrcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">order_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">order number</td>
-</tr>
-<tr>
-<td style="text-align: right">payment_method</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">payment method, &ldquo;credit_card&rdquo; or “cash&quot; or &ldquo;PayPal&rdquo; or &ldquo;cash_consumer_app&rdquo; or &ldquo;credit_card_consumer_app&rdquo;</td>
-</tr>
-<tr>
-<td style="text-align: right">qrcode</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">payment link for PayPal or Order Number QR-Code  , others is null</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"AAAA0000000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"AAAB0000000001"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"err_name"</span><span class="p">:</span><span class="s2">"product invalid"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong> cannot sell in the company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>repeat:</strong>  the order already been created.</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no products:</strong> can’t order if no product in the cart</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>product invalid:</strong> some products which had be deleted, but its still in the cart. Server will return these product number to data.</td>
-</tr>
-</tbody></table>
-
-<h2 id="order-payment">Order Payment</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/order/payment/</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to complete order. App uploads transaction id to backend, so that backend can verify data with payworks</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UXI2KS784JOC9A0"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">order_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">order number</td>
-</tr>
-<tr>
-<td style="text-align: right">transaction_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">transaction id with payworks</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
 
 <aside class="warning">
 Failure
@@ -23142,436 +22867,41 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong>  order is not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not retailer order:</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>repeated:</strong> transaction is exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>paid:</strong> order has been paid</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>request timeout:</strong> the api request too late</td>
-</tr>
-</tbody></table>
-
-<h2 id="cancel-order">Cancel Order</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/order/cancel</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to cancel order which not payment yet or some error happened in payment.</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">order_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">order number</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong>  order is not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>paid:</strong> order has been paid</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
-</tr>
-</tbody></table>
-
-<h2 id="refund">Refund</h2>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/order/refund</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to refund order. App uploads transaction id to backend, so that backend can verify data with payworks</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UXI2KS784JOC9A0"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
-</tr>
-<tr>
-<td style="text-align: right">transaction_id</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">transaction id with payworks to refund order which using cash to pay, if transaction id is empty</td>
-</tr>
-<tr>
-<td style="text-align: right">order_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">order number</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong>  order is not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refund expired:</strong> after the order has been created over 30 days, it can&rsquo;t refund</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>repeated:</strong> transaction is exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>open:</strong>  initial order status</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not paid:</strong>  order not paid yet</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>timeout:</strong> cannot connect to server of third-party-payment</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>transaction not found:</strong> the transaction not be found from third-party-payment</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid tansaction id:</strong> the transaction data which get from third-party-payment, its status error, abort or not refund</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="order-detail">Order Detail</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:
+
+<ul>
+<li>modify create_at description</li>
+<li>modify refund_at description</li>
+<li>add null type to refund_at field</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; from error_name field</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -23619,7 +22949,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">order_number</td>
@@ -23629,7 +22959,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -23643,10 +22973,10 @@ Success
   </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24414</span><span class="p">,</span><span class="w">
   </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491885</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491885</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"retailer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
@@ -23719,28 +23049,28 @@ Success
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
   </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"invoices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000006IN"</span><span class="p">,</span><span class="w">
@@ -23750,7 +23080,7 @@ Success
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490776038</span><span class="p">,</span><span class="w">
     </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000001OD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://192.168.1.116/BrandCloud/order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"</span><span class="w">
+    </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..../order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -23799,12 +23129,12 @@ Success
 <tr>
 <td style="text-align: right">create_at</td>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">create time</td>
+<td style="text-align: left">created time in the number of seconds</td>
 </tr>
 <tr>
 <td style="text-align: right">refund_at</td>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">refund time</td>
+<td style="text-align: left">timestamp / null</td>
+<td style="text-align: left">refunded time in the number of seconds</td>
 </tr>
 <tr>
 <td style="text-align: right">retailer</td>
@@ -24221,6 +23551,10 @@ Success
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
@@ -24237,47 +23571,578 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-order">Create Order</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+<li>type: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:
+
+<ul>
+<li>Modify qrcode description</li>
+<li>Add null type to qrcode field</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; from error_name field</li>
+<li>Add products, order_number, payment_method and qrcode</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/order/create</code></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> some input parameters missing, not in the request</td>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To create order</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
+<td style="text-align: right">Notice</td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cart_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit_card"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
+<td style="text-align: right">cart_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">cart id</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
+<td style="text-align: right">type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Success Parameters</p>
+</blockquote>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="s2">"AAAA160509000001OD"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayPal"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"qrcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>no permission:</strong> cannot sell in the company</td>
+<td style="text-align: right">payment_method</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
 </tr>
 <tr>
-<td style="text-align: right"></td>
+<td style="text-align: right">qrcode</td>
+<td style="text-align: left">string / null</td>
+<td style="text-align: left">a base64 string of qr-code image.<br/>It&rsquo;s null when payment method is credit_card or cash</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"product invalid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AAAA0000000001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"AAAB0000000001"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: the cart id is invalid</li><li>repeat: order has be created by this cart</li><li>no products: there are no products in the cart</li><li>product invalid: some products which no option or item has been deleted or currency price has been deleted, but those still in the cart</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">Collection of product number.<br/>It&rsquo;s show when error_name is product invalid</td>
+</tr>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">order number.<br/>It&rsquo;s show when error_name is repeat</td>
+</tr>
+<tr>
+<td style="text-align: right">payment_method</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">payment method.<br/>It&rsquo;s show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">qrcode</td>
+<td style="text-align: left">string / null (option)</td>
+<td style="text-align: left">a base64 string of qr-code image.<br/>It&rsquo;s null when payment method is credit_card or cash.<br/>It&rsquo;s show when error_name is repeat</td>
+</tr>
+</tbody></table>
+
+<h2 id="order-payment">Order Payment</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; from error_name field</li>
+<li>Remove &ldquo;not retailer order&rdquo; from error_name field</li>
+<li>Remove &ldquo;request timeout&rdquo; from error_name field</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/order/payment/</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To set transaction_id make order paid by payworks completed</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
 <td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong> order number is incorrect</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UXI2KS784JOC9A0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
+</tr>
+<tr>
+<td style="text-align: right">transaction_id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">transaction id of payworks</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li><li>currenct company not salesperson&rsquo;s company</li></ol></li><li>repeated: transaction id is exist</li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="cancel-order">Cancel Order</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; from error_name field</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/order/cancel</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to cancel order which not pay yet or error</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="refund">Refund</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+<li>transaction_id: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove &ldquo;no permission&rdquo; from error_name field</li>
+<li>Remove &ldquo;timeout&rdquo; from error_name field</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/order/refund</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To refund order</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UXI2KS784JOC9A0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">transaction_id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">refund transaction id of payworks, other payment method is empty</td>
+</tr>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>not reatiler order: only order of salesperson&rsquo;s company can refund </li><li>open: order just open state</li><li>confirming: order is confirming</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li><li>refund expired: payment has been exceeded 30 days</li><li>repeated: refunded transaction id is exist</li><li>transaction not found: refund transaction id is invalid</li><li>invalid transaction id: refund transaction id does not match order</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="send-paypal-payment-link">Send PayPal Payment Link</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.07 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -24326,7 +24191,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">email</td>
@@ -24340,26 +24205,17 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -24378,51 +24234,36 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong> invalid order number</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid email:</strong> invalid email</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>invalid payment:</strong> only PayPal can use this api</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>paid:</strong> order has been paid</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>invalid email: email format is invalid</li><li>invalid payment: only order pay by paypal can use </li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="transaction-result">Transaction Result</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.08 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Use Description</li>
+<li>Modify Success Parameters:
+
+<ul>
+<li>remove italic style</li>
+<li>modify status description</li>
+<li>modify order description</li>
+<li>modify fail description</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -24442,7 +24283,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to get the information for PayPal payment.</td>
+<td style="text-align: left">to get the payment information of PayPal</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -24474,7 +24315,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -24519,22 +24360,22 @@ Success
 <tr>
 <td style="text-align: right">date</td>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">payment date</td>
+<td style="text-align: left">payment date in the number of seconds</td>
 </tr>
 <tr>
 <td style="text-align: right">status</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear</td>
+<td style="text-align: left">payment status <ul><li>success</li><li>fail</li><li>info</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">odrer</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">it exists if the status is success</td>
 </tr>
 <tr>
 <td style="text-align: right">fail</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">it exists if the status is fail</td>
 </tr>
 </tbody></table>
 
@@ -24546,37 +24387,37 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">order number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>payment_method</em></td>
+<td style="text-align: right">payment_method</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">payment method of order</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>transaction</em></td>
+<td style="text-align: right">transaction</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">transaction id of order</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>currency</em></td>
+<td style="text-align: right">currency</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">payment currency</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>total</em></td>
-<td style="text-align: left">number</td>
+<td style="text-align: right">total</td>
+<td style="text-align: left">numeric</td>
 <td style="text-align: left">total price of payment</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>retailer</em></td>
+<td style="text-align: right">retailer</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">seller&rsquo;s company name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>payer</em></td>
+<td style="text-align: right">payer</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">payer email</td>
 </tr>
@@ -24590,27 +24431,31 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>refused_by</em></td>
+<td style="text-align: right">refused_by</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">By whom was this action refused, Server or PayPal</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>code</em></td>
+<td style="text-align: right">code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">fail code of PayPal</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>description</em></td>
+<td style="text-align: right">description</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">fail description</td>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"log expired"</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"result not exist"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -24623,16 +24468,38 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">the name of the wrong type</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>result not exist:</strong> order number invalid</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>result not exist: <ul><li>token is invalid</li><li>result was deleted when time exceed 15 minutes after user finished payment</li></ul></li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="query-refund-requirement-of-order">Query Refund Requirement Of Order</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.08 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>api_key: modify description</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Remove confirming from error_name field</li>
+<li>Remove closed from error_name field</li>
+<li>Remove refunded from error_name field</li>
+<li>Remove open from error_name field</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -24680,7 +24547,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">order_number</td>
@@ -24689,31 +24556,17 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">(Nothing return)</td>
-<td style="text-align: left">-</td>
-<td style="text-align: left">-</td>
-</tr>
-</tbody></table>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -24732,66 +24585,41 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The failed reason which HTTP code is 403</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>lack of parameters:</strong> the request does not include the necessary parameters</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>does not signin:</strong> user does not signin</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not select company yet:</strong> user need change current company</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>company not exist:</strong> currenct company not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>not company member:</strong> the user is not the company member</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>order not exist:</strong>  order is not exist</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refund expired:</strong> after the order has been created over 30 days, it can&rsquo;t refund</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>confirming:</strong>  order is confirming</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>closed :</strong> order has been closed</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>refunded:</strong> order has been refunded</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><strong>open:</strong>  initial order status</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company not salesperson&rsquo;s company</li></ol></li><li>not reatiler order: only order of salesperson&rsquo;s company can refund </li><li>refund expired: payment has been exceeded 30 days</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="partial-order-detail">Partial  Order  Detail</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.08 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Header Parameters
+
+<ul>
+<li>modify Authorization description</li>
+</ul></li>
+<li>Add Url Parameters</li>
+<li>Remove Input Parameters:</li>
+<li>Modify Success Parameters:
+
+<ul>
+<li>remove italic style</li>
+<li>modify retailer description</li>
+<li>modify products description</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -24819,15 +24647,8 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Header Parameters</p>
-</blockquote>
-
 <h3 id="header-parameters">Header Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
 <table><thead>
 <tr>
 <th style="text-align: right">Parameter</th>
@@ -24838,18 +24659,12 @@ Failure
 <tr>
 <td style="text-align: right">Authorization</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
+<h3 id="url-parameters">Url Parameters</h3>
 
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <table><thead>
 <tr>
 <th style="text-align: right">Parameter</th>
@@ -24857,10 +24672,15 @@ Failure
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: right">order_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">order number</td>
+</tr>
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -25001,22 +24821,12 @@ Success
 <tr>
 <td style="text-align: right">retailer</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">salesperson&rsquo;s company</td>
 </tr>
 <tr>
 <td style="text-align: right">products</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>discount_price</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">product discount price</td>
-</tr>
-<tr>
-<td style="text-align: right"><em>selling_price</em></td>
-<td style="text-align: left">double</td>
-<td style="text-align: left">product selling price</td>
+<td style="text-align: left">Collection of order product</td>
 </tr>
 </tbody></table>
 
@@ -25028,22 +24838,22 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company  id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: right">cover_img</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>address</em></td>
+<td style="text-align: right">address</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">retailer&rsquo;s address</td>
 </tr>
@@ -25057,7 +24867,7 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: right">resource</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
@@ -25071,22 +24881,22 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: right">px240</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 240 resolution (426x240)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: right">px480</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 480 resolution (854x480)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: right">px720</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 720 resolution (1280x720)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: right">px1080</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
@@ -25094,33 +24904,33 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">address</th>
+<th style="text-align: right">retailer.address</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s street</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s city</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s state</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>post_code</em></td>
+<td style="text-align: right">post_code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s post code</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">retailer&rsquo;s country</td>
 </tr>
@@ -25134,7 +24944,7 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">product number</td>
 </tr>
@@ -25153,6 +24963,21 @@ Success
 <td style="text-align: left">object</td>
 <td style="text-align: left">variant of product</td>
 </tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product price</td>
+</tr>
+<tr>
+<td style="text-align: right">discount_price</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product discount price</td>
+</tr>
+<tr>
+<td style="text-align: right">selling_price</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">product selling price</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -25163,12 +24988,12 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company id of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name of product</td>
 </tr>
@@ -25182,17 +25007,17 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">item id of products</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>number</em></td>
+<td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">item number of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">item name of product</td>
 </tr>
@@ -25206,17 +25031,17 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant id of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">variant name of product</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>cover_img</em></td>
+<td style="text-align: right">cover_img</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
@@ -25230,7 +25055,7 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>resource</em></td>
+<td style="text-align: right">resource</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">item cover image. It will be empty if no set cover image</td>
 </tr>
@@ -25244,37 +25069,41 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>px240</em></td>
+<td style="text-align: right">px240</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 240 resolution (426x240)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px480</em></td>
+<td style="text-align: right">px480</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 480 resolution (854x480)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px720</em></td>
+<td style="text-align: right">px720</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 720 resolution (1280x720)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>px1080</em></td>
+<td style="text-align: right">px1080</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">picture url of 1080 resolution (1920x1080)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>price</em></td>
+<td style="text-align: right">price</td>
 <td style="text-align: left">double</td>
 <td style="text-align: left">product price</td>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_sign_in"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -25286,42 +25115,40 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">The name of wrong type</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>not_sign_in: The api_key is invalid</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_bound_same_user: order has been bound with another user</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_exist: order number is incorrect</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_is_finished: order is finished</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_is_aborted: order is aborted</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_is_timeout: order is timeout</li></ul></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="confirm-purchase">Confirm Purchase</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.08 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters
+
+<ul>
+<li>modify api_key description</li>
+</ul></li>
+<li>Modify Success Parameters:
+
+<ul>
+<li>remove italic style</li>
+<li>modify profile description</li>
+<li>modify default_address description</li>
+</ul></li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -25369,7 +25196,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">order_number</td>
@@ -25379,7 +25206,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -25388,13 +25215,13 @@ Failure
 Success
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"profile"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0912345678"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"default_address"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"default_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"street"</span><span class="p">:</span><span class="s2">"ABC st."</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Taichung"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"Taiwan"</span><span class="p">,</span><span class="w">
@@ -25413,12 +25240,12 @@ Success
 <tr>
 <td style="text-align: right">profile</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">user profile</td>
 </tr>
 <tr>
 <td style="text-align: right">default_address</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">user address</td>
 </tr>
 </tbody></table>
 
@@ -25430,22 +25257,22 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">title (0=Mr. 1=Ms.)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">phone number</td>
 </tr>
@@ -25459,37 +25286,41 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>code</em></td>
+<td style="text-align: right">code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"lack of parameters"</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_sign_in"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -25501,27 +25332,39 @@ Failure
 </thead><tbody>
 <tr>
 <td style="text-align: right">error_name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">The name of wrong type</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>not_sign_in: The api_key is invalid</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_bound_same_user: order has been bound with another user</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_exist: order number is incorrect</li></ul></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="edit-order">Edit Order</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.08 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters
+
+<ul>
+<li>Apply new structure</li>
+<li>modify api_key description</li>
+<li>remove italic style</li>
+</ul></li>
+<li>Modify Success Parameters:</li>
+<li>Remove Success Example:</li>
+<li>Modify Failure Parameters:
+
+<ul>
+<li>Apply new structure</li>
+<li>Add validation</li>
+</ul></li>
+<li>Modify Failure Example:</li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -25560,7 +25403,7 @@ Failure
     </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"given_name"</span><span class="p">:</span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"family_name"</span><span class="p">:</span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">    
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"0912345678"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"street"</span><span class="p">:</span><span class="s2">"ABC st."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"street2"</span><span class="p">:</span><span class="s2">"ABC st."</span><span class="p">,</span><span class="w">
@@ -25581,7 +25424,7 @@ Failure
 <tr>
 <td style="text-align: right">api_key</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend.</td>
+<td style="text-align: left">The identity token of user</td>
 </tr>
 <tr>
 <td style="text-align: right">order_number</td>
@@ -25593,78 +25436,78 @@ Failure
 <td style="text-align: left">object</td>
 <td style="text-align: left">order&rsquo;s billing address</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<th style="text-align: right">billing_address</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s given_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s family_name</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>phone</em></td>
+<td style="text-align: right">phone</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s phone number</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>title</em></td>
+<td style="text-align: right">title</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">recipient’s title (0=Mr. 1=Ms.)</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street</em></td>
+<td style="text-align: right">street</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>street2</em></td>
+<td style="text-align: right">street2</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>city</em></td>
+<td style="text-align: right">city</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>state</em></td>
+<td style="text-align: right">state</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>code</em></td>
+<td style="text-align: right">code</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>country</em></td>
+<td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<p>Return Parameters</p>
-</blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
 Success
 </aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+
+<p>Nothing was returned</p>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
 
 <aside class="warning">
 Failure
@@ -25672,9 +25515,9 @@ Failure
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"illegal_form_input"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
-      </span><span class="nt">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"invalid"</span><span class="p">]</span><span class="w">
+      </span><span class="nt">"billing_address.given_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"billing_address.family_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"billing_address.title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"invalid"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -25688,52 +25531,71 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type</td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>not_sign_in: The api_key is invalid</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_not_exist: The order is not exist</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>order_is_timeout: The order is expired(order timeout 15 minutes)</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"><ul><li>illegal_form_input: The form format does not pass validation</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li><li>illegal_form_input: The form format does not pass validation</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
 <td style="text-align: left">object (option)</td>
-<td style="text-align: left">if the error_name is &lsquo;illegal_form_input’, system should assign the name of wrong type for each error input</td>
+<td style="text-align: left">If the error_name is &lsquo;illegal_form_input&rsquo;, system will show reasons for each error input</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">billing_address.given_name</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right">given_name</td>
+<td style="text-align: right">billing_address.family_name</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The data is empty</li></ol></td>
+<td style="text-align: left">required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right">family_name</td>
+<td style="text-align: right">billing_address.title</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The data is empty</li></ol></td>
+<td style="text-align: left">invalid: <ol><li>The data is not true, false, 1, 0, &ldquo;1&rdquo;, and &ldquo;0&rdquo;</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right">title</td>
+<td style="text-align: right">billing_address.phone</td>
 <td style="text-align: left">array (option)</td>
-<td style="text-align: left">required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not a number</li></ol></td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.street</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.street2</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.city</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.state</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.code</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address.country</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 </tbody></table>
 
