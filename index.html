@@ -18816,6 +18816,23 @@ Failure
 
 <h2 id="search-near-products">Search Near Products</h2>
 
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2020.01.08 / Joey Huang</strong></p>
+
+<ul>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+<li>Modify the description of the failure response</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
 <h3 id="description">Description</h3>
 
 <table><thead>
@@ -18890,7 +18907,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -18998,6 +19015,10 @@ Success
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
@@ -19015,11 +19036,27 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: The target company is not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: the target_company_id of a company does not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul></td>
 </tr>
 </tbody></table>
 
 <h2 id="search-inventory">Search Inventory</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2020.01.08 / Joey Huang</strong></p>
+
+<ul>
+<li>Modify Failure Parameter:
+
+<ul>
+<li>Apply new structure</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -19083,7 +19120,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -19241,6 +19278,10 @@ Success
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
 <aside class="warning">
 Failure
 </aside>
@@ -19258,7 +19299,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul></td>
 </tr>
 </tbody></table>
 
