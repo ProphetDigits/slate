@@ -2,6 +2,18 @@
 
 ## Search Near Products
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.01.08 / Joey Huang**
+
+  * Modify Failure Parameter:
+    * Apply new structure
+    * Modify the description of the failure response
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -34,7 +46,7 @@
 | latitude | number | The latitude of location |
 | longitude | number | The longitude of location |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -80,6 +92,8 @@ Success
 | latitude | number | latitude of location |
 | longitude | number | longitude of location |
 
+> Return Failure Parameters
+
 <aside class="warning">
 Failure
 </aside>
@@ -92,7 +106,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: The target company is not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>target_company_not_exist: the target_company_id of a company does not exist</li><li>no_option: The permission deny by target company </li><li>variant_not_exist: The variant is not exist or not belongs to target company</li></ul> |
 
 
 ## Search Inventory
