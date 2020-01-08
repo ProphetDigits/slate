@@ -2,13 +2,35 @@
 
 ## Order List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters
+    * remove italic style
+    * modify create_at description
+    * modify refund_at description
+    * modify retailer description
+    * modify agent description
+    * add null type to refund_at field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" in error_name
+
+</details>
+
 ### Description
 
 | Title | Description |
 | -------: | :---- |
 | URL | `user/company/order/list` |
 | Method | `post` |
-| Use | to get the order list in the company. |
+| Use | To get the order list of company |
 | Notice |  |
 
 
@@ -24,9 +46,9 @@
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -37,42 +59,42 @@ Success
 ```json
 {
     "orders": [{
-    "number": "AAAA160401000002OD",
-    "currency": "JPY",
-    "total": 24288,
-    "order_status": "Cancelled",
-    "payment_status": "Closed",
-    "transaction_id": "",
-    "create_at": 1459491797,
-    "refund_at": 1459491797,
-    "retailer": {
-      "id": 1,
-      "name": "Company A"
-    },
-    "agent": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang",
-      "email": "a@gamil.com"
-    }
-  },{
-    "number": "AAAA160401000001OD",
-    "currency": "CHF",
-    "total": 284.04,
-    "order_status": "Open",
-    "payment_status": "Open",
-    "create_at": 1459491797,
-    "refund_at": 1459491797,
-    "retailer": {
-      "id": 1,
-      "name": "Company A"
-    },
-    "agent": {
-      "id": 1,
-      "given_name": "QQ",
-      "family_name": "Wang",
-      "email": "a@gamil.com"
-    }
+        "number": "AAAA160401000002OD",
+        "currency": "JPY",
+        "total": 24288,
+        "order_status": "Cancelled",
+        "payment_status": "Closed",
+        "transaction_id": "",
+        "create_at": 1459491797,
+        "refund_at": 1459491797,
+        "retailer": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang",
+            "email": "a@gamil.com"
+        }
+    },{
+        "number": "AAAA160401000001OD",
+        "currency": "CHF",
+        "total": 284.04,
+        "order_status": "Open",
+        "payment_status": "Open",
+        "create_at": 1459491797,
+        "refund_at": 1459491797,
+        "retailer": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang",
+            "email": "a@gamil.com"
+        }
     }]
 }
 ```
@@ -86,22 +108,24 @@ Success
 | payment_status | string | payment status |
 | payment_method | string | payment method |
 | transaction_id | string | transaction id  |
-| create_at | timestamp | create time (s) |
-| refund_at | timestamp | refund time (s) |
-| retailer | object |  |
-| agent | object |  |
+| create_at | timestamp | created time in the number of seconds |
+| refund_at | timestamp / null | refunded time in the number of seconds |
+| retailer | object | salesperson's company |
+| agent | object | salesperson |
 
 | retailer | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | company id |
-| *name* | string | company name |
+| id | integer | company id |
+| name | string | company name |
 
 | agent | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | user id |
-| *given_name* | string | user given name |
-| *family_name* | string | user family name |
-| *email* | string | user email |
+| id | integer | user id |
+| given_name | string | user given name |
+| family_name | string | user family name |
+| email | string | user email |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -115,323 +139,29 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-
-
-## Create Order
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/order/create` |
-| Method | `post` |
-| Use | to create order. App uploads cart data to backend, backend create order and send order id to app |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "cart_id":"C00001",
-  "type": "credir_card"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| cart_id | integer | cart  id |
-| type | string | "credit_card" or “cash" or "PayPal" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app" |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-  "order_number":"AAAA160509000001OD",
-  "payment_method": "PayPal",
-  "qrcode": ""
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| order_number | string | order number |
-| payment_method | string | payment method, "credit_card" or “cash" or "PayPal" or "cash_consumer_app" or "credit_card_consumer_app"  |
-| qrcode | string | payment link for PayPal or Order Number QR-Code  , others is null |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "products": [
-    "AAAA0000000001",
-    "AAAB0000000001"
-  ],
-  "err_name":"product invalid"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:** cannot sell in the company|
-|||**repeat:**  the order already been created. |
-|||**no products:** can’t order if no product in the cart |
-|||**product invalid:** some products which had be deleted, but its still in the cart. Server will return these product number to data. |
-
-
-## Order Payment
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/order/payment/` |
-| Method | `post` |
-| Use | to complete order. App uploads transaction id to backend, so that backend can verify data with payworks |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "order_number": "C00001",
-  "transaction_id": "UXI2KS784JOC9A0"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| order_number | string | order number |
-| transaction_id | string | transaction id with payworks |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**order not exist:**  order is not exist|
-|||**not retailer order:**|
-|||**repeated:** transaction is exist|
-|||**paid:** order has been paid |
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-|||**request timeout:** the api request too late|
-
-
-## Cancel Order
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/order/cancel` |
-| Method | `post` |
-| Use | to cancel order which not payment yet or some error happened in payment. |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "order_number": "C00001"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| order_number | string | order number |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**order not exist:**  order is not exist|
-|||**paid:** order has been paid |
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-
-
-## Refund
-
-### Description
-
-| Title | Description |
-| -------: | :---- |
-| URL | `user/company/order/refund` |
-| Method | `post` |
-| Use | to refund order. App uploads transaction id to backend, so that backend can verify data with payworks |
-| Notice |  |
-
-
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-  "api_key": "e4cbcdc2faff41a7e311",
-  "transaction_id": "UXI2KS784JOC9A0",
-  "order_number": "C00001"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
-| transaction_id | string | transaction id with payworks to refund order which using cash to pay, if transaction id is empty |
-| order_number | string | order number |
-
-> Return Parameters
-
-### Return Parameters
-
-<aside class="success">
-Success
-</aside>
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
-
-<aside class="warning">
-Failure
-</aside>
-
-```json
-{
-  "error_name":"lack of parameters"
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:**|
-|||**order not exist:**  order is not exist|
-|||**refund expired:** after the order has been created over 30 days, it can't refund|
-|||**repeated:** transaction is exist|
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-|||**open:**  initial order status|
-|||**order not paid:**  order not paid yet|
-|||**timeout:** cannot connect to server of third-party-payment |
-|||**transaction not found:** the transaction not be found from third-party-payment |
-|||**invalid tansaction id:** the transaction data which get from third-party-payment, its status error, abort or not refund|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
 
 
 
 ## Order Detail
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+    * modify create_at description
+    * modify refund_at description
+    * add null type to refund_at field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+
+</details>
 
 ### Description
 
@@ -456,10 +186,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -474,10 +204,10 @@ Success
   "total": 24414,
   "order_status": "Open",
   "payment_status": "Open",
-  "payment_method": null,
+  "payment_method": "cash",
   "transaction_id": null,
   "create_at": 1459491885,
-  "refund_at": 1459491885,
+  "refund_at": null,
   "retailer": {
     "id": 1,
     "name": "Company A"
@@ -550,28 +280,28 @@ Success
     }
   }],
   "shipping_address": {
-    "title": null,
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
+    "title": 0,
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
   },
   "billing_address": {
-    "title": null,
-    "given_name": null,
-    "family_name": null,
-    "phone": null,
-    "email": null,
-    "street": null,
-    "city": null,
-    "state": null,
-    "code": null,
-    "country": null
+    "title": 0,
+    "given_name": "",
+    "family_name": "",
+    "phone": "",
+    "email": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "code": "",
+    "country": ""
   },
   "invoices": [{
     "number": "AAAA170329000006IN",
@@ -581,7 +311,7 @@ Success
     },
     "create_at": 1490776038,
     "comment": "AAAA170329000001OD",
-    "download": "http://192.168.1.116/BrandCloud/order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
+    "download": "http://..../order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
   }]
 }
 ```
@@ -595,8 +325,8 @@ Success
 | payment_status | string | payment status |
 | payment_method | string | payment method |
 | transaction_id | string | transaction id |
-| create_at | timestamp | create time |
-| refund_at | timestamp | refund time |
+| create_at | timestamp | created time in the number of seconds |
+| refund_at | timestamp / null | refunded time in the number of seconds |
 | retailer | object | The reatiler of order |
 | agent | object | The creator of order |
 | billing_address | object | The billing address of order |
@@ -695,6 +425,8 @@ Success
 | id | integer | company id |
 | name| string | company name |
 
+> Return Failure Parameters
+
 <aside class="warning">
 Failure
 </aside>
@@ -707,17 +439,348 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String |  if the value of success is false, web backend needs to assign the name of  error, unless this parameter should be empty: Valid Value:|
-|||**lack of parameters:** some input parameters missing, not in the request|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**no permission:** cannot sell in the company|
-|||**order not exist:** order number is incorrect|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company is not salesperson's company</li></ol></li></ul> |
+
+
+
+## Create Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+    * type: modify description
+  * Modify Success Parameters:
+    * Modify qrcode description
+    * Add null type to qrcode field
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+    * Add products, order_number, payment_method and qrcode
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/create` |
+| Method | `post` |
+| Use | To create order |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "cart_id": "C00001",
+  "type": "credit_card"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| cart_id | integer | cart id |
+| type | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+  "order_number":"AAAA160509000001OD",
+  "payment_method": "PayPal",
+  "qrcode": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| order_number | string | order number |
+| payment_method | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| qrcode | string / null | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"product invalid",
+    "products": [
+      "AAAA0000000001",
+      "AAAB0000000001"
+    ]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: the cart id is invalid</li><li>repeat: order has be created by this cart</li><li>no products: there are no products in the cart</li><li>product invalid: some products which no option or item has been deleted or currency price has been deleted, but those still in the cart</li></ul> |
+| products | array (option) | Collection of product number.<br/>It's show when error_name is product invalid |
+| order_number | string (option) | order number.<br/>It's show when error_name is repeat |
+| payment_method | string (option) | payment method.<br/>It's show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| qrcode | string / null (option) | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash.<br/>It's show when error_name is repeat |
+
+
+
+## Order Payment
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+    * Remove "not retailer order" from error_name field
+    * Remove "request timeout" from error_name field
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/payment/` |
+| Method | `post` |
+| Use | To set transaction_id make order paid by payworks completed |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "order_number": "C00001",
+  "transaction_id": "UXI2KS784JOC9A0"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| order_number | string | order number |
+| transaction_id | string | transaction id of payworks |
+
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li><li>currenct company not salesperson's company</li></ol></li><li>repeated: transaction id is exist</li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul> |
+
+
+
+## Cancel Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/cancel` |
+| Method | `post` |
+| Use | to cancel order which not pay yet or error |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "order_number": "C00001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| order_number | string | order number |
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul> |
+
+
+
+## Refund
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Use Description
+  * Modify Input Parameters:
+    * api_key: modify description
+    * transaction_id: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove "no permission" from error_name field
+    * Remove "timeout" from error_name field
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/order/refund` |
+| Method | `post` |
+| Use | To refund order |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "transaction_id": "UXI2KS784JOC9A0",
+  "order_number": "C00001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| transaction_id | string | refund transaction id of payworks, other payment method is empty |
+| order_number | string | order number |
+
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>not reatiler order: only order of salesperson's company can refund </li><li>open: order just open state</li><li>confirming: order is confirming</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li><li>refund expired: payment has been exceeded 30 days</li><li>repeated: refunded transaction id is exist</li><li>transaction not found: refund transaction id is invalid</li><li>invalid transaction id: refund transaction id does not match order</li></ul> |
+
 
 
 ## Send PayPal Payment Link
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.07 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -743,11 +806,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | email | string | consumer email |
 | order_number | string | order number which consumer want to pay by PayPal buy no scanner |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -755,13 +817,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -775,18 +833,28 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type |
-||| **does not signin:** user does not signin |
-||| **order not exist:** invalid order number |
-||| **invalid email:** invalid email |
-||| **invalid payment:** only PayPal can use this api |
-||| **paid:** order has been paid |
-||| **confirming:**  order is confirming |
-||| **closed :** order has been closed |
-||| **refunded:** order has been refunded |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>user is not salesperson</li></ol></li><li>invalid email: email format is invalid</li><li>invalid payment: only order pay by paypal can use </li><li>confirming: order is confirming</li><li>paid: order has been paid</li><li>closed: order has been closed</li><li>refunded: order has been refunded</li></ul> |
+
 
 
 ## Transaction Result
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Use Description
+  * Modify Success Parameters:
+    * remove italic style
+    * modify status description
+    * modify order description
+    * modify fail description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -794,7 +862,7 @@ Failure
 | -------: | :---- |
 | URL | `transaction/{token}/result` |
 | Method | `get` |
-| Use | to get the information for PayPal payment. |
+| Use | to get the payment information of PayPal |
 | Notice |  |
 
 
@@ -812,7 +880,7 @@ Failure
 | -------: | :---- | :--- |
 | token | string | a temporary token for payment. |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -857,27 +925,28 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| date | timestamp | payment date |
-| status | string | payment status, success or fail or info <br /> the order parameter will appear if the status is success otherwise, the fail parameter will appear |
-| odrer | object |  |
-| fail | object |  |
+| date | timestamp | payment date in the number of seconds |
+| status | string | payment status <ul><li>success</li><li>fail</li><li>info</li></ul> |
+| odrer | object (option) | it exists if the status is success |
+| fail | object (option) | it exists if the status is fail |
 
 | odrer | Type | Description |
 | -------: | :---- | :--- |
-| *number* | string | order number |
-| *payment_method* | string | payment method of order |
-| *transaction* | string | transaction id of order |
-| *currency* | string | payment currency |
-| *total* | number | total price of payment |
-| *retailer* | string | seller's company name |
-| *payer* | string | payer email |
+| number | string | order number |
+| payment_method | string | payment method of order |
+| transaction | string | transaction id of order |
+| currency | string | payment currency |
+| total | numeric | total price of payment |
+| retailer | string | seller's company name |
+| payer | string | payer email |
 
 | fail | Type | Description |
 | -------: | :---- | :--- |
-| *refused_by* | string | By whom was this action refused, Server or PayPal |
-| *code* | string | fail code of PayPal |
-| *description* | string | fail description |
+| refused_by | string | By whom was this action refused, Server or PayPal |
+| code | string | fail code of PayPal |
+| description | string | fail description |
 
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -885,17 +954,36 @@ Failure
 
 ```json
 {
-    "error_name":"log expired"
+    "error_name":"result not exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | the name of the wrong type |
-||| **result not exist:** order number invalid |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>result not exist: <ul><li>token is invalid</li><li>result was deleted when time exceed 15 minutes after user finished payment</li></ul></li></ul> |
+
 
 
 ## Query Refund Requirement Of Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Input Parameters:
+    * api_key: modify description
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Remove confirming from error_name field
+    * Remove closed from error_name field
+    * Remove refunded from error_name field
+    * Remove open from error_name field
+
+</details>
 
 ### Description
 
@@ -920,10 +1008,9 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | Order number |
 
-> Return Parameters
 
 ### Return Parameters
 
@@ -931,14 +1018,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-| (Nothing return) | - | - |
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -952,21 +1034,30 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 |
-|||**lack of parameters:** the request does not include the necessary parameters|
-|||**does not signin:** user does not signin|
-|||**not select company yet:** user need change current company|
-|||**company not exist:** currenct company not exist|
-|||**not company member:** the user is not the company member|
-|||**order not exist:**  order is not exist|
-|||**refund expired:** after the order has been created over 30 days, it can't refund|
-|||**confirming:**  order is confirming|
-|||**closed :** order has been closed|
-|||**refunded:** order has been refunded|
-|||**open:**  initial order status|
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: <ol><li>order number is invalid</li><li>currenct company not salesperson's company</li></ol></li><li>not reatiler order: only order of salesperson's company can refund </li><li>refund expired: payment has been exceeded 30 days</li></ul> |
+
 
 
 ## Partial  Order  Detail
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Header Parameters
+    * modify Authorization description
+  * Add Url Parameters
+  * Remove Input Parameters:
+  * Modify Success Parameters:
+    * remove italic style
+    * modify retailer description
+    * modify products description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -977,35 +1068,22 @@ Failure
 | Use | to get the partial order detail |
 | Notice |  |
 
-> Header Parameters
 
 ### Header Parameters
 
-```json
-{
-    "Authorization": "e4cbcdc2faff41a7e311"
-}
-```
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | The identity token of user |
+
+
+### Url Parameters
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| Authorization | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| order_number | string | order number |
 
 
-> Input Parameters
-
-### Input Parameters
-
-```json
-{
-}
-```
-
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
-
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1108,73 +1186,75 @@ Success
 | order_status | string | order status |
 | payment_status | string | payment status |
 | payment_method | string | payment method |
-| retailer | object |  |
-| products | array |  |
-| *discount_price* | double | product discount price |
-| *selling_price* | double | product selling price |
-
+| retailer | object | salesperson's company |
+| products | array | Collection of order product |
 
 | retailer | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | company  id |
-| *name* | string | company name |
-| *cover_img* | object | item cover image. It will be empty if no set cover image |
-| *address* | object | retailer's address |
+| id | integer | company  id |
+| name | string | company name |
+| cover_img | object | item cover image. It will be empty if no set cover image |
+| address | object | retailer's address |
 
 | retailer.cover_img | Type | Description |
 | -------: | :---- | :--- |
-| *resource* | object | item cover image. It will be empty if no set cover image |
+| resource | object | item cover image. It will be empty if no set cover image |
 
 | retailer.cover_img.resource | Type | Description |
 | -------: | :---- | :--- |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
+| px240 | string | picture url of 240 resolution (426x240) |
+| px480 | string | picture url of 480 resolution (854x480) |
+| px720 | string | picture url of 720 resolution (1280x720) |
+| px1080 | string | picture url of 1080 resolution (1920x1080) |
 
-| address | Type | Description |
+| retailer.address | Type | Description |
 | -------: | :---- | :--- |
-| *street* | string | retailer's street  |
-| *city* | string |  retailer's city  |
-| *state* | string |  retailer's state  |
-| *post_code* | string |  retailer's post code  |
-| *country* | string |  retailer's country  |
+| street | string | retailer's street  |
+| city | string |  retailer's city  |
+| state | string |  retailer's state  |
+| post_code | string |  retailer's post code  |
+| country | string |  retailer's country  |
 
 | product | Type | Description |
 | -------: | :---- | :--- |
-| *number* | string | product number |
+| number | string | product number |
 | company | object | company of product |
 | item | object | item of product |
 | variant | object | variant of product |
+| price | double | product price |
+| discount_price | double | product discount price |
+| selling_price | double | product selling price |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
-| *id* | string | company id of product |
-| *name* | string | company name of product |
+| id | string | company id of product |
+| name | string | company name of product |
 
 | product.item | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | item id of products |
-| *number* | string | item number of product |
-| *name* | string | item name of product |
+| id | integer | item id of products |
+| number | string | item number of product |
+| name | string | item name of product |
 
 | product.variant | Type | Description |
 | -------: | :---- | :--- |
-| *id* | string | variant id of product |
-| *name* | string | variant name of product |
-| *cover_img* | object | item cover image. It will be empty if no set cover image |
+| id | string | variant id of product |
+| name | string | variant name of product |
+| cover_img | object | item cover image. It will be empty if no set cover image |
 
 | product.variant.cover_img | Type | Description |
 | -------: | :---- | :--- |
-| *resource* | object | item cover image. It will be empty if no set cover image |
+| resource | object | item cover image. It will be empty if no set cover image |
 
 | product.variant.cover_img.resource | Type | Description |
 | -------: | :---- | :--- |
-| *px240* | string | picture url of 240 resolution (426x240) |
-| *px480* | string | picture url of 480 resolution (854x480) |
-| *px720* | string | picture url of 720 resolution (1280x720) |
-| *px1080* | string | picture url of 1080 resolution (1920x1080) |
-| *price* | double | product price |
+| px240 | string | picture url of 240 resolution (426x240) |
+| px480 | string | picture url of 480 resolution (854x480) |
+| px720 | string | picture url of 720 resolution (1280x720) |
+| px1080 | string | picture url of 1080 resolution (1920x1080) |
+| price | double | product price |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1182,22 +1262,34 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name": "not_sign_in"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | The name of wrong type |
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
-| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
-| | | <ul><li>order_is_finished: order is finished</li></ul> |
-| | | <ul><li>order_is_aborted: order is aborted</li></ul> |
-| | | <ul><li>order_is_timeout: order is timeout</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
+
 
 
 ## Confirm Purchase
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Input Parameters
+    * modify api_key description
+  * Modify Success Parameters:
+    * remove italic style
+    * modify profile description
+    * modify default_address description
+  * Modify Failure Parameters:
+    * Apply new structure
+
+</details>
 
 ### Description
 
@@ -1221,10 +1313,10 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -1234,13 +1326,13 @@ Success
 
 ```json
 {
-    "profile" : {
+    "profile": {
         "given_name": "CC",
         "family_name": "Lee",
         "title": 1,
         "phone": "0912345678"
     },
-    "default_address" : {
+    "default_address": {
         "street":"ABC st.",
         "city":"Taichung",
         "state":"Taiwan",
@@ -1252,24 +1344,26 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| profile | object | |
-| default_address | object | |
+| profile | object | user profile |
+| default_address | object | user address |
 
 
 | profile | Type | Description |
 | -------: | :---- | :--- |
-| *given_name* | string | given_name |
-| *family_name* | string | family_name |
-| *title* | integer | title (0=Mr. 1=Ms.) |
-| *phone* | string | phone number |
+| given_name | string | given_name |
+| family_name | string | family_name |
+| title | integer | title (0=Mr. 1=Ms.) |
+| phone | string | phone number |
 
 | default_address | Type | Description |
 | -------: | :---- | :--- |
-| *street* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
+| street | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1277,20 +1371,36 @@ Failure
 
 ```json
 {
-  "error_name":"lack of parameters"
+  "error_name": "not_sign_in"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | String | The name of wrong type |
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
-| | | <ul><li>order_not_exist: order number is incorrect</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li></ul> |
 
 
 
 ## Edit Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.08 / Jianhua**
+
+  * Modify Input Parameters
+    * Apply new structure
+    * modify api_key description
+    * remove italic style
+  * Modify Success Parameters:
+  * Remove Success Example:
+  * Modify Failure Parameters:
+    * Apply new structure
+    * Add validation
+  * Modify Failure Example:
+
+</details>
 
 ### Description
 
@@ -1312,7 +1422,7 @@ Failure
     "billing_address": {
       "given_name":"Lee",
       "family_name":"CC",
-      "title": 0,    
+      "title": 0,
       "phone":"0912345678",
       "street":"ABC st.",
       "street2":"ABC st.",
@@ -1326,21 +1436,23 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
+| api_key | string | The identity token of user |
 | order_number | string | order number |
 | billing_address | object | order's billing address |
-| *given_name* | string | recipient’s given_name |
-| *family_name* | string | recipient’s family_name |
-| *phone* | string | recipient’s phone number |
-| *title* | integer | recipient’s title (0=Mr. 1=Ms.) |
-| *street* | string | recipient’s address |
-| *street2* | string | recipient’s address |
-| *city* | string | recipient’s address |
-| *state* | string | recipient’s address |
-| *code* | string | recipient’s address |
-| *country* | string | recipient’s address |
 
-> Return Parameters
+| billing_address | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string | recipient’s given_name |
+| family_name | string | recipient’s family_name |
+| phone | string | recipient’s phone number |
+| title | integer | recipient’s title (0=Mr. 1=Ms.) |
+| street | string | recipient’s address |
+| street2 | string | recipient’s address |
+| city | string | recipient’s address |
+| state | string | recipient’s address |
+| code | string | recipient’s address |
+| country | string | recipient’s address |
+
 
 ### Return Parameters
 
@@ -1348,14 +1460,9 @@ Failure
 Success
 </aside>
 
-```json
-{
-}
-```
+Nothing was returned
 
-| Parameter | Type | Description |
-| -------: | :---- | :--- |
-
+> Return Failure Parameters
 
 <aside class="warning">
 Failure
@@ -1365,24 +1472,29 @@ Failure
 {
   "error_name":"illegal_form_input",
   "validation": {
-      "given_name": ["required"],
-      "family_name": ["required"],
-      "title": ["invalid"]
+      "billing_address.given_name": ["required"],
+      "billing_address.family_name": ["required"],
+      "billing_address.title": ["invalid"]
   }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type|
-| | | <ul><li>not_sign_in: The api_key is invalid</li></ul>|
-| | | <ul><li>order_not_bound_same_user: The order is bounded by another user</li></ul>|
-| | | <ul><li>order_not_exist: The order is not exist</li></ul>|
-| | | <ul><li>order_is_timeout: The order is expired(order timeout 15 minutes)</li></ul>|
-| | | <ul><li>illegal_form_input: The form format does not pass validation</li></ul>|
-| validation | object (option) | if the error_name is 'illegal_form_input’, system should assign the name of wrong type for each error input |
-| given_name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| family_name | array (option) | required: <ol><li>The data is empty</li></ol> |
-| title | array (option) | required: <ol><li>The data is empty</li></ol><br />invalid: <ol><li>The data is not a number</li></ol> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>order_not_exist: order number is incorrect</li><li>order_is_finished: order is finished</li><li>order_is_aborted: order is aborted</li><li>order_is_timeout: order is timeout</li><li>order_not_bound_same_user: order has been bound with another user</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| billing_address.given_name | array (option) | required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol> |
+| billing_address.family_name | array (option) | required: <ol><li>The data is empty</li></ol> invalid: <ol><li>The data is not a string</li></ol> |
+| billing_address.title | array (option) | invalid: <ol><li>The data is not true, false, 1, 0, "1", and "0"</li></ol> |
+| billing_address.phone | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.street | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.street2 | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.city | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.state | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.code | array (option) | invalid: <ol><li>The data is not string</li></ol> |
+| billing_address.country | array (option) | invalid: <ol><li>The data is not string</li></ol> |
 
 
