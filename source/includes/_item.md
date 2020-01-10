@@ -197,7 +197,7 @@ Success
     "id": 1,
     "name":"Edison Evo",
     "number": "xxxx",
-    "description":"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert.",
+    "description":"Mit dem edison EVO ist uns ein weiterer...",
     "weblink": "http://evo.bionicon.com/",
     "ean": "",
     "unit": "Set",
