@@ -452,9 +452,9 @@ Failure
 
 | distributor | Type | Description |
 | -------: | :---- | :--- |
-| *company_id* | integer | company id |
-| *sharing* | integer | distributor sharing |
-| *role* | string | customization role name |
+| company_id | integer | company id |
+| sharing | integer | distributor sharing |
+| role | string | customization role name |
 
 ### Return Parameters
 
