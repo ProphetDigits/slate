@@ -600,7 +600,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Modify Success Parameter:
@@ -617,7 +623,6 @@ Failure
 | Use | to delete the purchase order which not submitted yet. |
 | Notice |  |
 
-
 > Input Parameters
 
 ### Input Parameters
@@ -633,7 +638,6 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
-
 
 ### Return Parameters
 
@@ -657,8 +661,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted : order submitted</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or order_number parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>order not exist: the order_number is not correct</li><li>order submitted : the order_number of order has submitted</li></ul> |
 
 ## Edit Purchase Order
 
