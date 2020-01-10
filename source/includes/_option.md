@@ -237,6 +237,13 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.01.10 / Jianhua**
+
+  * Modify Success Parameters:
+    * Modify status_message structure
+    * Remove italic style
+    * Add status_message example
+
   **2020.01.02 / Joey Huang**
 
   * Modify Fail Parameters:
@@ -288,7 +295,9 @@ Success
     "stabrand_sharingtus": 40,
     "retailer_sharing": 45,
     "status": 1,
-    "status_message": {},
+    "status_message": {
+    	"sharing": "invalid value"
+    },
     "retailers": [{
         "id": 1,
         "name": "Company A"
@@ -327,49 +336,45 @@ Success
 | deposit_sharing | integer | deposit sharing |
 | brand_sharing | integer | brand sharing |
 | retailer_sharing | integer | retailer sharing |
-| company | object | |
-| retailers | array | |
-| distributors | array | |
+| company | object | option company |
+| retailers | array | Collection of retailer |
+| distributors | array | Collection of distributors |
 | invitations | array | invitation list of option |
 
-| status_message | Type | Description ||
+| status_message | Type | Description |
 | -------: | :---- | :--- |:--|
-| *start_time* | **array** | error reasons |
-| *required* | string | it’s necessary to option |
-| *end_time* | **array** | error reasons |
-| *expired* | string | time is expired |
-| *active*| **array** | error reasons |
-| *no* | string | option is close |
-| *sharing* | **array** | error reasons |
-| *invalid value* | string | total sharing is not equal to 100 |
+| start_time | string | required: <ol><li>The field is required</li></ol> |
+| end_time | string | expired: <ol><li>time is expired</li></ol> |
+| active| string | no: <ol><li>option is close</li></ol> |
+| sharing | string | invalid value: <ol><li>total sharing is not equal to 100</li></ol> |
 
 | company | Type | Description ||
 | -------: | :---- | :--- |:--|
-| *id* | integer | company id |
-| *name* | string | company name |
+| id | integer | company id |
+| name | string | company name |
 
 | retailer | Type | Description ||
 | -------: | :---- | :--- |:--|
-| *id* | integer | company id |
-| *name* | string | company name |
+| id | integer | company id |
+| name | string | company name |
 
 | distributor | Type | Description ||
 | -------: | :---- | :--- |:--|
-| *id* | integer | company id |
-| *name* | string | company name |
-| *sharing* | integer | distributor sharing |
-| *role* | string | customization role name |
+| id | integer | company id |
+| name | string | company name |
+| sharing | integer | distributor sharing |
+| role | string | customization role name |
 
 | invitation | Type | Description ||
 | -------: | :---- | :--- |:--|
-| *id* | integer | invitation id |
-| *company_name* | string | pre-input company name |
-| *given_name* | string | pre-input given name |
-| *family_name* | string | pre-input family name |
-| *email* | string | receiver email |
-| *status* | string | invited status |
-| *last_invited_time* | timestamp | last invited time |
-| *invited_counter* | integer | invited counter |
+| id | integer | invitation id |
+| company_name | string | pre-input company name |
+| given_name | string | pre-input given name |
+| family_name | string | pre-input family name |
+| email | string | receiver email |
+| status | string | invited status |
+| last_invited_time | timestamp | last invited time |
+| invited_counter | integer | invited counter |
 
 > Return Failure Parameters
 
