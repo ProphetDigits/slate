@@ -76,8 +76,8 @@ Success
 
 | company | Type | Description |
 | -------: | :---- | :--- |
-| *id* | integer | company id |
-| *name* | string | company name |
+| id | integer | company id |
+| name | string | company name |
 
 > Return Failure Parameters
 
