@@ -5,7 +5,13 @@
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Add Success Example:
@@ -171,8 +177,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li></ul> |
 
 ## Purchase Order Detail
 
