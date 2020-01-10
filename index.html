@@ -5189,7 +5189,7 @@ Success
 <p>Nothing was returned</p>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Failure Parameters</p>
 </blockquote>
 
 <aside class="warning">
@@ -5808,8 +5808,8 @@ Success
 <table><thead>
 <tr>
 <th style="text-align: right">item</th>
-<th style="text-align: left"></th>
-<th style="text-align: left"></th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -5890,8 +5890,8 @@ Success
 <table><thead>
 <tr>
 <th style="text-align: right">spec2</th>
-<th style="text-align: left"></th>
-<th style="text-align: left"></th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -7406,7 +7406,7 @@ Success
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Edison Evo"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer Meilenstein gelungen:  Fahrwerksperformance und  Rahmengeometrie sind in einer noch nie  dagewesenen Perfektion kombiniert."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Mit dem edison EVO ist uns ein weiterer..."</span><span class="p">,</span><span class="w">
     </span><span class="nt">"weblink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://evo.bionicon.com/"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set"</span><span class="p">,</span><span class="w">
@@ -8310,7 +8310,7 @@ Failure
 Success
 </aside>
 
-<p>The return same to Item Detail API</p>
+<p>The result is the same as <a href="#item-detail">Item Detail API</a></p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -14802,7 +14802,7 @@ Failure
 Success
 </aside>
 
-<p>The return same to Spec2 Detail API</p>
+<p>The result is the same as <a href="#spec2-detail">Spec2 Detail API</a></p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -15134,7 +15134,7 @@ Failure
 Success
 </aside>
 
-<p>The return same to Spec2 Detail API</p>
+<p>The result is the same as <a href="#spec2-detail">Spec2 Detail API</a></p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -16219,7 +16219,7 @@ Failure
 Success
 </aside>
 
-<p>The return same to Variant2 Detail API</p>
+<p>The result is the same as <a href="#variant2-detail">Variant2 Detail API</a></p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -16565,7 +16565,7 @@ Failure
 Success
 </aside>
 
-<p>The return same to Variant2 Detail API</p>
+<p>The result is the same as <a href="#variant2-detail">Variant2 Detail API</a></p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -19456,12 +19456,12 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 </tr>
@@ -19646,10 +19646,6 @@ Failure
 
 <h3 id="return-parameters">Return Parameters</h3>
 
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
 <aside class="success">
 Success
 </aside>
@@ -19780,6 +19776,18 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.01.10 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Success Parameters:
+
+<ul>
+<li>Modify status_message structure</li>
+<li>Remove italic style</li>
+<li>Add status_message example</li>
+</ul></li>
+</ul>
+
 <p><strong>2020.01.02 / Joey Huang</strong></p>
 
 <ul>
@@ -19848,7 +19856,7 @@ Failure
 </tbody></table>
 
 <blockquote>
-<p>Return Parameters</p>
+<p>Return Success Parameters</p>
 </blockquote>
 
 <h3 id="return-parameters">Return Parameters</h3>
@@ -19864,7 +19872,9 @@ Success
     </span><span class="nt">"stabrand_sharingtus"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
     </span><span class="nt">"retailer_sharing"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status_message"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"status_message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sharing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"retailers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
@@ -19956,19 +19966,19 @@ Success
 <tr>
 <td style="text-align: right">company</td>
 <td style="text-align: left">object</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">option company</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: right">retailers</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Collection of retailer</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: right">distributors</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Collection of distributors</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
@@ -19984,56 +19994,27 @@ Success
 <th style="text-align: right">status_message</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
-<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>start_time</em></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">error reasons</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>required</em></td>
+<td style="text-align: right">start_time</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">it’s necessary to option</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>end_time</em></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">error reasons</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>expired</em></td>
+<td style="text-align: right">end_time</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">time is expired</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">expired: <ol><li>time is expired</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>active</em></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">error reasons</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>no</em></td>
+<td style="text-align: right">active</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">option is close</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">no: <ol><li>option is close</li></ol></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>sharing</em></td>
-<td style="text-align: left"><strong>array</strong></td>
-<td style="text-align: left">error reasons</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: right"><em>invalid value</em></td>
+<td style="text-align: right">sharing</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">total sharing is not equal to 100</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">invalid value: <ol><li>total sharing is not equal to 100</li></ol></td>
 </tr>
 </tbody></table>
 
@@ -20046,13 +20027,13 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 <td style="text-align: left"></td>
@@ -20068,13 +20049,13 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 <td style="text-align: left"></td>
@@ -20090,25 +20071,25 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>name</em></td>
+<td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>sharing</em></td>
+<td style="text-align: right">sharing</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">distributor sharing</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>role</em></td>
+<td style="text-align: right">role</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">customization role name</td>
 <td style="text-align: left"></td>
@@ -20124,49 +20105,49 @@ Success
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>id</em></td>
+<td style="text-align: right">id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">invitation id</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>company_name</em></td>
+<td style="text-align: right">company_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">pre-input company name</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>given_name</em></td>
+<td style="text-align: right">given_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">pre-input given name</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>family_name</em></td>
+<td style="text-align: right">family_name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">pre-input family name</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>email</em></td>
+<td style="text-align: right">email</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">receiver email</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>status</em></td>
+<td style="text-align: right">status</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">invited status</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>last_invited_time</em></td>
+<td style="text-align: right">last_invited_time</td>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">last invited time</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: right"><em>invited_counter</em></td>
+<td style="text-align: right">invited_counter</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">invited counter</td>
 <td style="text-align: left"></td>
@@ -20341,27 +20322,23 @@ Failure
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: right"><em>company_id</em></td>
+<td style="text-align: right">company_id</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">company id</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>sharing</em></td>
+<td style="text-align: right">sharing</td>
 <td style="text-align: left">integer</td>
 <td style="text-align: left">distributor sharing</td>
 </tr>
 <tr>
-<td style="text-align: right"><em>role</em></td>
+<td style="text-align: right">role</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">customization role name</td>
 </tr>
 </tbody></table>
 
 <h3 id="return-parameters">Return Parameters</h3>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
 
 <aside class="success">
 Success
@@ -20597,10 +20574,6 @@ Failure
 
 <h3 id="return-parameters">Return Parameters</h3>
 
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
 <aside class="success">
 Success
 </aside>
@@ -20724,10 +20697,6 @@ Failure
 
 <h3 id="return-parameters">Return Parameters</h3>
 
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
 <aside class="success">
 Success
 </aside>
@@ -20844,10 +20813,6 @@ Failure
 </tbody></table>
 
 <h3 id="return-parameters">Return Parameters</h3>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
 
 <aside class="success">
 Success
@@ -21141,10 +21106,6 @@ Failure
 </tbody></table>
 
 <h3 id="return-parameters">Return Parameters</h3>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
 
 <aside class="success">
 Success
@@ -23080,7 +23041,7 @@ Success
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490776038</span><span class="p">,</span><span class="w">
     </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000001OD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..../order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"</span><span class="w">
+    </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..../order/AAAAOD/invoice/AAAAIN/download"</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -28684,10 +28645,6 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
@@ -29443,10 +29400,6 @@ Failure
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
 <h3 id="return-parameters">Return Parameters</h3>
 
 <aside class="success">
@@ -29769,10 +29722,6 @@ Failure
 </tbody></table>
 
 <h3 id="return-parameters">Return Parameters</h3>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
 
 <aside class="success">
 Success
