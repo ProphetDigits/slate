@@ -715,8 +715,6 @@ Failure
 
 ### Return Parameters
 
-> Return Success Parameters
-
 <aside class="success">
 Success
 </aside>
