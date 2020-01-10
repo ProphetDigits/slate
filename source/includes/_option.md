@@ -271,7 +271,7 @@ Failure
 | option_id | integer | option id |
 
 
-> Return Parameters
+> Return Success Parameters
 
 ### Return Parameters
 
@@ -457,8 +457,6 @@ Failure
 | *role* | string | customization role name |
 
 ### Return Parameters
-
-> Return Success Parameters
 
 <aside class="success">
 Success
