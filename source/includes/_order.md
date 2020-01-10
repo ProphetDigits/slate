@@ -311,7 +311,7 @@ Success
     },
     "create_at": 1490776038,
     "comment": "AAAA170329000001OD",
-    "download": "http://..../order/AAAA170329000001OD/invoice/AAAA170329000006IN/download"
+    "download": "http://..../order/AAAAOD/invoice/AAAAIN/download"
   }]
 }
 ```
