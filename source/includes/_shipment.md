@@ -918,7 +918,6 @@ Failure
 | unit_value | double | unit value of item |
 | products | array | a set of product number in the package |
 
-> Return Success Parameters
 
 ### Return Parameters
 
