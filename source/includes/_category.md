@@ -304,7 +304,7 @@ Success
 | items | array | Collection of item |
 | spec2s | array | Collection of spec2 |
 
-| item | | |
+| item | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of item |
 | number | string | The number of item |
@@ -324,7 +324,7 @@ Success
 | 720p | string | The picture url of 720 resolution (1280x720) |
 | 1080p | string | The picture url of 1080 resolution (1920x1080) |
 
-| spec2 | | |
+| spec2 | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The spec id |
 | name | string | The spec name |
