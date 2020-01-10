@@ -590,7 +590,6 @@ Failure
 | comment | string | file comment |
 | resource | string | uploaded data which is encrypted by base64, exclude mime type |
 
-> Return Success Parameters
 
 ### Return Parameters
 
