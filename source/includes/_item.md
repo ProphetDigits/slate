@@ -571,7 +571,7 @@ Failure
 Success
 </aside>
 
-The return same to Item Detail API
+The result is the same as [Item Detail API](#item-detail)
 
 > Return Failure Parameters
 
