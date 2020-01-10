@@ -550,7 +550,7 @@ Failure
 Success
 </aside>
 
-The return same to Variant2 Detail API
+The result is the same as [Variant2 Detail API](#variant2-detail)
 
 > Return Failure Parameters
 
