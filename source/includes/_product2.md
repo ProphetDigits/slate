@@ -59,6 +59,22 @@ Failure
 
 ## Product2 List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2019.01.14 / Jianhua**
+
+  * Modify Input Parameters:
+    * deposit_owner: modify description
+	* holder: modify description
+	* location: modify description
+  * Modify Input Example:
+  * Modify Success Parameters
+    * products: modify description
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -68,10 +84,9 @@ Failure
 | Use | Show product2 list |
 | Notice |  |
 
+### Input Parameters
 
 > Input Parameters
-
-### Input Parameters
 
 ```json
 {
@@ -85,6 +100,62 @@ Failure
     },
     "filter": {
         "sold": true
+    }
+}
+```
+
+> Input Parameters (For Brand - Local)
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "item_id": 1,
+    "variant_id": 1,
+    "filter": {
+        "location": 1
+    }
+}
+```
+
+> Input Parameters (For Brand - Remote)
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "item_id": 1,
+    "variant_id": 1,
+    "filter": {
+        "location": 0
+    }
+}
+```
+
+> Input Parameters (For Retailer - Local)
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "item_id": 1,
+    "variant_id": 1,
+    "filter": {
+        "holder": 2
+    }
+}
+```
+
+> Input Parameters (For Retailer - Remote)
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "target_company_id": 1,
+    "item_id": 1,
+    "variant_id": 1,
+    "filter": {
+        "holder": 0
     }
 }
 ```
@@ -106,9 +177,9 @@ Failure
 | filter | Type | Description |
 | -------: | :---- | :--- |
 | sold | boolean (option) | <ol><li>(unuse): The produdcts contain sold and unsold product</li><li>true: Filter out unsold products </li><li>false: Filter out sold products </li></ol> |
-| deposit_owner | integer (option) | The company id <br />It's 0 will get the products which deposit owner is not current company |
-| holder | integer (option) | The user id <br />It's 0 will get the products which last holder is not current user |
-| location | integer (option) | The company id <br />It's 0 will get the products which location is not current company |
+| deposit_owner | integer (option) | <ol><li>(unuse): No filter</li><li>0: Filter out products which deposit owner is not current company</li><li>company id: Filter out products which deposit owner is specific company</li></ol> |
+| holder | integer (option) | <ol><li>(unuse): No filter</li><li>0: Filter out products which thare are no location or last location is not checkin or last location checkin by other company or last location checkin by other user of current company</li><li>other than 0: Filter out products which last location checkin by current user of current company</li></ol> |
+| location | integer (option) | <ol><li>(unuse): No filter</li><li>0: <ul><li>Brand: Filter out products which last location checkin by other company or last location is not checkin</li><li>Not Brand: Filter out products which there are no location or last location checkin by other company or last location is not checkin</li></ul></li><li>other than 0:  <ul><li>Brand: Filter out products which there are no location or last location checkin by current company</li><li>Not Brand: Filter out products which last location checkin by current company</li></ul></li></ol> |
 
 
 > Return Success Parameters
@@ -197,7 +268,7 @@ Success
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| products | array | Collection of product2 |
+| products | array | Collection of product2<ul><li>Brand: My products</li><li>Not Brand: the products which last location checkin by current company or assigned to purchase order of current company</li></ul> |
 | pagination | object (option) | The page information <br /> The parameter will appear if you use pagination |
 
 | product | Type | Description |
