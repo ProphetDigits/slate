@@ -16795,6 +16795,30 @@ Failure
 
 <h2 id="product2-list">Product2 List</h2>
 
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2019.01.14 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Input Parameters:
+
+<ul>
+<li>deposit_owner: modify description</li>
+<li>holder: modify description</li>
+<li>location: modify description</li>
+</ul></li>
+<li>Modify Input Example:</li>
+<li>Modify Success Parameters
+
+<ul>
+<li>products: modify description</li>
+</ul></li>
+</ul>
+
+<p></details></p>
+
 <h3 id="description">Description</h3>
 
 <table><thead>
@@ -16821,11 +16845,11 @@ Failure
 </tr>
 </tbody></table>
 
+<h3 id="input-parameters">Input Parameters</h3>
+
 <blockquote>
 <p>Input Parameters</p>
 </blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -16837,6 +16861,58 @@ Failure
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Input Parameters (For Brand - Local)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Input Parameters (For Brand - Remote)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Input Parameters (For Retailer - Local)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Input Parameters (For Retailer - Remote)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -16913,17 +16989,17 @@ Failure
 <tr>
 <td style="text-align: right">deposit_owner</td>
 <td style="text-align: left">integer (option)</td>
-<td style="text-align: left">The company id <br />It&rsquo;s 0 will get the products which deposit owner is not current company</td>
+<td style="text-align: left"><ol><li>(unuse): No filter</li><li>0: Filter out products which deposit owner is not current company</li><li>company id: Filter out products which deposit owner is specific company</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">holder</td>
 <td style="text-align: left">integer (option)</td>
-<td style="text-align: left">The user id <br />It&rsquo;s 0 will get the products which last holder is not current user</td>
+<td style="text-align: left"><ol><li>(unuse): No filter</li><li>0: Filter out products which thare are no location or last location is not checkin or last location checkin by other company or last location checkin by other user of current company</li><li>other than 0: Filter out products which last location checkin by current user of current company</li></ol></td>
 </tr>
 <tr>
 <td style="text-align: right">location</td>
 <td style="text-align: left">integer (option)</td>
-<td style="text-align: left">The company id <br />It&rsquo;s 0 will get the products which location is not current company</td>
+<td style="text-align: left"><ol><li>(unuse): No filter</li><li>0: <ul><li>Brand: Filter out products which last location checkin by other company or last location is not checkin</li><li>Not Brand: Filter out products which there are no location or last location checkin by other company or last location is not checkin</li></ul></li><li>other than 0:  <ul><li>Brand: Filter out products which there are no location or last location checkin by current company</li><li>Not Brand: Filter out products which last location checkin by current company</li></ul></li></ol></td>
 </tr>
 </tbody></table>
 
@@ -17020,7 +17096,7 @@ Success
 <tr>
 <td style="text-align: right">products</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">Collection of product2</td>
+<td style="text-align: left">Collection of product2<ul><li>Brand: My products</li><li>Not Brand: the products which last location checkin by current company or assigned to purchase order of current company</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">pagination</td>
