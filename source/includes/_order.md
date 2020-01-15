@@ -6,7 +6,7 @@
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Use Description
   * Modify Input Parameters:
@@ -149,7 +149,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Input Parameters:
     * api_key: modify description
@@ -449,7 +449,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Use Description
   * Modify Input Parameters:
@@ -548,7 +548,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Use Description
   * Modify Input Parameters:
@@ -624,7 +624,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Use Description
   * Modify Input Parameters:
@@ -695,7 +695,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Use Description
   * Modify Input Parameters:
@@ -771,7 +771,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.07 / Jianhua**
+  **2020.01.07 / Jianhua**
 
   * Modify Input Parameters:
     * api_key: modify description
@@ -843,7 +843,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.08 / Jianhua**
+  **2020.01.08 / Jianhua**
 
   * Modify Use Description
   * Modify Success Parameters:
@@ -970,7 +970,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.08 / Jianhua**
+  **2020.01.08 / Jianhua**
 
   * Modify Input Parameters:
     * api_key: modify description
@@ -1044,7 +1044,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.08 / Jianhua**
+  **2020.01.08 / Jianhua**
 
   * Modify Header Parameters
     * modify Authorization description
@@ -1278,7 +1278,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.08 / Jianhua**
+  **2020.01.08 / Jianhua**
 
   * Modify Input Parameters
     * modify api_key description
@@ -1387,7 +1387,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
-  **2019.01.08 / Jianhua**
+  **2020.01.08 / Jianhua**
 
   * Modify Input Parameters
     * Apply new structure
