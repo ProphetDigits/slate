@@ -1027,3 +1027,131 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_authorization: The Authorization is invalid</li><li>product_not_exist: The product is not exist</li><li>no_option: The current company of user does not have option with company of product</li><li>file_not_found: The file is not exist</li></ul> |
+
+
+## Search
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.02.19 / Jianhua**
+
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/product2/search` |
+| Method | `post` |
+| Use | Search product2s by product number and serial number |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "search_data": ["HORA0001PD", "R0001", " R0001", "invalid"]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| search_data | array | Collection of arbitrary string |
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+> Return Success Parameters
+
+```json
+{
+    "products": [{
+    	"number": "HORA0001PD",
+    	"serial_number": "R0001",
+    	"last_holder": {
+            "id": 1,
+            "given_name": "CC",
+            "family_name": "Lee",
+            "operator": {
+                "id": 1,
+                "given_name": "CC",
+                "family_name": "Lee",
+                "company": {
+                    "id": 1,
+                    "name": "Bionicon"
+                }
+            }
+        },
+    	"sold": true,
+    	"file": true
+    }]
+}
+```
+
+> Return Success Parameters (No Product match)
+
+```json
+{
+    "products": []
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| products | array | Collection of product |
+
+| product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | The product number |
+| serial_number | string | The serial number of product |
+| last_holder | object / null | The last holder of product<br />It's null when product not checkin, checkout or sold |
+| sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+| file | boolean | The file status of product2<ol><li>true: product has file</li><li>false: no file</li></ol> |
+
+| product.last_holder | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id<br />It's 0 if product is check out or sold |
+| given_name | string | The given name of user<br />It will be empty if product is check out or sold |
+| family_name | string | The family name of user<br />It will be empty if product is check out or sold |
+| operator | object | The operator of check in or check out or sell |
+
+| product.last_holder.operator | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The company when user check in or check out product or sell it |
+
+| product.last_holder.operator.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
+
+
+<aside class="warning">
+Failure
+</aside>
+
+> Return Failure Parameters
+
+```json
+{
+    "error_name": "not_select_company"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
