@@ -1035,6 +1035,10 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.02.27 / Joey Huang**
+
+  * Add two exceptions
+
   **2020.02.19 / Jianhua**
 
   * Add New Api
@@ -1154,4 +1158,4 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>lack_of_parameters: required the search_data that miss in the request</li><li>wrong_data_type: required the data type that incorrect in the request</li></ul> |
