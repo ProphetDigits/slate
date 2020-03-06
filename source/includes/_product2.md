@@ -335,6 +335,16 @@ Failure
 
 ## Product2 Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.03.06 / Joey Huang**
+
+  * Add new history types
+
+</details>
+
 ### Description
 
 | Title | Description |
