@@ -594,7 +594,8 @@ Success
 | product.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
-| type | string | The history type <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li></ul> |
+| type | string | The history type <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li><li>set_as_sold_manually</li><li>set_as_unsold_manually
+</li></ul> |
 | operator | object | The operator |
 | created_at | timestamp | The created time |
 | comment | string (option) | The history comment<br />It's exist when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
