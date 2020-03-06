@@ -1159,3 +1159,94 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>lack_of_parameters: required the search_data that miss in the request</li><li>wrong_data_type: required the data type that incorrect in the request</li></ul> |
+
+## Batch Edit
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.03.06 / Joey Huang**
+
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/product2/batch-edit` |
+| Method | `post` |
+| Use | Batch edit product2s by product number(s) |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+	"api_key": "e4cbcdc2faff41a7e311",
+    "products": ["AAAA01PD", "AAAA02PD", "BBBB01PD", "AAAA11PD"],
+	"sold": true
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| products | array | Collection of product numbers |
+| sold | boolean | Setting products as sold(true), or unsold(false) |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "products": ["AAAA01PD", "AAAA02PD"]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| products | array | Collection of product numbers that be edited successfully |
+
+<aside class="warning">
+Failure
+</aside>
+
+> Return Failure Parameters (not sign in)
+
+```json
+{
+	"error_name": "not_sign_in"
+}
+```
+> Return Failure Parameters (illegal form input )
+
+```json
+{
+    "error_name": "illegal_form_input",
+	"validation": {
+		"products": ["invalid"],
+		"sold": ["required"]
+	}
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>illegal_form_input: form format does not pass validation</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| products | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data is not an array</li></ol> |
+| sold | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol>invalid: <ol><li>The data is not a boolean</li></ol> |
