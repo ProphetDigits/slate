@@ -339,6 +339,10 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.03.09 / Joey Huang**
+
+  * Update history comments
+
   **2020.03.06 / Joey Huang**
 
   * Add new history types
@@ -608,7 +612,8 @@ Success
 </li></ul> |
 | operator | object | The operator |
 | created_at | timestamp | The created time |
-| comment | string (option) | The history comment<br />It's exist when type is checkin, checkout, sell, assign_to_purchase_order, unassign_from_purchase_order, assign_to_shipment and unassign_from_shipment |
+| comment | string (option) | The history comment<br />It's exist when type is  <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>set_as_sold_manually</li><li>set_as_unsold_manually
+</li></ul> |
 | spec | object (option) | It's exist when type is add_spec, change_spec and delete_spec |
 
 | product.history.operator | Type | Description |
