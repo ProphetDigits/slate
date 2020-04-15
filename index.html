@@ -17332,6 +17332,16 @@ Failure
 <li>Add new history types</li>
 </ul>
 
+<p><strong>2020.04.15 /Jonas</strong></p>
+
+<ul>
+<li>Add Success Parameter
+
+<ul>
+<li>tags</li>
+</ul></li>
+</ul>
+
 <p></details></p>
 
 <h3 id="description">Description</h3>
@@ -17536,7 +17546,11 @@ Success
         </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="p">,</span><span class="w">
         </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517542365</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Display"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -17625,6 +17639,11 @@ Success
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">The warranty configuration of product2</td>
+</tr>
+<tr>
+<td style="text-align: right">tags</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">Collection of tag</td>
 </tr>
 </tbody></table>
 
@@ -18182,6 +18201,25 @@ Success
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th style="text-align: right">product.tags</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">the tag id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The tag name</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Return Failure Parameters</p>
 </blockquote>
@@ -18208,6 +18246,22 @@ Failure
 </tbody></table>
 
 <h2 id="edit-product2">Edit Product2</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2020.04.15 /Jonas</strong></p>
+
+<ul>
+<li>Add input Parameter
+
+<ul>
+<li>tags</li>
+</ul></li>
+</ul>
+
+<p></details></p>
 
 <h3 id="description">Description</h3>
 
@@ -18268,7 +18322,8 @@ Failure
         </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="p">,</span><span class="w">
         </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498730137</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Display"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Sample"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -18317,6 +18372,11 @@ Failure
 <td style="text-align: right">warranty</td>
 <td style="text-align: left">object (option)</td>
 <td style="text-align: left">The warranty configuration of product<br/>Only company member can edit</td>
+</tr>
+<tr>
+<td style="text-align: right">tags</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">Collection of tag name<br/>Only company member can edit</td>
 </tr>
 </tbody></table>
 
