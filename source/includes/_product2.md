@@ -718,6 +718,17 @@ Failure
 
 ## Edit Product2
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.04.15 /Jonas**
+  
+  * Add input Parameter
+    * tags
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -761,7 +772,8 @@ Failure
         "unit": "Years",
         "start_date": 1498730137,
         "end_date": 1498730137
-    }
+    },
+    "tags": ["Display", "Sample"]
 }
 ```
 
@@ -775,6 +787,7 @@ Failure
 | added_files | array (option) | Collection of uploading files |
 | deleted_files | array (option) | Collection of file id |
 | warranty | object (option) | The warranty configuration of product<br/>Only company member can edit |
+| tags | array (option) | Collection of tag name<br/>Only company member can edit |
 
 | prices | Type | Description |
 | -------: | :---- | :--- |
