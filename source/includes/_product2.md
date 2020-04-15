@@ -347,6 +347,11 @@ Failure
 
   * Add new history types
 
+  **2020.04.15 /Jonas**
+
+  * Add Success Parameter
+    * tags
+
 </details>
 
 ### Description
@@ -523,7 +528,11 @@ Success
         "unit": "Years",
         "start_date": 1517542365,
         "end_date": 1517542365
-    }
+    },
+    "tags": [{
+        "id": 1,
+        "name": "Display"
+    }]
 }
 ```
 
@@ -545,6 +554,7 @@ Success
 | deposit_owner | object | The company of paying deposit |
 | files | array | Collection of file |
 | warranty | object | The warranty configuration of product2 |
+| tags | array | Collection of tag |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
@@ -681,6 +691,12 @@ Success
 | unit | string | The unit of duration - Years or Months |
 | start_date | timestamp / null | The start date of warranty<br/>It's null when product unsold |
 | end_date | timestamp / null | The end date of warranty<br/>It's null when product unsold |
+
+| product.tags | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | the tag id |
+| name | string | The tag name |
+
 
 > Return Failure Parameters
 

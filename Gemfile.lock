@@ -123,4 +123,4 @@ DEPENDENCIES
   rouge (~> 2.0.5)
 
 BUNDLED WITH
-   1.17.2
+   2.1.4
