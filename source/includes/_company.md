@@ -1665,6 +1665,17 @@ Failure
 
 ## Get Tag list 
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.04.29 /Balder**
+
+  * Add Success Parameter
+    * tags
+
+</details>
+
 ### Description
 
 | Title | Description |
