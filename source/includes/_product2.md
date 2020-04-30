@@ -63,6 +63,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.04.29 /Balder**
+
+  * Add Success Parameter
+    * tags
+
   **2020.01.14 / Jianhua**
 
   * Modify Input Parameters:
@@ -219,7 +224,11 @@ Success
             "name": "Bionicon"
         },
         "purchase_order_number": "AAAA010120160000PO",
-        "shipment_number": "AAAA010120160000SH"
+        "shipment_number": "AAAA010120160000SH",
+        "tags": [{
+            "id": 1,
+            "name": "Display"
+        }]
     }, {
         "number": "1A01B021440012345",
         "short_number": "",
@@ -255,7 +264,11 @@ Success
             "name": "Bionicon"
         },
         "purchase_order_number": null,
-        "shipment_number": null
+        "shipment_number": null,
+        "tags": [{
+            "id": 1,
+            "name": "Display"
+        }]
     }],
     "pagination": {
         "total": 50,
@@ -283,6 +296,7 @@ Success
 | deposit_owner | object | The company of paying deposit |
 | purchase_order_number | string / null | The purchase order number which product is assigned<br />It's null when product is not assigned to purchase order |
 | shipment_number | string / null | The shipment number which product is assigned<br />It's null when product is not assigned to shipment |
+| tags | array | Collection of tag, order by Old to New (adding time) |
 
 | product.last_holder | Type | Description |
 | -------: | :---- | :--- |
@@ -307,6 +321,11 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The company id |
 | name | string | The company name |
+
+| product.tags | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | the tag id |
+| name | string | The tag name |
 
 | pagination | Type | Description |
 | -------: | :---- | :--- |
@@ -339,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.04.15 /Jonas**
+
+  * Add Success Parameter
+    * tags
+
   **2020.03.09 / Joey Huang**
 
   * Update history comments
@@ -347,10 +371,7 @@ Failure
 
   * Add new history types
 
-  **2020.04.15 /Jonas**
 
-  * Add Success Parameter
-    * tags
 
 </details>
 
