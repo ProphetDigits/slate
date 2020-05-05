@@ -31,6 +31,7 @@ includes:
   - shipment
   - balance
   - bag
+  - tag
 
 search: true
 ---
