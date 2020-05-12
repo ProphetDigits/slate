@@ -26516,6 +26516,20 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.05.12 / Jianhua</strong></p>
+
+<ul>
+<li>Modify Success Parameters:
+
+<ul>
+<li>Modify total_deposit description</li>
+<li>Rename items to variants</li>
+<li>Modify variants description</li>
+<li>Add cover_image to variant</li>
+<li>Remove cover_image in item</li>
+</ul></li>
+</ul>
+
 <p><strong>2020.01.10 / Joey Huang</strong></p>
 
 <ul>
@@ -26626,8 +26640,8 @@ Success
     </span><span class="nt">"pay_deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"deposit_sharing"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHF"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total_deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">    
-    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"total_deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -26643,19 +26657,37 @@ Success
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}],</span><span class="w">
         </span><span class="nt">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"assign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAAA000001PD"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bike001"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"specs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"assign_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bike"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bike001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"240p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example/file_240p.png"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"480p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example/file_480p.png"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"720p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example/file_720p.png"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"1080p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example/file_1080p.png"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bike001"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">}],</span><span class="w">        
+    </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"histories"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -26773,7 +26805,7 @@ Success
 <tr>
 <td style="text-align: right">total_deposit</td>
 <td style="text-align: left">numberic</td>
-<td style="text-align: left">the amount of deposit of items</td>
+<td style="text-align: left">the amount of deposit</td>
 </tr>
 <tr>
 <td style="text-align: right">brand</td>
@@ -26791,9 +26823,9 @@ Success
 <td style="text-align: left">The purchaser in the purchase order</td>
 </tr>
 <tr>
-<td style="text-align: right">items</td>
+<td style="text-align: right">variants</td>
 <td style="text-align: left">array</td>
-<td style="text-align: left">a set of items</td>
+<td style="text-align: left">a set of variants</td>
 </tr>
 <tr>
 <td style="text-align: right">address</td>
@@ -26881,7 +26913,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">items</th>
+<th style="text-align: right">variant</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -26917,6 +26949,11 @@ Success
 <td style="text-align: left">a set of product number</td>
 </tr>
 <tr>
+<td style="text-align: right">cover_image</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The url of each resolution for cover image</td>
+</tr>
+<tr>
 <td style="text-align: right">item</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">item information</td>
@@ -26925,7 +26962,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">items.specs</th>
+<th style="text-align: right">variant.specs</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -26959,7 +26996,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">items.specs.value</th>
+<th style="text-align: right">variant.specs.value</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -26983,7 +27020,36 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">items.item</th>
+<th style="text-align: right">variant.cover_image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">px240</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 240 resolution (426x240)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px480</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 480 resolution (854x480)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px720</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 720 resolution (1280x720)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px1080</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 1080 resolution (1920x1080)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.item</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -27002,40 +27068,6 @@ Success
 <td style="text-align: right">number</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">item number</td>
-</tr>
-<tr>
-<td style="text-align: right">cover_image</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">item cover image it will be empty if no set sover image</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: right">items.item.cover_image</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">240p</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">picture url of 240 resolution (426x240)</td>
-</tr>
-<tr>
-<td style="text-align: right">480p</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">picture url of 240 resolution (854x480)</td>
-</tr>
-<tr>
-<td style="text-align: right">720p</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">picture url of 240 resolution (1280x720)</td>
-</tr>
-<tr>
-<td style="text-align: right">1080p</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">picture url of 240 resolution (1920x1080)</td>
 </tr>
 </tbody></table>
 
