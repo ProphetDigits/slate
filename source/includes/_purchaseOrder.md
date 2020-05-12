@@ -185,6 +185,15 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.05.12 / Jianhua**
+
+  * Modify Success Parameters:
+  	* Modify total_deposit description
+    * Rename items to variants
+    * Modify variants description
+    * Add cover_image to variant
+    * Remove cover_image in item
+
   **2020.01.10 / Joey Huang**
 
   * Modify Fail Parameters:
@@ -251,8 +260,8 @@ Success
     "pay_deposit": 1,
     "deposit_sharing": 10,
     "currency": "CHF",
-    "total_deposit": 50,    
-    "items": [{
+    "total_deposit": 50,
+    "variants": [{
         "id": 1,
         "name": "Basic",
         "quantity": 1,
@@ -268,19 +277,37 @@ Success
             }
         }],
         "deposit": 400,
+        "cover_image": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		},
+        "assign_products": ["AAAA000001PD"],
+        "item": {
+            "id": 1,
+            "name": "Bike",
+            "number": "bike001"
+        }
+    }, {
+        "id": 2,
+        "name": "V2",
+        "quantity": 1,
+        "specs": [],
+        "deposit": 400,
+        "cover_image": {
+			"px240": "",
+			"px480": "",
+			"px720": "",
+			"px1080": ""
+		},
         "assign_products": [],
         "item": {
             "id": 1,
             "name": "Bike",
-            "number": "bike001",
-            "cover_image": {
-                "240p": "http://example/file_240p.png",
-                "480p": "http://example/file_480p.png",
-                "720p": "http://example/file_720p.png",
-                "1080p": "http://example/file_1080p.png"
-            }
+            "number": "bike001"
         }
-    }],        
+    }],
     "histories": [{
         "status": "",
         "comment": "",
@@ -347,11 +374,11 @@ Success
 | pay_deposit | boolean | the retailer want to pay deposit or not |
 | deposit_sharing | boolean | deposit sharing percentage for the retailer |
 | currency | string | currency name |
-| total_deposit | numberic | the amount of deposit of items |
+| total_deposit | numberic | the amount of deposit |
 | brand | object | The brand company |
 | retailer | object | The purchase company |
 | purchaser | object | The purchaser in the purchase order |
-| items | array | a set of items |
+| variants | array | a set of variants |
 | address | object | recipient address |
 | histories | array | a set of histories of purchase order |
 | deposit_histories | array | a set of histories of purchase order |
@@ -373,7 +400,7 @@ Success
 | family_name | string | The family name |
 | email | string | The email |
 
-| items | Type | Description |
+| variant | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | variant id  |
 | name | string | variant name |
@@ -381,9 +408,10 @@ Success
 | quantity | integer | the purchasing quantity |
 | deposit | numberic | item deposit |
 | assign_products | array | a set of product number |
+| cover_image | object | The url of each resolution for cover image |
 | item | object | item information |
 
-| items.specs | Type | Description |
+| variant.specs | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
@@ -391,25 +419,24 @@ Success
 | part | boolean | The spec is part or not<ol><li>true: It is part</li><li>false: It is not part</li></ol> |
 | value | object | The setting of spec in the product |
 
-| items.specs.value | Type | Description |
+| variant.specs.value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec value |
 | name | string | The name of spec value |
 | display_name | string | The display name of spec value |
 
-| items.item | Type | Description |
+| variant.cover_image | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240)<br />It's empty string if no cover image |
+| px480 | string | The picture url of 480 resolution (854x480)<br />It's empty string if no cover image |
+| px720 | string | The picture url of 720 resolution (1280x720)<br />It's empty string if no cover image |
+| px1080 | string | The picture url of 1080 resolution (1920x1080)<br />It's empty string if no cover image |
+
+| variant.item | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | item id  |
 | name | string | item name |
 | number | string | item number |
-| cover_image | object | item cover image it will be empty if no set sover image |
-
-| items.item.cover_image | Type | Description |
-| -------: | :---- | :--- |
-| 240p | string | picture url of 240 resolution (426x240) |
-| 480p | string | picture url of 240 resolution (854x480) |
-| 720p | string | picture url of 240 resolution (1280x720) |
-| 1080p | string | picture url of 240 resolution (1920x1080) |
 
 | address | Type | Description |
 | -------: | :---- | :--- |
