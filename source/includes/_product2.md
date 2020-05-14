@@ -595,7 +595,7 @@ Success
 | files | array | Collection of file |
 | warranty | object | The warranty configuration of product2 |
 | tags | array | Collection of tag |
-| notes | array | Collection of note |
+| notes | array | Collection of note<br/>It's order by created time from new to old |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
