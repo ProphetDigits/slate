@@ -782,8 +782,13 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.05.14 /Jianhua**
+
+  * Add input Parameter
+    * added_notes
+
   **2020.04.15 /Jonas**
-  
+
   * Add input Parameter
     * tags
 
@@ -833,7 +838,8 @@ Failure
         "start_date": 1498730137,
         "end_date": 1498730137
     },
-    "tags": ["Display", "Sample"]
+    "tags": ["Display", "Sample"],
+    "added_notes": ["oh my god", "what the f..."]
 }
 ```
 
@@ -848,6 +854,7 @@ Failure
 | deleted_files | array (option) | Collection of file id |
 | warranty | object (option) | The warranty configuration of product<br/>Only company member can edit |
 | tags | array (option) | Collection of tag name<br/>Only company member can edit |
+| added_notes | array (option) | Collection of note content<br/> It is order by adding time from new to old |
 
 | prices | Type | Description |
 | -------: | :---- | :--- |
