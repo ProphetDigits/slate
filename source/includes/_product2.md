@@ -358,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.05.14 /Jianhua**
+
+  * Add Success Parameter
+    * notes
+
   **2020.04.15 /Jonas**
 
   * Add Success Parameter
@@ -553,7 +558,21 @@ Success
     "tags": [{
         "id": 1,
         "name": "Display"
-    }]
+    }],
+    "notes": [{
+		"id": 1,
+		"content": "something wrong",
+		"operator": {
+			"id": 1,
+			"given_name": "Jianhua",
+			"family_name": "Wang",
+			"company": {
+				"id": 1,
+				"name": "Prophet Digits"
+			}
+		},
+		"created_at": 1517542365
+	}]
 }
 ```
 
@@ -576,6 +595,7 @@ Success
 | files | array | Collection of file |
 | warranty | object | The warranty configuration of product2 |
 | tags | array | Collection of tag |
+| notes | array | Collection of note |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
@@ -713,10 +733,29 @@ Success
 | start_date | timestamp / null | The start date of warranty<br/>It's null when product unsold |
 | end_date | timestamp / null | The end date of warranty<br/>It's null when product unsold |
 
-| product.tags | Type | Description |
+| product.tag | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | the tag id |
 | name | string | The tag name |
+
+| product.note | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The note id |
+| content | string | The note content |
+| operator | object | The operator |
+| created_at | timestamp | The created time in seconds |
+
+| product.note.operator | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The company of operator |
+
+| product.note.operator.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
 
 
 > Return Failure Parameters
