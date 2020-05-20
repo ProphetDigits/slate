@@ -782,6 +782,10 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.05.20 /Joey Huang**
+
+  * Add messages of failure added_notes
+
   **2020.05.14 /Jianhua**
 
   * Add input Parameter
@@ -927,6 +931,8 @@ Failure
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product not sold</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
 | warranty.start_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
+| added_notes | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| added_notes.(index) | string (option) | invalid: <ol><li>The data is not string</li></ol> |
 
 
 
