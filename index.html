@@ -18399,6 +18399,12 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.05.20 /Joey Huang</strong></p>
+
+<ul>
+<li>Add messages of failure added_notes</li>
+</ul>
+
 <p><strong>2020.05.14 /Jianhua</strong></p>
 
 <ul>
@@ -18763,6 +18769,16 @@ Failure
 <td style="text-align: right">warranty.end_date</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">added_notes</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">added_notes.(index)</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data is not string</li></ol></td>
 </tr>
 </tbody></table>
 
