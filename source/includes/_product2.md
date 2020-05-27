@@ -852,13 +852,10 @@ Failure
     },
     "tags": ["Display", "Sample"],
     "added_notes": ["oh my god", "what the f..."],
-    "deleted_notes":[1, 2, 3],
-    "edited_notes":[{
+    "deleted_notes": [1, 2, 3],
+    "edited_notes": [{
         "id":1,
         "content":"aaa"
-    }, {
-        "id":2,
-        "content":"bbb"
     }],
 }
 ```
