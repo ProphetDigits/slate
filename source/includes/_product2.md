@@ -856,7 +856,7 @@ Failure
     "edited_notes": [{
         "id":1,
         "content":"aaa"
-    }],
+    }]
 }
 ```
 
