@@ -782,6 +782,14 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+   **2020.05.27 /Lyon Huang**
+
+  * Add input Parameter
+      * deleted_notes
+      * edited_notes
+  * Add messages of failure note_not_exist
+  * Add messages of failure no_permission
+
   **2020.05.20 /Joey Huang**
 
   * Add messages of failure added_notes
@@ -843,7 +851,15 @@ Failure
         "end_date": 1498730137
     },
     "tags": ["Display", "Sample"],
-    "added_notes": ["oh my god", "what the f..."]
+    "added_notes": ["oh my god", "what the f..."],
+    "deleted_notes":[1, 2, 3],
+    "edited_notes":[{
+        "id":1,
+        "content":"aaa"
+    }, {
+        "id":2,
+        "content":"bbb"
+    }],
 }
 ```
 
@@ -859,6 +875,9 @@ Failure
 | warranty | object (option) | The warranty configuration of product<br/>Only company member can edit |
 | tags | array (option) | Collection of tag name<br/>Only company member can edit |
 | added_notes | array (option) | Collection of note content<br/> It is order by adding time from new to old |
+| deleted_notes | array (option) | Collection of note id <br/>Only company member can edit |
+| edited_notes | array (option) | Collection of edited notes <br/>Users can only edit notes added by the same user account |
+
 
 | prices | Type | Description |
 | -------: | :---- | :--- |
@@ -885,6 +904,10 @@ Failure
 | start_date | timestamp (option) | The start date of limited warranty for sold product |
 | end_date | timestamp (option) | The end date of limited warranty for sold product |
 
+| edited_notes | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The note id |
+| content | string | The note content |
 
 ### Return Parameters
 
@@ -912,7 +935,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>product_not_exist: The product not exist</li><li>no_option: The current company does not have option with company of product</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist: The note does not exist anymore</li><li>no_permission: The permission deny</li></ul> |
 | validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
 
 | validation | Type | Description |
@@ -933,6 +956,7 @@ Failure
 | warranty.end_date | array (option) | required: <ol><li>The field is required if type of warranty is Limited and product is sold</li></ol>invalid: <ol><li>The data is not timestamp</li></ol> |
 | added_notes | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 | added_notes.(index) | string (option) | invalid: <ol><li>The data is not string</li></ol> |
+
 
 
 
