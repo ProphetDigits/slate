@@ -358,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.06.24 / Joey Huang**
+
+  * Add Success Parameter
+    * variants.number
+
   **2020.05.14 /Jianhua**
 
   * Add Success Parameter
@@ -433,7 +438,8 @@ Success
     },
     "variants": [{
         "id": 169,
-        "name": "White"
+        "name": "White",
+        "number": "wd500"
     }],
     "prices": [{
         "currency": "EUR",
@@ -611,6 +617,7 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The variant2 id |
 | name | string | The variant2 name |
+| number | string | The variant2 number |
 
 | product.price | Type | Description |
 | -------: | :---- | :--- |
