@@ -5,7 +5,13 @@
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Add Success Example:
@@ -171,15 +177,29 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li></ul> |
 
 ## Purchase Order Detail
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.05.12 / Jianhua**
+
+  * Modify Success Parameters:
+  	* Modify total_deposit description
+    * Rename items to variants
+    * Modify variants description
+    * Add cover_image to variant
+    * Remove cover_image in item
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Add Success Parameter:
@@ -240,8 +260,8 @@ Success
     "pay_deposit": 1,
     "deposit_sharing": 10,
     "currency": "CHF",
-    "total_deposit": 50,    
-    "items": [{
+    "total_deposit": 50,
+    "variants": [{
         "id": 1,
         "name": "Basic",
         "quantity": 1,
@@ -257,19 +277,37 @@ Success
             }
         }],
         "deposit": 400,
+        "cover_image": {
+			"px240": "http://abc/xxx_240p.jpg",
+			"px480": "http://abc/xxx_480p.jpg",
+			"px720": "http://abc/xxx_720p.jpg",
+			"px1080": "http://abc/xxx_1080p.jpg"
+		},
+        "assign_products": ["AAAA000001PD"],
+        "item": {
+            "id": 1,
+            "name": "Bike",
+            "number": "bike001"
+        }
+    }, {
+        "id": 2,
+        "name": "V2",
+        "quantity": 1,
+        "specs": [],
+        "deposit": 400,
+        "cover_image": {
+			"px240": "",
+			"px480": "",
+			"px720": "",
+			"px1080": ""
+		},
         "assign_products": [],
         "item": {
             "id": 1,
             "name": "Bike",
-            "number": "bike001",
-            "cover_image": {
-                "240p": "http://example/file_240p.png",
-                "480p": "http://example/file_480p.png",
-                "720p": "http://example/file_720p.png",
-                "1080p": "http://example/file_1080p.png"
-            }
+            "number": "bike001"
         }
-    }],        
+    }],
     "histories": [{
         "status": "",
         "comment": "",
@@ -336,11 +374,11 @@ Success
 | pay_deposit | boolean | the retailer want to pay deposit or not |
 | deposit_sharing | boolean | deposit sharing percentage for the retailer |
 | currency | string | currency name |
-| total_deposit | numberic | the amount of deposit of items |
+| total_deposit | numberic | the amount of deposit |
 | brand | object | The brand company |
 | retailer | object | The purchase company |
 | purchaser | object | The purchaser in the purchase order |
-| items | array | a set of items |
+| variants | array | a set of variants |
 | address | object | recipient address |
 | histories | array | a set of histories of purchase order |
 | deposit_histories | array | a set of histories of purchase order |
@@ -362,7 +400,7 @@ Success
 | family_name | string | The family name |
 | email | string | The email |
 
-| items | Type | Description |
+| variant | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | variant id  |
 | name | string | variant name |
@@ -370,9 +408,10 @@ Success
 | quantity | integer | the purchasing quantity |
 | deposit | numberic | item deposit |
 | assign_products | array | a set of product number |
+| cover_image | object | The url of each resolution for cover image |
 | item | object | item information |
 
-| items.specs | Type | Description |
+| variant.specs | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec |
 | name | string | The name of spec |
@@ -380,25 +419,24 @@ Success
 | part | boolean | The spec is part or not<ol><li>true: It is part</li><li>false: It is not part</li></ol> |
 | value | object | The setting of spec in the product |
 
-| items.specs.value | Type | Description |
+| variant.specs.value | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The id of spec value |
 | name | string | The name of spec value |
 | display_name | string | The display name of spec value |
 
-| items.item | Type | Description |
+| variant.cover_image | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240)<br />It's empty string if no cover image |
+| px480 | string | The picture url of 480 resolution (854x480)<br />It's empty string if no cover image |
+| px720 | string | The picture url of 720 resolution (1280x720)<br />It's empty string if no cover image |
+| px1080 | string | The picture url of 1080 resolution (1920x1080)<br />It's empty string if no cover image |
+
+| variant.item | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | item id  |
 | name | string | item name |
 | number | string | item number |
-| cover_image | object | item cover image it will be empty if no set sover image |
-
-| items.item.cover_image | Type | Description |
-| -------: | :---- | :--- |
-| 240p | string | picture url of 240 resolution (426x240) |
-| 480p | string | picture url of 240 resolution (854x480) |
-| 720p | string | picture url of 240 resolution (1280x720) |
-| 1080p | string | picture url of 240 resolution (1920x1080) |
 
 | address | Type | Description |
 | -------: | :---- | :--- |
@@ -439,10 +477,21 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or order_number parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>order not exist: the order_number is incorrect</li></ul> |
 
 ## Create Purchase Order
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
+</details>
 
 ### Description
 
@@ -469,7 +518,6 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | company_id | integer | company id of brand |
-
 
 ### Return Parameters
 
@@ -503,15 +551,20 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li>></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>brand company not exist: the company_id of company is not exist</li></ul> |
 
 ## Submit Purchase Order
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Modify Success Parameter:
@@ -545,7 +598,6 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
 
-
 ### Return Parameters
 
 <aside class="success">
@@ -568,15 +620,20 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>no item: The items of purchase order should more than 0</li><li>invalid address: all column of address is required</li><li>no option: The option is expired or stop</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or order_number parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>order not exist: the order_number is not correct</li><li>no item: the items of purchase order should more than 0</li><li>invalid address: all column of address is required</li><li>no option: the option is expired or stop</li></ul> |
 
 ## Delete Purchase Order
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+
   **2019.12.31 / CC**
 
   * Modify Success Parameter:
@@ -592,7 +649,6 @@ Failure
 | Method | `post` |
 | Use | to delete the purchase order which not submitted yet. |
 | Notice |  |
-
 
 > Input Parameters
 
@@ -610,7 +666,6 @@ Failure
 | api_key | string | Web backend gives user a unique token after user login in app, then user should use this token to request data from web backend. |
 | order_number | string | number of purchase order |
 
-
 ### Return Parameters
 
 <aside class="success">
@@ -633,15 +688,21 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted : order submitted</li></ul> |
-
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or order_number parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>order not exist: the order_number is not correct</li><li>order submitted : the order_number of order has submitted</li></ul> |
 
 ## Edit Purchase Order
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2020.01.10 / Joey Huang**
+
+  * Modify Fail Parameters:
+    * Apply new structure
+    * modify descriptions of error messages
+    * Add error messages
+
   **2019.12.31 / CC**
 
   * Modify Input Example:
@@ -676,7 +737,6 @@ Failure
 | Method | `post` |
 | Use | to edit purchase order. |
 | Notice |  |
-
 
 > Input Parameters
 
@@ -783,7 +843,7 @@ Success
 
 The result is the same as [Get Purchase Order Detail](#purchase-order-detail)
 
-> Return Failure Parameters
+> Return Failure Parameters (exceed)
 
 <aside class="warning">
 Failure
@@ -791,10 +851,34 @@ Failure
 
 ```json
 {
-    "error_name":"lack of parameters"
+    "error_name": "exceed"
+}
+```
+
+> Return Failure Parameters (porducts conflict)
+
+```json
+{
+    "error_name": "products conflict",
+    "prodcuts": [
+        {
+            "order_number": "AAOO200110000002PO",
+            "product_number": "AAOO0000000028PD"
+        },
+        {
+            "order_number": "AAOO200110000002PO",
+            "product_number": "AAOO0000000027PD"
+        },
+        {
+            "order_number": "AAOO200110000002PO",
+            "product_number": "AAOO0000000092PD"
+        }
+    ]
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The name of wrong type <br/><ul><li>lack of parameters: the request does not include the necessary parameters</li><li>does not signin: user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>order not exist: order number is incorrect</li><li>order submitted: order submitted</li><li>variant not exist: invalid variant id</li><li>invalid item: variant id not exist in brand</li><li>invalid histories: The quantity of histories should more than 0</li><li>product sold: It's forbidden to change sold product</li><li>product not belong to order: the spec combination of product is not same as item </li></ul> |
+| error_name | string |  The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: the request does not include the api_key or order_number parameter</li><li>does not signin: the api_key of user does not signin</li><li>not select company yet: the api_key of user need change current company</li><li>company not exist: the api_key of currenct company is not exist</li><li>not company member: the api_key of the user is not the company member</li><li>order not exist: the order_number is not correct</li><li>order submitted: the order_number of order has submitted</li><li>order not submitted: the order_number of order is not submitted</li><li>exceed: the number of assign_products are more than the needed</li><li>variant not exist: invalid variant id</li><li>invalid item: variant id not exist in brand</li><li>invalid histories: The quantity of histories should more than 0</li><li>product sold: It's forbidden to change sold product</li><li>product not belong to order: the spec combination of product is not same as item </li><li>products conflict: the product numbers in assign_products has already assigned to</li></ul> |
+| prodcuts | array(option) | contains conflict product number and the assigned order_number|
+

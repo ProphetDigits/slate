@@ -318,7 +318,8 @@ Failure
 Success
 </aside>
 
-The return same to Spec2 Detail API
+The result is the same as [Spec2 Detail API](#spec2-detail)
+
 
 > Return Failure Parameters
 
@@ -452,7 +453,7 @@ Failure
 Success
 </aside>
 
-The return same to Spec2 Detail API
+The result is the same as [Spec2 Detail API](#spec2-detail)
 
 > Return Failure Parameters
 
