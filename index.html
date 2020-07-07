@@ -19483,6 +19483,162 @@ Failure
 </tr>
 </tbody></table>
 
+<h2 id="search-with-option">Search With Option</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2020.07.07 / CC</strong></p>
+
+<ul>
+<li>Add New API</li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/product2/search-with-option</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">Search product2s by product number and serial number and consider about option. e.g. I can search all products from my company and brands which have option with me</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">search_data</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Arbitrary string</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+
+<blockquote>
+<p>Return Success Parameters</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA0001PD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0001"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sold"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Return Success Parameters (No Product match)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">Collection of product</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The product number</td>
+</tr>
+<tr>
+<td style="text-align: right">serial_number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The serial number of product</td>
+</tr>
+<tr>
+<td style="text-align: right">sold</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol></td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Failure
+</aside>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_select_company"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>lack_of_parameters: required the search_data that miss in the request</li><li>wrong_data_type: required the data type that incorrect in the request</li></ul></td>
+</tr>
+</tbody></table>
+
 <h2 id="batch-edit">Batch Edit</h2>
 
 <p><details>
