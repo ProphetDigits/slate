@@ -1306,6 +1306,96 @@ Failure
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>lack_of_parameters: required the search_data that miss in the request</li><li>wrong_data_type: required the data type that incorrect in the request</li></ul> |
 
+## Search With Option
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.07.07 / CC**
+
+  * Add New API
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/product2/search-with-option` |
+| Method | `post` |
+| Use | Search product2s by product number and serial number and consider about option. e.g. I can search all products from my company and brands which have option with me  |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+    "api_key": "e4cbcdc2faff41a7e311",
+    "search_data": "R0001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| search_data | string | Arbitrary string |
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+> Return Success Parameters
+
+```json
+{
+    "products": [{
+        "number": "HORA0001PD",
+        "serial_number": "R0001",
+        "sold": true
+    }]
+}
+```
+
+> Return Success Parameters (No Product match)
+
+```json
+{
+    "products": []
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| products | array | Collection of product |
+
+| product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | The product number |
+| serial_number | string | The serial number of product |
+| sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+
+<aside class="warning">
+Failure
+</aside>
+
+> Return Failure Parameters
+
+```json
+{
+    "error_name": "not_select_company"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>lack_of_parameters: required the search_data that miss in the request</li><li>wrong_data_type: required the data type that incorrect in the request</li></ul> |
+
 ## Batch Edit
 
 <details>
