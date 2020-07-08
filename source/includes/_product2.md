@@ -1312,6 +1312,12 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.07.08 / CC**
+
+  * Add Success Parameter
+    * company
+    * item
+
   **2020.07.07 / CC**
 
   * Add New API
@@ -1324,7 +1330,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/product2/search-with-option` |
 | Method | `post` |
-| Use | Search product2s by product number and serial number and consider about option. e.g. I can search all products from my company and brands which have option with me  |
+| Use | Search product2s by product number and serial number and consider about option. <br/> e.g. I can search all products from my company and brands which have option with me  |
 | Notice ||
 
 
@@ -1357,7 +1363,15 @@ Success
     "products": [{
         "number": "HORA0001PD",
         "serial_number": "R0001",
-        "sold": true
+        "sold": true,
+        "company": {
+            "id": 107,
+            "name": "AAAA Corp."
+        },
+        "item": {
+            "id": 131,
+            "name": " Swift 7"
+        }
     }]
 }
 ```
@@ -1379,6 +1393,18 @@ Success
 | number | string | The product number |
 | serial_number | string | The serial number of product |
 | sold | boolean | The status of product2<ol><li>true: sold</li><li>false: unsold</li></ol> |
+| company | object | The company of product2 |
+| item | object | The item of product2 |
+
+| product.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
+
+| product.item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The item id |
+| name | string | The item name |
 
 <aside class="warning">
 Failure
