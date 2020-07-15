@@ -15,10 +15,6 @@ includes:
   - company
   - category
   - item
-  - specification
-  - customization
-  - variant
-  - product
   - spec2
   - variant2
   - product2
@@ -29,7 +25,6 @@ includes:
   - order
   - purchaseOrder
   - shipment
-  - balance
   - bag
   - tag
 
