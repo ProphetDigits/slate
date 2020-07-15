@@ -358,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.07.15 / Jianhua**
+
+  * Add Success Parameter
+    * order
+
   **2020.06.24 / Joey Huang**
 
   * Add Success Parameter
@@ -578,7 +583,10 @@ Success
 			}
 		},
 		"created_at": 1517542365
-	}]
+	}],
+	"order": {
+		"number": "AAAA010120160000OD"
+	}
 }
 ```
 
@@ -602,6 +610,7 @@ Success
 | warranty | object | The warranty configuration of product2 |
 | tags | array | Collection of tag |
 | notes | array | Collection of note<br/>It's order by created time from new to old |
+| order | object / null | The latest order depends on current company which is brand or distributor or retailer<br/>null case: <ul><li>product unsold</li><li>product sold without order</li></ul> |
 
 | product.company | Type | Description |
 | -------: | :---- | :--- |
@@ -764,6 +773,9 @@ Success
 | id | integer | The company id |
 | name | string | The company name |
 
+| product.order | Type | Description |
+| -------: | :---- | :--- |
+| number | string | order number |
 
 > Return Failure Parameters
 
