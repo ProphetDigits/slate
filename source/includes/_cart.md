@@ -98,6 +98,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2020.07.22 / CC**
+  
+  * Add Success Parameter
+    * product.item
+    * product.variants
+    * product.prices
 
   **2019.1.2 / Jianhua**
 
@@ -203,10 +210,30 @@ Success
   },
   "products":[{
     "number": "HORA001PD",
-    "discount_amount": 10
+    "discount_amount": 10,
+    "company_id": 13,
+    "item": {
+        "id": 131,
+        "name": "Swift 7",
+        "discount": 50
+    },
+    "variants": [{
+        "id": 169,
+        "name": "White",
+        "cover_image": {
+            "px240": "http://abc/xxx_240p.jpg",
+            "px480": "http://abc/xxx_480p.jpg",
+            "px720": "http://abc/xxx_720p.jpg",
+            "px1080": "http://abc/xxx_1080p.jpg"
+        }
+    }],
+    "prices": [{
+        "currency": "EUR",
+        "value": 1000
     }, {
-    "number": "HORA002PD",
-    "discount_amount": 0
+        "currency": "TWD",
+        "value": 33602
+    }]
   }]
 }
 ```
@@ -215,28 +242,15 @@ Success
 | -------: | :---- | :--- |
 | id | integer | cart id |
 | company | object | cart belongs to which company |
-| products | array | Collection of product |
-| price | object | Cart's price detail |
 | billing_address | object | billing address information |
 | shipping_address | object | shipping address information |
+| price | object | Cart's price detail |
+| products | array | Collection of product |
 
 | company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | company id |
 | name | string | company name |
-
-| product | Type | Description |
-| -------: | :---- | :--- |
-| number | string | product number |
-| discount_amount | integer | product discount amount |
-| company_id | integer | brand's compay id |
-
-| price | Type | Description |
-| -------: | :---- | :--- |
-| subtotal | numeric | sum of all products' original price |
-| total_discount | numeric | sum of all discount amount in the cart |
-| shipping | numeric | cart shipping fee |
-| total | numeric | cart total price (orignal total price - discount + shipping) |
 
 | billing_address | Type | Description |
 | -------: | :---- | :--- |
@@ -264,6 +278,45 @@ Success
 | code | string | recipient’s address |
 | country | string | recipient’s address |
 
+| price | Type | Description |
+| -------: | :---- | :--- |
+| subtotal | numeric | sum of all products' original price |
+| total_discount | numeric | sum of all discount amount in the cart |
+| shipping | numeric | cart shipping fee |
+| total | numeric | cart total price (orignal total price - discount + shipping) |
+
+| product | Type | Description |
+| -------: | :---- | :--- |
+| number | string | product number |
+| discount_amount | integer | product discount amount |
+| company_id | integer | brand's compay id |
+| item | object | The item of product2 |
+| variants | array | Collection of variant2 with same spec2 |
+| prices | array | Each currency's price |
+
+| product.item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The item id |
+| name | string | The item name |
+| discount | integer | The max discount percent of item |
+
+| product.variant | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The variant2 id |
+| name | string | The variant2 name |
+| cover_image | object | The url of each resolution for cover image |
+
+| product.price | Type | Description |
+| -------: | :---- | :--- |
+| currency | string | The currency name |
+| value | numeric | The currency's price |
+
+| variant.cover_image | Type | Description |
+| -------: | :---- | :--- |
+| px240 | string | The picture url of 240 resolution (426x240)<br />It's empty string if no cover image |
+| px480 | string | The picture url of 480 resolution (854x480)<br />It's empty string if no cover image |
+| px720 | string | The picture url of 720 resolution (1280x720<br />It's empty string if no cover image |
+| px1080 | string | The picture url of 1080 resolution (1920x1080)<br />It's empty string if no cover image |
 
 > Return Failure Parameters
 
