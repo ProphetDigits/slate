@@ -17328,6 +17328,18 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.07.22 / CC</strong></p>
+
+<ul>
+<li>Add Success Parameter
+
+<ul>
+<li>product.item</li>
+<li>product.variants</li>
+<li>product.prices</li>
+</ul></li>
+</ul>
+
 <p><strong>2019.1.2 / Jianhua</strong></p>
 
 <ul>
@@ -17476,10 +17488,30 @@ Success
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"products"</span><span class="p">:[{</span><span class="w">
     </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swift 7"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cover_image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"px240"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_240p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px480"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_480p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px720"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_720p.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"px1080"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc/xxx_1080p.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA002PD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TWD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">33602</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -17501,16 +17533,6 @@ Success
 <td style="text-align: left">cart belongs to which company</td>
 </tr>
 <tr>
-<td style="text-align: right">products</td>
-<td style="text-align: left">array</td>
-<td style="text-align: left">Collection of product</td>
-</tr>
-<tr>
-<td style="text-align: right">price</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Cart&rsquo;s price detail</td>
-</tr>
-<tr>
 <td style="text-align: right">billing_address</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">billing address information</td>
@@ -17519,6 +17541,16 @@ Success
 <td style="text-align: right">shipping_address</td>
 <td style="text-align: left">object</td>
 <td style="text-align: left">shipping address information</td>
+</tr>
+<tr>
+<td style="text-align: right">price</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">Cart&rsquo;s price detail</td>
+</tr>
+<tr>
+<td style="text-align: right">products</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">Collection of product</td>
 </tr>
 </tbody></table>
 
@@ -17538,59 +17570,6 @@ Success
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">company name</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: right">product</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">product number</td>
-</tr>
-<tr>
-<td style="text-align: right">discount_amount</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">product discount amount</td>
-</tr>
-<tr>
-<td style="text-align: right">company_id</td>
-<td style="text-align: left">integer</td>
-<td style="text-align: left">brand&rsquo;s compay id</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: right">price</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">subtotal</td>
-<td style="text-align: left">numeric</td>
-<td style="text-align: left">sum of all products&rsquo; original price</td>
-</tr>
-<tr>
-<td style="text-align: right">total_discount</td>
-<td style="text-align: left">numeric</td>
-<td style="text-align: left">sum of all discount amount in the cart</td>
-</tr>
-<tr>
-<td style="text-align: right">shipping</td>
-<td style="text-align: left">numeric</td>
-<td style="text-align: left">cart shipping fee</td>
-</tr>
-<tr>
-<td style="text-align: right">total</td>
-<td style="text-align: left">numeric</td>
-<td style="text-align: left">cart total price (orignal total price - discount + shipping)</td>
 </tr>
 </tbody></table>
 
@@ -17709,6 +17688,170 @@ Success
 <td style="text-align: right">country</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">recipient’s address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">subtotal</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">sum of all products&rsquo; original price</td>
+</tr>
+<tr>
+<td style="text-align: right">total_discount</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">sum of all discount amount in the cart</td>
+</tr>
+<tr>
+<td style="text-align: right">shipping</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">cart shipping fee</td>
+</tr>
+<tr>
+<td style="text-align: right">total</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">cart total price (orignal total price - discount + shipping)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">product number</td>
+</tr>
+<tr>
+<td style="text-align: right">discount_amount</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">product discount amount</td>
+</tr>
+<tr>
+<td style="text-align: right">company_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">brand&rsquo;s compay id</td>
+</tr>
+<tr>
+<td style="text-align: right">item</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The item of product2</td>
+</tr>
+<tr>
+<td style="text-align: right">variants</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">Collection of variant2 with same spec2</td>
+</tr>
+<tr>
+<td style="text-align: right">prices</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">Each currency&rsquo;s price</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.item</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The item id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The item name</td>
+</tr>
+<tr>
+<td style="text-align: right">discount</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The max discount percent of item</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.variant</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The variant2 id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The variant2 name</td>
+</tr>
+<tr>
+<td style="text-align: right">cover_image</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The url of each resolution for cover image</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">product.price</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The currency name</td>
+</tr>
+<tr>
+<td style="text-align: right">value</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">The currency&rsquo;s price</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">variant.cover_image</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">px240</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 240 resolution (426x240)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px480</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 480 resolution (854x480)<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px720</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 720 resolution (1280x720<br />It&rsquo;s empty string if no cover image</td>
+</tr>
+<tr>
+<td style="text-align: right">px1080</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The picture url of 1080 resolution (1920x1080)<br />It&rsquo;s empty string if no cover image</td>
 </tr>
 </tbody></table>
 
