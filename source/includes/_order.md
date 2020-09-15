@@ -6,6 +6,11 @@
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.09.15 / CC**
+
+  * Modify Example Of Success Parameters
+    * Add param "payment_method"
+
   **2020.01.07 / Jianhua**
 
   * Modify Use Description
@@ -64,6 +69,7 @@ Success
         "total": 24288,
         "order_status": "Cancelled",
         "payment_status": "Closed",
+        "payment_method": "wxpay",
         "transaction_id": "",
         "create_at": 1459491797,
         "refund_at": 1459491797,
@@ -449,6 +455,15 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.09.15 / CC**
+  
+  * Modify Input Parameters
+    * Add type "wxpay"
+  * Modify Success Parameters
+    * Add payment_method "wxpay"
+  * Modify Failure Parameters
+    * Add payment_method "wxpay"
+
   **2020.01.07 / Jianhua**
 
   * Modify Use Description
@@ -491,7 +506,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The identity token of user |
 | cart_id | integer | cart id |
-| type | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| type | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
 
 
 > Return Success Parameters
@@ -513,7 +528,7 @@ Success
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | order_number | string | order number |
-| payment_method | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| payment_method | string | payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
 | qrcode | string / null | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash |
 
 > Return Failure Parameters
@@ -537,7 +552,7 @@ Failure
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li><li>cart not exist: the cart id is invalid</li><li>repeat: order has be created by this cart</li><li>no products: there are no products in the cart</li><li>product invalid: some products which no option or item has been deleted or currency price has been deleted, but those still in the cart</li></ul> |
 | products | array (option) | Collection of product number.<br/>It's show when error_name is product invalid |
 | order_number | string (option) | order number.<br/>It's show when error_name is repeat |
-| payment_method | string (option) | payment method.<br/>It's show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
+| payment_method | string (option) | payment method.<br/>It's show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul> |
 | qrcode | string / null (option) | a base64 string of qr-code image.<br/>It's null when payment method is credit_card or cash.<br/>It's show when error_name is repeat |
 
 
