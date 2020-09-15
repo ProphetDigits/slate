@@ -18732,6 +18732,16 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.09.15 / CC</strong></p>
+
+<ul>
+<li>Modify Example Of Success Parameters
+
+<ul>
+<li>Add param &ldquo;payment_method&rdquo;</li>
+</ul></li>
+</ul>
+
 <p><strong>2020.01.07 / Jianhua</strong></p>
 
 <ul>
@@ -18826,6 +18836,7 @@ Success
         </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24288</span><span class="p">,</span><span class="w">
         </span><span class="nt">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wxpay"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
         </span><span class="nt">"refund_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459491797</span><span class="p">,</span><span class="w">
@@ -19707,6 +19718,26 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2020.09.15 / CC</strong></p>
+
+<ul>
+<li>Modify Input Parameters
+
+<ul>
+<li>Add type &ldquo;wxpay&rdquo;</li>
+</ul></li>
+<li>Modify Success Parameters
+
+<ul>
+<li>Add payment_method &ldquo;wxpay&rdquo;</li>
+</ul></li>
+<li>Modify Failure Parameters
+
+<ul>
+<li>Add payment_method &ldquo;wxpay&rdquo;</li>
+</ul></li>
+</ul>
+
 <p><strong>2020.01.07 / Jianhua</strong></p>
 
 <ul>
@@ -19791,7 +19822,7 @@ Failure
 <tr>
 <td style="text-align: right">type</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
+<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -19825,7 +19856,7 @@ Success
 <tr>
 <td style="text-align: right">payment_method</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
+<td style="text-align: left">payment method<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">qrcode</td>
@@ -19874,7 +19905,7 @@ Failure
 <tr>
 <td style="text-align: right">payment_method</td>
 <td style="text-align: left">string (option)</td>
-<td style="text-align: left">payment method.<br/>It&rsquo;s show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
+<td style="text-align: left">payment method.<br/>It&rsquo;s show when error_name is repeat<ul><li>cash</li><li>credit_card</li><li>PayPal</li><li>wxpay</li><li>cash_consumer_app</li><li>credit_card_consumer_app</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">qrcode</td>
