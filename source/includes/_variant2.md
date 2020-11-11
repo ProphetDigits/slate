@@ -2,6 +2,7 @@
 
 ## Variant2 List
 
+
 ### Description
 
 | Title | Description |
@@ -113,6 +114,17 @@ Failure
 
 ## Variant2 Detail
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.11.11 / Lynn Chang**
+
+  * Modify Return Parameter
+    * Add pre-sell
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -131,7 +143,11 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "target_company_id": 1,
-    "id": 1
+    "id": 1,
+	"pre_sell": {
+		"enable": true,
+		"description": "sjdiididdda"
+	}
 }
 ```
 
@@ -140,7 +156,13 @@ Failure
 | api_key | string | The identity token of user |
 | target_company_id | integer | The company id of variant2 |
 | id | integer | The variant2 id |
+| pre_sell | object | pre-sell details |
 
+
+| pre_sell | Type | Description |
+| -------: | :---- | :--- |
+| enable | boolean | The status of variant which can pre_sell or not |
+| description | string | the description of pre-sell details |
 
 > Return Success Parameters
 
@@ -218,7 +240,11 @@ Success
 		"variants_of_same_combinations": [{
 			"id": 2,
 			"name": "Multiply bk"
-		}]
+		}],
+		"pre_sell": {
+			"enable": true,
+			"description": "sjdiididd"
+		}
 	}
 }
 ```
@@ -323,6 +349,17 @@ Failure
 
 ## Create Variant2
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.11.11 / Lynn Chang**
+
+  * Modify Input Parameter
+    * Add pre-sell
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -367,6 +404,10 @@ Failure
 		"type": "Limited",
 		"value": 2,
 		"unit": "Years"
+	},
+	"pre_sell": {
+		"enable": true,
+		"description": "sjdiididd"
 	}
 }
 ```
@@ -383,6 +424,7 @@ Failure
 | prices | array | Collection of each currency price |
 | images | array | Collection of image |
 | warranty | object | The warranty configuration of variant2 |
+| pre_sell | object | pre-sell details |
 
 | price | Type | Description |
 | -------: | :---- | :--- |
@@ -404,6 +446,11 @@ Failure
 | type | string | The warranty type - Limited or Lifetime <br/>The parameter of value and unit is unnecessary when type is Lifetime |
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
+
+| pre_sell | Type | Description |
+| -------: | :---- | :--- |
+| enable | boolean | The status of variant which can pre_sell or not |
+| description | string | the description of pre-sell details |
 
 
 ### Return Parameters
@@ -460,6 +507,17 @@ Failure
 
 ## Edit Variant2
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.11.11 / Lynn Chang**
+
+  * Modify Input Parameter
+    * Add pre-sell
+
+</details>
+
 ### Description
 
 | Title | Description |
@@ -504,6 +562,10 @@ Failure
 		"type": "Limited",
 		"value": 2,
 		"unit": "Years"
+	},
+	"pre_sell": {
+		"enable": true,
+		"description": "sjdiididd"
 	}
 }
 ```
@@ -520,6 +582,7 @@ Failure
 | prices | array (option) | Collection of each currency price |
 | images | array (option) | Collection of image |
 | warranty | object (option) | The warranty configuration of variant2 |
+| pre_sell | object | pre-sell details |
 
 | price | Type | Description |
 | -------: | :---- | :--- |
@@ -542,6 +605,10 @@ Failure
 | value | positive integer (option) | The duration of warranty |
 | unit | string (option) | The unit of duration - Years or Months |
 
+| pre_sell | Type | Description |
+| -------: | :---- | :--- |
+| enable | boolean | The status of variant which can pre_sell or not |
+| description | string | the description of pre-sell details |
 
 
 ### Return Parameters
