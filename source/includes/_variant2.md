@@ -148,7 +148,7 @@ Failure
 {
     "api_key": "e4cbcdc2faff41a7e311",
     "target_company_id": 1,
-    "id": 1,
+    "id": 1
 }
 ```
 
