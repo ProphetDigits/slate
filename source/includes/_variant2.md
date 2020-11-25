@@ -123,6 +123,11 @@ Failure
   * Modify Return Parameter
     * Add pre-sell
 
+  **2020.11.24 / Lynn Chang**
+  
+  * Modify Input Parameter
+    * remove pre_sell parameter
+
 </details>
 
 ### Description
@@ -144,10 +149,6 @@ Failure
     "api_key": "e4cbcdc2faff41a7e311",
     "target_company_id": 1,
     "id": 1,
-	"pre_sell": {
-		"enable": true,
-		"description": "sjdiididdda"
-	}
 }
 ```
 
@@ -156,13 +157,6 @@ Failure
 | api_key | string | The identity token of user |
 | target_company_id | integer | The company id of variant2 |
 | id | integer | The variant2 id |
-| pre_sell | object | pre-sell details |
-
-
-| pre_sell | Type | Description |
-| -------: | :---- | :--- |
-| enable | boolean | The status of variant which can pre_sell or not |
-| description | string | the description of pre-sell details |
 
 > Return Success Parameters
 
@@ -267,6 +261,7 @@ Success
 | images | array | Collection of image |
 | warranty | object | The warranty configuration of variant2 |
 | variants_of_same_combinations | array | Collection of variant2 with same combinations |
+| pre_sell | object | pre-sell details |
 
 | variant.item | Type | Description |
 | -------: | :---- | :--- |
@@ -329,6 +324,11 @@ Success
 | id | integer | The id of variant |
 | name | string | The name of variant |
 
+| variant.pre_sell | Type | Description |
+| -------: | :---- | :--- |
+| enable | boolean | The status of variant which can pre_sell or not |
+| description | string | the description of pre-sell details |
+
 > Return Failure Parameters
 
 <aside class="warning">
@@ -357,6 +357,11 @@ Failure
 
   * Modify Input Parameter
     * Add pre-sell
+
+  **2020.11.24 / Lynn Chang**
+  
+  * Modify Return Parameter
+    * add Failure Solution for pre_sell
 
 </details>
 
@@ -502,6 +507,7 @@ Failure
 | warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
 | warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
+| pre_sell | object | required: <ol><li>The field is required </li></ol> |
 
 
 
@@ -515,6 +521,11 @@ Failure
 
   * Modify Input Parameter
     * Add pre-sell
+
+  **2020.11.24 / Lynn Chang**
+  
+  * Modify Return Parameter
+    * add Failure Solution for pre_sell
 
 </details>
 
@@ -659,3 +670,4 @@ Failure
 | warranty.type | array (option) | required: <ol><li>The field is required</li></ol>invalid: <ol><li>Either the data should be Limited or Lifetime</li></ol> |
 | warranty.value | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>The data is not positive integer</li></ol> |
 | warranty.unit | array (option) | required: <ol><li>The field is required if type of warranty is Limited</li></ol>invalid: <ol><li>Either the data should be Years or Months</li></ol> |
+| pre_sell | object | required: <ol><li>The field is required </li></ol> |
