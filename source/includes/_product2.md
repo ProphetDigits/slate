@@ -444,7 +444,8 @@ Success
     },
     "item": {
         "id": 131,
-        "name": " Swift 7"
+        "name": " Swift 7",
+        "discount": 20
     },
     "variants": [{
         "id": 169,
@@ -629,6 +630,7 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The item id |
 | name | string | The item name |
+| discount | numeric | item max discount ratio |
 
 | product.variant | Type | Description |
 | -------: | :---- | :--- |
