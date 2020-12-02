@@ -358,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.12.02 / Lyon**
+
+  * Add Success Parameter
+    * variants.pre_sell
+
   **2020.07.15 / Jianhua**
 
   * Add Success Parameter
@@ -444,7 +449,10 @@ Success
     "variants": [{
         "id": 169,
         "name": "White",
-        "number": "wd500"
+        "number": "wd500",
+        "pre_sell": {
+        	"enable": true
+        }
     }],
     "prices": [{
         "currency": "EUR",
@@ -627,6 +635,7 @@ Success
 | id | integer | The variant2 id |
 | name | string | The variant2 name |
 | number | string | The variant2 number |
+| pre_sell | boolean | The status of variant which can pre_sell or not |
 
 | product.price | Type | Description |
 | -------: | :---- | :--- |

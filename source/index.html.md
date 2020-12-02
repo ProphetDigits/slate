@@ -23,6 +23,7 @@ includes:
   - invitation
   - cart
   - order
+  - voucher
   - purchaseOrder
   - shipment
   - bag

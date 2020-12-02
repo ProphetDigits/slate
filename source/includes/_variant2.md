@@ -2,6 +2,16 @@
 
 ## Variant2 List
 
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.12.02 / Lyon**
+
+  * Add Success Parameter
+    * pre_sell object
+
+</details>
 
 ### Description
 
@@ -61,6 +71,9 @@ Success
 		"duplicate_combination": true,
 		"company": {
 			"id": 1
+		},
+		"pre_sell": {
+			"enable": true
 		}
 	}]
 }
@@ -82,6 +95,7 @@ Success
 | cover_image | object | The url of each resolution for cover image |
 | duplicate_combination | boolean | The combination is duplicate with other variant2 |
 | company | object | The company of variant |
+| pre_sell | object | The details of pre-sell |
 
 | variant.cover_image | Type | Description |
 | -------: | :---- | :--- |
@@ -93,6 +107,11 @@ Success
 | variant.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The company id |
+
+| variant.pre_sell | Type | Description |
+| -------: | :---- | :--- |
+| enable | boolean | The status of variant which can pre-sell or not |
+
 
 > Return Failure Parameters
 
