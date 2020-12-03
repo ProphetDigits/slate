@@ -22275,7 +22275,14 @@ Success
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"variant_not_exist"</span><span class="w">
+    </span><span class="nt">"error_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"illegal_form_input"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"variant_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"required"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -22288,7 +22295,46 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>currency_not_exist: Product company delete the currency</li><li>invalid_discount: Discount amount should more than 0 and less than max discount which setting by product company</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>currency_not_exist: Product company delete the currency</li><li>invalid_discount: Discount amount should more than 0 and less than max discount which setting by product company</li><li>no_permission : The permission deny</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">If the error_name is &lsquo;illegal_form_input&rsquo;, system will show reasons for each error input</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">variant_id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">currency</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">discount_amount</td>
+<td style="text-align: left">numeric</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">billing_address</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">shipping_address</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">required: <ol><li>The field is required</li></ol></td>
 </tr>
 </tbody></table>
 
