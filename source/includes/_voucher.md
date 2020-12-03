@@ -128,10 +128,26 @@ Failure
 
 ```json
 {
-    "error_name": "variant_not_exist"
+    "error_name": "illegal_form_input",
+     "validation": {
+        "variant_id": ["required"],
+        "currency": ["required"],
+        "discount_amount": ["required"],
+        "billing_address": ["required"],
+        "shipping_address": ["required"]
+    }
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>currency_not_exist: Product company delete the currency</li><li>invalid_discount: Discount amount should more than 0 and less than max discount which setting by product company</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>not_sign_in: The api_key is invalid</li><li>not_select_company: The user has not select current company</li><li>variant_not_exist: The variant2 is not exist or not belongs to target company</li><li>currency_not_exist: Product company delete the currency</li><li>invalid_discount: Discount amount should more than 0 and less than max discount which setting by product company</li><li>no_permission : The permission deny</li></ul> |
+| validation | object (option) | If the error_name is 'illegal_form_input', system will show reasons for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| variant_id | integer | required: <ol><li>The field is required</li></ol>  |
+| currency | string | required: <ol><li>The field is required</li></ol>  |
+| discount_amount | numeric | required: <ol><li>The field is required</li></ol>  |
+| billing_address | object | required: <ol><li>The field is required</li></ol>  |
+| shipping_address | object | required: <ol><li>The field is required</li></ol>  |
