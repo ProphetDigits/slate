@@ -65,8 +65,8 @@
 | variant_id | integer | The id of variant |
 | currency | string | The currency name |
 | discount_amount | numeric | product discount amount |
-| billing_address | object | billing address information |
-| shipping_address | object | shipping address information |
+| billing_address | object (option) | billing address information |
+| shipping_address | object (option) | shipping address information |
 
 
 | billing_address | Type | Description |
@@ -106,7 +106,7 @@ Success
 ```json
 {
 	"voucher":{
-		"id": "IKEA0000000001VC"
+		"number": "IKEA0000000001VC"
 	}
 }
 ```
