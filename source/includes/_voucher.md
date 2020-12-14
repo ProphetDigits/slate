@@ -10,6 +10,10 @@
 
   * Add New Api
 
+  **2020.12.14 / Lyon**
+
+  * Modify discount_amount type
+
 </details>
 
 ### Description
@@ -64,7 +68,7 @@
 | api_key | string | The identity token of user |
 | variant_id | integer | The id of variant |
 | currency | string | The currency name |
-| discount_amount | numeric | product discount amount |
+| discount_amount | float | product discount amount |
 | billing_address | object (option) | billing address information |
 | shipping_address | object (option) | shipping address information |
 
