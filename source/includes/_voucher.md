@@ -1,4 +1,171 @@
 # Voucher
+## Voucher List
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2020.12.17 / Jonas**
+
+  * Add New API
+
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/list` |
+| Method | `post` |
+| Use |To get the voucher list of company  |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "vouchers": [{
+        "number": "IKEA0000000001VC",
+        "currency": "JPY",
+        "total": 24288,
+        "item": {
+            "id": 1,
+            "name": "Array k1"
+        },
+        "variant": {
+            "id": 1,
+            "name": "Black"
+        },
+        "voucher_status": "Done",
+        "payment_status": "Collecting",
+        "created_at": 1459491797,
+        "refund_at": null,
+        "retailer": {
+            "id": 1,
+            "name": "Company A"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang"
+        },
+        "consumer": {
+            "given_name": "Andy", 
+            "family_name": "Lee"
+        }
+    },{
+       "number": "IKEA0000000002VC",
+        "currency": "CHF",
+        "total": 3000,
+        "item": {
+            "id": 1,
+            "name": "Autark k1"
+        },
+        "variant": {
+            "id": 1,
+            "name": "White"
+        },
+        "voucher_status": "Done",
+        "payment_status": "Refunded",
+        "created_at": 1459491797,
+        "refund_at": 1459498797,
+        "retailer": {
+            "id": 1,
+            "name": "Company B"
+        },
+        "agent": {
+            "id": 1,
+            "given_name": "QQ",
+            "family_name": "Wang"
+        },
+         "consumer": {
+            "given_name": "CC",
+            "family_name": "Lee"
+        }
+    }]
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| number | string | voucher number |
+| currency | string | payment currency |
+| total | double | voucher total price |
+| item | object | The item of voucher |
+| variant | object | The variant of voucher |
+| voucher_status | string | The status of voucher |
+| payment_status | string | The status of payment |
+| created_at | timestamp | created time in the number of seconds |
+| refund_at | timestamp/null | refunded time in the number of seconds |
+| retailer | object | The retailer that sold the voucher |
+| agent | object | sales agent |
+| consumer | object | consumer who bought the voucher |
+
+
+| item | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of item |
+| name | string | The name of item |
+
+| variant | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of variant |
+| name | string | The name of variant |
+
+| retailer | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of copmany |
+| name | string | The name of copmany |
+
+| agent | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The id of agent |
+| given_name | string | The given_name of sales agent |
+| family_name | string | The family_name of sales agent |
+
+| consumer | Type | Description |
+| -------: | :---- | :--- |
+| given_name | string/null | The given_name of consumer |
+| family_name | string/null | The family_name of consumer |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>lack of parameters: required parameters miss in the request</li><li>does not signin: the user does not signin</li><li>not select company yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not company member: the user is not the company member</li></ul> |
+
 
 ## Create Voucher
 
