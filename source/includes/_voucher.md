@@ -334,6 +334,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.12.30 / CC**
+  
+  * Add Success Parameter
+    * created_at
+
   **2020.12.29 / CC**
   
   * Add New Api
@@ -398,6 +403,7 @@ Success
         "id": 169,
         "name": "White"
     },
+    "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
     "payment": {
         "status": "Collecting",
@@ -459,6 +465,7 @@ Success
 | agent | object | The creator of the voucher |
 | item | object | The item of the voucher |
 | variant | object | The variant of the voucher |
+| created_at | timestamp | created time in the number of seconds |
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
 | payment | object | The payment information of the voucher |
 | billing_address | object | The billing address of the voucher |
