@@ -1535,3 +1535,68 @@ Failure
 | -------: | :---- | :--- |
 | products | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol> invalid: <ol><li>The data is not an array</li></ol> |
 | sold | array (option) | required: <ol><li>The field is required</li><li>The data should not be empty</li></ol>invalid: <ol><li>The data is not a boolean</li></ol> |
+
+
+## Product Detail To Public
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.01.12 / Jonas**
+
+  * Restore Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `product/detail/{product_number}` |
+| Method | `get` |
+| Use | show particular product information |
+| Notice ||
+
+
+> Input Parameters
+
+### Input Parameters
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| product_number | string | product number |
+
+
+> Return Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+{
+    "website": ""
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| website | string | product website |
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name":"lack of parameters"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | the name of the wrong type. |
+||| **product not found:** product not exist |
