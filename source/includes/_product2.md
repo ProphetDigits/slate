@@ -358,6 +358,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.01.13 / CC**
+
+  * Add Success Parameter
+    * Add types for product.history.type
+
   **2020.12.02 / Lyon**
 
   * Add Success Parameter
@@ -686,12 +691,10 @@ Success
 | product.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
-| type | string | The history type <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li><li>set_as_sold_manually</li><li>set_as_unsold_manually
-</li></ul> |
+| type | string | The history type <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>add_spec</li><li>change_spec</li><li>delete_spec</li><li>set_as_sold_manually</li><li>set_as_unsold_manually</li><li>assign_to_voucher</li><li>unassign_from_voucher</li></ul> |
 | operator | object | The operator |
 | created_at | timestamp | The created time |
-| comment | string (option) | The history comment<br />It's exist when type is  <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>set_as_sold_manually</li><li>set_as_unsold_manually
-</li></ul> |
+| comment | string (option) | The history comment<br />It's exist when type is  <ul><li>checkin</li><li>checkout</li><li>sell</li><li>assign_to_purchase_order</li><li>unassign_from_purchase_order</li><li>assign_to_shipment</li><li>unassign_from_shipment</li><li>set_as_sold_manually</li><li>set_as_unsold_manually</li><li>assign_to_voucher</li><li>unassign_from_voucher</li></ul> |
 | spec | object (option) | It's exist when type is add_spec, change_spec and delete_spec |
 
 | product.history.operator | Type | Description |

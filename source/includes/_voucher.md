@@ -335,7 +335,7 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
-  **2020.12.29 / CC**
+  **2021.01.13 / CC**
 
   * Add New API
 
@@ -387,7 +387,7 @@ Failure
 
 ```json
 {
-  "error_name":"voucher_not_exist"
+  "error_name": "product_sold"
 }
 ```
 
