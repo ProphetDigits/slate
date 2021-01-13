@@ -328,6 +328,81 @@ Failure
 | shipping_address | object | required: <ol><li>The field is required</li></ol>  |
 
 
+
+## Edit Voucher
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2020.12.29 / CC**
+
+  * Add New API
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/edit` |
+| Method | `post` |
+| Use | To edit the voucher  |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "assign_product": "HORA001PD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| assign_product | string (option) | The product number which is going to assign <ul><li>Without assign_product param, backend will do nothing</li><li>When assign_product is empty string "", backend will unassign current assigned product</li><li>When assign_product is "HORA001PD", backend will unassign the old one and assign the new product HORA001PD</li></ul> |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+The result is the same as [Voucher Detail](#voucher-detail)
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: number is required</li></ul> |
+
+
+
 ## Voucher Detail
 
 <details>
