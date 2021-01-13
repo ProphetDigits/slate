@@ -333,6 +333,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.01.13 / CC**
+  
+  * Add Success Parameter
+    * assigned_product
+    * voucher.payment.history.transaction_id
+  * Modify Title Of Success Parameter
 
   **2020.12.30 / CC**
   
@@ -405,6 +412,7 @@ Success
     },
     "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
+    "assigned_product": "HORA001PD",
     "payment": {
         "status": "Collecting",
         "currency": "EUR",
@@ -417,7 +425,8 @@ Success
             "id": 1,
             "type": "Paid",
             "created_at": 1519713617,
-            "payment_method": "cash",            
+            "payment_method": "wxpay",
+            "transaction_id": "xxxxx_001",            
             "amount": 100,
             "sales": {
                 "id": 82,
@@ -467,6 +476,7 @@ Success
 | variant | object | The variant of the voucher |
 | created_at | timestamp | created time in the number of seconds |
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
+| assigned_product | string | The assigned product number |
 | payment | object | The payment information of the voucher |
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
@@ -508,23 +518,24 @@ Success
 | unpaid | double | The unpaid amount of the voucher (total - paid) |
 | histories | array | The payment logs of the voucher |
 
-| voucher.history | Type | Description |
+| voucher.payment.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
 | type | string | The history type <ul><li>Paid</li><li>Refunded</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
 | payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
+| transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul> |
 | amount | double | The paid amount of the payment |
 | sales | object | The salesperson who handled the payment |
 
-| voucher.history.sales | Type | Description |
+| voucher.payment.history.sales | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The user id |
 | given_name | string | The given name of the salesperson |
 | family_name | string | The family name of the salesperson |
 | company | object | The company of the salesperson |
 
-| voucher.history.sales.company | Type | Description |
+| voucher.payment.history.sales.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The salesperson's company id |
 | name | string | The salesperson's company name |
