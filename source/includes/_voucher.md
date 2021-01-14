@@ -328,11 +328,93 @@ Failure
 | shipping_address | object | required: <ol><li>The field is required</li></ol>  |
 
 
+
+## Edit Voucher
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2021.01.13 / CC**
+
+  * Add New API
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/edit` |
+| Method | `post` |
+| Use | To edit the voucher  |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "assign_product": "HORA001PD"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| assign_product | string (option) | The product number which is going to assign <ul><li>Without assign_product param, backend will do nothing</li><li>When assign_product is empty string "", backend will unassign current assigned product</li><li>When assign_product is "HORA001PD", backend will unassign the old one and assign the new product HORA001PD</li></ul> |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+The result is the same as [Voucher Detail](#voucher-detail)
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name": "product_sold"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: number is required</li></ul> |
+
+
+
 ## Voucher Detail
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.01.13 / CC**
+  
+  * Add Success Parameter
+    * assigned_product
+    * voucher.payment.history.transaction_id
+  * Modify Title Of Success Parameter
 
   **2020.12.30 / CC**
   
@@ -405,6 +487,7 @@ Success
     },
     "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
+    "assigned_product": "HORA001PD",
     "payment": {
         "status": "Collecting",
         "currency": "EUR",
@@ -417,7 +500,8 @@ Success
             "id": 1,
             "type": "Paid",
             "created_at": 1519713617,
-            "payment_method": "cash",            
+            "payment_method": "wxpay",
+            "transaction_id": "xxxxx_001",            
             "amount": 100,
             "sales": {
                 "id": 82,
@@ -467,6 +551,7 @@ Success
 | variant | object | The variant of the voucher |
 | created_at | timestamp | created time in the number of seconds |
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
+| assigned_product | string | The assigned product number |
 | payment | object | The payment information of the voucher |
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
@@ -508,23 +593,24 @@ Success
 | unpaid | double | The unpaid amount of the voucher (total - paid) |
 | histories | array | The payment logs of the voucher |
 
-| voucher.history | Type | Description |
+| voucher.payment.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
 | type | string | The history type <ul><li>Paid</li><li>Refunded</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
 | payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
+| transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul> |
 | amount | double | The paid amount of the payment |
 | sales | object | The salesperson who handled the payment |
 
-| voucher.history.sales | Type | Description |
+| voucher.payment.history.sales | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The user id |
 | given_name | string | The given name of the salesperson |
 | family_name | string | The family name of the salesperson |
 | company | object | The company of the salesperson |
 
-| voucher.history.sales.company | Type | Description |
+| voucher.payment.history.sales.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The salesperson's company id |
 | name | string | The salesperson's company name |
@@ -571,7 +657,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -585,6 +671,12 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.01.13 / CC**
+  
+  * Add Success Parameter
+    * qrcode
+    * transaction_id
 
   **2020.12.29 / CC**
   
@@ -610,7 +702,7 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "number": "HORA001VC",
-  "payment_method":"cash",
+  "payment_method":"wxpay",
   "amount": 500
 }
 ```
@@ -630,7 +722,17 @@ Failure
 Success
 </aside>
 
-Nothing was returned
+```json
+{
+  "qrcode":"xxxxxx",
+  "transaction_id": "zzzzzz"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| qrcode | string (option) | The product2 qrcode encoded by base64. The qrcode is reqired when payment_method is:<ul><li>wxpay</li></ul> |
+| transaction_id | string (option) | The transaction id is reqired when payment_method is:<ul><li>wxpay</li></ul>|
 
 > Return Failure Parameters
 
@@ -647,7 +749,7 @@ Failure
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
 | error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>exceed_unpaid_amount: The amount exceeds vocuher unpaid amount</li><li>refunded: The voucher has been refunded</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
-| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
@@ -655,3 +757,101 @@ Failure
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
 | amount | array (option) | <ul><li>required: The amount is required</li><li>invalid: The amount is invalid</li></ul> |
 | payment_method | array (option) | <ul><li>required: The payment_method is required</li><li>invalid: The payment_method is invalid</li></ul> |
+
+
+
+## Voucher Transaction Result
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+  
+  **2021.01.13 / CC**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/transaction/result` |
+| Method | `post` |
+| Use | To get the transaction result, e.g. keep polling the wechat pay result |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "id": "xxxxx001"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| id | string | The transaction id |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+```json
+
+{
+  "status": "open"
+}
+
+{
+  "status": "success"
+}
+
+{
+  "status": "fail",
+  "fail": {
+    "reason": "timeout"
+  }
+}
+
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| status | string | The transaction status.<ul><li>open: The transaction is still allowed to pay</li><li>success: The transaction result is successful and closed</li><li>fail: The transaction result is fail and closed</li></ul> |
+| fail | object (option) | The "fail" object is reqired when status is fail.|
+
+| fail | Type | Description |
+| -------: | :---- | :--- |
+| reason | string | The fail reason.<ul><li>timeout: The transaction is timeout</li><li>Some other errors from wxpay</li></ul> |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn't exist in system</li></ul> |
+| validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| id | array (option) | <ul><li>required: The id is required</li></ul> |
