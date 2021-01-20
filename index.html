@@ -23772,6 +23772,14 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2021.01.20 / CC</strong></p>
+
+<ul>
+<li>Remove case from fail.reason</li>
+<li>Modify description of failure case &ldquo;transaction_not_exist&rdquo;</li>
+<li>Modify json example of failure</li>
+</ul>
+
 <p><strong>2021.01.13 / CC</strong></p>
 
 <ul>
@@ -23856,7 +23864,7 @@ Success
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timeout"</span><span class="w">
+    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -23890,7 +23898,7 @@ Success
 <tr>
 <td style="text-align: right">reason</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The fail reason.<ul><li>timeout: The transaction is timeout</li><li>Some other errors from wxpay</li></ul></td>
+<td style="text-align: left">The fail reason.<ul><li>Some errors from wxpay</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -23902,7 +23910,7 @@ Success
 Failure
 </aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"voucher_not_exist"</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"transaction_not_exist"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -23915,7 +23923,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn&rsquo;t exist in system</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn&rsquo;t exist in system.<br>System will also remove transaction_id when the transaction is timeout</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
