@@ -766,6 +766,12 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
+  **2021.01.20 / CC**
+  
+  * Remove case from fail.reason
+  * Modify description of failure case "transaction_not_exist"
+  * Modify json example of failure
+  
   **2021.01.13 / CC**
   
   * Add New Api
@@ -819,7 +825,7 @@ Success
 {
   "status": "fail",
   "fail": {
-    "reason": "timeout"
+    "reason": "xxx"
   }
 }
 
@@ -832,7 +838,7 @@ Success
 
 | fail | Type | Description |
 | -------: | :---- | :--- |
-| reason | string | The fail reason.<ul><li>timeout: The transaction is timeout</li><li>Some other errors from wxpay</li></ul> |
+| reason | string | The fail reason.<ul><li>Some errors from wxpay</li></ul> |
 
 > Return Failure Parameters
 
@@ -842,13 +848,13 @@ Failure
 
 ```json
 {
-  "error_name":"voucher_not_exist"
+  "error_name":"transaction_not_exist"
 }
 ```
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn't exist in system</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn't exist in system.<br>System will also remove transaction_id when the transaction is timeout</li></ul>|
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
