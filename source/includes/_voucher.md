@@ -120,7 +120,7 @@ Success
 | item | object | The item of voucher |
 | variant | object | The variant of voucher |
 | voucher_status | string | The status of voucher |
-| payment_status | string | The status of payment |
+| payment_status | string | The status of payment <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul>|
 | created_at | timestamp | created time in the number of seconds |
 | refund_at | timestamp/null | refunded time in the number of seconds |
 | retailer | object | The retailer that sold the voucher |
@@ -334,6 +334,14 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2020.02.18 / Jonas**
+  
+  * modify Success Parameter
+    * payment => add refund, request_refund_reason Parameter
+    * payment.histories => add Refunded, Refund Declined, Refund Requested 
+  * add success Parameter
+    * invoices
+
   **2020.12.30 / CC**
   
   * Add Success Parameter
@@ -405,21 +413,34 @@ Success
     },
     "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
+    "invoices": [{
+      "type": "receipt",
+      "number": "AAAA170329000006RC",
+      "created_at": 1490776038,
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+    },{
+      "type": "invoice", 
+      "number": "AAAA170329000006IN",
+      "created_at": 1490776038,
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+    }],
     "payment": {
         "status": "Collecting",
+        "request_refund_reason": "The watch is broken",
         "currency": "EUR",
         "price": 1000,
         "discount": 100,
         "total": 900,
         "paid": 500,
         "unpaid": 400,
+        "refund": 2000,
         "histories": [{
             "id": 1,
             "type": "Paid",
             "created_at": 1519713617,
             "payment_method": "cash",            
             "amount": 100,
-            "sales": {
+            "operator": {
                 "id": 82,
                 "given_name": "Billy",
                 "family_name": "Yan",
@@ -428,6 +449,57 @@ Success
                     "name": "Company A"
                 }
             }
+        },{
+          "id": 2,
+          "type": "Refunded",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": 100,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
+        },{
+          "id": 3,
+          "type": "Declined",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": null,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
+        },{
+          "id": 3,
+          "type": "Refund Requested",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": null,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
         }]
     },
     "billing_address": {
@@ -468,6 +540,7 @@ Success
 | created_at | timestamp | created time in the number of seconds |
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
 | payment | object | The payment information of the voucher |
+| invoices | array | The invoice of voucher <br/>It’s order by created time from new to old |
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
 
@@ -497,34 +570,44 @@ Success
 | id | integer | The variant2 id |
 | name | string | The variant2 name |
 
+| voucher.invoices | Type | Description |
+| -------: | :---- | :--- |
+| type | string | The invoice type <ul><li>invoices</li><li>receipt</li></ul> |
+| number | string | The invoice number |
+| created_at | string | created time in the number of seconds  |
+| download | string |The url of invoice or recipt for download, visit the url need to add header Authorization and value is api_key |
+
 | voucher.payment | Type | Description |
 | -------: | :---- | :--- |
 | status | string | The current payment status of the voucher <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul> |
 | currency | string | The currency name |
+| request_refund_reason | string | The request refound reason(if voucher not request refund,should be null) |
 | price | double | The original price of the voucher (copy from variant's price) |
 | discount | double | The discount amount of the voucher |
 | total | double | The total amount of the voucher (price - discount) |
 | paid | double | The total paid amount of the voucher |
 | unpaid | double | The unpaid amount of the voucher (total - paid) |
-| histories | array | The payment logs of the voucher |
+| refund | double | The refund amount of the voucher (if voucher not refunded,should be 0) |
+| histories | array | The payment logs of the voucher<br/>It’s order by created time from new to old |
 
 | voucher.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
-| type | string | The history type <ul><li>Paid</li><li>Refunded</li></ul> |
+| type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
-| payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
-| amount | double | The paid amount of the payment |
-| sales | object | The salesperson who handled the payment |
+| payment_method | string | payment method (if type is Refunded or Refund Declined or Refund Requested, should be null ) <ul><li>cash</li><li>wxpay</li></ul> |
+| amount | double | The paid amount of the payment (if type is Refund Declined or Refund Requested value is null ) |
+| comment | string | history comment |
+| operator | object | The operator who handled the payment |
 
-| voucher.history.sales | Type | Description |
+| voucher.history.operator | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The user id |
 | given_name | string | The given name of the salesperson |
 | family_name | string | The family name of the salesperson |
 | company | object | The company of the salesperson |
 
-| voucher.history.sales.company | Type | Description |
+| voucher.history.operator.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The salesperson's company id |
 | name | string | The salesperson's company name |
@@ -655,3 +738,228 @@ Failure
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
 | amount | array (option) | <ul><li>required: The amount is required</li><li>invalid: The amount is invalid</li></ul> |
 | payment_method | array (option) | <ul><li>required: The payment_method is required</li><li>invalid: The payment_method is invalid</li></ul> |
+
+
+## Refund Request
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/request` |
+| Method | `post` |
+| Use | to request refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "comment": "The watch is broken"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| comment | string | The request refound reason |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>repeat: the request refund is repeated</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
+
+
+## Refund
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/confirm` |
+| Method | `post` |
+| Use | to refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "amount": 2000,
+  "comment": "The watch is broken"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| amount | double | The refund total amount   |
+| comment | string | The comment of refund |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| amount | array (option) | <ul><li>required: The amount is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
+
+
+## Decline Refund
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/decline` |
+| Method | `post` |
+| Use | to decline request refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "comment": "The watch is fine"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| comment | string | The decline request refound reason |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>not_found_request: The request refund is not found</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
