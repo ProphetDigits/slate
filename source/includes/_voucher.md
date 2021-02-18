@@ -120,7 +120,7 @@ Success
 | item | object | The item of voucher |
 | variant | object | The variant of voucher |
 | voucher_status | string | The status of voucher |
-| payment_status | string | The status of payment |
+| payment_status | string | The status of payment <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul>|
 | created_at | timestamp | created time in the number of seconds |
 | refund_at | timestamp/null | refunded time in the number of seconds |
 | retailer | object | The retailer that sold the voucher |
@@ -416,6 +416,14 @@ Failure
     * voucher.payment.history.transaction_id
   * Modify Title Of Success Parameter
 
+  **2020.02.18 / Jonas**
+  
+  * modify Success Parameter
+    * payment => add refund, request_refund_reason Parameter
+    * payment.histories => add Refunded, Refund Declined, Refund Requested 
+  * add success Parameter
+    * invoices
+
   **2020.12.30 / CC**
   
   * Add Success Parameter
@@ -488,14 +496,27 @@ Success
     "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
     "assigned_product": "HORA001PD",
+    "invoices": [{
+      "type": "receipt",
+      "number": "AAAA170329000006RC",
+      "created_at": 1490776038,
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+    },{
+      "type": "invoice", 
+      "number": "AAAA170329000006IN",
+      "created_at": 1490776038,
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+    }],
     "payment": {
         "status": "Collecting",
+        "request_refund_reason": "The watch is broken",
         "currency": "EUR",
         "price": 1000,
         "discount": 100,
         "total": 900,
         "paid": 500,
         "unpaid": 400,
+        "refund": 2000,
         "histories": [{
             "id": 1,
             "type": "Paid",
@@ -503,7 +524,7 @@ Success
             "payment_method": "wxpay",
             "transaction_id": "xxxxx_001",            
             "amount": 100,
-            "sales": {
+            "operator": {
                 "id": 82,
                 "given_name": "Billy",
                 "family_name": "Yan",
@@ -512,6 +533,57 @@ Success
                     "name": "Company A"
                 }
             }
+        },{
+          "id": 2,
+          "type": "Refunded",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": 100,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
+        },{
+          "id": 3,
+          "type": "Declined",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": null,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
+        },{
+          "id": 3,
+          "type": "Refund Requested",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": null,
+          "comment": "The watch is broken",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
         }]
     },
     "billing_address": {
@@ -553,6 +625,7 @@ Success
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
 | assigned_product | string | The assigned product number |
 | payment | object | The payment information of the voucher |
+| invoices | array | The invoice of voucher <br/>It’s order by created time from new to old |
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
 
@@ -582,21 +655,30 @@ Success
 | id | integer | The variant2 id |
 | name | string | The variant2 name |
 
+| voucher.invoices | Type | Description |
+| -------: | :---- | :--- |
+| type | string | The invoice type <ul><li>invoices</li><li>receipt</li></ul> |
+| number | string | The invoice number |
+| created_at | string | created time in the number of seconds  |
+| download | string |The url of invoice or recipt for download, visit the url need to add header Authorization and value is api_key |
+
 | voucher.payment | Type | Description |
 | -------: | :---- | :--- |
 | status | string | The current payment status of the voucher <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul> |
 | currency | string | The currency name |
+| request_refund_reason | string | The request refound reason(if voucher not request refund,should be null) |
 | price | double | The original price of the voucher (copy from variant's price) |
 | discount | double | The discount amount of the voucher |
 | total | double | The total amount of the voucher (price - discount) |
 | paid | double | The total paid amount of the voucher |
 | unpaid | double | The unpaid amount of the voucher (total - paid) |
-| histories | array | The payment logs of the voucher |
+| refund | double | The refund amount of the voucher (if voucher not refunded,should be 0) |
+| histories | array | The payment logs of the voucher<br/>It’s order by created time from new to old |
 
 | voucher.payment.history | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
-| type | string | The history type <ul><li>Paid</li><li>Refunded</li></ul> |
+| type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
 | payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
 | transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul> |
@@ -610,7 +692,7 @@ Success
 | family_name | string | The family name of the salesperson |
 | company | object | The company of the salesperson |
 
-| voucher.payment.history.sales.company | Type | Description |
+| voucher.history.operator.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The salesperson's company id |
 | name | string | The salesperson's company name |
