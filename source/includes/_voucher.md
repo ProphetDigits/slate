@@ -408,21 +408,22 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.02.18 / Jonas**
   
+  * modify Success Parameter
+    * payment => add refund, request_refund_reason Parameter
+    * payment.histories => add Refunded, Refund Declined, Refund Requested
+    * payment.histories => sales change to operator
+  * add success Parameter
+    * invoices
+
   **2021.01.13 / CC**
   
   * Add Success Parameter
     * assigned_product
     * voucher.payment.history.transaction_id
   * Modify Title Of Success Parameter
-
-  **2020.02.18 / Jonas**
-  
-  * modify Success Parameter
-    * payment => add refund, request_refund_reason Parameter
-    * payment.histories => add Refunded, Refund Declined, Refund Requested 
-  * add success Parameter
-    * invoices
 
   **2020.12.30 / CC**
   
@@ -680,12 +681,13 @@ Success
 | id | integer | The history id |
 | type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
-| payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
-| transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul> |
-| amount | double | The paid amount of the payment |
-| sales | object | The salesperson who handled the payment |
+| payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul></br>payment method returns "null" when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
+| transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul>Or when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
+| amount | double | The paid amount of the payment.</br>amount returns "null" when type is <ul><li>Refund Declined</li><li>Refund Requested</li></ul>|
+| comment | string | The history comment |
+| operator | object | The operator who handled the payment |
 
-| voucher.payment.history.sales | Type | Description |
+| voucher.payment.history.operator | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The user id |
 | given_name | string | The given name of the salesperson |
@@ -943,3 +945,157 @@ Failure
 | -------: | :---- | :--- |
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | id | array (option) | <ul><li>required: The id is required</li></ul> |
+
+
+## Refund Request
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/request` |
+| Method | `post` |
+| Use | to request refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "comment": "The watch is broken"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| comment | string | The request refound reason |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>repeat: the request refund is repeated</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
+
+
+## Refund
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/confirm` |
+| Method | `post` |
+| Use | to refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "amount": 2000,
+  "comment": "The watch is broken"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| amount | double | The refund total amount   |
+| comment | string | The comment of refund |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| amount | array (option) | <ul><li>required: The amount is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
+
+
+## Decline Refund
