@@ -22933,6 +22933,23 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2021.02.18 / Jonas</strong></p>
+
+<ul>
+<li>modify Success Parameter
+
+<ul>
+<li>payment =&gt; add refund, request_refund_reason Parameter</li>
+<li>payment.histories =&gt; add Refunded, Refund Declined, Refund Requested</li>
+<li>payment.histories =&gt; sales change to operator</li>
+</ul></li>
+<li>add success Parameter
+
+<ul>
+<li>invoices</li>
+</ul></li>
+</ul>
+
 <p><strong>2021.01.13 / CC</strong></p>
 
 <ul>
@@ -22943,22 +22960,6 @@ Failure
 <li>voucher.payment.history.transaction_id</li>
 </ul></li>
 <li>Modify Title Of Success Parameter</li>
-</ul>
-
-<p><strong>2020.02.18 / Jonas</strong></p>
-
-<ul>
-<li>modify Success Parameter
-
-<ul>
-<li>payment =&gt; add refund, request_refund_reason Parameter</li>
-<li>payment.histories =&gt; add Refunded, Refund Declined, Refund Requested </li>
-</ul></li>
-<li>add success Parameter
-
-<ul>
-<li>invoices</li>
-</ul></li>
 </ul>
 
 <p><strong>2020.12.30 / CC</strong></p>
@@ -23068,7 +23069,7 @@ Success
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519713617</span><span class="p">,</span><span class="w">
     </span><span class="nt">"pre_sell_rule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
-</span><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="err">HEAD</span><span class="w">
+    </span><span class="nt">"assigned_product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"invoices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA170329000006RC"</span><span class="p">,</span><span class="w">
@@ -23080,9 +23081,6 @@ Success
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490776038</span><span class="p">,</span><span class="w">
       </span><span class="nt">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..../voucher/AAAAVC/invoice/AAAARC/download"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
-</span><span class="err">=======</span><span class="w">
-    </span><span class="nt">"assigned_product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001PD"</span><span class="p">,</span><span class="w">
-</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="err">bf625b0ab9c712d89176acffba11e986ce988beb</span><span class="w">
     </span><span class="nt">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collecting"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"request_refund_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The watch is broken"</span><span class="p">,</span><span class="w">
@@ -23472,68 +23470,80 @@ Success
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">created time in the number of seconds</td>
 </tr>
+<tr>
+<td style="text-align: right">payment_method</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">payment method <ul><li>cash</li><li>wxpay</li></ul></br>payment method returns &ldquo;null&rdquo; when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">transaction_id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The transaction_id returns &ldquo;null&rdquo; when payment_method is <ul><li>cash</li></ul>Or when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">amount</td>
+<td style="text-align: left">double</td>
+<td style="text-align: left">The paid amount of the payment.</br>amount returns &ldquo;null&rdquo; when type is <ul><li>Refund Declined</li><li>Refund Requested</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The history comment</td>
+</tr>
+<tr>
+<td style="text-align: right">operator</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The operator who handled the payment</td>
+</tr>
 </tbody></table>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| payment_method | string | payment method (if type is Refunded or Refund Declined or Refund Requested, should be null ) <ul><li>cash</li><li>wxpay</li></ul> |
-| amount | double | The paid amount of the payment (if type is Refund Declined or Refund Requested value is null ) |
-| comment | string | history comment |
-| operator | object | The operator who handled the payment |</p>
+<table><thead>
+<tr>
+<th style="text-align: right">voucher.payment.history.operator</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The user id</td>
+</tr>
+<tr>
+<td style="text-align: right">given_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The given name of the salesperson</td>
+</tr>
+<tr>
+<td style="text-align: right">family_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The family name of the salesperson</td>
+</tr>
+<tr>
+<td style="text-align: right">company</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The company of the salesperson</td>
+</tr>
+</tbody></table>
 
-<h1 id="voucher-history-operator-type-description">| voucher.history.operator | Type | Description |</h1>
-
-<p>| payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul> |
-| transaction_id | string | The transaction_id returns &ldquo;null&rdquo; when payment_method is <ul><li>cash</li></ul> |
-| amount | double | The paid amount of the payment |
-| sales | object | The salesperson who handled the payment |</p>
-
-<p>| voucher.payment.history.sales | Type | Description |</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb
-| &mdash;&mdash;-: | :&mdash;- | :&mdash; |
-| id | integer | The user id |
-| given_name | string | The given name of the salesperson |
-| family_name | string | The family name of the salesperson |
-| company | object | The company of the salesperson |</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-
-<h1 id="voucher-history-operator-company-type-description">| voucher.history.operator.company | Type | Description |</h1>
-
-<p>| voucher.payment.history.sales.company | Type | Description |</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb
-| &mdash;&mdash;-: | :&mdash;- | :&mdash; |
-| id | integer | The salesperson&rsquo;s company id |
-| name | string | The salesperson&rsquo;s company name |</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<table><thead>
+<tr>
+<th style="text-align: right">voucher.history.operator.company</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">The salesperson&rsquo;s company id</td>
+</tr>
+<tr>
+<td style="text-align: right">name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The salesperson&rsquo;s company name</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -23886,36 +23896,11 @@ Failure
 </tr>
 </tbody></table>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-
-<h2 id="refund-request">Refund Request</h2>
-
-<p>=======</p>
-
 <h2 id="voucher-transaction-result">Voucher Transaction Result</h2>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
 <p><details>
   <summary>Change Log</summary>
-  <div class="summary-content">
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-
-<h1 id="2021-02-18-jonas">  <strong>2021.02.18 / Jonas</strong></h1>
+  <div class="summary-content"></p>
 
 <p><strong>2021.01.20 / CC</strong></p>
 
@@ -23926,22 +23911,6 @@ Failure
 </ul>
 
 <p><strong>2021.01.13 / CC</strong></p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
 <ul>
 <li>Add New Api</li>
@@ -23957,46 +23926,32 @@ Failure
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/voucher/transaction/result</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">To get the transaction result, e.g. keep polling the wechat pay result</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
 </tbody></table>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| URL | <code class="prettyprint">user/company/voucher/refund/request</code> |
-| Method | <code class="prettyprint">post</code> |</p>
-
-<h1 id="use-to-request-refound-voucher">| Use | to request refound voucher |</h1>
-
-<p>| URL | <code class="prettyprint">user/company/voucher/transaction/result</code> |
-| Method | <code class="prettyprint">post</code> |
-| Use | To get the transaction result, e.g. keep polling the wechat pay result |</p>
-
 <blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb
-| Notice |  |</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
 <p>Input Parameters</p>
 </blockquote>
 
 <h3 id="input-parameters">Input Parameters</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-</span><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="err">HEAD</span><span class="w">
-  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001VC"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The watch is broken"</span><span class="w">
-</span><span class="err">=======</span><span class="w">
-  </span><span class="s2">"id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"xxxxx001"</span><span class="w">
-</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="err">bf</span><span class="mi">625</span><span class="err">b</span><span class="mi">0</span><span class="err">ab</span><span class="mi">9</span><span class="err">c</span><span class="mi">712</span><span class="err">d</span><span class="mi">89176</span><span class="err">acffba</span><span class="mi">11</span><span class="err">e</span><span class="mi">986</span><span class="err">ce</span><span class="mi">988</span><span class="err">beb</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -24011,30 +23966,197 @@ Failure
 <td style="text-align: left">string</td>
 <td style="text-align: left">The identity token of user</td>
 </tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The transaction id</td>
+</tr>
 </tbody></table>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| number | string | The voucher number |</p>
-
-<h1 id="comment-string-the-request-refound-reason">| comment | string | The request refound reason |</h1>
-
-<p>| id | string | The transaction id |</p>
-
 <blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>Return Success Parameters</p>
 </blockquote>
 
+<h3 id="return-parameters">Return Parameters</h3>
+
+<aside class="success">
+Success
+</aside>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The transaction status.<ul><li>open: The transaction is still allowed to pay</li><li>success: The transaction result is successful and closed</li><li>fail: The transaction result is fail and closed</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">fail</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">The &ldquo;fail&rdquo; object is reqired when status is fail.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">fail</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">reason</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The fail reason.<ul><li>Some errors from wxpay</li></ul></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return Failure Parameters</p>
+</blockquote>
+
+<aside class="warning">
+Failure
+</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"transaction_not_exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">error_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn&rsquo;t exist in system.<br>System will also remove transaction_id when the transaction is timeout</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">validation</td>
+<td style="text-align: left">object (option)</td>
+<td style="text-align: left">if the error_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">validation</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>required: The api_key is required</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left"><ul><li>required: The id is required</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="refund-request">Refund Request</h2>
+
+<p><details>
+  <summary>Change Log</summary>
+  <div class="summary-content"></p>
+
+<p><strong>2021.02.18 / Jonas</strong></p>
+
+<ul>
+<li>Add New Api</li>
+</ul>
+
+<p></details></p>
+
+<h3 id="description">Description</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Title</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">URL</td>
+<td style="text-align: left"><code class="prettyprint">user/company/voucher/refund/request</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Method</td>
+<td style="text-align: left"><code class="prettyprint">post</code></td>
+</tr>
+<tr>
+<td style="text-align: right">Use</td>
+<td style="text-align: left">to request refound voucher</td>
+</tr>
+<tr>
+<td style="text-align: right">Notice</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Input Parameters</p>
+</blockquote>
+
+<h3 id="input-parameters">Input Parameters</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001VC"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The watch is broken"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: right">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">api_key</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The identity token of user</td>
+</tr>
+<tr>
+<td style="text-align: right">number</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The voucher number</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The request refound reason</td>
+</tr>
+</tbody></table>
+
+<blockquote>
 <p>Return Success Parameters</p>
 </blockquote>
 
@@ -24044,8 +24166,7 @@ Failure
 Success
 </aside>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Nothing was returned</p>
+<p>Nothing was returned</p>
 
 <blockquote>
 <p>Return Failure Parameters</p>
@@ -24254,216 +24375,6 @@ Failure
 </tbody></table>
 
 <h2 id="decline-refund">Decline Refund</h2>
-
-<p><details>
-  <summary>Change Log</summary>
-  <div class="summary-content"></p>
-
-<p><strong>2021.02.18 / Jonas</strong></p>
-
-<ul>
-<li>Add New Api</li>
-</ul>
-
-<p></details></p>
-
-<h3 id="description">Description</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Title</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">URL</td>
-<td style="text-align: left"><code class="prettyprint">user/company/voucher/refund/decline</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Method</td>
-<td style="text-align: left"><code class="prettyprint">post</code></td>
-</tr>
-<tr>
-<td style="text-align: right">Use</td>
-<td style="text-align: left">to decline request refound voucher</td>
-</tr>
-<tr>
-<td style="text-align: right">Notice</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Input Parameters</p>
-</blockquote>
-
-<h3 id="input-parameters">Input Parameters</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4cbcdc2faff41a7e311"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA001VC"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The watch is fine"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="err">=======</span><span class="w">
-</span><span class="err">```json</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="err">bf</span><span class="mi">625</span><span class="err">b</span><span class="mi">0</span><span class="err">ab</span><span class="mi">9</span><span class="err">c</span><span class="mi">712</span><span class="err">d</span><span class="mi">89176</span><span class="err">acffba</span><span class="mi">11</span><span class="err">e</span><span class="mi">986</span><span class="err">ce</span><span class="mi">988</span><span class="err">beb</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| api_key | string | The identity token of user |
-| number | string | The voucher number |
-| comment | string | The decline request refound reason |</p>
-
-<blockquote>
-<p>Return Success Parameters</p>
-</blockquote>
-
-<h3 id="return-parameters">Return Parameters</h3>
-
-<aside class="success">
-Success
-</aside>
-
-<h1 id="nothing-was-returned">Nothing was returned</h1>
-
-<p>| status | string | The transaction status.<ul><li>open: The transaction is still allowed to pay</li><li>success: The transaction result is successful and closed</li><li>fail: The transaction result is fail and closed</li></ul> |
-| fail | object (option) | The &ldquo;fail&rdquo; object is reqired when status is fail.|</p>
-
-<table><thead>
-<tr>
-<th style="text-align: right">fail</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">reason</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">The fail reason.<ul><li>Some errors from wxpay</li></ul></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
-<p>Return Failure Parameters</p>
-</blockquote>
-
-<aside class="warning">
-Failure
-</aside>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="err">HEAD</span><span class="w">
-  </span><span class="nt">"error_name"</span><span class="p">:</span><span class="s2">"voucher_not_exist"</span><span class="w">
-</span><span class="err">=======</span><span class="w">
-  </span><span class="s2">"error_name"</span><span class="err">:</span><span class="s2">"transaction_not_exist"</span><span class="w">
-</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="err">bf</span><span class="mi">625</span><span class="err">b</span><span class="mi">0</span><span class="err">ab</span><span class="mi">9</span><span class="err">c</span><span class="mi">712</span><span class="err">d</span><span class="mi">89176</span><span class="err">acffba</span><span class="mi">11</span><span class="err">e</span><span class="mi">986</span><span class="err">ce</span><span class="mi">988</span><span class="err">beb</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: right">Parameter</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>not_found_request: The request refund is not found</li><li>illegal_form_input: The form format does not pass validation</li></ul> |</p>
-
-<h1 id="validation-object-option-if-the-err_name-is-39-illegal_form_input-39-system-should-assign-the-name-of-wrong-type-for-each-error-input">| validation | object (option) | if the err_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input |</h1>
-
-<p>| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>transaction_not_exist: The transaction id doesn&rsquo;t exist in system.<br>System will also remove transaction_id when the transaction is timeout</li></ul>|
-| validation | object (option) | if the error_name is &#39;illegal_form_input&rsquo;, system should assign the name of wrong type for each error input |</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
-<table><thead>
-<tr>
-<th style="text-align: right">validation</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">api_key</td>
-<td style="text-align: left">array (option)</td>
-<td style="text-align: left"><ul><li>required: The api_key is required</li></ul></td>
-</tr>
-</tbody></table>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| number | array (option) | <ul><li>required: The number is required</li></ul> |</p>
-
-<h1 id="comment-array-option-required-the-comment-is-required">| comment | array (option) | <ul><li>required: The comment is required</li></ul> |</h1>
-
-<p>| id | array (option) | <ul><li>required: The id is required</li></ul> |</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>bf625b0ab9c712d89176acffba11e986ce988beb</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
           <h1 id="purchase-order">Purchase Order</h1>
 
