@@ -22957,7 +22957,7 @@ Failure
 
 <ul>
 <li>assigned_product</li>
-<li>voucher.payment.history.transaction_id</li>
+<li>voucher.payment.histories.transaction_id</li>
 </ul></li>
 <li>Modify Title Of Success Parameter</li>
 </ul>
@@ -23409,7 +23409,7 @@ Success
 <tr>
 <td style="text-align: right">request_refund_reason</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The request refound reason(if voucher not request refund,should be null)</td>
+<td style="text-align: left">The request refund reason(if voucher not request refund,should be null)</td>
 </tr>
 <tr>
 <td style="text-align: right">price</td>
@@ -23450,7 +23450,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">voucher.payment.history</th>
+<th style="text-align: right">voucher.payment.histories</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -23488,7 +23488,7 @@ Success
 <tr>
 <td style="text-align: right">comment</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The history comment</td>
+<td style="text-align: left">The history comment </br>comment returns &ldquo;null&rdquo; when type is <ul><li>Paid</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">operator</td>
@@ -23499,7 +23499,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">voucher.payment.history.operator</th>
+<th style="text-align: right">voucher.payment.histories.operator</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -23528,7 +23528,7 @@ Success
 
 <table><thead>
 <tr>
-<th style="text-align: right">voucher.history.operator.company</th>
+<th style="text-align: right">voucher.histories.operator.company</th>
 <th style="text-align: left">Type</th>
 <th style="text-align: left">Description</th>
 </tr>
@@ -24113,7 +24113,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to request refound voucher</td>
+<td style="text-align: left">to request refund voucher</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -24151,8 +24151,8 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">comment</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">The request refound reason</td>
+<td style="text-align: left">string (option)</td>
+<td style="text-align: left">The request refund reason</td>
 </tr>
 </tbody></table>
 
@@ -24215,11 +24215,6 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left"><ul><li>required: The number is required</li></ul></td>
 </tr>
-<tr>
-<td style="text-align: right">comment</td>
-<td style="text-align: left">array (option)</td>
-<td style="text-align: left"><ul><li>required: The comment is required</li></ul></td>
-</tr>
 </tbody></table>
 
 <h2 id="refund">Refund</h2>
@@ -24254,7 +24249,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to refound voucher</td>
+<td style="text-align: left">to refund voucher</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -24297,7 +24292,7 @@ Failure
 <td style="text-align: left">The refund total amount</td>
 </tr>
 <tr>
-<td style="text-align: right">comment</td>
+<td style="text-align: right">comment(option)</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">The comment of refund</td>
 </tr>
@@ -24367,11 +24362,6 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left"><ul><li>required: The amount is required</li></ul></td>
 </tr>
-<tr>
-<td style="text-align: right">comment</td>
-<td style="text-align: left">array (option)</td>
-<td style="text-align: left"><ul><li>required: The comment is required</li></ul></td>
-</tr>
 </tbody></table>
 
 <h2 id="decline-refund">Decline Refund</h2>
@@ -24406,7 +24396,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">Use</td>
-<td style="text-align: left">to decline request refound voucher</td>
+<td style="text-align: left">to decline request refund voucher</td>
 </tr>
 <tr>
 <td style="text-align: right">Notice</td>
@@ -24444,8 +24434,8 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">comment</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">The decline request refound reason</td>
+<td style="text-align: left">string(option)</td>
+<td style="text-align: left">The decline request refund reason</td>
 </tr>
 </tbody></table>
 
@@ -24507,11 +24497,6 @@ Failure
 <td style="text-align: right">number</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left"><ul><li>required: The number is required</li></ul></td>
-</tr>
-<tr>
-<td style="text-align: right">comment</td>
-<td style="text-align: left">array (option)</td>
-<td style="text-align: left"><ul><li>required: The comment is required</li></ul></td>
 </tr>
 </tbody></table>
 
