@@ -1099,3 +1099,75 @@ Failure
 
 
 ## Decline Refund
+
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.02.18 / Jonas**
+  
+  * Add New Api
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/refund/decline` |
+| Method | `post` |
+| Use | to decline request refound voucher |
+| Notice |  |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number": "HORA001VC",
+  "comment": "The watch is fine"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| comment | string | The decline request refound reason |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+Nothing was returned
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name":"voucher_not_exist"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: only brand member can refund voucher</li><li>not_found_request: The request refund is not found request</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
