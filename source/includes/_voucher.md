@@ -1059,7 +1059,7 @@ Failure
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
 | amount | double | The refund total amount   |
-| comment(option) | string | The comment of refund |
+| comment | string (option) | The comment of refund |
 
 > Return Success Parameters
 
