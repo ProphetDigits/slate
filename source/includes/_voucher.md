@@ -422,7 +422,7 @@ Failure
   
   * Add Success Parameter
     * assigned_product
-    * voucher.payment.history.transaction_id
+    * voucher.payment.histories.transaction_id
   * Modify Title Of Success Parameter
 
   **2020.12.30 / CC**
@@ -667,7 +667,7 @@ Success
 | -------: | :---- | :--- |
 | status | string | The current payment status of the voucher <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul> |
 | currency | string | The currency name |
-| request_refund_reason | string | The request refound reason(if voucher not request refund,should be null) |
+| request_refund_reason | string | The request refund reason(if voucher not request refund,should be null) |
 | price | double | The original price of the voucher (copy from variant's price) |
 | discount | double | The discount amount of the voucher |
 | total | double | The total amount of the voucher (price - discount) |
@@ -676,7 +676,7 @@ Success
 | refund | double | The refund amount of the voucher (if voucher not refunded,should be 0) |
 | histories | array | The payment logs of the voucher<br/>It’s order by created time from new to old |
 
-| voucher.payment.history | Type | Description |
+| voucher.payment.histories | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
 | type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul> |
@@ -684,17 +684,17 @@ Success
 | payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul></br>payment method returns "null" when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
 | transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul>Or when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
 | amount | double | The paid amount of the payment.</br>amount returns "null" when type is <ul><li>Refund Declined</li><li>Refund Requested</li></ul>|
-| comment | string | The history comment |
+| comment | string | The history comment </br>comment returns "null" when type is <ul><li>Paid</li></ul>|
 | operator | object | The operator who handled the payment |
 
-| voucher.payment.history.operator | Type | Description |
+| voucher.payment.histories.operator | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The user id |
 | given_name | string | The given name of the salesperson |
 | family_name | string | The family name of the salesperson |
 | company | object | The company of the salesperson |
 
-| voucher.history.operator.company | Type | Description |
+| voucher.histories.operator.company | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The salesperson's company id |
 | name | string | The salesperson's company name |
@@ -965,7 +965,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/voucher/refund/request` |
 | Method | `post` |
-| Use | to request refound voucher |
+| Use | to request refund voucher |
 | Notice |  |
 
 
@@ -985,7 +985,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
-| comment | string | The request refound reason |
+| comment | string (option) | The request refund reason |
 
 > Return Success Parameters
 
@@ -1018,8 +1018,6 @@ Failure
 | -------: | :---- | :--- |
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
-| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
-
 
 ## Refund
 
@@ -1039,7 +1037,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/voucher/refund/confirm` |
 | Method | `post` |
-| Use | to refound voucher |
+| Use | to refund voucher |
 | Notice |  |
 
 
@@ -1061,7 +1059,7 @@ Failure
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
 | amount | double | The refund total amount   |
-| comment | string | The comment of refund |
+| comment(option) | string | The comment of refund |
 
 > Return Success Parameters
 
@@ -1095,7 +1093,6 @@ Failure
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
 | amount | array (option) | <ul><li>required: The amount is required</li></ul> |
-| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
 
 
 ## Decline Refund
@@ -1117,7 +1114,7 @@ Failure
 | -------: | :---- |
 | URL | `user/company/voucher/refund/decline` |
 | Method | `post` |
-| Use | to decline request refound voucher |
+| Use | to decline request refund voucher |
 | Notice |  |
 
 
@@ -1137,7 +1134,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
-| comment | string | The decline request refound reason |
+| comment | string(option) | The decline request refund reason |
 
 > Return Success Parameters
 
@@ -1170,4 +1167,3 @@ Failure
 | -------: | :---- | :--- |
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
-| comment | array (option) | <ul><li>required: The comment is required</li></ul> |
