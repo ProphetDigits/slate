@@ -335,6 +335,12 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
   
+ **2021.03.11 / Jonas**
+
+  * Add Input Parameters
+    * importer
+    * send_invoice
+
   **2021.01.13 / CC**
 
   * Add New API
@@ -359,7 +365,15 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "number": "HORA001VC",
-  "assign_product": "HORA001PD"
+  "assign_product": "HORA001PD",
+  "importer": {
+    "name": "scott",
+    "website":"www.xxxx.com",
+    "phone":"0912345678",
+    "email":"xxx@xxx.com",
+    "address":""
+  },
+  "send_invoice":true
 }
 ```
 
@@ -368,6 +382,16 @@ Failure
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
 | assign_product | string (option) | The product number which is going to assign <ul><li>Without assign_product param, backend will do nothing</li><li>When assign_product is empty string "", backend will unassign current assigned product</li><li>When assign_product is "HORA001PD", backend will unassign the old one and assign the new product HORA001PD</li></ul> |
+| importer | object | The importer of voucher |
+| send_invoice | boolean | <ul><li>true: system wil generate invoice and send invoice email to consumer after edit voucher</li><li>false:system only perform edit voucher operation</li></ul>  |
+
+| importer | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The importer name |
+| website | string | The importer website  |
+| phone | string | The importer phone |
+| email | string | The importer email |
+| address | string | The importer address |
 
 > Return Success Parameters
 
@@ -393,13 +417,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li><li>send_invoice_failed : the user can send invoice only when the voucher has assigned product and payment status is Paid</li></ul> |
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
 | api_key | array (option) | <ul><li>required: api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: number is required</li></ul> |
+| importer | array (option) | <ul><li>required: importer is required</li></ul> |
 
 
 
@@ -409,13 +434,18 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.03.11 / Jonas**
+
+  * Add Success Parameter
+      * importer
+
   **2021.02.18 / Jonas**
   
-  * modify Success Parameter
+  * Modify Success Parameter
     * payment => add refund, request_refund_reason Parameter
     * payment.histories => add Refunded, Refund Declined, Refund Requested
     * payment.histories => sales change to operator
-  * add success Parameter
+  * Add Success Parameter
     * invoices
 
   **2021.01.13 / CC**
@@ -497,16 +527,25 @@ Success
     "created_at": 1519713617,
     "pre_sell_rule": "xxxxx",
     "assigned_product": "HORA001PD",
+    "importer": {
+        "name": "scott",
+        "website":"www.xxxx.com",
+        "phone":"0912345678",
+        "email":"xxx@xxx.com",
+        "address":""
+    },
     "invoices": [{
       "type": "receipt",
       "number": "AAAA170329000006RC",
       "created_at": 1490776038,
-      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
+      "sent" : true
     },{
       "type": "invoice", 
       "number": "AAAA170329000006IN",
       "created_at": 1490776038,
-      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download"
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
+      "sent" : false
     }],
     "payment": {
         "status": "Collecting",
@@ -625,6 +664,7 @@ Success
 | created_at | timestamp | created time in the number of seconds |
 | pre_sell_rule | string | The pre sell rule of the voucher (copy from variant's  pre_sell.description) |
 | assigned_product | string | The assigned product number |
+| importer | object | The importer of voucher |
 | payment | object | The payment information of the voucher |
 | invoices | array | The invoice of voucher <br/>It’s order by created time from new to old |
 | billing_address | object | The billing address of the voucher |
@@ -662,6 +702,14 @@ Success
 | number | string | The invoice number |
 | created_at | string | created time in the number of seconds  |
 | download | string |The url of invoice or recipt for download, visit the url need to add header Authorization and value is api_key |
+
+| voucher.importer | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The importer name |
+| website | string | The importer website  |
+| phone | string | The importer phone |
+| email | string | The importer email |
+| address | string | The importer address |
 
 | voucher.payment | Type | Description |
 | -------: | :---- | :--- |
