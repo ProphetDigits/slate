@@ -401,8 +401,6 @@ Failure
 Success
 </aside>
 
-The result is the same as [Voucher Detail](#voucher-detail)
-
 > Return Failure Parameters
 
 <aside class="warning">
@@ -433,6 +431,12 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.03.17 / Jonas**
+
+  * Modify Success Parameter
+      * invoice
+        * sent(parameter type change to string)
 
   **2021.03.11 / Jonas**
 
@@ -539,13 +543,19 @@ Success
       "number": "AAAA170329000006RC",
       "created_at": 1490776038,
       "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
-      "sent" : true
+      "sent" : "successful"
     },{
       "type": "invoice", 
       "number": "AAAA170329000006IN",
       "created_at": 1490776038,
       "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
-      "sent" : false
+      "sent" : "fail"
+    },{
+      "type": "invoice", 
+      "number": "AAAA170329000007IN",
+      "created_at": 1490776100,
+      "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
+      "sent" : "pending"
     }],
     "payment": {
         "status": "Collecting",
@@ -702,6 +712,8 @@ Success
 | number | string | The invoice number |
 | created_at | string | created time in the number of seconds  |
 | download | string |The url of invoice or recipt for download, visit the url need to add header Authorization and value is api_key |
+| sent | string |The invoice eamil sent status<ul><li>successful</li><li>fail</li><li>pending</li></ul> |
+
 
 | voucher.importer | Type | Description |
 | -------: | :---- | :--- |
