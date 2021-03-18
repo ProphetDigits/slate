@@ -543,13 +543,13 @@ Success
       "number": "AAAA170329000006RC",
       "created_at": 1490776038,
       "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
-      "sent" : "successful"
+      "sent" : "success"
     },{
       "type": "invoice", 
       "number": "AAAA170329000006IN",
       "created_at": 1490776038,
       "download": "http://..../voucher/AAAAVC/invoice/AAAARC/download",
-      "sent" : "fail"
+      "sent" : "failed"
     },{
       "type": "invoice", 
       "number": "AAAA170329000007IN",
@@ -712,7 +712,7 @@ Success
 | number | string | The invoice number |
 | created_at | string | created time in the number of seconds  |
 | download | string |The url of invoice or recipt for download, visit the url need to add header Authorization and value is api_key |
-| sent | string |The invoice eamil sent status<ul><li>successful</li><li>fail</li><li>pending</li></ul> |
+| sent | string |The invoice eamil sent status<ul><li>success</li><li>failed</li><li>pending</li></ul> |
 
 
 | voucher.importer | Type | Description |
