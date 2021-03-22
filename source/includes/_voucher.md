@@ -1229,3 +1229,68 @@ Failure
 | -------: | :---- | :--- |
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
+
+## Send Voucher Email
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.3.22 / Lynn**
+
+  * Add New API
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | `user/company/voucher/email/send` |
+| Method | `post` |
+| Use | To send the email |
+| Notice | |
+
+
+> Input Parameters
+
+### Input Parameters
+
+```json
+{
+  "api_key": "e4cbcdc2faff41a7e311",
+  "number":"HORA001VC",
+	"type": "invoice" 
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| api_key | string | The identity token of user |
+| number | string | The voucher number |
+| type | string | The email type |
+
+> Return Success Parameters
+
+### Return Parameters
+
+<aside class="success">
+Success
+</aside>
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+  "error_name": "invalid_payment_status"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_not_assign: When send invoice, assigned product should exist</li><li>invalid_payment_status: When send invoice, payment status should be "Paid"</li><li>no_permission: Only brand member can send voucher email</li></ul> |
+
