@@ -334,6 +334,10 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.3.22 / Lynn**
+
+  * remove send_invoice Parameters
   
  **2021.03.11 / Jonas**
 
@@ -373,7 +377,6 @@ Failure
     "email":"xxx@xxx.com",
     "address":""
   },
-  "send_invoice":true
 }
 ```
 
@@ -383,7 +386,6 @@ Failure
 | number | string | The voucher number |
 | assign_product | string (option) | The product number which is going to assign <ul><li>Without assign_product param, backend will do nothing</li><li>When assign_product is empty string "", backend will unassign current assigned product</li><li>When assign_product is "HORA001PD", backend will unassign the old one and assign the new product HORA001PD</li></ul> |
 | importer | object | The importer of voucher |
-| send_invoice | boolean | <ul><li>true: system wil generate invoice and send invoice email to consumer after edit voucher</li><li>false:system only perform edit voucher operation</li></ul>  |
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -415,7 +417,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li><li>send_invoice_failed : the user can send invoice only when the voucher has assigned product and payment status is Paid</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
