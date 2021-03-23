@@ -337,7 +337,7 @@ Failure
 
   **2021.3.22 / Lynn**
 
-  * remove send_invoice Parameters
+  * remove send_invoice parameters
   
  **2021.03.11 / Jonas**
 
@@ -376,7 +376,7 @@ Failure
     "phone":"0912345678",
     "email":"xxx@xxx.com",
     "address":""
-  },
+  }
 }
 ```
 
@@ -1259,8 +1259,8 @@ Failure
 ```json
 {
   "api_key": "e4cbcdc2faff41a7e311",
-  "number":"HORA001VC",
-	"type": "invoice" 
+  "number": "HORA001VC",
+  "type": "invoice"
 }
 ```
 
@@ -1292,5 +1292,11 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_not_assign: When send invoice, assigned product should exist</li><li>invalid_payment_status: When send invoice, payment status should be "Paid"</li><li>no_permission: Only brand member can send voucher email</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: Only brand member can send voucher email</li><li>product_not_assign: When send invoice, assigned product should exist</li><li>invalid_payment_status: When send invoice, payment status should be "Paid"</li></ul> |
+| validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
+| validation | Type | Description |
+| -------: | :---- | :--- |
+| api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
+| number | array (option) | <ul><li>required: The number is required</li></ul> |
+| type | array (option) | <ul><li>required: The type is required</li></ul> |
