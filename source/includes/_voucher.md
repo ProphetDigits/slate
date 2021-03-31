@@ -335,6 +335,25 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.3.31 / Jonas**
+
+  * Add Input Parameters
+    * added_notes
+    * deleted_notes
+    * edited_notes
+
+  * Add Success Parameter
+    * same as Get voucher Detail
+      
+  * Add Failure Parameter
+    * error_name
+      * note_not_exist 
+
+  * Modify Failure Parameter Description
+    * error_name 
+      * no_permission
+        * Only brand member can edit voucher => The permission deny
+
   **2021.3.22 / Lynn**
 
   * remove send_invoice parameters
@@ -376,7 +395,13 @@ Failure
     "phone":"0912345678",
     "email":"xxx@xxx.com",
     "address":""
-  }
+  },
+  "added_notes": ["note 1", "note 2"],
+  "deleted_notes": [1, 2, 3],
+  "edited_notes": [{
+    "id":1,
+    "content":"modify note"
+  }]
 }
 ```
 
@@ -386,6 +411,9 @@ Failure
 | number | string | The voucher number |
 | assign_product | string (option) | The product number which is going to assign <ul><li>Without assign_product param, backend will do nothing</li><li>When assign_product is empty string "", backend will unassign current assigned product</li><li>When assign_product is "HORA001PD", backend will unassign the old one and assign the new product HORA001PD</li></ul> |
 | importer | object | The importer of voucher |
+| added_notes | array (option) | Collection of note content<br/> It is order by adding time from new to old |
+| deleted_notes | array (option) | Collection of note id <br/>Only company member can edit |
+| edited_notes | array (option) | Collection of edited notes <br/>Users can only edit notes added by the same user account |
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -395,6 +423,11 @@ Failure
 | email | string | The importer email |
 | address | string | The importer address |
 
+| edited_notes | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The note id |
+| content | string | The note content |
+
 > Return Success Parameters
 
 ### Return Parameters
@@ -402,6 +435,7 @@ Failure
 <aside class="success">
 Success
 </aside>
+The result is the same as [Get Voucher Detail](#voucher-detail)
 
 > Return Failure Parameters
 
@@ -417,7 +451,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: Only brand member can edit voucher</li><li>illegal_form_input: The form format does not pass validation</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>The note does not exist anymore</li></ul> |
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
@@ -425,14 +459,19 @@ Failure
 | api_key | array (option) | <ul><li>required: api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: number is required</li></ul> |
 | importer | array (option) | <ul><li>required: importer is required</li></ul> |
-
-
+| added_notes | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| added_notes.(index) | string (option) | invalid: <ol><li>The data is not string</li></ol> |
 
 ## Voucher Detail
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.03.31 / Jonas**
+
+  * Add Success Parameter
+      * notes
 
   **2021.03.17 / Jonas**
 
@@ -661,7 +700,21 @@ Success
         "state": "",
         "code": "",
         "country": ""
-    }
+    },
+    "notes": [{
+        "id": 1,
+        "content": "something wrong",
+        "operator": {
+            "id": 1,
+            "given_name": "Jianhua",
+            "family_name": "Wang",
+            "company": {
+                "id": 1,
+                "name": "Prophet Digits"
+            }
+        },
+        "created_at": 1517542365
+    }]
 }
 ```
 
@@ -681,6 +734,7 @@ Success
 | invoices | array | The invoice of voucher <br/>It’s order by created time from new to old |
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
+| notes | array | Collection of note<br/>It's order by created time from new to old |
 
 | voucher.brand | Type | Description |
 | -------: | :---- | :--- |
@@ -787,6 +841,24 @@ Success
 | code | string | The recipient’s code |
 | country | string | The recipient’s country |
 
+| product.note | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The note id |
+| content | string | The note content |
+| operator | object | The operator |
+| created_at | timestamp | The created time in seconds |
+
+| product.note.operator | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The company of operator |
+
+| product.note.operator.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
 
 > Return Failure Parameters
 
