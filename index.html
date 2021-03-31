@@ -22812,6 +22812,11 @@ Failure
 <ul>
 <li>same as Get voucher Detail</li>
 </ul></li>
+<li><p>Modify Input Parameter</p>
+
+<ul>
+<li>importer(required) =&gt;importer(optional)</li>
+</ul></li>
 <li><p>Add Failure Parameter</p>
 
 <ul>
@@ -22932,7 +22937,7 @@ Failure
 </tr>
 <tr>
 <td style="text-align: right">importer</td>
-<td style="text-align: left">object</td>
+<td style="text-align: left">object(option)</td>
 <td style="text-align: left">The importer of voucher</td>
 </tr>
 <tr>
@@ -23038,7 +23043,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn&rsquo;t belong to voucher&rsquo;s variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>The note does not exist anymore</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn&rsquo;t belong to voucher&rsquo;s variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
