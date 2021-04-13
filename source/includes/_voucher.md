@@ -5,6 +5,10 @@
   <summary>Change Log</summary>
   <div class="summary-content">
   
+  **2021.04.13 / Jonas**
+
+  * Add Return Success Parameters
+
   **2020.12.29 / CC**
 
   * Modify Return Failure Parameters
@@ -78,7 +82,14 @@ Success
         "consumer": {
             "given_name": "Andy", 
             "family_name": "Lee"
-        }
+        },
+        "tags":[{
+            "id": 1,
+            "name":"tag1"
+        },{
+            "id": 2,
+            "name": "tag2"
+        }]
     },{
        "number": "IKEA0000000002VC",
         "currency": "CHF",
@@ -107,7 +118,11 @@ Success
          "consumer": {
             "given_name": "CC",
             "family_name": "Lee"
-        }
+        },
+        "tags":[{
+            "id": 1,
+            "name":"tag1"
+        }]
     }]
 }
 ```
@@ -126,6 +141,7 @@ Success
 | retailer | object | The retailer that sold the voucher |
 | agent | object | sales agent |
 | consumer | object | consumer who bought the voucher |
+| tags | array | Collection of tag, order by Old to New (adding time) |
 
 
 | item | Type | Description |
@@ -153,6 +169,11 @@ Success
 | -------: | :---- | :--- |
 | given_name | string/null | The given_name of consumer |
 | family_name | string/null | The family_name of consumer |
+
+| tags | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The tag id |
+| name | string | The tag name |
 
 > Return Failure Parameters
 
@@ -335,6 +356,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.04.13 / Jonas**
+
+  * Add Input Parameters
+    * tags
+
   **2021.3.31 / Jonas**
 
   * Add Input Parameters
@@ -402,7 +428,8 @@ Failure
   "edited_notes": [{
     "id":1,
     "content":"modify note"
-  }]
+  }],
+  "tags":["tag1","tag2"]
 }
 ```
 
@@ -415,6 +442,8 @@ Failure
 | added_notes | array (option) | Collection of note content<br/> It is order by adding time from new to old |
 | deleted_notes | array (option) | Collection of note id <br/>Only company member can edit |
 | edited_notes | array (option) | Collection of edited notes <br/>Users can only edit notes added by the same user account |
+| tags | array (option) | Collection of tag name <br/>Only company member can edit |
+
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -468,6 +497,11 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+ **2021.04.13 / Jonas**
+
+  * Add Success Parameter
+      * tags
 
   **2021.03.31 / Jonas**
 
@@ -715,6 +749,13 @@ Success
             }
         },
         "created_at": 1517542365
+    }],
+    "tags":[{
+      "id": 1,
+      "name":"tag1"
+    },{
+      "id": 2,
+      "name":"tag2"
     }]
 }
 ```
@@ -736,6 +777,7 @@ Success
 | billing_address | object | The billing address of the voucher |
 | shipping_address | object | The shipping address of the voucher |
 | notes | array | Collection of note<br/>It's order by created time from new to old |
+| tags | array | Collection of tag, order by Old to New (adding time) |
 
 | voucher.brand | Type | Description |
 | -------: | :---- | :--- |
@@ -860,6 +902,11 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The company id |
 | name | string | The company name |
+
+| tags | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The tag id |
+| name | string | The tag name |
 
 > Return Failure Parameters
 
