@@ -355,7 +355,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.04.27 / CC**
 
+  * Add Input Parameters
+    * added_files
+    * deleted_files
+    
   **2021.04.13 / Jonas**
 
   * Add Input Parameters
@@ -429,7 +435,14 @@ Failure
     "id":1,
     "content":"modify note"
   }],
-  "tags":["tag1","tag2"]
+  "tags":["tag1","tag2"],
+  "added_files": [{
+      "name": "broken.jpg",
+      "date": 1498730137,
+      "comment": "the product was broken",
+      "resource": ""
+  }],
+  "deleted_files": [1, 2, 3]
 }
 ```
 
@@ -443,6 +456,8 @@ Failure
 | deleted_notes | array (option) | Collection of note id <br/>Only company member can edit |
 | edited_notes | array (option) | Collection of edited notes <br/>Users can only edit notes added by the same user account |
 | tags | array (option) | Collection of tag name <br/>Only company member can edit |
+| added_files | array (option) | Collection of uploading files |
+| deleted_files | array (option) | Collection of file id |
 
 
 | importer | Type | Description |
@@ -457,6 +472,13 @@ Failure
 | -------: | :---- | :--- |
 | id | integer | The note id |
 | content | string | The note content |
+
+| added_files | Type | Description |
+| -------: | :---- | :--- |
+| name | string | The filename |
+| date | timestamp | The uploading date |
+| comment | string | The comment |
+| resource | string | The file encrypted by base64, but exclude mime type |
 
 > Return Success Parameters
 
@@ -491,13 +513,24 @@ Failure
 | importer | array (option) | <ul><li>required: importer is required</li></ul> |
 | added_notes | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 | added_notes.(index) | string (option) | invalid: <ol><li>The data is not string</li></ol> |
+| added_files | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| added_files.(index).name | array (option) | required: <ol><li>The field is required</li></ol> |
+| added_files.(index).date | array (option) | required: <ol><li>The field is required</li></ol> |
+| added_files.(index).comment | array (option) | required: <ol><li>The field is required</li></ol> |
+| added_files.(index).resource | array (option) | required: <ol><li>The field is required</li></ol> |
+| deleted_files | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 
 ## Voucher Detail
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.04.27 / CC**
 
+   * Add Success Parameter
+       * files
+       
  **2021.04.13 / Jonas**
 
   * Add Success Parameter
@@ -756,6 +789,22 @@ Success
     },{
       "id": 2,
       "name":"tag2"
+    }],
+    "files": [{
+        "id": 79,
+        "name": "test.jpg",
+        "date": 1517542365,
+        "comment": "",
+        "uploader": {
+            "id": 82,
+            "given_name": "Simon",
+            "family_name": "Chang",
+            "company": {
+                "id": 107,
+                "name": "ABC Company"
+            }
+        },
+        "link": "https://.../voucher/{voucher_number}/file/{file_id}"
     }]
 }
 ```
@@ -778,6 +827,7 @@ Success
 | shipping_address | object | The shipping address of the voucher |
 | notes | array | Collection of note<br/>It's order by created time from new to old |
 | tags | array | Collection of tag, order by Old to New (adding time) |
+| files | array | Collection of file.<br/>Sort by date from new to old |
 
 | voucher.brand | Type | Description |
 | -------: | :---- | :--- |
@@ -907,6 +957,27 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The tag id |
 | name | string | The tag name |
+
+| voucher.file | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The file id |
+| name | string | The file name |
+| date | timestamp | The uploaded date |
+| comment | string | The uploaded comment |
+| uploader | object | The user who uploading file |
+| link | string | The download link of file, and it need add api_key to Authorization header in the request |
+
+| voucher.file.uploader | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The user id |
+| given_name | string | The given name of user |
+| family_name | string | The family name of user |
+| company | object | The company of uploader |
+
+| voucher.file.uploader.company | Type | Description |
+| -------: | :---- | :--- |
+| id | integer | The company id |
+| name | string | The company name |
 
 > Return Failure Parameters
 
@@ -1420,3 +1491,57 @@ Failure
 | api_key | array (option) | <ul><li>required: The api_key is required</li></ul> |
 | number | array (option) | <ul><li>required: The number is required</li></ul> |
 | type | array (option) | <ul><li>required: The type is required</li></ul> |
+
+
+## Download Voucher File
+
+<details>
+  <summary>Change Log</summary>
+  <div class="summary-content">
+
+  **2021.04.27 / CC**
+
+  * Add New API
+
+</details>
+
+### Description
+
+| Title | Description |
+| -------: | :---- |
+| URL | The link comes from the API Voucher Detail (file.link) |
+| Method | `get` |
+| Use | Download voucher file |
+| Notice | |
+
+
+### Headers Parameters
+
+| Headers | Type | Description |
+| -------: | :---- | :--- |
+| Authorization | string | The identity token of user |
+
+<aside class="success">
+Success
+</aside>
+
+| Headers | Type | Description |
+| -------: | :---- | :--- |
+| Content-Type | string | The Mime type of file |
+| Content-Disposition | string | <ul><li>inline: file is pdf</li><li>attachment: type not pdf</li></ul> |
+
+> Return Failure Parameters
+
+<aside class="warning">
+Failure
+</aside>
+
+```json
+{
+    "error_name": "no_authorization"
+}
+```
+
+| Parameter | Type | Description |
+| -------: | :---- | :--- |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_authorization: The Authorization is invalid</li><li>no_permission: The user has no permission to download file</li><li>voucher_not_exist: The voucher is not exist</li><li>file_not_found: The file is not exist</li></ul> |
