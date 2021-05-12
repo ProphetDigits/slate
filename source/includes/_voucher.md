@@ -1043,13 +1043,13 @@ Success
 
 | voucher.status | Type | Description |
 | -------: | :---- | :--- |
-| current_status | string | The current status of voucher |
+| current_status | string | The current status of voucher <ul><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
 | histories | array | A set of status histories of voucher (It is order by created time from new to old )|
 
 | voucher.status.histories | Type | Description |
 | -------: | :---- | :--- |
 | id | string | history id |
-| status | string | status of voucher <ul><li>(empty)</li><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
+| status | string | status of voucher <ul><li>(empty)</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
 | comment | string | history comment |
 | create_at | timestamp | history created date |
 
