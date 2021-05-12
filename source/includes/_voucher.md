@@ -4,6 +4,11 @@
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.05.12 / Jonas**
+
+  * modify success Parameters Description
+    * voucher_status add possible value
   
   **2021.04.13 / Jonas**
 
@@ -134,7 +139,7 @@ Success
 | total | double | voucher total price |
 | item | object | The item of voucher |
 | variant | object | The variant of voucher |
-| voucher_status | string | The status of voucher |
+| voucher_status | string | The status of voucher <ul><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
 | payment_status | string | The status of payment <ul><li>Collecting</li><li>Paid</li><li>Refund Requested</li><li>Refunded</li></ul>|
 | created_at | timestamp | created time in the number of seconds |
 | refund_at | timestamp/null | refunded time in the number of seconds |
@@ -355,6 +360,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+   **2021.05.12 / Jonas**
+
+  * Add Input Parameters
+    * added_status
+    * edited_status
+    * deleted_status
   
   **2021.04.27 / CC**
 
@@ -442,7 +454,19 @@ Failure
       "comment": "the product was broken",
       "resource": ""
   }],
-  "deleted_files": [1, 2, 3]
+  "deleted_files": [1, 2, 3],
+  "added_status": [{ 
+		"status": "Completed", 
+		"comment": "The product has been sent." 
+	}, { 
+		"status": "In Process",
+		"comment": "The product is producing"
+	}],
+  "edited_status": [{
+		"id": 3,
+		"comment": "Arrange for production" 
+	}],
+  "deleted_status": [1, 2]
 }
 ```
 
@@ -458,7 +482,9 @@ Failure
 | tags | array (option) | Collection of tag name <br/>Only company member can edit |
 | added_files | array (option) | Collection of uploading files |
 | deleted_files | array (option) | Collection of file id |
-
+| added_status | array (option) | Collection of added histories |
+| edited_status | array (option) | Collection of edit histories |
+| deleted_status | array (option) | Collection of history id |
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -479,6 +505,16 @@ Failure
 | date | timestamp | The uploading date |
 | comment | string | The comment |
 | resource | string | The file encrypted by base64, but exclude mime type |
+
+| added_status | Type | Description |
+| -------: | :---- | :--- |
+| status | string (optional) | history status <ul><li>(empty)</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul> |
+| comment | string (optional)| The history comment |
+
+| edited_status | Type | Description |
+| -------: | :---- | :--- |
+| id | string | history id |
+| comment | string | The history comment |
 
 > Return Success Parameters
 
@@ -503,7 +539,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li><li>status_not_exist</li></ul> |
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
@@ -519,13 +555,23 @@ Failure
 | added_files.(index).comment | array (option) | required: <ol><li>The field is required</li></ol> |
 | added_files.(index).resource | array (option) | required: <ol><li>The field is required</li></ol> |
 | deleted_files | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| added_status | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| edited_status | array (option) | invalid: <ol><li>The data should be array</li></ol> |
+| edited_status.(index).id | array (option) | required: <ol><li>The id is required</li></ol> |
+| edited_status.(index).comment | array (option) | required: <ol><li>The comment is required</li></ol> |
+| deleted_status | array (option) | invalid: <ol><li>The data should be array</li></ol> |
 
 ## Voucher Detail
 
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
-  
+
+  **2021.05.12 / Jonas**
+
+   * Add Success Parameter
+       * status
+       
   **2021.04.27 / CC**
 
    * Add Success Parameter
@@ -805,7 +851,21 @@ Success
             }
         },
         "link": "https://.../voucher/{voucher_number}/file/{file_id}"
-    }]
+    }],
+    "status":{
+      "current_status":"In Process",
+      "histories":[{
+        "id": 2,
+    		"status": "",
+    		"comment": "Notified fatory #01 to produce",
+    		"created_at": 1466640000
+      },{
+        "id": 1,
+    		"status": "In Process",
+    		"comment": "",
+    		"created_at": 1466640111
+      }]
+    }
 }
 ```
 
@@ -828,6 +888,7 @@ Success
 | notes | array | Collection of note<br/>It's order by created time from new to old |
 | tags | array | Collection of tag, order by Old to New (adding time) |
 | files | array | Collection of file.<br/>Sort by date from new to old |
+| status | object | The status information of voucher |
 
 | voucher.brand | Type | Description |
 | -------: | :---- | :--- |
@@ -978,6 +1039,19 @@ Success
 | -------: | :---- | :--- |
 | id | integer | The company id |
 | name | string | The company name |
+
+
+| voucher.status | Type | Description |
+| -------: | :---- | :--- |
+| current_status | string | The current status of voucher |
+| histories | array | A set of status histories of voucher (It is order by created time from new to old )|
+
+| voucher.status.histories | Type | Description |
+| -------: | :---- | :--- |
+| id | string | history id |
+| status | string | status of voucher <ul><li>(empty)</li><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
+| comment | string | history comment |
+| create_at | timestamp | history created date |
 
 > Return Failure Parameters
 
