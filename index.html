@@ -22110,6 +22110,16 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2021.05.12 / Jonas</strong></p>
+
+<ul>
+<li>modify success Parameters Description
+
+<ul>
+<li>voucher_status add possible value</li>
+</ul></li>
+</ul>
+
 <p><strong>2021.04.13 / Jonas</strong></p>
 
 <ul>
@@ -22296,7 +22306,7 @@ Success
 <tr>
 <td style="text-align: right">voucher_status</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The status of voucher</td>
+<td style="text-align: left">The status of voucher <ul><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">payment_status</td>
@@ -22838,6 +22848,18 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content"></p>
 
+<p><strong>2021.05.12 / Jonas</strong></p>
+
+<ul>
+<li>Add Input Parameters
+
+<ul>
+<li>added_status</li>
+<li>edited_status</li>
+<li>deleted_status</li>
+</ul></li>
+</ul>
+
 <p><strong>2021.04.27 / CC</strong></p>
 
 <ul>
@@ -22980,7 +23002,19 @@ Failure
       </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the product was broken"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"deleted_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"added_status"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> 
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The product has been sent."</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Process"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The product is producing"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"edited_status"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arrange for production"</span><span class="w"> 
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"deleted_status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -23039,6 +23073,21 @@ Failure
 <td style="text-align: right">deleted_files</td>
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">Collection of file id</td>
+</tr>
+<tr>
+<td style="text-align: right">added_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">Collection of added histories</td>
+</tr>
+<tr>
+<td style="text-align: right">edited_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">Collection of edit histories</td>
+</tr>
+<tr>
+<td style="text-align: right">deleted_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">Collection of history id</td>
 </tr>
 </tbody></table>
 
@@ -23124,6 +23173,44 @@ Failure
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th style="text-align: right">added_status</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string (optional)</td>
+<td style="text-align: left">history status <ul><li>(empty)</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string (optional)</td>
+<td style="text-align: left">The history comment</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">edited_status</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history id</td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The history comment</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Return Success Parameters</p>
 </blockquote>
@@ -23157,7 +23244,7 @@ Failure
 <tr>
 <td style="text-align: right">error_name</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn&rsquo;t belong to voucher&rsquo;s variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li></ul></td>
+<td style="text-align: left">The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson&rsquo;s company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn&rsquo;t belong to voucher&rsquo;s variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li><li>status_not_exist</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: right">validation</td>
@@ -23228,6 +23315,31 @@ Failure
 <td style="text-align: left">array (option)</td>
 <td style="text-align: left">invalid: <ol><li>The data should be array</li></ol></td>
 </tr>
+<tr>
+<td style="text-align: right">added_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">edited_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">edited_status.(index).id</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The id is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">edited_status.(index).comment</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">required: <ol><li>The comment is required</li></ol></td>
+</tr>
+<tr>
+<td style="text-align: right">deleted_status</td>
+<td style="text-align: left">array (option)</td>
+<td style="text-align: left">invalid: <ol><li>The data should be array</li></ol></td>
+</tr>
 </tbody></table>
 
 <h2 id="voucher-detail">Voucher Detail</h2>
@@ -23235,6 +23347,16 @@ Failure
 <p><details>
   <summary>Change Log</summary>
   <div class="summary-content"></p>
+
+<p><strong>2021.05.12 / Jonas</strong></p>
+
+<ul>
+<li>Add Success Parameter
+
+<ul>
+<li>status</li>
+</ul></li>
+</ul>
 
 <p><strong>2021.04.27 / CC</strong></p>
 
@@ -23592,7 +23714,21 @@ Success
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://.../voucher/{voucher_number}/file/{file_id}"</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"current_status"</span><span class="p">:</span><span class="s2">"In Process"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"histories"</span><span class="p">:[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notified fatory #01 to produce"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1466640000</span><span class="w">
+      </span><span class="p">},{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Process"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1466640111</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -23686,6 +23822,11 @@ Success
 <td style="text-align: right">files</td>
 <td style="text-align: left">array</td>
 <td style="text-align: left">Collection of file.<br/>Sort by date from new to old</td>
+</tr>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">The status information of voucher</td>
 </tr>
 </tbody></table>
 
@@ -24311,6 +24452,54 @@ Success
 <td style="text-align: right">name</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">The company name</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">voucher.status</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">current_status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The current status of voucher</td>
+</tr>
+<tr>
+<td style="text-align: right">histories</td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">A set of status histories of voucher (It is order by created time from new to old )</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: right">voucher.status.histories</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history id</td>
+</tr>
+<tr>
+<td style="text-align: right">status</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">status of voucher <ul><li>(empty)</li><li>New</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: right">comment</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">history comment</td>
+</tr>
+<tr>
+<td style="text-align: right">create_at</td>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">history created date</td>
 </tr>
 </tbody></table>
 
