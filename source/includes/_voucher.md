@@ -361,6 +361,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.05.19 / Jonas**
+
+  * Mofify Input Parameters Required
+    * edited_status[index].comment => optional
+
    **2021.05.12 / Jonas**
 
   * Add Input Parameters
@@ -514,7 +519,7 @@ Failure
 | edited_status | Type | Description |
 | -------: | :---- | :--- |
 | id | string | history id |
-| comment | string | The history comment |
+| comment | string (optional) | The history comment |
 
 > Return Success Parameters
 
@@ -856,14 +861,14 @@ Success
       "current_status":"In Process",
       "histories":[{
         "id": 2,
-    		"status": "",
-    		"comment": "Notified fatory #01 to produce",
-    		"created_at": 1466640000
+        "status": "",
+        "comment": "Notified fatory #01 to produce",
+        "created_at": 1466640000
       },{
         "id": 1,
-    		"status": "In Process",
-    		"comment": "",
-    		"created_at": 1466640111
+        "status": "In Process",
+        "comment": "",
+        "created_at": 1466640111
       }]
     }
 }
