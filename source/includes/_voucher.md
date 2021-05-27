@@ -361,6 +361,11 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.05.27 / JB**
+  * Add Input Parameters
+   * billing_address
+   * shipping_address
+
   **2021.05.19 / Jonas**
 
   * Mofify Input Parameters Required
@@ -471,7 +476,31 @@ Failure
 		"id": 3,
 		"comment": "Arrange for production" 
 	}],
-  "deleted_status": [1, 2]
+  "deleted_status": [1, 2],
+  "billing_address": {
+      "title": 0,
+      "given_name": "Alex",
+      "family_name": "Lee",
+      "phone": "12345678",
+      "email": "alexlee@mail.com",
+      "street": "aaa",
+      "city": "Taichung",
+      "state": "",
+      "code": "1234",
+      "country": "Taiwan"
+  },
+  "shipping_address": {
+      "title": 1,
+      "given_name": "Mary",
+      "family_name": "Lee",
+      "phone": "11111111",
+      "email": "marylee@mail.com",
+      "street": "bbb",
+      "city": "Taipei",
+      "state": "",
+      "code": "4321",
+      "country": "Taiwan"
+  }
 }
 ```
 
@@ -490,6 +519,8 @@ Failure
 | added_status | array (option) | Collection of added histories |
 | edited_status | array (option) | Collection of edit histories |
 | deleted_status | array (option) | Collection of history id |
+| billing_address | object(option) | The billing address of voucher |
+| shipping_address | object(option) | The shipping address of voucher |
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -520,6 +551,32 @@ Failure
 | -------: | :---- | :--- |
 | id | string | history id |
 | comment | string (optional) | The history comment |
+
+| billing_address | Type | Description |
+| -------: | :---- | :--- |
+| title | id | Billing address's title |
+| given_name | string | Billing address's given_name  |
+| family_name | string | Billing address's family_name |
+| phone | string | Billing address's phone |
+| email | string | Billing address's email |
+| street | string | Billing address's street |
+| city | string | Billing address's city |
+| state | string | Billing address's state |
+| code | string | Billing address's code |
+| country | string | Billing address's country |
+
+| shipping_address | Type | Description |
+| -------: | :---- | :--- |
+| title | id | Shipping_address title |
+| given_name | string | Shipping_address given_name  |
+| family_name | string | Shipping_address family_name |
+| phone | string | Shipping_address phone |
+| email | string | Shipping_address email |
+| street | string | Shipping_address street |
+| city | string | Shipping_address city |
+| state | string | Shipping_address state |
+| code | string | Shipping_address code |
+| country | string | Shipping_address country |
 
 > Return Success Parameters
 
@@ -571,6 +628,10 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.05.27 / JB**
+   * Add Success Parameter
+    * confirmation_email_hisotries
 
   **2021.05.12 / Jonas**
 
@@ -870,7 +931,20 @@ Success
         "comment": "",
         "created_at": 1466640111
       }]
-    }
+    },
+    "confirmation_email_hisotries": [{
+      "email": "alexlee@mail.com",
+      "created_at": 1490776027,
+      "sent" : "success"
+    },{
+      "email": "alexlee@mail.com",
+      "created_at": 1490776017,
+      "sent" : "failed"
+    },{
+      "email": "alexlee@mail.com",
+      "created_at": 1490776008,
+      "sent" : "pending"
+    }]
 }
 ```
 
@@ -894,6 +968,7 @@ Success
 | tags | array | Collection of tag, order by Old to New (adding time) |
 | files | array | Collection of file.<br/>Sort by date from new to old |
 | status | object | The status information of voucher |
+| confirmation_email_hisotries | array | The histories of confirmation emails.<br/>It's order by created time from new to old  |
 
 | voucher.brand | Type | Description |
 | -------: | :---- | :--- |
@@ -1057,6 +1132,12 @@ Success
 | status | string | status of voucher <ul><li>(empty)</li><li>In Process</li><li>Completed</li><li>Cancelled</li></ul>|
 | comment | string | history comment |
 | create_at | timestamp | history created date |
+
+| voucher.confirmation_email_hisotries | Type | Description |
+| -------: | :---- | :--- |
+| email | string | comsumer email |
+| created_at | timestamp | timestamp of creating the record |
+| sent | string | status of the email progress <ul><li>success</li><li>failed</li><li>pending</li></ul>|
 
 > Return Failure Parameters
 
@@ -1506,6 +1587,13 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.05.27 / JB**
+   * Modify Input Parameter
+    * Set parameter "type" to "sending_options"
+    * Set "sending_options" as object type
+    * Add failed response "sending_email_failed"
+    * Remove failed response for "product_not_assign" and "invalid_payment_status"
+
   **2021.3.22 / Lynn**
 
   * Add New API
@@ -1530,7 +1618,11 @@ Failure
 {
   "api_key": "e4cbcdc2faff41a7e311",
   "number": "HORA001VC",
-  "type": "invoice"
+  "sending_options": {
+    "confirmation": true,
+    "receipt": true,
+    "invoice": false
+  }
 }
 ```
 
@@ -1538,7 +1630,7 @@ Failure
 | -------: | :---- | :--- |
 | api_key | string | The identity token of user |
 | number | string | The voucher number |
-| type | string | The email type |
+| sending_options | object | The selected type of emails |
 
 > Return Success Parameters
 
@@ -1562,8 +1654,14 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: Only brand member can send voucher email</li><li>product_not_assign: When send invoice, assigned product should exist</li><li>invalid_payment_status: When send invoice, payment status should be "Paid"</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>no_permission: Only brand member can send voucher email</li><li>sending_email_failed: sending "receipt" or "invoice" fail</li></ul> |
 | validation | object (option) | if the err_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
+| error_emails | array (option) | The collection of error email type |
+
+| error_emails | Type | Description |
+| -------: | :---- | :--- |
+| receipt | string | Payment status should be "Paid" |
+| invoice | string | Payment status should be "Paid" or assigned product should exist |
 
 | validation | Type | Description |
 | -------: | :---- | :--- |
