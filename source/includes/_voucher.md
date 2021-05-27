@@ -362,9 +362,10 @@ Failure
   <div class="summary-content">
 
   **2021.05.27 / JB**
+
   * Add Input Parameters
-   * billing_address
-   * shipping_address
+    * billing_address
+    * shipping_address
 
   **2021.05.19 / Jonas**
 
@@ -630,8 +631,9 @@ Failure
   <div class="summary-content">
 
   **2021.05.27 / JB**
+
    * Add Success Parameter
-    * confirmation_email_hisotries
+     * confirmation_email_hisotries
 
   **2021.05.12 / Jonas**
 
@@ -1588,11 +1590,12 @@ Failure
   <div class="summary-content">
 
   **2021.05.27 / JB**
+
    * Modify Input Parameter
-    * Set parameter "type" to "sending_options"
-    * Set "sending_options" as object type
-    * Add failed response "sending_email_failed"
-    * Remove failed response for "product_not_assign" and "invalid_payment_status"
+     * Set parameter "type" to "sending_options"
+     * Set "sending_options" as object type
+     * Add failed response "sending_email_failed"
+     * Remove failed response for "product_not_assign" and "invalid_payment_status"
 
   **2021.3.22 / Lynn**
 
