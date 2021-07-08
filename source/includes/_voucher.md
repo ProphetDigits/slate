@@ -361,6 +361,15 @@ Failure
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.07.08 / Tommy**
+
+  * Add Input Parameters
+    * change_variant_id
+  
+  * Add Failure Parameter
+    * error_name
+      * variant_not_exist
+
   **2021.05.27 / JB**
 
   * Add Input Parameters
@@ -501,7 +510,8 @@ Failure
       "state": "",
       "code": "4321",
       "country": "Taiwan"
-  }
+  },
+  "change_variant_id": 2
 }
 ```
 
@@ -522,6 +532,7 @@ Failure
 | deleted_status | array (option) | Collection of history id |
 | billing_address | object(option) | The billing address of voucher |
 | shipping_address | object(option) | The shipping address of voucher |
+| change_variant_id | integer(option) | The id of variant |
 
 | importer | Type | Description |
 | -------: | :---- | :--- |
@@ -602,7 +613,7 @@ Failure
 
 | Parameter | Type | Description |
 | -------: | :---- | :--- |
-| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li><li>status_not_exist</li></ul> |
+| error_name | string | The failed reason which HTTP code is 403 <br/><ul><li>no_option: The current company of user does not have option with  company of the voucher</li><li>does_not_signin: the user does not signin</li><li>not_select_company_yet: user need change current company</li><li>company not exist: currenct company not exist</li><li>not_company_member: the user is not the company member</li><li>voucher_not_exist: <ol><li>voucher number is invalid</li><li>currenct company is not salesperson's company</li></ol></li><li>product_sold: The assigned product has been sold</li><li>invalid_product: The assigned product doesn't belong to voucher's variant</li><li>no_permission: The permission deny</li><li>illegal_form_input: The form format does not pass validation</li><li>note_not_exist:The note does not exist anymore</li><li>status_not_exist</li><li>variant_not_exist: variant id is invalid</li></ul>|
 | validation | object (option) | if the error_name is 'illegal_form_input', system should assign the name of wrong type for each error input |
 
 | validation | Type | Description |
@@ -629,6 +640,13 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+
+  **2021.07.08 / Lance**
+
+   * Add Success Parameter
+       * payment
+          * histories
+              * add type Variant Changed
 
   **2021.05.27 / JB**
 
@@ -857,6 +875,23 @@ Success
               "name": "Company A"
             }
           }
+        },{
+          "id": 4,
+          "type": "Variant Changed",
+          "created_at": 1519713617,
+          "payment_method": null,      
+          "transaction_id": null,              
+          "amount": null,
+          "comment": "From s-black to s-white",
+          "operator": {
+            "id": 82,
+            "given_name": "Billy",
+            "family_name": "Yan",
+            "company": {
+              "id": 107,
+              "name": "Company A"
+            }
+          }
         }]
     },
     "billing_address": {
@@ -1031,12 +1066,13 @@ Success
 | voucher.payment.histories | Type | Description |
 | -------: | :---- | :--- |
 | id | integer | The history id |
-| type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul> |
+| type | string | The history type <ul><li>Paid</li><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li><li>Variant Changed</li></ul> |
 | created_at | timestamp | created time in the number of seconds |
 | payment_method | string | payment method <ul><li>cash</li><li>wxpay</li></ul></br>payment method returns "null" when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
 | transaction_id | string | The transaction_id returns "null" when payment_method is <ul><li>cash</li></ul>Or when type is <ul><li>Refunded</li><li>Refund Declined</li><li>Refund Requested</li></ul>|
 | amount | double | The paid amount of the payment.</br>amount returns "null" when type is <ul><li>Refund Declined</li><li>Refund Requested</li></ul>|
-| comment | string | The history comment </br>comment returns "null" when type is <ul><li>Paid</li></ul>|
+| comment | string | The history comment </br>comment returns "null" when type is <ul><li>Paid</li></ul></br>comment returns "From Old_Variant to New_Variant" when type is<ul><li>Variant Changed</li></ul>|
+
 | operator | object | The operator who handled the payment |
 
 | voucher.payment.histories.operator | Type | Description |
