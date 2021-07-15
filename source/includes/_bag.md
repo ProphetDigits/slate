@@ -113,7 +113,7 @@ Success
                     "name": "COLOR",
                     "value": {
                         "id": 3,
-                        "name": "BLACK"
+                        "name": "Red"
                     }
                 },
                 {
