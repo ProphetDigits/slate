@@ -6,6 +6,10 @@
   <summary>Change Log</summary>
   <div class="summary-content">
 
+  **2021.07.15 / Tommy**
+
+  * Fix URL
+
   **2020.12.02 / Lyon**
 
   * Add Success Parameter
@@ -17,7 +21,7 @@
 
 | Title | Description |
 | -------: | :---- |
-| URL | `company/item/variant2/list` |
+| URL | `user/company/item/variant2/list` |
 | Method | `post` |
 | Use | To get variant2 list |
 | Notice | |
@@ -136,6 +140,10 @@ Failure
 <details>
   <summary>Change Log</summary>
   <div class="summary-content">
+  
+  **2021.07.15 / Tommy**
+
+  * Fix URL
 
   **2020.11.11 / Lynn Chang**
 
@@ -153,7 +161,7 @@ Failure
 
 | Title | Description |
 | -------: | :---- |
-| URL | `company/item/variant2/detail` |
+| URL | `user/company/item/variant2/detail` |
 | Method | `post` |
 | Use | To show variant2 detail |
 | Notice | |
